@@ -67,7 +67,7 @@ export function HeroSection() {
       <motion.div
         className="absolute inset-x-0 -top-[25%] h-[150%] z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/csr.png')",
+          backgroundImage: "url('/csr.webp')",
           y: backgroundY
         }}
       />
