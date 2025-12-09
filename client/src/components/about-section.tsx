@@ -48,7 +48,7 @@ export function AboutSection() {
       <div className="mb-12">
         <div
           className="relative w-full h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden"
-          style={{ backgroundImage: "url('/csr.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          style={{ backgroundImage: "url('/csr.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div className="absolute inset-0 bg-black/50" aria-hidden />
               <div className="relative z-10 flex items-center justify-center h-full px-6 text-center">
