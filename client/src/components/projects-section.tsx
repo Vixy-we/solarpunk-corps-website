@@ -10,7 +10,7 @@ const projects = [
     badge: "Flagship Project",
     badgeColor: "bg-primary text-primary-foreground",
     description: "Our first big technical project after launch. A 6-wheel functional prototype powered entirely by solar energy.",
-    image: "/rover.png",
+    image: "/rover.webp",
     features: [
       { icon: Battery, text: "Solar powered" },
       { icon: Cpu, text: "Environmental sensors" },
@@ -29,7 +29,7 @@ const projects = [
     badge: "Creative",
     badgeColor: "bg-accent text-accent-foreground",
     description: "Our student-run publication to define our voice and establish our creative identity.",
-    image: "/magazine.png",
+    image: "/magazine.webp",
     features: [
       { icon: Pen, text: "Stories & articles" },
       { icon: Newspaper, text: "Tech ideas & research" },
@@ -47,7 +47,7 @@ const projects = [
     badge: "Research",
     badgeColor: "bg-blue-500 text-white",
     description: "A comprehensive study to understand student technology usage, burnout, and sustainability habits.",
-    image: "/survey.png",
+    image: "/survey.webp",
     features: [
       { icon: Users, text: "Student tech habits" },
       { icon: BarChart3, text: "Burnout analysis" },
@@ -66,7 +66,7 @@ export function ProjectsSection() {
     <section id="projects-top" className="py-20 md:py-32 bg-card/50">
       <span id="projects" />
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +92,8 @@ export function ProjectsSection() {
               <Card className="h-full hover-elevate transition-all duration-300 overflow-hidden" data-testid={`card-project-${index}`}>
                 {project.image && (
                   <div className="w-full h-48 bg-muted overflow-hidden">
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
@@ -113,7 +113,7 @@ export function ProjectsSection() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-6">{project.description}</p>
-                  
+
                   <div className="space-y-3 mb-6">
                     {project.features.map((feature) => (
                       <div key={feature.text} className="flex items-center gap-3 text-sm">
