@@ -1,0 +1,254 @@
+PROMPT START
+
+Build a complete, fully functional, modern website for Solarpunk Corps (SPC) — a newly launching multidisciplinary college club.
+Use a bright, hopeful, eco-tech “solarpunk” aesthetic.
+Focus on readability, storytelling, and clarity, because this site is meant to introduce the club to students, teachers, and potential sponsors.
+
+The club is launching right now, so the website must clearly say:
+
+“We are launching Solarpunk Corps — a new club being formed for students who want to build technology, promote sustainability, and create real social impact.”
+
+The site must include:
+✔ Homepage
+✔ About Us
+✔ What We Do
+✔ Divisions
+✔ Membership System
+✔ Our Vision & Roadmap
+✔ Inaugural Projects (2026 Roadmap)
+✔ Sponsor Us / Why Support Us
+✔ Contact & Socials
+✔ Feedback Form
+✔ Leadership Section
+✔ FAQ
+
+Use clean animations, clear sections, and icons.
+
+1. Homepage
+
+Main tagline:
+“Solarpunk Corps — Where Technology, Nature, and People Meet.”
+
+Sub-line:
+Technology with Purpose • Nature in Mind • People at Heart
+
+Short description:
+Solarpunk Corps (SPC) is a newly launching student-led club at BIET Jhansi that blends robotics, sustainability, creativity, and community action. We are forming a club where students can build hands-on tech, improve their surroundings, explore solarpunk art and ideas, and grow into responsible innovators.
+
+Highlight buttons:
+– About Us
+– Divisions
+– Become a Member
+– Sponsor Us
+
+2. About Us
+
+Explain the club as launching:
+Solarpunk Corps is in the founding stage — created by students who want a space where engineering meets ethics, creativity meets sustainability, and learning meets action. We want to fill the gap between classroom theory and real-world application.
+
+Key values:
+– Hopeful innovation
+– Sustainability
+– Interdisciplinary collaboration
+– Social responsibility
+– Student empowerment
+
+Add “Our Identity”:
+SPC = Robotics + Sustainability + Social Responsibility + Creativity + Skill Building
+
+3. What We Do (Core Activities)
+
+Use this structure:
+
+🌞 1. Tech & Innovation (Robotics + Engineering Projects)
+
+Robotics builds, automation, eco-tech prototypes, electronics, sensors, maker culture.
+
+🌱 2. Sustainability & Environment
+
+Solar gadgets, green campus initiatives, waste reduction, eco-monitoring projects.
+
+❤️ 3. Social Responsibility (CSR)
+
+Teaching underprivileged children, cleaning drives, social awareness events.
+
+🎨 4. Culture & Creativity
+
+Solarpunk storytelling, art, design, UI/UX, magazine, creative showcases.
+
+🚀 5. Skill Development & Personal Growth
+
+PPT skills, public speaking, leadership training, project management, teamwork.
+
+This section must clearly say:
+
+“We have not started projects yet — this is what we are preparing to do after our launch.”
+
+4. Divisions in SPC
+
+Create 8 divisions with descriptions:
+
+🔧 Technical Divisions
+
+Robotics & Core Engineering
+Sustainable Systems
+Frontier Tech & Design (AI, Biomimicry, Future Tech)
+→ Build prototypes, maintain lab, run workshops, guide juniors.
+
+📘 Research & Documentation
+
+Reports, research papers, surveys, magazine writing, documentation archive.
+
+🌐 Outreach & Collaborations
+
+Social media, external communication, partnerships, guest speakers, sponsors.
+
+🧭 Events & Development
+
+Workshops, logistics, internal sessions, GDs, presentations, event planning.
+
+🌱 Community & CSR
+
+Teaching kids, cleanups, awareness events, NGO collaboration.
+
+🗂 Operations & Records
+
+Attendance, inventory, tools, scheduling, record-keeping.
+
+🎨 Design & Media
+
+Posters, branding, solarpunk aesthetics, photography, videography.
+
+💰 Finance
+
+Budgeting, expenditure logs, sponsorship proposals.
+
+5. Membership Structure
+
+Explain three clear tiers:
+
+🟨 Explorers (1st–3rd year)
+
+Beginners. Attend sessions, join mini projects, learn basics.
+
+🟦 Executives (2nd–3rd year)
+
+Action team. Handle projects, events, operations.
+
+🟥 Leaders (3rd–4th year)
+
+Guide the club, manage divisions, set direction.
+
+Write clearly:
+“Membership is open to all branches. No experience required.”
+
+6. Vision & Roadmap (Launch Purpose)
+
+Add text:
+
+Solarpunk Corps is launching because students deserve a space where:
+
+• technology is hands-on
+• sustainability is everyday life
+• creativity is celebrated
+• social responsibility is natural
+• learning becomes meaningful
+
+We aim to build a green, innovative campus culture over the next 3 years.
+
+7. Inaugural Projects (2026 Roadmap)
+
+Make a spotlight section with cards for the three pilot projects:
+
+1. Solar-Powered Environmental Rover
+
+– 6-wheel robot
+– Solar powered
+– Environmental sensors
+– Future upgrades: robotic arm, CV, autonomy
+“This will be our first big technical project after launch.”
+
+2. Solarpunk Magazine Vol. 1 (“CodeGreen”)
+
+– Stories
+– Art
+– Tech ideas
+– Sustainability articles
+– Research, interviews
+“To form our creative voice and establish identity.”
+
+3. Campus Tech-Life Sustainability Survey
+
+– How students use tech
+– Burnout study
+– Daily sustainability habits
+– Insights to shape future SPC solutions
+
+8. Sponsor Us / Why Support Us
+
+This section must feel premium and serious.
+
+Explain that the club is newly launching, starting from zero.
+
+What funding will be used for:
+• robotics parts
+• sensors
+• solar modules
+• soldering stations
+• safety tools
+• magazine printing
+• CSR activities
+• survey kits
+
+Add the commitments:
+
+✔ 100% Impact Allocation
+✔ Quarterly Updates
+✔ Open Books
+✔ Direct Engagement Options
+✔ Logo placements + partner acknowledgments
+
+9. Contact & Socials
+
+Solarpunk Corps (SPC)
+Bundelkhand Institute of Engineering & Technology, Jhansi
+
+Email: solarpunkcorps@gmail.com
+
+LinkedIn: https://www.linkedin.com/company/solarpunk-corps/
+
+Instagram: https://www.instagram.com/we.the.spc/
+
+Add contact form fields:
+Name
+Email
+Message
+Category (Student / Sponsor / Collaboration / Feedback)
+
+10. Leadership Section
+
+List placeholders (editable later):
+
+• Founder & Chairperson
+• Deputy Chairperson
+• Technical Lead
+• Outreach & Corporate Relations Lead
+• Creative Lead
+• Faculty Advisor (Officer-in-Charge)
+• President (Head of Department of Mechanical Engineering)
+
+11. FAQ Section
+
+Include:
+– Is SPC a new club? (Yes, launching now.)
+– Can first years join? (Yes.)
+– Is it only for robotics students? (No, any branch.)
+– Are fees high? (No, minimal — only for basic resources.)
+– Do sponsors get reports? (Yes, quarterly.)
+
+12. Footer
+
+Include copyright, social links, and small note:
+“Solarpunk Corps — Launched 2026 • BIET Jhansi”
+
+PROMPT END
