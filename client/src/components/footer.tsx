@@ -1,4 +1,4 @@
-import { Leaf, Cog, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useLocation } from "wouter";
 import { SiLinkedin, SiInstagram } from "react-icons/si";
 
@@ -68,10 +68,7 @@ export function Footer() {
               onClick={(e) => handleNavigate(e, "/")}
               className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity"
             >
-              <div className="relative">
-                <Leaf className="h-6 w-6 text-primary" />
-                <Cog className="h-3 w-3 text-accent absolute -bottom-0.5 -right-0.5" />
-              </div>
+              <img src="/SPC_logo.png" alt="Solarpunk Corps Logo" className="h-8 w-8 object-contain" />
               <span className="font-bold text-lg">Solarpunk Corps</span>
             </a>
             <p className="text-sm text-muted-foreground mb-4">
@@ -151,7 +148,7 @@ export function Footer() {
             <div className="mt-4 pt-4 border-t border-border">
               <p className="text-xs text-muted-foreground">
                 Email:<br />
-                <a 
+                <a
                   href="mailto:solarpunkcorps@gmail.com"
                   className="hover:text-foreground transition-colors"
                 >
