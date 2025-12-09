@@ -173,7 +173,7 @@ export function HeroSection() {
                   variant="outline"
                   onClick={(e) => handleNavigate(e, "/structure#divisions")}
                   data-testid="button-hero-divisions"
-                  className="text-white border-white/25"
+                  className="text-emerald-50 border-emerald-200/40 bg-emerald-500/10 hover:bg-emerald-500/20"
                 >
                   Our Divisions
                 </Button>
@@ -182,9 +182,9 @@ export function HeroSection() {
                   variant="outline"
                   onClick={(e) => handleNavigate(e, "/membership")}
                   data-testid="button-hero-membership"
-                  className="text-white border-white/25"
+                  className="text-yellow-50 border-yellow-200/40 bg-yellow-500/10 hover:bg-yellow-500/20"
                 >
-                  <Users className="mr-2 h-4 w-4 text-white" />
+                  <Users className="mr-2 h-4 w-4 text-yellow-50" />
                   Join Us
                 </Button>
                 <Button
