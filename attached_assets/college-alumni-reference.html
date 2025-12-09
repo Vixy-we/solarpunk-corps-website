@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Network - Solarpunk Corps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif-font { font-family: 'Merriweather', serif; }
+        
+        /* Solarpunk Palette - Alumni Edition (Slightly warmer/nostalgic) */
+        .spc-green { color: #1E824C; }
+        .bg-spc-green { background-color: #1E824C; }
+        .spc-gold { color: #D4AF37; } /* Gold for legacy/alumni feel */
+        .bg-spc-gold { background-color: #F9F1D8; }
+        .bg-spc-cream { background-color: #FDFBF7; }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Smooth fade in for form selection */
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Custom Scrollbar for modern feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+    </style>
+</head>
+<body class="bg-spc-cream text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center py-4 px-6 md:px-12 bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+            </div>
+            <span class="font-bold text-lg tracking-tight text-gray-900 sans-serif">Solarpunk Corps</span>
+        </div>
+        <a href="partner_with_us.html" class="text-sm font-semibold text-gray-500 hover:text-green-700 transition-colors">
+            ← Back to Main Site
+        </a>
+    </nav>
+
+    <!-- Hero Section: Emotional & Nostalgic -->
+    <header class="relative pt-20 pb-16 px-6 text-center max-w-4xl mx-auto">
+        <div class="absolute top-10 left-10 opacity-10 animate-pulse">
+            <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>
+        </div>
+        
+        <span class="text-green-700 font-bold tracking-widest text-xs uppercase mb-4 block">To Our College Alumni</span>
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Help Us Plant the First Seeds.<br>
+            <span class="text-green-700 italic font-light">Support the New Wave.</span>
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed serif-font">
+            Remember the spark you had as a student? The drive to build, hack, and create? 
+            Solarpunk Corps is a <strong>new</strong> student initiative capturing that energy. 
+            As we lay our foundation, we need the wisdom, mentorship, and support of those who walked these halls before us.
+        </p>
+    </header>
+
+    <!-- The "Ways to Give" Grid (Unique, Non-Transactional Layout) -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Card 1: Mentorship (Guidance) -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group" onclick="selectPathway('mentorship')">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">The Guide</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    We are starting from scratch. Help us avoid the pitfalls you faced. We need advisors and technical mentors.
+                </p>
+                <span class="text-blue-600 text-sm font-semibold flex items-center">
+                    Share Wisdom <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 2: Material Giving (Hardware) -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group" onclick="selectPathway('material')">
+                <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">The Builder</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    We are building our inventory from zero. Your old laptops, tools, or sensors can kickstart our first lab.
+                </p>
+                <span class="text-amber-600 text-sm font-semibold flex items-center">
+                    Donate Gear <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 3: Collaboration (Network) -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group" onclick="selectPathway('network')">
+                <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">The Bridge</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    Connect this new generation to the industry. Help arrange our first industrial visits or internships.
+                </p>
+                <span class="text-purple-600 text-sm font-semibold flex items-center">
+                    Connect Us <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 4: Financial (Patron) -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group" onclick="selectPathway('financial')">
+                <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">The Angel</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    New clubs have zero budget. Small contributions help us buy our first microcontroller or server.
+                </p>
+                <span class="text-green-600 text-sm font-semibold flex items-center">
+                    Fuel the Start <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Context Divider -->
+    <div class="w-full max-w-2xl mx-auto h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-4"></div>
+
+    <!-- Dynamic "Reconnect" Form -->
+    <section id="reconnect-section" class="max-w-3xl mx-auto px-6 py-16 w-full">
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden relative">
+            <!-- Decorative Top Bar -->
+            <div class="h-2 w-full bg-gradient-to-r from-green-700 via-green-500 to-green-700"></div>
+            
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Join Our Advisory Network</h2>
+                    <p class="text-gray-500">How would you like to help us get off the ground?</p>
+                </div>
+
+                <form class="space-y-6">
+                    <!-- Identity Section -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Name</label>
+                            <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-green-500 outline-none transition-all" placeholder="Alex Chen">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Graduation Year</label>
+                            <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-green-500 outline-none transition-all" placeholder="2012">
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Selection Area -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">I want to contribute by...</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <!-- Radio Buttons styled as cards -->
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="mentorship" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-2xl mb-1">🎓</span>
+                                    <span class="text-xs font-bold text-gray-700">Mentoring</span>
+                                </div>
+                            </label>
+                            
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="material" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-amber-500 peer-checked:bg-amber-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-2xl mb-1">🛠️</span>
+                                    <span class="text-xs font-bold text-gray-700">Equipping</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="network" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-2xl mb-1">🤝</span>
+                                    <span class="text-xs font-bold text-gray-700">Connecting</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="financial" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-green-500 peer-checked:bg-green-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-2xl mb-1">🌱</span>
+                                    <span class="text-xs font-bold text-gray-700">Donating</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Details Box -->
+                    <div id="dynamic-context" class="bg-gray-50 p-6 rounded-xl border border-gray-200 hidden fade-in">
+                        <h4 id="context-title" class="font-bold text-gray-800 mb-2">Tell us more</h4>
+                        <p id="context-desc" class="text-sm text-gray-500 mb-4">What's on your mind?</p>
+                        <textarea id="context-input" rows="3" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gray-400 outline-none text-sm"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Email Address</label>
+                        <input type="email" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-green-500 outline-none transition-all" placeholder="you@company.com">
+                    </div>
+
+                    <button class="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-all shadow-lg">
+                        Sign Up as a Supporter
+                    </button>
+                    
+                    <p class="text-center text-xs text-gray-400 mt-4">
+                        Thank you for helping us build something new at our Alma Mater.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h4 class="font-serif italic text-xl text-gray-800 mb-6">"Bridging Generations of Innovators."</h4>
+            <div class="flex justify-center gap-8 text-sm text-gray-500">
+                <a href="#" class="hover:text-green-700">Our Founding Team</a>
+                <a href="#" class="hover:text-green-700">Mission Statement</a>
+                <a href="#" class="hover:text-green-700">Contact Faculty Advisor</a>
+            </div>
+            <p class="text-xs text-gray-400 mt-8">
+                &copy; 2025 Solarpunk Corps.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const contexts = {
+            'mentorship': {
+                title: "Share Your Expertise",
+                desc: "We are looking for alumni to give guest talks or review our project plans. What is your area of expertise?",
+                placeholder: "I work in embedded systems and can review your circuit designs..."
+            },
+            'material': {
+                title: "Help Build Our Lab",
+                desc: "We are starting with an empty room. Do you have old hardware, tools, or 3D printers to donate?",
+                placeholder: "I have a few Raspberry Pi 3s and a soldering station collecting dust..."
+            },
+            'network': {
+                title: "Open Doors",
+                desc: "Can you help our founding members visit your company or connect us with industry experts?",
+                placeholder: "My company hosts open days for students, I can arrange a visit..."
+            },
+            'financial': {
+                title: "Seed Fund",
+                desc: "Help us buy our first set of tools and materials. Any amount helps get us started.",
+                placeholder: "I'd like to make a one-time donation to the startup fund..."
+            }
+        };
+
+        function updateFormContext(type) {
+            const box = document.getElementById('dynamic-context');
+            const title = document.getElementById('context-title');
+            const desc = document.getElementById('context-desc');
+            const input = document.getElementById('context-input');
+
+            box.classList.remove('hidden');
+            // Trigger reflow for animation
+            void box.offsetWidth; 
+            
+            if(contexts[type]) {
+                title.textContent = contexts[type].title;
+                desc.textContent = contexts[type].desc;
+                input.placeholder = contexts[type].placeholder;
+                
+                // Color coding the border based on type
+                const colors = {
+                    'mentorship': 'border-blue-200',
+                    'material': 'border-amber-200',
+                    'network': 'border-purple-200',
+                    'financial': 'border-green-200'
+                };
+                
+                // Reset classes
+                box.className = `bg-gray-50 p-6 rounded-xl border ${colors[type]} fade-in block`;
+            }
+        }
+
+        function selectPathway(type) {
+            // Check the radio button
+            const radio = document.querySelector(`input[value="${type}"]`);
+            if(radio) {
+                radio.checked = true;
+                updateFormContext(type);
+                // Scroll to form
+                document.getElementById('reconnect-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

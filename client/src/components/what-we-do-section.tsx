@@ -22,7 +22,7 @@ const activities = [
   },
   {
     icon: Heart,
-    title: "Social Responsibility",
+    title: "Club Social Responsibility",
     subtitle: "CSR Activities",
     description: "Teaching underprivileged children, cleaning drives, social awareness events. Helping students become good humans, not just engineers.",
     items: ["Teaching underprivileged children", "Campus cleaning drives", "Social awareness events", "Community service", "NGO collaborations"]
@@ -44,13 +44,33 @@ const activities = [
 ];
 
 export function WhatWeDoSection() {
-  const [, navigate] = useLocation();
-  
+  const [location, navigate] = useLocation();
+
+  const defaultAnchors: Record<string, string> = {
+    "/projects": "projects-top"
+  };
+
+  const handleNavigate = (path: string) => {
+    if (path !== location) {
+      navigate(path);
+      let attempts = 0;
+      const tryScroll = () => {
+        attempts += 1;
+        const targetHash = defaultAnchors[path];
+        if (!targetHash) return;
+        const el = document.getElementById(targetHash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        else if (attempts < 20) setTimeout(tryScroll, 100);
+      };
+      setTimeout(tryScroll, 120);
+    }
+  };
+
   return (
     <section id="activities-top" className="py-20 md:py-32">
       <span id="what-we-do" />
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,16 +120,16 @@ export function WhatWeDoSection() {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Button 
-            size="lg" 
-            onClick={() => navigate("/projects")}
+          <Button
+            size="lg"
+            onClick={() => handleNavigate("/projects")}
             data-testid="button-inaugural-projects"
           >
             Our Inaugural Projects

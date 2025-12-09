@@ -64,7 +64,7 @@ export function MembershipSection() {
     <section id="membership-top" className="py-20 md:py-32">
       <span id="membership" />
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export function MembershipSection() {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +127,9 @@ export function MembershipSection() {
               Apply to Join
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <p className="text-sm text-muted-foreground italic">Coming Soon</p>
+            <p className="text-sm text-muted-foreground mt-2">
+              This feature will be added soon. Meanwhile, please use the <a href="/contact" className="text-green-600 hover:underline">Contact Us</a> page.
+            </p>
           </div>
         </motion.div>
       </div>

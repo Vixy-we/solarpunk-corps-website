@@ -14,6 +14,8 @@ import Sponsors from "@/pages/sponsors";
 import OurTeam from "@/pages/our-team";
 import Contact from "@/pages/contact";
 import Membership from "@/pages/membership";
+import Alumni from "@/pages/alumni";
+import Partner from "@/pages/partner";
 import { useEffect } from "react";
 
 function Router() {
@@ -46,6 +48,8 @@ function Router() {
       <Route path="/sponsors" component={Sponsors} />
       <Route path="/our-team" component={OurTeam} />
       <Route path="/contact" component={Contact} />
+      <Route path="/sponsors/alumni" component={Alumni} />
+      <Route path="/sponsors/partner" component={Partner} />
       <Route component={NotFound} />
     </Switch>
   );

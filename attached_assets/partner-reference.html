@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner With Us - Solarpunk Corps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif-font { font-family: 'Merriweather', serif; }
+        
+        /* Solarpunk Palette - Warm & Organic */
+        .spc-green { color: #1E824C; }
+        .bg-spc-green { background-color: #1E824C; }
+        .bg-spc-cream { background-color: #FDFBF7; }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Smooth fade in for form selection */
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-spc-cream text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center py-4 px-6 md:px-12 bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-spc-green flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </div>
+            <span class="font-bold text-lg tracking-tight text-gray-900 sans-serif">Solarpunk Corps</span>
+        </div>
+        <a href="/" class="text-sm font-semibold text-gray-500 hover:text-green-700 transition-colors">
+            ← Back to Home
+        </a>
+    </nav>
+
+    <!-- Hero Section: Ambitious & Collaborative -->
+    <header class="relative pt-20 pb-16 px-6 text-center max-w-4xl mx-auto">
+        <!-- New Badge Added Here -->
+        <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Corporate Partnership
+        </div>
+        
+        <span class="text-green-700 font-bold tracking-widest text-xs uppercase mb-4 block">Building the Future Together</span>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Fuel the Movement.<br>
+            <span class="text-green-700 italic font-light">Choose Your Impact.</span>
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed serif-font">
+            Solarpunk Corps is more than just a student club; it's a <strong>hub for an optimistic future</strong>. 
+            We aren't looking for charity—we are looking for partners to build with us. From funding our inaugural rover to hiring our top talent, there is a role for you here.
+        </p>
+    </header>
+
+    <!-- The "Ways to Help" Grid -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Using a flexible grid that centers items -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+
+            <!-- Card 1: Inaugural Projects -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group relative overflow-hidden" onclick="selectPathway('inaugural')">
+                <div class="absolute top-0 left-0 w-1 h-full bg-red-400"></div>
+                <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Sponsor Inaugural Projects</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    Directly fund our headline initiatives: The <strong class="text-gray-700">Solar Rover</strong>, our <strong class="text-gray-700">Annual Magazine</strong>, or the <strong class="text-gray-700">Community Survey</strong>.
+                </p>
+                <span class="text-red-500 text-sm font-semibold flex items-center">
+                    Power a Launch <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 2: Micro-Grants -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group relative overflow-hidden" onclick="selectPathway('microgrant')">
+                <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
+                <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Project Micro-Grants</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    Want to see something specific built? Offer a small grant (₹2k-₹10k) for a custom student project. You set the budget.
+                </p>
+                <span class="text-green-600 text-sm font-semibold flex items-center">
+                    Fund Innovation <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 3: Resources (Hardware/Software) -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group relative overflow-hidden" onclick="selectPathway('resources')">
+                <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+                <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Equip the Lab</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    Support us with in-kind donations: Spare hardware, sensors, software licenses, or cloud credits.
+                </p>
+                <span class="text-amber-600 text-sm font-semibold flex items-center">
+                    Donate Tools <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 4: Knowledge & Events -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group relative overflow-hidden" onclick="selectPathway('knowledge')">
+                <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Workshops & Lectures</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    Sponsor a workshop or send an expert for a guest lecture on Tech, Sustainability, or Social Work.
+                </p>
+                <span class="text-blue-600 text-sm font-semibold flex items-center">
+                    Share Knowledge <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 5: Talent -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group relative overflow-hidden" onclick="selectPathway('talent')">
+                <div class="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
+                <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Hire Students</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    Our members are self-taught builders. Offer internships or project-based work to our best students.
+                </p>
+                <span class="text-purple-600 text-sm font-semibold flex items-center">
+                    Recruit Talent <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+            <!-- Card 6: CSR Initiatives (Updated Text) -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 card-hover transition-all cursor-pointer group relative overflow-hidden" onclick="selectPathway('csr')">
+                <div class="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                    <!-- Heart/Hand Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Fund CSR Initiatives</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                    Under <strong>Club Social Responsibility</strong>, we conduct plantation drives, teach underprivileged kids, conduct seminars on social issues and more.
+                </p>
+                <span class="text-teal-600 text-sm font-semibold flex items-center">
+                    Support a Cause <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Context Divider -->
+    <div class="w-full max-w-2xl mx-auto h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-4"></div>
+
+    <!-- Dynamic "Collaboration" Form -->
+    <section id="contact-section" class="max-w-3xl mx-auto px-6 py-16 w-full">
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden relative">
+            <!-- Decorative Top Bar -->
+            <div class="h-2 w-full bg-gradient-to-r from-green-700 via-green-500 to-green-700"></div>
+            
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Let's Collaborate</h2>
+                    <p class="text-gray-500">How would you like to get involved?</p>
+                </div>
+
+                <form class="space-y-6">
+                    <!-- Identity Section -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Your Name</label>
+                            <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-green-500 outline-none transition-all" placeholder="Jane Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Organization</label>
+                            <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-green-500 outline-none transition-all" placeholder="Tech Labs Inc.">
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Selection Area -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Interest Area</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <!-- Radio Buttons styled as cards -->
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="inaugural" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-red-500 peer-checked:bg-red-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-lg mb-1">🚀</span>
+                                    <span class="text-xs font-bold text-gray-700">Inaugural</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="microgrant" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-green-500 peer-checked:bg-green-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-lg mb-1">💸</span>
+                                    <span class="text-xs font-bold text-gray-700">Micro-Grant</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="resources" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-amber-500 peer-checked:bg-amber-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-lg mb-1">🛠️</span>
+                                    <span class="text-xs font-bold text-gray-700">Resources</span>
+                                </div>
+                            </label>
+                            
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="knowledge" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-lg mb-1">🎤</span>
+                                    <span class="text-xs font-bold text-gray-700">Lecture/Event</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="talent" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-lg mb-1">🎓</span>
+                                    <span class="text-xs font-bold text-gray-700">Hiring</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="contribution_type" value="csr" class="peer sr-only" onchange="updateFormContext(this.value)">
+                                <div class="border-2 border-gray-200 peer-checked:border-teal-500 peer-checked:bg-teal-50 rounded-lg p-3 text-center transition-all hover:bg-gray-50 h-full flex flex-col items-center justify-center">
+                                    <span class="text-lg mb-1">❤️</span>
+                                    <span class="text-xs font-bold text-gray-700">CSR</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Details Box -->
+                    <div id="dynamic-context" class="bg-gray-50 p-6 rounded-xl border border-gray-200 hidden fade-in">
+                        <h4 id="context-title" class="font-bold text-gray-800 mb-2">Details</h4>
+                        <p id="context-desc" class="text-sm text-gray-500 mb-4">Tell us more.</p>
+                        <textarea id="context-input" rows="3" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-gray-400 outline-none text-sm"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Work Email</label>
+                        <input type="email" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:bg-white focus:ring-2 focus:ring-green-500 outline-none transition-all" placeholder="jane@company.com">
+                    </div>
+
+                    <button class="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-all shadow-lg">
+                        Submit Proposal
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h4 class="font-serif italic text-xl text-gray-800 mb-6">"Community Built. Student Led."</h4>
+            <div class="flex justify-center gap-8 text-sm text-gray-500">
+                <a href="#" class="hover:text-green-700">About the Club</a>
+                <a href="#" class="hover:text-green-700">See Our Wishlist</a>
+                <a href="#" class="hover:text-green-700">Contact Faculty</a>
+            </div>
+            <p class="text-xs text-gray-400 mt-8">
+                &copy; 2025 Solarpunk Corps.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const contexts = {
+            'inaugural': {
+                title: "Which project interests you?",
+                desc: "We are currently seeking partners for: 1) Solar Rover v1, 2) The Annual Magazine, 3) Community Tech Survey.",
+                placeholder: "We are interested in sponsoring the Solar Rover chassis..."
+            },
+            'microgrant': {
+                title: "Define your Grant",
+                desc: "What kind of project do you want to fund? (e.g., IoT, Sustainability, Robotics). What is your approximate budget?",
+                placeholder: "We'd like to offer a ₹5,000 grant for the best 'Water Conservation' project..."
+            },
+            'resources': {
+                title: "In-Kind Donation",
+                desc: "What equipment, software licenses, or materials can you provide?",
+                placeholder: "We have 10 unused Arduino kits and some 3D printer filament..."
+            },
+            'knowledge': {
+                title: "Host a Session",
+                desc: "Are you interested in a technical workshop, career talk, or social impact lecture?",
+                placeholder: "Our Senior Engineer can do a workshop on Embedded C..."
+            },
+            'talent': {
+                title: "Hiring Needs",
+                desc: "Are you looking for interns, freelancers, or full-time hires? What tech stack?",
+                placeholder: "We need 2 Python interns for a 3-month summer project..."
+            },
+            'csr': {
+                title: "Club Social Responsibility",
+                desc: "Support our social outreach: Teaching kids, cleanup drives, plantation drives, or funding a documentary.",
+                placeholder: "We'd like to fund a plantation drive in the local park..."
+            }
+        };
+
+        function updateFormContext(type) {
+            const box = document.getElementById('dynamic-context');
+            const title = document.getElementById('context-title');
+            const desc = document.getElementById('context-desc');
+            const input = document.getElementById('context-input');
+
+            box.classList.remove('hidden');
+            // Trigger reflow for animation
+            void box.offsetWidth; 
+            
+            if(contexts[type]) {
+                title.textContent = contexts[type].title;
+                desc.textContent = contexts[type].desc;
+                input.placeholder = contexts[type].placeholder;
+                
+                // Color coding the border based on type
+                const colors = {
+                    'inaugural': 'border-red-200',
+                    'microgrant': 'border-green-200',
+                    'resources': 'border-amber-200',
+                    'knowledge': 'border-blue-200',
+                    'talent': 'border-purple-200',
+                    'csr': 'border-teal-200'
+                };
+                
+                // Reset classes
+                box.className = `bg-gray-50 p-6 rounded-xl border ${colors[type]} fade-in block`;
+            }
+        }
+
+        function selectPathway(type) {
+            // Check the radio button
+            const radio = document.querySelector(`input[value="${type}"]`);
+            if(radio) {
+                radio.checked = true;
+                updateFormContext(type);
+                // Scroll to form
+                document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

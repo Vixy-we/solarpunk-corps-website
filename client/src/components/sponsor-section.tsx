@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Cpu, Wrench, Newspaper, Heart, Building2, TrendingUp, ArrowRight, Users, Coins } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 
 const fundingAreas = [
   { icon: Cpu, title: "Hardware Lab", description: "Microcontrollers, sensors, motors, battery systems" },
@@ -20,10 +21,26 @@ const commitments = [
 ];
 
 export function SponsorSection() {
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const [location, setLocation] = useLocation();
+
+  const defaultAnchors: Record<string, string> = {
+    "/sponsors/partner": "partner-top",
+    "/sponsors/alumni": "alumni-top"
+  };
+
+  const handleNavigate = (path: string) => {
+    if (path !== location) {
+      setLocation(path);
+      let attempts = 0;
+      const tryScroll = () => {
+        attempts += 1;
+        const targetHash = defaultAnchors[path];
+        if (!targetHash) return;
+        const el = document.getElementById(targetHash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        else if (attempts < 20) setTimeout(tryScroll, 100);
+      };
+      setTimeout(tryScroll, 120);
     }
   };
 
@@ -135,7 +152,7 @@ export function SponsorSection() {
                   </div>
                 </div>
 
-                <Button size="lg" onClick={scrollToContact} data-testid="button-sponsor-contact">
+                <Button size="lg" onClick={() => handleNavigate("/sponsors/partner")} data-testid="button-sponsor-contact">
                   Partner With Us
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -187,7 +204,7 @@ export function SponsorSection() {
                   </div>
                 </div>
 
-                <Button size="lg" onClick={scrollToContact} data-testid="button-alumni-join">
+                <Button size="lg" onClick={() => handleNavigate("/sponsors/alumni")} data-testid="button-alumni-join">
                   Help Us
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
