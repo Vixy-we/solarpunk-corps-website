@@ -67,32 +67,32 @@ export function VisionSection() {
               <CardContent className="p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Target className="h-8 w-8 text-primary" />
-                  <h3 className="text-2xl font-bold" data-testid="text-3-year-vision-title">3-Year Vision</h3>
+                  <h3 className="text-2xl font-bold" data-testid="text-3-year-vision-title">Our Vision for 2026</h3>
                 </div>
                 <p className="text-lg text-muted-foreground mb-8" data-testid="text-3-year-vision-description">
-                  We aim to build a green, innovative campus culture over the next 3 years. Our goal is to transform BIET Jhansi into a hub for sustainable innovation and student-led change.
+                  In 2026, Solarpunk Corps aims to inspire a campus culture where students lead real change — through technology, creativity, sustainability, and meaningful social work.
                 </p>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0">1</div>
                     <div>
-                      <h4 className="font-semibold">Year 1: Foundation</h4>
-                      <p className="text-sm text-muted-foreground">Establish the club, complete pilot projects, build core team</p>
+                      <h4 className="font-semibold">Seeding: Foundation</h4>
+                      <p className="text-sm text-muted-foreground">Establish the club, launch pilot tech projects, start sustainability + social initiatives, and build the core team.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-full bg-primary/70 text-primary-foreground flex items-center justify-center font-bold flex-shrink-0">2</div>
                     <div>
-                      <h4 className="font-semibold">Year 2: Expansion</h4>
-                      <p className="text-sm text-muted-foreground">Scale projects, expand outreach, build partnerships</p>
+                      <h4 className="font-semibold">Growing: Growth</h4>
+                      <p className="text-sm text-muted-foreground">Scale engineering builds, expand outreach, involve more students, and strengthen collaboration.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-full bg-primary/50 text-primary-foreground flex items-center justify-center font-bold flex-shrink-0">3</div>
                     <div>
-                      <h4 className="font-semibold">Year 3: Impact</h4>
-                      <p className="text-sm text-muted-foreground">Sustainable culture established, measurable campus impact</p>
+                      <h4 className="font-semibold">Blooming: Impact</h4>
+                      <p className="text-sm text-muted-foreground">Establish a sustainable culture and create visible campus impact through tech projects and social action.</p>
                     </div>
                   </div>
                 </div>
