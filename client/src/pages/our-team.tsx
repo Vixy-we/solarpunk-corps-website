@@ -120,16 +120,16 @@ const explorerMembers = Array.from({ length: 15 }, (_, i) => ({
   color: "bg-yellow-500/20 text-yellow-600 dark:text-yellow-400"
 }));
 
-const TeamSection = ({ 
-  title, 
-  subtitle, 
-  members, 
+const TeamSection = ({
+  title,
+  subtitle,
+  members,
   badgeText,
   headingText,
-  isFaculty = false, 
-  isLeadership = false, 
-  isDivision = false 
-}: { 
+  isFaculty = false,
+  isLeadership = false,
+  isDivision = false
+}: {
   title: string;
   subtitle?: string;
   members: any[];
@@ -139,7 +139,7 @@ const TeamSection = ({
   isLeadership?: boolean;
   isDivision?: boolean;
 }) => (
-  <motion.div 
+  <motion.div
     className="mb-16"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -152,12 +152,11 @@ const TeamSection = ({
       {subtitle && <p className="text-muted-foreground mt-2">{subtitle}</p>}
     </div>
 
-    <div className={`grid ${
-      isFaculty ? "sm:grid-cols-3 max-w-3xl mx-auto gap-6" :
+    <div className={`grid ${isFaculty ? "sm:grid-cols-3 max-w-3xl mx-auto gap-6" :
       isLeadership ? "sm:grid-cols-2 max-w-2xl mx-auto gap-6" :
-      isDivision ? "sm:grid-cols-2 lg:grid-cols-5 gap-6" :
-      "sm:grid-cols-2 lg:grid-cols-5 gap-4"
-    }`}>
+        isDivision ? "sm:grid-cols-2 lg:grid-cols-5 gap-6" :
+          "sm:grid-cols-2 lg:grid-cols-5 gap-4"
+      }`}>
       {members.map((member: any, index: number) => (
         <motion.div
           key={`${title}-${index}`}
@@ -173,13 +172,13 @@ const TeamSection = ({
                   {member.initials}
                 </AvatarFallback>
               </Avatar>
-              
+
               {member.icon && (
                 <div className="w-9 h-9 md:w-10 md:h-10 mx-auto rounded-lg bg-muted flex items-center justify-center mb-2 md:mb-3">
                   <member.icon className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />
                 </div>
               )}
-              
+
               <p className="text-xs md:text-sm text-muted-foreground mb-1">To be announced</p>
               <h4 className="font-semibold text-xs md:text-sm">{member.title}</h4>
               {member.subtitle && (
@@ -201,14 +200,14 @@ export default function OurTeam() {
         <section id="team-top" className="py-20 md:py-32">
           <span id="our-team" />
           <div className="max-w-7xl mx-auto px-6">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Badge variant="secondary" className="mb-4">Our heart</Badge>
+              <Badge variant="secondary" className="mb-4">Our Heart, Mind & Soul</Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet Our Team</h2>
               <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
                 The people of Solarpunk Corps are more than members—they're innovators shaping a sustainable future. Together, they combine technical expertise, creativity, and passion to turn ideas into meaningful impact.
@@ -216,54 +215,54 @@ export default function OurTeam() {
             </motion.div>
 
             {/* Faculty Advisors */}
-            <TeamSection 
-              title="Faculty Guidance" 
-              badgeText="faculty"
-              headingText="incharge"
+            <TeamSection
+              title="Faculty Guidance"
+              badgeText="Faculty"
+              headingText="Faculty Guidance"
               subtitle="Supporting the club with institutional guidance"
               members={facultyAdvisors}
               isFaculty={true}
             />
 
             {/* Leadership */}
-            <TeamSection 
-              title="Leadership" 
-              badgeText="lead"
-              headingText="leaders"
+            <TeamSection
+              title="Leadership"
+              badgeText="Leaders"
+              headingText="Leadership"
               subtitle="The founding team driving Solarpunk Corps forward"
               members={leadership}
               isLeadership={true}
             />
 
             {/* Division Leads */}
-            <TeamSection 
-              title="Division Leads" 
-              badgeText="Division"
-              headingText="Leads"
+            <TeamSection
+              title="Division Leads"
+              badgeText="Leaders"
+              headingText="Division Leads"
               subtitle="Leading specialized divisions across technical, knowledge, and social initiatives"
               members={divisionLeads}
               isDivision={true}
             />
 
             {/* Executives */}
-            <TeamSection 
-              title="Executives" 
-              badgeText="execute"
-              headingText="body"
+            <TeamSection
+              title="Executives"
+              badgeText="Executive Members"
+              headingText="Executives"
               subtitle="Action team helping organize events and manage projects"
               members={executiveMembers}
             />
 
             {/* Explorers */}
-            <TeamSection 
-              title="Explorers" 
-              badgeText="explore"
-              headingText="mind"
+            <TeamSection
+              title="Explorers"
+              badgeText="Explorer Members"
+              headingText="Explorers"
               subtitle="Beginners exploring robotics, sustainability, and creative tech"
               members={explorerMembers}
             />
 
-            <motion.div 
+            <motion.div
               className="text-center mt-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
