@@ -1,13 +1,13 @@
 import { Navigation } from "@/components/navigation";
-import { HeroSection } from "@/components/hero-section";
+import { MembershipSection } from "@/components/membership-section";
 import { Footer } from "@/components/footer";
 
-export default function Home() {
+export default function Membership() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main>
-        <HeroSection />
+      <main className="pt-16">
+        <MembershipSection />
       </main>
       <Footer />
     </div>

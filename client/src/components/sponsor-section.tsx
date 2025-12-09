@@ -13,7 +13,7 @@ const fundingAreas = [
 
 const commitments = [
   { title: "100% Impact Allocation", description: "Every rupee goes directly into hardware, tools, and project logistics." },
-  { title: "Quarterly Updates", description: "Detailed impact reports showing exactly how funds were used." },
+  { title: "Annual Updates", description: "Detailed impact reports showing exactly how funds were used." },
   { title: "Open Books", description: "Financial records are transparent and available to sponsors upon request." },
   { title: "Direct Engagement", description: "Choose to direct support toward specific projects or divisions." },
   { title: "Logo Placements", description: "Recognition on our website, magazine, and event materials." }
@@ -28,7 +28,8 @@ export function SponsorSection() {
   };
 
   return (
-    <section id="sponsor" className="py-20 md:py-32 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
+    <section id="sponsor-top" className="py-20 md:py-32 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
+      <span id="sponsor" />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"

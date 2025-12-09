@@ -41,7 +41,24 @@ const identity = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-32 bg-card/50">
+    <section id="about-top" className="py-20 md:py-32 bg-card/50">
+      <span id="about" />
+
+      {/* Large banner before "Who We Are" */}
+      <div className="mb-12">
+        <div
+          className="relative w-full h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden"
+          style={{ backgroundImage: "url('/csr.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="absolute inset-0 bg-black/50" aria-hidden />
+              <div className="relative z-10 flex items-center justify-center h-full px-6 text-center">
+                <div className="inline-block bg-black/30 backdrop-blur-sm rounded-lg px-6 py-4">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-md">Solarpunk Corps</h1>
+                  <p className="mt-3 text-sm sm:text-base md:text-lg text-white/90 font-medium">Where Technology, Nature, and People Meet</p>
+                </div>
+              </div>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"

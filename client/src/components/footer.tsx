@@ -1,31 +1,60 @@
 import { Leaf, Cog, Heart } from "lucide-react";
+import { useLocation } from "wouter";
 import { SiLinkedin, SiInstagram } from "react-icons/si";
 
 const footerLinks = {
   about: [
-    { label: "About Us", href: "#about" },
-    { label: "What We Do", href: "#what-we-do" },
-    { label: "Vision", href: "#vision" },
-    { label: "Leadership", href: "#leadership" }
+    { label: "About Us", href: "/about" },
+    { label: "What We Do", href: "/what-we-do" },
+    { label: "Our Team", href: "/our-team" },
+    { label: "Structure", href: "/structure" }
   ],
   join: [
-    { label: "Divisions", href: "#divisions" },
-    { label: "Membership", href: "#membership" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" }
+    { label: "Structure", href: "/structure" },
+    { label: "Membership", href: "/membership" },
+    { label: "FAQ", href: "/contact#faq-top" },
+    { label: "Contact", href: "/contact#contact-main" }
   ],
   support: [
-    { label: "Sponsor Us", href: "#sponsor" },
-    { label: "Projects", href: "#projects" }
+    { label: "Sponsor Us", href: "/sponsors" },
+    { label: "Projects", href: "/projects" }
   ]
 };
 
 export function Footer() {
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const [location, navigate] = useLocation();
+
+  const handleNavigate = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    const [path, hash] = href.split("#");
+    const defaultAnchors: Record<string, string> = {
+      "/about": "about-top",
+      "/what-we-do": "activities-top",
+      "/our-team": "team-top",
+      "/structure": "structure-top",
+      "/sponsors": "sponsor-top",
+      "/projects": "projects-top",
+      "/membership": "membership-top"
+    };
+
+    if (path && path !== location) {
+      navigate(path);
+      let attempts = 0;
+      const tryScroll = () => {
+        attempts += 1;
+        const targetHash = hash || defaultAnchors[path];
+        if (!targetHash) return;
+        const el = document.getElementById(targetHash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        else if (attempts < 20) setTimeout(tryScroll, 100);
+      };
+      setTimeout(tryScroll, 120);
+    } else {
+      const targetHash = hash || defaultAnchors[location];
+      if (targetHash) {
+        const el = document.getElementById(targetHash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -34,10 +63,10 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
-            <a 
-              href="#hero" 
-              onClick={(e) => scrollToSection(e, "#hero")}
-              className="flex items-center gap-2 mb-4"
+            <a
+              href="/"
+              onClick={(e) => handleNavigate(e, "/")}
+              className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity"
             >
               <div className="relative">
                 <Leaf className="h-6 w-6 text-primary" />
@@ -77,7 +106,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
+                    onClick={(e) => handleNavigate(e, link.href)}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -94,7 +123,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
+                    onClick={(e) => handleNavigate(e, link.href)}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
@@ -111,7 +140,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
+                    onClick={(e) => handleNavigate(e, link.href)}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}

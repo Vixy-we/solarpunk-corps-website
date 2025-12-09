@@ -55,8 +55,28 @@ export function ContactSection() {
     mutation.mutate(formData);
   };
 
+  const handleSmartEmail = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    const email = "solarpunkcorps@gmail.com";
+    const subject = encodeURIComponent("Hello Solarpunk Corps");
+    const body = encodeURIComponent("Hi, I want to connect.");
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+
+    if (isMobile) {
+      // Open default mail app on mobile
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    } else {
+      // Open Gmail compose in new tab on desktop
+      const gmailLink = `https://mail.google.com/mail/?view=cm&to=${email}&su=${subject}&body=${body}`;
+      window.open(gmailLink, "_blank");
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact-main" className="py-20 md:py-32">
+      <span id="contact" />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -82,8 +102,16 @@ export function ContactSection() {
             <Card>
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-6" data-testid="text-form-title">Send us a Message</h3>
+                <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                  <p className="text-sm text-amber-900 font-medium mb-2">
+                    📝 <span className="font-semibold">Feature Coming Soon</span>
+                  </p>
+                  <p className="text-sm text-amber-800 leading-relaxed">
+                    Our contact form is being set up. In the meantime, please <strong>email us</strong> or connect with us on <strong>social media</strong> to get in touch. We'll respond as soon as possible!
+                  </p>
+                </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 opacity-50 pointer-events-none">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input
@@ -139,8 +167,8 @@ export function ContactSection() {
                   
                   <Button 
                     type="submit" 
-                    className="w-full" 
-                    disabled={mutation.isPending}
+                    className="w-full cursor-not-allowed" 
+                    disabled={true}
                     data-testid="button-contact-submit"
                   >
                     {mutation.isPending ? (
@@ -177,13 +205,19 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Email</h4>
-                    <a 
-                      href="mailto:solarpunkcorps@gmail.com" 
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                      data-testid="link-contact-email"
+                    <p className="text-muted-foreground mb-3">solarpunkcorps@gmail.com</p>
+                    <Button
+                      onClick={(e) => handleSmartEmail(e)}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-md shadow-sm transition-colors"
+                      data-testid="button-contact-email-smart"
+                      aria-label="Email Solarpunk Corps"
                     >
-                      solarpunkcorps@gmail.com
-                    </a>
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        <path d="M3 8.5L12 13L21 8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
+                      </svg>
+                      <span>Email Us</span>
+                    </Button>
                   </div>
                 </div>
                 
@@ -193,17 +227,26 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Location</h4>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground mb-3">
                       Bundelkhand Institute of Engineering & Technology<br />
                       Jhansi, Uttar Pradesh, India
                     </p>
+                    <Button
+                      onClick={() => window.open("https://maps.app.goo.gl/L6nDMgSCPwpDdvv97", "_blank")}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md shadow-sm transition-colors"
+                      data-testid="button-contact-location-maps"
+                      aria-label="Open location in maps"
+                    >
+                      <MapPin className="w-4 h-4" />
+                      <span>Open Maps</span>
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-6" data-testid="text-follow-title">Follow Us</h3>
+              <h3 className="text-xl font-bold mb-6" data-testid="text-follow-title">Our Socials</h3>
               
               <div className="flex gap-4">
                 <a
@@ -231,7 +274,7 @@ export function ContactSection() {
               <CardContent className="p-6">
                 <h4 className="font-semibold mb-2">Ready to Present</h4>
                 <p className="text-sm text-muted-foreground">
-                  We're ready to present our full 2026 Roadmap to your team. Let's build something future-proof together.
+                  We're ready to present our Roadmap to your team. <br />Let's build something future-proof together.
                 </p>
               </CardContent>
             </Card>

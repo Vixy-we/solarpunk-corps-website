@@ -10,6 +10,7 @@ const projects = [
     badge: "Flagship Project",
     badgeColor: "bg-primary text-primary-foreground",
     description: "Our first big technical project after launch. A 6-wheel functional prototype powered entirely by solar energy.",
+    image: "/rover.png",
     features: [
       { icon: Battery, text: "Solar powered" },
       { icon: Cpu, text: "Environmental sensors" },
@@ -28,6 +29,7 @@ const projects = [
     badge: "Creative",
     badgeColor: "bg-accent text-accent-foreground",
     description: "Our student-run publication to define our voice and establish our creative identity.",
+    image: "/magazine.png",
     features: [
       { icon: Pen, text: "Stories & articles" },
       { icon: Newspaper, text: "Tech ideas & research" },
@@ -45,6 +47,7 @@ const projects = [
     badge: "Research",
     badgeColor: "bg-blue-500 text-white",
     description: "A comprehensive study to understand student technology usage, burnout, and sustainability habits.",
+    image: "/survey.png",
     features: [
       { icon: Users, text: "Student tech habits" },
       { icon: BarChart3, text: "Burnout analysis" },
@@ -60,7 +63,8 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-20 md:py-32 bg-card/50">
+    <section id="projects-top" className="py-20 md:py-32 bg-card/50">
+      <span id="projects" />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -85,7 +89,16 @@ export function ProjectsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full hover-elevate transition-all duration-300 overflow-visible" data-testid={`card-project-${index}`}>
+              <Card className="h-full hover-elevate transition-all duration-300 overflow-hidden" data-testid={`card-project-${index}`}>
+                {project.image && (
+                  <div className="w-full h-48 bg-muted overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between gap-2 mb-4">
                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">

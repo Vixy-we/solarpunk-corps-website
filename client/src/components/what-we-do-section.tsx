@@ -1,7 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sun, Leaf, Heart, Palette, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sun, Leaf, Heart, Palette, Rocket, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 
 const activities = [
   {
@@ -42,8 +44,11 @@ const activities = [
 ];
 
 export function WhatWeDoSection() {
+  const [, navigate] = useLocation();
+  
   return (
-    <section id="what-we-do" className="py-20 md:py-32">
+    <section id="activities-top" className="py-20 md:py-32">
+      <span id="what-we-do" />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -94,6 +99,23 @@ export function WhatWeDoSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <Button 
+            size="lg" 
+            onClick={() => navigate("/projects")}
+            data-testid="button-inaugural-projects"
+          >
+            Our Inaugural Projects
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

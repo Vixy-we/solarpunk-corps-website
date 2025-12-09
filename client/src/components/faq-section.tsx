@@ -39,7 +39,8 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="py-20 md:py-32">
+    <section id="faq-top" className="py-20 md:py-32">
+      <span id="faq" />
       <div className="max-w-4xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"

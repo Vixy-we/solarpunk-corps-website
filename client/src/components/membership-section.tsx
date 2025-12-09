@@ -61,7 +61,8 @@ export function MembershipSection() {
   };
 
   return (
-    <section id="membership" className="py-20 md:py-32">
+    <section id="membership-top" className="py-20 md:py-32">
+      <span id="membership" />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -121,10 +122,13 @@ export function MembershipSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Button size="lg" onClick={scrollToContact} data-testid="button-membership-apply">
-            Apply to Join
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <div className="flex flex-col items-center gap-3">
+            <Button size="lg" onClick={scrollToContact} data-testid="button-membership-apply" disabled>
+              Apply to Join
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <p className="text-sm text-muted-foreground italic">Coming Soon</p>
+          </div>
         </motion.div>
       </div>
     </section>
