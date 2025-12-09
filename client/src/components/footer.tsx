@@ -161,7 +161,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            Solarpunk Corps — Launched 2026 • BIET Jhansi
+            Solarpunk Corps — Launching 2026 • BIET Jhansi
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Made with <Heart className="h-3 w-3 text-primary fill-current" /> for a sustainable future
