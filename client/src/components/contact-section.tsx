@@ -1,59 +1,34 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { SiLinkedin, SiInstagram } from "react-icons/si";
 import { motion } from "framer-motion";
 
 export function ContactSection() {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-    category: ""
-  });
+  useEffect(() => {
+    const d = document, w = "https://tally.so/widgets/embed.js";
+    const v = function () {
+      if (typeof (window as any).Tally !== "undefined") {
+        (window as any).Tally.loadEmbeds();
+      } else {
+        d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e: any) {
+          e.src = e.dataset.tallySrc;
+        });
+      }
+    };
 
-  const mutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. We'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", message: "", category: "" });
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
+    if (typeof (window as any).Tally !== "undefined") {
+      v();
+    } else if (d.querySelector('script[src="' + w + '"]') == null) {
+      const s = d.createElement("script");
+      s.src = w;
+      s.onload = v;
+      s.onerror = v;
+      d.body.appendChild(s);
     }
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message || !formData.category) {
-      toast({
-        title: "Missing fields",
-        description: "Please fill in all fields.",
-        variant: "destructive",
-      });
-      return;
-    }
-    mutation.mutate(formData);
-  };
+  }, []);
 
   const handleSmartEmail = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
@@ -78,7 +53,7 @@ export function ContactSection() {
     <section id="contact-main" className="py-20 md:py-32">
       <span id="contact" />
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,90 +75,17 @@ export function ContactSection() {
             transition={{ duration: 0.5 }}
           >
             <Card>
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-6" data-testid="text-form-title">Send us a Message</h3>
-                <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-                  <p className="text-sm text-amber-900 font-medium mb-2">
-                    📝 <span className="font-semibold">Feature Coming Soon</span>
-                  </p>
-                  <p className="text-sm text-amber-800 leading-relaxed">
-                    Our contact form is being set up. In the meantime, please <strong>email us</strong> or connect with us on <strong>social media</strong> to get in touch. We'll respond as soon as possible!
-                  </p>
-                </div>
-                
-                <form onSubmit={handleSubmit} className="space-y-6 opacity-50 pointer-events-none">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      data-testid="input-contact-name"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      data-testid="input-contact-email"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="category">Category</Label>
-                    <Select
-                      value={formData.category}
-                      onValueChange={(value) => setFormData({ ...formData, category: value })}
-                    >
-                      <SelectTrigger data-testid="select-contact-category">
-                        <SelectValue placeholder="Select a category" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="student">Student Inquiry</SelectItem>
-                        <SelectItem value="sponsor">Sponsorship</SelectItem>
-                        <SelectItem value="collaboration">Collaboration</SelectItem>
-                        <SelectItem value="feedback">Feedback</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Your message..."
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      data-testid="textarea-contact-message"
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full cursor-not-allowed" 
-                    disabled={true}
-                    data-testid="button-contact-submit"
-                  >
-                    {mutation.isPending ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
+              <CardContent className="p-0">
+                <iframe
+                  data-tally-src="https://tally.so/embed/VLGYNj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                  loading="lazy"
+                  width="100%"
+                  height="678"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  title="Send us a Message"
+                ></iframe>
               </CardContent>
             </Card>
           </motion.div>
@@ -197,7 +99,7 @@ export function ContactSection() {
           >
             <div>
               <h3 className="text-xl font-bold mb-6" data-testid="text-contact-info-title">Contact Information</h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -220,7 +122,7 @@ export function ContactSection() {
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
@@ -244,10 +146,10 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-xl font-bold mb-6" data-testid="text-follow-title">Our Socials</h3>
-              
+
               <div className="flex gap-4">
                 <a
                   href="https://www.linkedin.com/company/solarpunk-corps/"
