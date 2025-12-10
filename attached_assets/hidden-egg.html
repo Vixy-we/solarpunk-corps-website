@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solarpunk Corps - Physics Parallax</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #080c08; 
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: none; /* Hide default cursor */
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 0 15px rgba(57, 255, 20, 0.2)); 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container">
+        <canvas id="logoCanvas"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('logoCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // --- CONFIGURATION ---
+        const config = {
+            lines: ["SOLARPUNK", "CORPS"],
+            colors: {
+                textFill: '#1a1a1a',
+                goldOutline: '#c5a028',
+                bronzeShadow: '#5c4015',
+                vineStem: '#32cd32',
+                vineHighlight: '#98fb98',
+                leafFill: '#39ff14',
+                leafDark: '#006400',
+                star: '#ffffff',
+                comet: '#aaffaa'
+            },
+            leafSizeBase: 7.5,   
+            leafDensity: 0.35,  
+            animTime: 0
+        };
+
+        const mouse = { x: -1000, y: -1000, active: false };
+        let stars = [];
+        let comets = [];
+        let particles = []; 
+        
+        // Global Camera Parallax (Smoothed Mouse)
+        const globalParallax = { x: 0, y: 0 };
+        const PARALLAX_BG_STRENGTH = 0.02;   
+        const PARALLAX_TEXT_BASE_STRENGTH = 0.06; // Base movement for text
+
+        function randomRange(min, max) { return Math.random() * (max - min) + min; }
+
+        // --- BACKGROUND ENTITIES ---
+
+        class Star {
+            constructor() { this.reset(); this.y = Math.random() * canvas.height; }
+            reset() {
+                this.x = randomRange(-50, canvas.width + 50);
+                this.y = -10;
+                this.size = Math.random() * 1.5;
+                this.speed = Math.random() * 0.2 + 0.05;
+                this.alpha = Math.random();
+                this.alphaChange = (Math.random() * 0.02) - 0.01;
+            }
+            draw(ctx) {
+                this.y += this.speed;
+                this.alpha += this.alphaChange;
+                if (this.alpha <= 0 || this.alpha >= 1) this.alphaChange *= -1;
+                if (this.y > canvas.height + 50) this.reset();
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+
+        class Comet {
+            constructor() { this.active = false; this.trail = []; }
+            spawn() {
+                if (Math.random() > 0.995 && !this.active) { 
+                    this.active = true;
+                    this.x = Math.random() * canvas.width; this.y = -50;
+                    this.size = Math.random() * 2 + 1;
+                    this.vx = (Math.random() - 0.5) * 4; this.vy = Math.random() * 5 + 3;
+                    this.trail = [];
+                }
+            }
+            draw(ctx) {
+                if (!this.active) { this.spawn(); return; }
+                this.x += this.vx; this.y += this.vy;
+                this.trail.push({x: this.x, y: this.y, alpha: 1});
+                if (this.y > canvas.height + 50) this.active = false;
+
+                for (let i = this.trail.length - 1; i >= 0; i--) {
+                    const p = this.trail[i]; p.alpha -= 0.05;
+                    if (p.alpha <= 0) { this.trail.splice(i, 1); continue; }
+                    ctx.fillStyle = `rgba(170, 255, 170, ${p.alpha})`;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, this.size * p.alpha, 0, Math.PI*2); ctx.fill();
+                }
+                ctx.fillStyle = '#fff'; ctx.shadowBlur = 10; ctx.shadowColor = '#39ff14';
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+            }
+        }
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x; this.y = y;
+                this.vx = (Math.random() - 0.5) * 2; this.vy = (Math.random() - 0.5) * 2;
+                this.life = 1; this.decay = Math.random() * 0.03 + 0.01;
+                this.color = Math.random() > 0.5 ? '#39ff14' : '#c5a028'; 
+                this.size = Math.random() * 3;
+            }
+            draw(ctx) {
+                this.x += this.vx; this.y += this.vy; this.life -= this.decay;
+                if (this.life > 0) {
+                    ctx.globalAlpha = this.life; ctx.fillStyle = this.color;
+                    ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill(); ctx.globalAlpha = 1;
+                }
+            }
+        }
+
+        // --- MAIN ENTITIES ---
+
+        class Leaf {
+            constructor(x, y, angle, size) {
+                this.x = x; this.y = y; this.baseAngle = angle; this.size = size;
+                this.swaySpeed = 1 + Math.random(); this.swayOffset = Math.random() * 10;
+            }
+            draw(ctx, time, parentSwayX, parentSwayY, effectiveMouse) {
+                const rotSway = Math.sin(time * this.swaySpeed + this.swayOffset) * 0.3;
+                let currentAngle = this.baseAngle + rotSway;
+                const drawX = this.x + parentSwayX; const drawY = this.y + parentSwayY;
+
+                if (effectiveMouse && effectiveMouse.active) {
+                    const dx = effectiveMouse.x - drawX; const dy = effectiveMouse.y - drawY;
+                    const dist = Math.sqrt(dx*dx + dy*dy); const range = 150;
+                    if (dist < range) {
+                        const targetAngle = Math.atan2(dy, dx);
+                        const influence = (1 - dist/range) * 0.5; 
+                        currentAngle = currentAngle * (1-influence) + targetAngle * influence;
+                    }
+                }
+                ctx.save(); ctx.translate(drawX, drawY); ctx.rotate(currentAngle);
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(this.size, -this.size/2.5, this.size*1.8, -this.size/4, this.size*2.2, 0);
+                ctx.bezierCurveTo(this.size*1.8, this.size/4, this.size, this.size/2.5, 0, 0);
+                const grad = ctx.createLinearGradient(0, 0, this.size*2, 0);
+                grad.addColorStop(0, config.colors.leafDark); grad.addColorStop(0.4, '#228b22'); grad.addColorStop(1, config.colors.leafFill);
+                ctx.fillStyle = grad; ctx.fill(); ctx.restore();
+            }
+        }
+
+        class VineSegment {
+            constructor(startX, startY, endX, endY, cp1x, cp1y, cp2x, cp2y, isFront) {
+                this.start = {x: startX, y: startY}; this.end = {x: endX, y: endY};
+                this.cp1 = {x: cp1x, y: cp1y}; this.cp2 = {x: cp2x, y: cp2y};
+                this.isFront = isFront; this.leaves = []; this.animOffset = Math.random() * 10;
+                this.initLeaves();
+            }
+            initLeaves() {
+                const dx = this.end.x - this.start.x; const dy = this.end.y - this.start.y;
+                const dist = Math.sqrt(dx*dx + dy*dy); const steps = Math.floor(dist / 12); 
+                for(let i=1; i<steps; i++) {
+                    if (Math.random() > (1 - config.leafDensity)) {
+                        const t = i/steps;
+                        const cx = Math.pow(1-t,3)*this.start.x + 3*Math.pow(1-t,2)*t*this.cp1.x + 3*(1-t)*Math.pow(t,2)*this.cp2.x + Math.pow(t,3)*this.end.x;
+                        const cy = Math.pow(1-t,3)*this.start.y + 3*Math.pow(1-t,2)*t*this.cp1.y + 3*(1-t)*Math.pow(t,2)*this.cp2.y + Math.pow(t,3)*this.end.y;
+                        const tx = (3*Math.pow(1-t,2)*(this.cp1.x-this.start.x)) + (6*(1-t)*t*(this.cp2.x-this.cp1.x)) + (3*t*t*(this.end.x-this.cp2.x));
+                        const ty = (3*Math.pow(1-t,2)*(this.cp1.y-this.start.y)) + (6*(1-t)*t*(this.cp2.y-this.cp1.y)) + (3*t*t*(this.end.y-this.cp2.y));
+                        const angle = Math.atan2(ty, tx);
+                        const sideAngle = angle + (Math.random() > 0.5 ? 1.2 : -1.2); 
+                        this.leaves.push(new Leaf(cx, cy, sideAngle, config.leafSizeBase + Math.random() * 6));
+                    }
+                }
+            }
+            draw(ctx, time, effectiveMouse) {
+                const swayX = Math.sin(time * 2 + this.animOffset) * 2; 
+                const swayY = Math.cos(time * 1.5 + this.animOffset) * 2;
+                const d_cp1x = this.cp1.x + swayX; const d_cp1y = this.cp1.y + swayY;
+                const d_cp2x = this.cp2.x - swayX; const d_cp2y = this.cp2.y + swayY;
+
+                ctx.beginPath(); ctx.moveTo(this.start.x, this.start.y);
+                ctx.bezierCurveTo(d_cp1x, d_cp1y, d_cp2x, d_cp2y, this.end.x, this.end.y);
+                ctx.lineWidth = 3 + Math.sin(time*3)*0.4; ctx.strokeStyle = 'rgba(0,0,0,0.6)'; ctx.lineCap = 'round'; ctx.stroke();
+                ctx.lineWidth = 1.9; ctx.strokeStyle = config.colors.vineStem; ctx.stroke();
+                ctx.lineWidth = 0.75; ctx.strokeStyle = 'rgba(152, 251, 152, 0.4)'; ctx.stroke();
+                this.leaves.forEach(leaf => leaf.draw(ctx, time, swayX * 0.5, swayY * 0.5, effectiveMouse));
+            }
+        }
+
+        class Letter {
+            constructor(char, x, y, size) {
+                this.char = char; this.x = x; this.y = y; this.size = size;
+                this.vines = [];
+                
+                // PHYSICS PROPERTIES
+                this.currentOffset = { x: 0, y: 0 };
+                // Depth: How "deep" inside the screen it is. >1 moves more (closer), <1 moves less (further).
+                this.depth = randomRange(0.8, 1.4); 
+                // Inertia: How fast it catches up to the movement. Lower is more "laggy/heavy".
+                this.inertia = randomRange(0.04, 0.08); 
+
+                this.generateVines();
+            }
+
+            generateVines() {
+                // ... (Logic unchanged from previous, heavily summarized for brevity) ...
+                const w = this.size * 0.5; const h = this.size * 0.7;
+                const L = this.x - w/2; const R = this.x + w/2; const T = this.y - h/2; const B = this.y + h/2;
+                const c = this.char.toUpperCase();
+                
+                if (['O', 'C', 'G', 'Q', 'U', 'D'].includes(c)) {
+                    this.addSegment(L, B - h*0.3, L, T + h*0.3, true); this.addSegment(L, T + h*0.3, R, T, false);          
+                    this.addSegment(R, T, R, B - h*0.3, true); this.addSegment(R, B - h*0.3, L, B, false);          
+                } else if (['S'].includes(c)) {
+                    this.addSegment(R, T + h*0.2, L, T + h*0.2, true); this.addSegment(L, T + h*0.2, R, B - h*0.2, false);
+                    this.addSegment(R, B - h*0.2, L, B - h*0.2, true);
+                } else if (['A', 'R', 'P', 'B'].includes(c)) {
+                    this.addSegment(L, T + h*0.5, R, T + h*0.2, true); this.addSegment(R, T + h*0.2, L, T, false);
+                    this.addSegment(L, B, R, B - h*0.3, true);
+                } else if (['N', 'M', 'W', 'K', 'X', 'V', 'Z'].includes(c)) {
+                    this.addSegment(L, B, R, T, true); this.addSegment(R, T, R, B, false);  
+                } else if (['L', 'I', 'T', 'H', 'E', 'F', 'J'].includes(c)) {
+                    this.addSegment(L, B, R, B - h*0.3, true); this.addSegment(R, B - h*0.3, L, B - h*0.6, false);
+                    this.addSegment(L, B - h*0.6, R, T + h*0.2, true);
+                } else {
+                    this.addSegment(L, B, R, T, true);
+                }
+            }
+
+            addSegment(x1, y1, x2, y2, isFront) {
+                const mx = (x1 + x2) / 2;
+                const cp1x = x1 + (mx - x1) * 0.5 + randomRange(-15, 15); const cp1y = y1 + (randomRange(-25, 25));
+                const cp2x = x2 - (x2 - mx) * 0.5 + randomRange(-15, 15); const cp2y = y2 + (randomRange(-25, 25));
+                this.vines.push(new VineSegment(x1, y1, x2, y2, cp1x, cp1y, cp2x, cp2y, isFront));
+            }
+
+            updatePhysics(targetParallaxX, targetParallaxY) {
+                // Calculate target position for this specific letter based on its depth
+                const targetX = targetParallaxX * this.depth;
+                const targetY = targetParallaxY * this.depth;
+
+                // Smoothly interpolate current offset towards target (Fluid Lag)
+                this.currentOffset.x += (targetX - this.currentOffset.x) * this.inertia;
+                this.currentOffset.y += (targetY - this.currentOffset.y) * this.inertia;
+            }
+
+            drawText(ctx) {
+                ctx.font = `900 ${this.size}px 'Exo 2'`;
+                ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+                ctx.lineWidth = this.size * 0.08; ctx.strokeStyle = config.colors.bronzeShadow; ctx.strokeText(this.char, this.x + 2, this.y + 2); 
+                ctx.lineWidth = this.size * 0.08; ctx.strokeStyle = config.colors.goldOutline; ctx.strokeText(this.char, this.x, this.y);
+                ctx.lineWidth = this.size * 0.03; ctx.strokeStyle = '#ffe680'; ctx.strokeText(this.char, this.x, this.y);
+                ctx.fillStyle = config.colors.textFill; ctx.fillText(this.char, this.x, this.y);
+            }
+
+            drawVinesBack(ctx, time, effMouse) { this.vines.filter(v => !v.isFront).forEach(v => v.draw(ctx, time, effMouse)); }
+            drawVinesFront(ctx, time, effMouse) { this.vines.filter(v => v.isFront).forEach(v => v.draw(ctx, time, effMouse)); }
+        }
+
+        let letters = [];
+        
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            stars = []; for(let i=0; i<150; i++) stars.push(new Star());
+            comets = []; for(let i=0; i<3; i++) comets.push(new Comet());
+
+            letters = [];
+            const fontSize = Math.min(canvas.width / 10, 140);
+            
+            const line1 = config.lines[0];
+            ctx.font = `900 ${fontSize}px 'Exo 2'`;
+            const charStride1 = fontSize * 0.85; 
+            const totalWidth1 = (line1.length - 1) * charStride1;
+            const startX1 = (canvas.width - totalWidth1) / 2;
+            const y1 = canvas.height / 2 - fontSize * 0.6;
+
+            for(let i=0; i<line1.length; i++) {
+                letters.push(new Letter(line1[i], startX1 + (i * charStride1), y1, fontSize));
+            }
+
+            const line2 = config.lines[1];
+            const fontSize2 = fontSize * 0.8;
+            ctx.font = `900 ${fontSize2}px 'Exo 2'`;
+            const charStride2 = fontSize2 * 0.85;
+            const totalWidth2 = (line2.length - 1) * charStride2;
+            const startX2 = (canvas.width - totalWidth2) / 2;
+            const y2 = canvas.height / 2 + fontSize * 0.7;
+
+            for(let i=0; i<line2.length; i++) {
+                letters.push(new Letter(line2[i], startX2 + (i * charStride2), y2, fontSize2));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            config.animTime += 0.01;
+
+            // --- 1. GLOBAL PARALLAX INPUT ---
+            // Calculate where the "camera" wants to be based on mouse
+            const rawTargetX = mouse.active ? (mouse.x - canvas.width/2) : 0;
+            const rawTargetY = mouse.active ? (mouse.y - canvas.height/2) : 0;
+            
+            // Smooth the global camera movement
+            globalParallax.x += (rawTargetX - globalParallax.x) * 0.05;
+            globalParallax.y += (rawTargetY - globalParallax.y) * 0.05;
+
+            // Background moves slightly opposite (standard distant background)
+            const bgPx = globalParallax.x * PARALLAX_BG_STRENGTH * -1;
+            const bgPy = globalParallax.y * PARALLAX_BG_STRENGTH * -1;
+
+            // --- 2. DRAW BACKGROUND ---
+            const bgGrad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 50, canvas.width/2, canvas.height/2, canvas.width);
+            bgGrad.addColorStop(0, '#111a14'); bgGrad.addColorStop(1, '#020302');
+            ctx.fillStyle = bgGrad; ctx.fillRect(0,0, canvas.width, canvas.height);
+
+            ctx.save();
+            ctx.translate(bgPx, bgPy);
+            stars.forEach(s => s.draw(ctx));
+            comets.forEach(c => c.draw(ctx));
+            ctx.restore();
+
+            if(mouse.active && (Math.abs(mouse.vx) > 0.1 || Math.abs(mouse.vy) > 0.1)) {
+               particles.push(new Particle(mouse.x, mouse.y));
+            }
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].draw(ctx);
+                if (particles[i].life <= 0) particles.splice(i, 1);
+            }
+
+            // --- 3. PHYSICS & DRAWING TEXT ---
+            
+            // Base movement vector for text (Text moves opposite to mouse, like foreground)
+            const baseTextTargetX = globalParallax.x * PARALLAX_TEXT_BASE_STRENGTH * -1;
+            const baseTextTargetY = globalParallax.y * PARALLAX_TEXT_BASE_STRENGTH * -1;
+
+            letters.forEach(letter => {
+                // Update Physics for this specific letter
+                letter.updatePhysics(baseTextTargetX, baseTextTargetY);
+
+                // Isolate Context for this letter
+                ctx.save();
+                ctx.translate(letter.currentOffset.x, letter.currentOffset.y);
+
+                // Calculate Effective Mouse for interaction (reverse the translation)
+                const effMouse = {
+                    x: mouse.x - letter.currentOffset.x,
+                    y: mouse.y - letter.currentOffset.y,
+                    active: mouse.active
+                };
+
+                letter.drawVinesBack(ctx, config.animTime, effMouse);
+                letter.drawText(ctx);
+                letter.drawVinesFront(ctx, config.animTime, effMouse);
+
+                ctx.restore();
+            });
+
+            // --- 4. DRAW CURSOR ---
+            if(mouse.active) {
+                ctx.beginPath(); ctx.arc(mouse.x, mouse.y, 4, 0, Math.PI*2);
+                ctx.fillStyle = '#fff'; ctx.shadowBlur = 10; ctx.shadowColor = '#39ff14';
+                ctx.fill(); ctx.shadowBlur = 0;
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // --- INTERACTION HANDLERS ---
+        window.addEventListener('resize', init);
+        let lastX = 0; let lastY = 0;
+        window.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top;
+            mouse.vx = mouse.x - lastX; mouse.vy = mouse.y - lastY;
+            lastX = mouse.x; lastY = mouse.y;
+            mouse.active = true;
+        });
+        window.addEventListener('mouseleave', () => { mouse.active = false; });
+
+        document.fonts.ready.then(() => { init(); animate(); });
+
+    </script>
+</body>
+</html>

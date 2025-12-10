@@ -171,6 +171,14 @@ export function Footer() {
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Made with <Heart className="h-3 w-3 text-primary fill-current" /> for a sustainable future
+            <a
+              href="/hidden-egg"
+              onClick={(e) => { e.preventDefault(); navigate('/hidden-egg'); }}
+              className="inline-block ml-1 hover:text-yellow-400 transition-colors"
+              aria-label="Star"
+            >
+              ★
+            </a>
           </p>
         </div>
       </div>
