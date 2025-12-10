@@ -19,7 +19,7 @@ import Partner from "@/pages/partner";
 import ProjectRover from "@/pages/project-rover";
 import ProjectMagazine from "@/pages/project-magazine";
 import ProjectSurvey from "@/pages/project-survey";
-import { ScrollToTop } from "@/components/scroll-to-top";
+import { ScrollToTop } from "@/components/scroll-to-top"; 
 import { useEffect } from "react";
 
 function Router() {

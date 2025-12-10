@@ -1,0 +1,55 @@
+// Make sure you have state for `selectedPathway` and a function `handlePathwaySelect` already
+
+const handleSubmit = async (e) => {
+    e.preventDefault(); // prevent page reload
+
+    try {
+        // 1️⃣ Timestamp first
+        const timestamp = new Date().toISOString();
+
+        // 2️⃣ Collect basic inputs
+        const name = document.querySelector('input[placeholder="Your Good Name"]').value;
+        const organization = document.querySelector('input[placeholder="Tech Labs Inc."]').value;
+        const email = document.querySelector('input[placeholder="name@company.com"]').value;
+
+        // 3️⃣ Selected pathway from state
+        const pathway = selectedPathway;
+
+        // 4️⃣ Dynamic textarea for selected pathway
+        let details = "";
+        const detailsBox = document.querySelector(
+            'textarea[placeholder="' + (contexts[pathway]?.placeholder || '') + '"]'
+        );
+        if(detailsBox) details = detailsBox.value;
+
+        // 5️⃣ Prepare data to send
+        const data = {
+            timestamp, // ⬅️ first
+            name,
+            organization,
+            email,
+            pathway,
+            details
+        };
+
+        // 6️⃣ Send to Google Apps Script
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbwhCDKLwqFyA3_XDoBjilZArw9Xu4T1aExr3n4Bgdb4-i2qFkskjo7VMQSz6lJyhVmTew/exec", //
+            {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            }
+        );
+
+        alert("Proposal submitted successfully!");
+        // Optionally, reset form or state here
+    } catch (err) {
+        console.error(err);
+        alert("Error submitting proposal. Try again!");
+    }
+};
+
+// Attach this function to your form submit
+document.querySelector('form.space-y-6').addEventListener('submit', handleSubmit);
