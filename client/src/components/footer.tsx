@@ -37,6 +37,12 @@ export function Footer() {
       "/membership": "membership-top"
     };
 
+    if (path === "/" || path === "") {
+      navigate("/");
+      window.dispatchEvent(new Event("scrollToTop"));
+      return;
+    }
+
     if (path && path !== location) {
       navigate(path);
       let attempts = 0;

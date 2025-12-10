@@ -92,6 +92,7 @@ app.use((req, res, next) => {
     },
     () => {
       log(`serving on port ${port}`);
+      log(`App running at: http://localhost:${port}`);
     },
   );
 })();

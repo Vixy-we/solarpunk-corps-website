@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Work Sans for clean, humanistic headers; JetBrains Mono for data/code -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            /* Deep Slate */
+            --bg-color: #0f172a; /* Deep Slate */
             --text-primary: #f1f5f9;
-            --accent-tech: #38bdf8;
-            /* Blue */
-            --accent-burnout: #f472b6;
-            /* Pink */
-            --accent-eco: #4ade80;
-            /* Green */
+            --accent-tech: #38bdf8;   /* Blue */
+            --accent-burnout: #f472b6; /* Pink */
+            --accent-eco: #4ade80;    /* Green */
         }
 
         body {
             background-color: var(--bg-color);
             /* Subtle grid background for "Graph Paper" feel */
-            background-image:
+            background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -43,67 +36,29 @@
 
         /* Abstract Shape Morphing for the Radar Chart */
         @keyframes morph-graph {
-            0% {
-                d: path("M150,80 L220,150 L150,220 L80,150 Z");
-                fill: rgba(56, 189, 248, 0.2);
-                stroke: var(--accent-tech);
-            }
-
-            33% {
-                d: path("M150,60 L240,140 L160,240 L70,160 Z");
-                fill: rgba(244, 114, 182, 0.2);
-                stroke: var(--accent-burnout);
-            }
-
-            66% {
-                d: path("M150,100 L200,150 L150,200 L100,150 Z");
-                fill: rgba(74, 222, 128, 0.2);
-                stroke: var(--accent-eco);
-            }
-
-            100% {
-                d: path("M150,80 L220,150 L150,220 L80,150 Z");
-                fill: rgba(56, 189, 248, 0.2);
-                stroke: var(--accent-tech);
-            }
+            0% { d: path("M150,80 L220,150 L150,220 L80,150 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
+            33% { d: path("M150,60 L240,140 L160,240 L70,160 Z"); fill: rgba(244, 114, 182, 0.2); stroke: var(--accent-burnout); }
+            66% { d: path("M150,100 L200,150 L150,200 L100,150 Z"); fill: rgba(74, 222, 128, 0.2); stroke: var(--accent-eco); }
+            100% { d: path("M150,80 L220,150 L150,220 L80,150 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
         }
-
         .animate-morph {
             animation: morph-graph 8s ease-in-out infinite;
         }
 
         /* Pulsing Nodes */
         @keyframes pulse-node {
-
-            0%,
-            100% {
-                r: 4;
-                opacity: 1;
-            }
-
-            50% {
-                r: 6;
-                opacity: 0.5;
-            }
+            0%, 100% { r: 4; opacity: 1; }
+            50% { r: 6; opacity: 0.5; }
         }
-
         .animate-pulse-node {
             animation: pulse-node 2s ease-in-out infinite;
         }
 
         /* Floating Data Points */
         @keyframes float-data {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-5px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
-
         .animate-float {
             animation: float-data 4s ease-in-out infinite;
         }
@@ -116,38 +71,18 @@
         }
 
         /* Gradient Text Utilities */
-        .text-gradient-tech {
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-burnout {
-            background: linear-gradient(to right, #f472b6, #fb7185);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-eco {
-            background: linear-gradient(to right, #4ade80, #2dd4bf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .text-gradient-tech { background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-burnout { background: linear-gradient(to right, #f472b6, #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-eco { background: linear-gradient(to right, #4ade80, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-
 <body class="min-h-screen flex flex-col relative selection:bg-slate-700 selection:text-white">
 
     <!-- Header / Status Bar -->
-    <nav
-        class="w-full p-6 border-b border-slate-700/50 flex justify-between items-center bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+    <nav class="w-full p-6 border-b border-slate-700/50 flex justify-between items-center bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
         <div class="flex items-center gap-3">
-            <div
-                class="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center border border-slate-600">
-                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center border border-slate-600">
+                <svg class="w-4 h-4 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
             </div>
             <div>
                 <div class="text-sm font-bold tracking-tight text-white">Campus Tech-Life Survey</div>
@@ -163,39 +98,31 @@
     </nav>
 
     <!-- Main Content -->
-    <main
-        class="flex-grow flex flex-col lg:flex-row items-center justify-center relative z-10 w-full max-w-7xl mx-auto px-6 py-12 gap-16">
-
+    <main class="flex-grow flex flex-col lg:flex-row items-center justify-center relative z-10 w-full max-w-7xl mx-auto px-6 py-12 gap-16">
+        
         <!-- Left Column: Research Abstract -->
         <div class="flex-1 space-y-8 max-w-xl">
-
+            
             <div class="space-y-4">
-                <span
-                    class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-data text-slate-300">
+                <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-data text-slate-300">
                     Phase 1: Participant Recruitment
                 </span>
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight">
                     Understanding the <br>
-                    <span class="text-gradient-tech">Digital</span>,
-                    <span class="text-gradient-burnout">Emotional</span>, &
+                    <span class="text-gradient-tech">Digital</span>, 
+                    <span class="text-gradient-burnout">Emotional</span>, & 
                     <span class="text-gradient-eco">Ecological</span> Balance.
                 </h1>
                 <p class="text-lg text-slate-400 leading-relaxed font-light">
-                    A comprehensive study to map the intersection of student technology usage, digital burnout, and
-                    sustainability habits on campus.
+                    A comprehensive study to map the intersection of student technology usage, digital burnout, and sustainability habits on campus.
                 </p>
             </div>
 
             <!-- Key Study Areas Cards -->
             <div class="grid gap-4">
-                <div
-                    class="glass-panel p-4 rounded-lg flex items-start gap-4 hover:bg-slate-800/50 transition-colors group">
-                    <div
-                        class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 transition">
-                        <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
+                <div class="glass-panel p-4 rounded-lg flex items-start gap-4 hover:bg-slate-800/50 transition-colors group">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 transition">
+                        <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                     </div>
                     <div>
                         <h3 class="font-bold text-slate-200">Student Tech Habits</h3>
@@ -203,14 +130,9 @@
                     </div>
                 </div>
 
-                <div
-                    class="glass-panel p-4 rounded-lg flex items-start gap-4 hover:bg-slate-800/50 transition-colors group">
-                    <div
-                        class="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center shrink-0 group-hover:bg-pink-500/20 transition">
-                        <svg class="w-5 h-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                <div class="glass-panel p-4 rounded-lg flex items-start gap-4 hover:bg-slate-800/50 transition-colors group">
+                    <div class="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center shrink-0 group-hover:bg-pink-500/20 transition">
+                        <svg class="w-5 h-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
                     <div>
                         <h3 class="font-bold text-slate-200">Burnout Analysis</h3>
@@ -218,19 +140,13 @@
                     </div>
                 </div>
 
-                <div
-                    class="glass-panel p-4 rounded-lg flex items-start gap-4 hover:bg-slate-800/50 transition-colors group">
-                    <div
-                        class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition">
-                        <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-                        </svg>
+                <div class="glass-panel p-4 rounded-lg flex items-start gap-4 hover:bg-slate-800/50 transition-colors group">
+                    <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition">
+                        <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" /></svg>
                     </div>
                     <div>
                         <h3 class="font-bold text-slate-200">Eco-Routine Mapping</h3>
-                        <p class="text-sm text-slate-400 mt-1">Identifying sustainable behaviors in daily campus life.
-                        </p>
+                        <p class="text-sm text-slate-400 mt-1">Identifying sustainable behaviors in daily campus life.</p>
                     </div>
                 </div>
             </div>
@@ -239,21 +155,18 @@
 
         <!-- Right Column: Data Visualization (The Radar Chart) -->
         <div class="flex-1 w-full flex items-center justify-center relative">
-
+            
             <!-- Background Glow -->
-            <div
-                class="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-purple-500/10 to-green-500/10 rounded-full blur-3xl">
-            </div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-purple-500/10 to-green-500/10 rounded-full blur-3xl"></div>
 
             <div class="relative w-full max-w-[500px] aspect-square">
-
+                
                 <!-- Floating Data Cards -->
                 <div class="absolute top-0 right-0 glass-panel px-3 py-2 rounded-md animate-float z-20">
                     <div class="text-[10px] font-data text-slate-400 uppercase">Sample Size</div>
                     <div class="text-lg font-bold text-white">n = 0</div>
                 </div>
-                <div class="absolute bottom-10 left-0 glass-panel px-3 py-2 rounded-md animate-float z-20"
-                    style="animation-delay: 1s;">
+                <div class="absolute bottom-10 left-0 glass-panel px-3 py-2 rounded-md animate-float z-20" style="animation-delay: 1s;">
                     <div class="text-[10px] font-data text-slate-400 uppercase">Avg Screen Time</div>
                     <div class="text-lg font-bold text-blue-400">-- h -- m</div>
                 </div>
@@ -264,9 +177,8 @@
                     <g fill="none" stroke="#334155" stroke-width="1">
                         <path d="M150,50 L236,100 L236,200 L150,250 L64,200 L64,100 Z" opacity="0.3" /> <!-- Outer -->
                         <path d="M150,80 L202,110 L202,190 L150,220 L98,190 L98,110 Z" opacity="0.3" /> <!-- Mid -->
-                        <path d="M150,110 L168,120 L168,180 L150,190 L132,180 L132,120 Z" opacity="0.3" />
-                        <!-- Inner -->
-
+                        <path d="M150,110 L168,120 L168,180 L150,190 L132,180 L132,120 Z" opacity="0.3" /> <!-- Inner -->
+                        
                         <!-- Axis Lines -->
                         <line x1="150" y1="150" x2="150" y2="50" />
                         <line x1="150" y1="150" x2="236" y2="200" />
@@ -274,23 +186,19 @@
                     </g>
 
                     <!-- Axis Labels -->
-                    <text x="150" y="40" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="10"
-                        font-weight="bold">TECHNOLOGY</text>
-                    <text x="250" y="210" text-anchor="middle" fill="#f472b6" font-family="monospace" font-size="10"
-                        font-weight="bold">BURNOUT</text>
-                    <text x="50" y="210" text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="10"
-                        font-weight="bold">ECOLOGY</text>
+                    <text x="150" y="40" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold">TECHNOLOGY</text>
+                    <text x="250" y="210" text-anchor="middle" fill="#f472b6" font-family="monospace" font-size="10" font-weight="bold">BURNOUT</text>
+                    <text x="50" y="210" text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="10" font-weight="bold">ECOLOGY</text>
 
                     <!-- The Morphing Data Shape -->
                     <path class="animate-morph" stroke-width="2" stroke-linejoin="round" />
 
                     <!-- Central Node -->
                     <circle cx="150" cy="150" r="4" fill="#fff" class="animate-pulse-node" />
-
+                    
                     <!-- Decorative scanning line -->
                     <line x1="150" y1="150" x2="150" y2="50" stroke="white" stroke-width="1" opacity="0.5">
-                        <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150"
-                            dur="6s" repeatCount="indefinite" />
+                        <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="6s" repeatCount="indefinite" />
                     </line>
                 </svg>
             </div>
@@ -300,16 +208,14 @@
     <!-- Footer: Future Scope -->
     <footer class="w-full border-t border-slate-700/50 bg-slate-900/50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-8">
-            <h4 class="text-xs font-data uppercase tracking-widest text-slate-500 mb-4">Research Roadmap & Future Scope
-            </h4>
+            <h4 class="text-xs font-data uppercase tracking-widest text-slate-500 mb-4">Research Roadmap & Future Scope</h4>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Item 1 -->
                 <div class="flex items-start gap-3">
                     <div class="mt-1 w-2 h-2 rounded-full bg-blue-500"></div>
                     <div>
                         <h5 class="text-sm font-bold text-slate-300">Data-Driven Solutions</h5>
-                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Developing an open-source dataset for
-                            student wellbeing analysis.</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Developing an open-source dataset for student wellbeing analysis.</p>
                     </div>
                 </div>
                 <!-- Item 2 -->
@@ -317,8 +223,7 @@
                     <div class="mt-1 w-2 h-2 rounded-full bg-purple-500"></div>
                     <div>
                         <h5 class="text-sm font-bold text-slate-300">Policy Recommendations</h5>
-                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Drafting a whitepaper for campus
-                            administration on digital sustainability.</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Drafting a whitepaper for campus administration on digital sustainability.</p>
                     </div>
                 </div>
                 <!-- Item 3 -->
@@ -326,8 +231,7 @@
                     <div class="mt-1 w-2 h-2 rounded-full bg-green-500"></div>
                     <div>
                         <h5 class="text-sm font-bold text-slate-300">Longitudinal Tracking</h5>
-                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Multi-year tracking of cohort habits to
-                            identify long-term trends.</p>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Multi-year tracking of cohort habits to identify long-term trends.</p>
                     </div>
                 </div>
             </div>
@@ -344,5 +248,4 @@
         });
     </script>
 </body>
-
 </html>

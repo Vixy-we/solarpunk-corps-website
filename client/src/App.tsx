@@ -19,6 +19,7 @@ import Partner from "@/pages/partner";
 import ProjectRover from "@/pages/project-rover";
 import ProjectMagazine from "@/pages/project-magazine";
 import ProjectSurvey from "@/pages/project-survey";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { useEffect } from "react";
 
 function Router() {
@@ -26,14 +27,16 @@ function Router() {
 
   useEffect(() => {
     if (location === "/") {
-      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 10);
     }
   }, [location]);
 
   // Listen for custom scroll-to-top event
   useEffect(() => {
     const handleScrollToTop = () => {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     window.addEventListener("scrollToTop", handleScrollToTop);
@@ -68,6 +71,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <ScrollToTop />
         </TooltipProvider>
       </QueryClientProvider>
     </ThemeProvider>

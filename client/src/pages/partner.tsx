@@ -222,7 +222,7 @@ export default function Partner() {
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label className="block text-xs font-bold text-gray-500 dark:text-muted-foreground uppercase tracking-wide mb-2">Your Name</label>
-                                    <input type="text" className="w-full bg-gray-50 dark:bg-secondary border border-gray-200 dark:border-input rounded-lg px-4 py-3 focus:bg-white dark:focus:bg-background focus:ring-2 focus:ring-green-500 outline-none transition-all dark:text-foreground" placeholder="Your Full Name" />
+                                    <input type="text" className="w-full bg-gray-50 dark:bg-secondary border border-gray-200 dark:border-input rounded-lg px-4 py-3 focus:bg-white dark:focus:bg-background focus:ring-2 focus:ring-green-500 outline-none transition-all dark:text-foreground" placeholder="Your Good Name" />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-gray-500 dark:text-muted-foreground uppercase tracking-wide mb-2">Organization</label>
