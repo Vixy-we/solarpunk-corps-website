@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "When will SPC officially launch?",
-    answer: "We are in the active founding stage in 2026. Follow our social media channels for announcements about our official launch event and how to become a founding member."
+    answer: "We are in the active founding stage in 2026. Follow our social media channels for announcements about our official launch event and how to become a member."
   },
   {
     question: "How can I support SPC as an external organization?",
@@ -42,7 +42,7 @@ export function FaqSection() {
     <section id="faq-top" className="py-20 md:py-32">
       <span id="faq" />
       <div className="max-w-4xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,12 +64,12 @@ export function FaqSection() {
         >
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
+              <AccordionItem
+                key={index}
                 value={`item-${index}`}
                 className="border border-border rounded-lg px-6 data-[state=open]:bg-card"
               >
-                <AccordionTrigger 
+                <AccordionTrigger
                   className="text-left font-semibold hover:no-underline py-4"
                   data-testid={`accordion-trigger-${index}`}
                 >

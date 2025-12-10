@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sun, BookOpen, ClipboardList, Cpu, Battery, Eye, Bot, Newspaper, Pen, Users, BarChart3, Leaf, Heart } from "lucide-react";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -20,7 +21,8 @@ const projects = [
       "Robotic arm integration",
       "Computer vision",
       "Autonomous movement"
-    ]
+    ],
+    href: "/projects/rover"
   },
   {
     icon: BookOpen,
@@ -39,7 +41,8 @@ const projects = [
       "Guest contributions",
       "Digital editions",
       "Podcast companion"
-    ]
+    ],
+    href: "/projects/magazine"
   },
   {
     icon: ClipboardList,
@@ -57,7 +60,8 @@ const projects = [
       "Data-driven solutions",
       "Campus policy recommendations",
       "Longitudinal tracking"
-    ]
+    ],
+    href: "/projects/survey"
   }
 ];
 
@@ -89,58 +93,63 @@ export function ProjectsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full hover-elevate transition-all duration-300 overflow-hidden" data-testid={`card-project-${index}`}>
-                {project.image && (
-                  <div className="w-full h-48 bg-muted overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-                <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between gap-2 mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                      <project.icon className="h-7 w-7 text-primary" />
-                    </div>
-                    <Badge className={project.badgeColor}>{project.badge}</Badge>
-                  </div>
-                  <CardTitle className="text-xl" data-testid={`text-project-title-${index}`}>{project.title}</CardTitle>
-                  {project.subtitle && (
-                    <p className="text-sm text-primary font-medium">{project.subtitle}</p>
-                  )}
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-6">{project.description}</p>
-
-                  <div className="space-y-3 mb-6">
-                    {project.features.map((feature) => (
-                      <div key={feature.text} className="flex items-center gap-3 text-sm">
-                        <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <feature.icon className="h-4 w-4 text-primary" />
-                        </div>
-                        <span>{feature.text}</span>
+              <Link href={project.href}>
+                <div className="h-full">
+                  <Card className="h-full hover-elevate transition-all duration-300 overflow-hidden cursor-pointer" data-testid={`card-project-${index}`}>
+                    {project.image && (
+                      <div className="w-full h-48 bg-muted overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                    ))}
-                  </div>
+                    )}
+                    <CardHeader className="pb-4">
+                      <div className="flex items-start justify-between gap-2 mb-4">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                          <project.icon className="h-7 w-7 text-primary" />
+                        </div>
+                        <Badge className={project.badgeColor}>{project.badge}</Badge>
+                      </div>
+                      <CardTitle className="text-xl" data-testid={`text-project-title-${index}`}>{project.title}</CardTitle>
+                      {project.subtitle && (
+                        <p className="text-sm text-primary font-medium">{project.subtitle}</p>
+                      )}
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-6">{project.description}</p>
 
-                  <div className="pt-4 border-t border-border">
-                    <p className="text-xs font-medium text-muted-foreground mb-2">FUTURE SCOPE</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.futureScope.map((scope) => (
-                        <Badge key={scope} variant="outline" className="text-xs">
-                          {scope}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                      <div className="space-y-3 mb-6">
+                        {project.features.map((feature) => (
+                          <div key={feature.text} className="flex items-center gap-3 text-sm">
+                            <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
+                              <feature.icon className="h-4 w-4 text-primary" />
+                            </div>
+                            <span>{feature.text}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="pt-4 border-t border-border">
+                        <p className="text-xs font-medium text-muted-foreground mb-2">FUTURE SCOPE</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.futureScope.map((scope) => (
+                            <Badge key={scope} variant="outline" className="text-xs">
+                              {scope}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 }

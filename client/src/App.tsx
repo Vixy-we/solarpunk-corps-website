@@ -16,6 +16,9 @@ import Contact from "@/pages/contact";
 import Membership from "@/pages/membership";
 import Alumni from "@/pages/alumni";
 import Partner from "@/pages/partner";
+import ProjectRover from "@/pages/project-rover";
+import ProjectMagazine from "@/pages/project-magazine";
+import ProjectSurvey from "@/pages/project-survey";
 import { useEffect } from "react";
 
 function Router() {
@@ -50,6 +53,9 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/sponsors/alumni" component={Alumni} />
       <Route path="/sponsors/partner" component={Partner} />
+      <Route path="/projects/rover" component={ProjectRover} />
+      <Route path="/projects/magazine" component={ProjectMagazine} />
+      <Route path="/projects/survey" component={ProjectSurvey} />
       <Route component={NotFound} />
     </Switch>
   );

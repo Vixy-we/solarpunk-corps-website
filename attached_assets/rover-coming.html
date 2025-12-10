@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project HELIOS | Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-solar: #E9C46A;
+            --color-vine: #2A9D8F;
+            --color-dark: #0f1c18;
+            --color-glow: rgba(42, 157, 143, 0.4);
+        }
+
+        body {
+            background-color: var(--color-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(42, 157, 143, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(233, 196, 106, 0.05) 0%, transparent 25%);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* Ambient Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Rotating Gear/Sun Animation */
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+
+        /* Blink Animation for cursor/lights */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .animate-blink {
+            animation: blink 2s infinite;
+        }
+
+        /* Circuit line draw animation */
+        .circuit-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear forwards;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f1c18; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A9D8F; 
+            border-radius: 4px;
+        }
+
+        .glass-panel {
+            background: rgba(15, 28, 24, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(42, 157, 143, 0.3);
+            box-shadow: 0 0 20px rgba(42, 157, 143, 0.1);
+        }
+    </style>
+</head>
+<body class="text-emerald-50 min-h-screen flex flex-col relative selection:bg-emerald-500 selection:text-white">
+
+    <!-- Background Grid -->
+    <div class="fixed inset-0 z-0 opacity-10 pointer-events-none" 
+         style="background-image: radial-gradient(#2A9D8F 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+
+    <!-- Navigation / Header -->
+    <nav class="relative z-20 w-full p-6 flex justify-between items-center">
+        <div class="flex items-center gap-2 text-emerald-400 font-bold tracking-widest text-sm uppercase">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full animate-blink"></span>
+            EcoBotics<span class="text-yellow-400"> / HELIOS</span>
+        </div>
+        <div class="hidden md:flex gap-6 text-xs text-emerald-300 opacity-60">
+            <span>PV_CELLS: 100%</span>
+            <span>WHEELS: 6X6</span>
+            <span>STATUS: PROTOTYPING</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col md:flex-row items-center justify-center relative z-10 px-6 max-w-7xl mx-auto w-full gap-12">
+        
+        <!-- Text Section -->
+        <div class="flex-1 text-center md:text-left space-y-6 max-w-lg">
+            <div class="inline-block px-3 py-1 border border-emerald-500/30 rounded-full text-xs text-emerald-400 bg-emerald-900/20 mb-2">
+                // PROJECT_LAUNCH: PENDING
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-100 to-yellow-200">
+                Solar-Powered<br>
+                <span class="text-emerald-400">Env. Rover</span>
+            </h1>
+            
+            <p class="text-emerald-200/80 text-lg leading-relaxed">
+                Our first big technical project after launch. A 6-wheel functional prototype powered entirely by solar energy.
+            </p>
+
+            <!-- Specs Grid (Replacing Email Form) -->
+            <div class="pt-6 grid grid-cols-2 gap-4 text-left">
+                <div class="p-3 border border-emerald-500/20 rounded bg-emerald-900/10 backdrop-blur-sm">
+                    <div class="text-xs text-emerald-500 mb-1">POWER SOURCE</div>
+                    <div class="font-mono text-sm text-yellow-400">100% Solar Arrays</div>
+                </div>
+                <div class="p-3 border border-emerald-500/20 rounded bg-emerald-900/10 backdrop-blur-sm">
+                    <div class="text-xs text-emerald-500 mb-1">MOBILITY</div>
+                    <div class="font-mono text-sm text-emerald-100">6-Wheel Drive</div>
+                </div>
+                <div class="col-span-2 p-3 border border-dashed border-emerald-500/20 rounded flex justify-between items-center">
+                    <span class="text-xs text-emerald-400">STATUS:</span>
+                    <span class="text-xs font-mono text-emerald-200 animate-pulse">awaiting_deployment...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Section: CSS/SVG Art -->
+        <div class="flex-1 w-full max-w-md md:max-w-xl aspect-square relative flex items-center justify-center animate-float">
+            <!-- Decorative Hexagons Behind -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                <div class="w-64 h-64 border-2 border-yellow-500/30 rounded-full animate-spin-slow" style="border-style: dashed;"></div>
+                <div class="absolute w-80 h-80 border border-emerald-500/20 rounded-full"></div>
+            </div>
+
+            <!-- Main Rover Graphic (Same Style as previous Robot Head) -->
+            <svg viewBox="0 0 400 400" class="w-full h-full drop-shadow-[0_0_15px_rgba(42,255,143,0.3)]">
+                <defs>
+                    <linearGradient id="metal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2C5364;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#203A43;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="leaf-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4ade80;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Rover Body (Similar shape language to head) -->
+                <path class="circuit-path" d="M80,260 L100,200 L300,200 L320,260 L80,260 Z" 
+                      fill="url(#metal-grad)" stroke="#4ade80" stroke-width="2" />
+                
+                <!-- Solar Panel Top Deck -->
+                <path d="M100,200 L120,160 L280,160 L300,200 Z" fill="#0f1c18" stroke="#2A9D8F" stroke-width="1" />
+                <rect x="130" y="165" width="140" height="30" fill="url(#metal-grad)" opacity="0.5" />
+                <path d="M130,165 L270,165" stroke="#E9C46A" stroke-width="2" stroke-dasharray="4,4" />
+
+                <!-- Sensor Head (Cute styling) -->
+                <g transform="translate(250, 160)">
+                    <rect x="-10" y="-40" width="20" height="40" fill="#2C5364" stroke="#4ade80" />
+                    <rect x="-25" y="-60" width="50" height="30" rx="5" fill="#0f1c18" stroke="#2A9D8F" />
+                    <!-- Eyes -->
+                    <circle cx="-12" cy="-45" r="8" fill="#E9C46A" class="animate-blink" />
+                    <circle cx="12" cy="-45" r="8" fill="#E9C46A" class="animate-blink" />
+                </g>
+
+                <!-- Plant Life on Back -->
+                <g transform="translate(140, 160)">
+                    <path d="M0,0 Q-10,-30 0,-50" fill="none" stroke="#8B4513" stroke-width="3" />
+                    <path d="M0,-30 Q-20,-40 -30,-20" fill="url(#leaf-grad)" />
+                    <path d="M0,-40 Q20,-50 30,-30" fill="url(#leaf-grad)" />
+                    <circle cx="0" cy="-55" r="5" fill="#E9C46A" class="animate-pulse" />
+                </g>
+
+                <!-- Wheels (Stylized) -->
+                <g transform="translate(0, 10)">
+                    <circle cx="100" cy="260" r="25" fill="#0f1c18" stroke="#2A9D8F" stroke-width="2" />
+                    <circle cx="100" cy="260" r="10" fill="#2C5364" />
+                    
+                    <circle cx="200" cy="260" r="25" fill="#0f1c18" stroke="#2A9D8F" stroke-width="2" />
+                    <circle cx="200" cy="260" r="10" fill="#2C5364" />
+                    
+                    <circle cx="300" cy="260" r="25" fill="#0f1c18" stroke="#2A9D8F" stroke-width="2" />
+                    <circle cx="300" cy="260" r="10" fill="#2C5364" />
+                </g>
+
+                <!-- Antennas -->
+                <line x1="250" y1="120" x2="250" y2="100" stroke="#4ade80" stroke-width="1" />
+                <circle cx="250" cy="100" r="3" fill="#E9C46A" />
+
+                <!-- Decorative Circuits -->
+                <path d="M80,280 L320,280" fill="none" stroke="#2A9D8F" stroke-width="1" opacity="0.3" stroke-dasharray="10,5" />
+            </svg>
+        </div>
+    </main>
+
+    <!-- Footer Stats -->
+    <footer class="relative z-20 w-full p-6 border-t border-emerald-900/50 bg-emerald-950/30 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-emerald-400/60">
+            <div class="flex gap-4">
+                <span class="flex items-center gap-2">
+                    <span class="block w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+                    SENSORS: ONLINE
+                </span>
+                <span class="hidden sm:inline">|</span>
+                <span class="hidden sm:inline">FUTURE: AUTONOMOUS</span>
+            </div>
+            <div class="flex gap-4">
+                <span class="hover:text-emerald-200 transition-colors cursor-default">ROBOTIC_ARM_READY</span>
+                <span class="hover:text-emerald-200 transition-colors cursor-default">CV_ENABLED</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add subtle mouse movement parallax to the rover
+        document.addEventListener('mousemove', (e) => {
+            const svg = document.querySelector('svg');
+            const x = (window.innerWidth - e.pageX) / 50;
+            const y = (window.innerHeight - e.pageY) / 50;
+            svg.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>

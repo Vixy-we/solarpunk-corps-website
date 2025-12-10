@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGreen | Vol. 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Added Playfair Display for that "Magazine/Editorial" feel -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-paper: #F3F0E6;
+            --color-ink: #1A2F23;
+            --color-accent: #D4A373;
+            /* Muted Gold */
+            --color-leaf: #4F772D;
+            --color-highlight: #90A955;
+        }
+
+        body {
+            /* Changing background to a deep, rich "Library Green" instead of tech black */
+            background-color: #0d1f18;
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(79, 119, 45, 0.15) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23F3F0E6' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E");
+            font-family: 'Space Mono', monospace;
+            color: var(--color-paper);
+            overflow-x: hidden;
+        }
+
+        .font-editorial {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Gentle Page Float Animation */
+        @keyframes hover-book {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-1deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+        }
+
+        .animate-book {
+            animation: hover-book 7s ease-in-out infinite;
+        }
+
+        /* Leaf swaying animation */
+        @keyframes sway {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .animate-sway {
+            transform-origin: bottom center;
+            animation: sway 5s ease-in-out infinite;
+        }
+
+        /* "Writing" cursor effect */
+        @keyframes blink-cursor {
+
+            0%,
+            100% {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--color-paper);
+            }
+        }
+
+        .typewriter-cursor {
+            border-right: 2px solid var(--color-paper);
+            animation: blink-cursor 0.8s step-end infinite;
+        }
+
+        .glass-card {
+            background: rgba(243, 240, 230, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(243, 240, 230, 0.1);
+        }
+
+        /* Custom selection color for that "Highlighter" feel */
+        ::selection {
+            background: var(--color-highlight);
+            color: var(--color-ink);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Navbar (Minimalist Masthead) -->
+    <nav class="relative z-20 w-full p-8 flex justify-between items-end border-b border-white/10">
+        <div>
+            <div class="font-editorial italic text-xs text-white/50 mb-1">The Student Publication</div>
+            <div class="text-xl tracking-tighter font-bold uppercase flex items-center gap-2">
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                CodeGreen
+            </div>
+        </div>
+        <div class="hidden md:block text-xs font-mono text-white/40">
+            ISSUE NO. 01 <span class="mx-2">•</span> EST. 2025
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main
+        class="flex-grow flex flex-col md:flex-row items-center justify-center relative z-10 px-8 py-12 max-w-7xl mx-auto w-full gap-16">
+
+        <!-- Text Section: Editorial Layout -->
+        <div class="flex-1 space-y-8 relative z-20">
+            <!-- decorative line -->
+            <div class="w-12 h-1 bg-green-500"></div>
+
+            <h1 class="font-editorial text-6xl md:text-8xl leading-[0.9]">
+                <span class="italic text-white/60 text-5xl md:text-6xl block mb-2">Vol. 1</span>
+                Defining<br>
+                <span class="text-green-400">Our Voice.</span>
+            </h1>
+
+            <p
+                class="text-lg md:text-xl font-editorial italic text-white/80 max-w-md leading-relaxed border-l-2 border-white/10 pl-6">
+                "Our student-run publication to establish our creative identity in a changing world."
+            </p>
+
+            <!-- Table of Contents Style List -->
+            <div class="glass-card p-6 rounded-sm max-w-sm mt-8">
+                <div
+                    class="text-xs font-mono uppercase tracking-widest text-white/40 mb-4 border-b border-white/10 pb-2">
+                    Inside This Issue</div>
+                <ul class="space-y-3 font-mono text-sm">
+                    <li class="flex items-center gap-3 text-green-100/80 group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-green-500 group-hover:bg-green-300 transition-colors"></span>
+                        Stories & Articles
+                    </li>
+                    <li class="flex items-center gap-3 text-green-100/80 group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-green-500 group-hover:bg-green-300 transition-colors"></span>
+                        Tech Ideas & Research
+                    </li>
+                    <li class="flex items-center gap-3 text-green-100/80 group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-green-500 group-hover:bg-green-300 transition-colors"></span>
+                        Social Issues Coverage
+                    </li>
+                    <li class="flex items-center gap-3 text-green-100/80 group">
+                        <span
+                            class="w-1.5 h-1.5 rounded-full bg-green-500 group-hover:bg-green-300 transition-colors"></span>
+                        Exclusive Interviews
+                    </li>
+                    <li class="flex items-center gap-3 text-white/40 italic pl-1">
+                        ...and much more
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Visual Section: The "Living Zine" SVG -->
+        <!-- Added pt-20 to shift the whole svg section down, avoiding overlap -->
+        <div class="flex-1 w-full flex items-center justify-center relative pt-20">
+
+            <!-- Abstract Background Shapes -->
+            <div class="absolute w-[600px] h-[600px] bg-green-900/20 rounded-full blur-3xl -z-10"></div>
+
+            <!-- Modified viewBox to 0 -50 700 650 to add headroom for the vines -->
+            <svg viewBox="0 -50 700 650" class="w-full max-w-[700px] animate-book drop-shadow-2xl">
+                <defs>
+                    <linearGradient id="page-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#F3F0E6;stop-opacity:1" />
+                        <stop offset="5%" style="stop-color:#d4d0c4;stop-opacity:1" /> <!-- Gutter shadow -->
+                        <stop offset="20%" style="stop-color:#F3F0E6;stop-opacity:1" />
+                        <stop offset="95%" style="stop-color:#F3F0E6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#d4d0c4;stop-opacity:1" /> <!-- Edge shadow -->
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- The Book/Magazine Structure (Enhanced 3D) -->
+                <g transform="translate(180, 250) rotate(-10)">
+
+                    <!-- Back Cover / Hardcover Thickness -->
+                    <path d="M-15,15 L340,15 L360,-30 L5,-30 Z" fill="#06110d" />
+                    <path d="M-15,15 L-15,35 L340,35 L340,15 Z" fill="#0b1c15" /> <!-- Side edge -->
+                    <path d="M5,-30 L360,-30 L360,-10 L5,-10 Z" fill="#0b1c15" /> <!-- Top edge of back cover -->
+
+                    <!-- Pages Stack (Left) -->
+                    <path d="M0,5 L160,25 L175,0 L15,-20 Z" fill="#dcd8cd" />
+                    <path d="M-2,8 L158,28 L173,3 L13,-17 Z" fill="#ccc" />
+
+                    <!-- Pages Stack (Right) -->
+                    <path d="M175,0 L340,-20 L355,5 L190,25 Z" fill="#ccc" />
+                    <path d="M177,-3 L342,-23 L357,2 L192,22 Z" fill="#dcd8cd" />
+
+                    <!-- Open Spread -->
+                    <!-- Left Page (Curved) -->
+                    <path d="M0,5 Q90,15 175,0 L185,-200 Q100,-185 10,-195 Z" fill="url(#page-grad)" stroke="#dcd8cd"
+                        stroke-width="0.5" />
+                    <!-- Right Page (Curved) -->
+                    <path d="M175,0 Q260,-15 350,5 L360,-195 Q270,-215 185,-200 Z" fill="url(#page-grad)"
+                        stroke="#dcd8cd" stroke-width="0.5" />
+
+                    <!-- Center Gutter/Spine -->
+                    <path d="M175,0 L185,-200" stroke="rgba(0,0,0,0.15)" stroke-width="1.5" />
+
+                    <!-- Content Simulation (Left Page - Grid Layout) -->
+                    <g opacity="0.8" transform="rotate(4, 90, -100) translate(20, -180)">
+                        <!-- Main Image -->
+                        <rect x="0" y="0" width="130" height="70" rx="2" fill="#2A2F23" opacity="0.15" />
+                        <rect x="0" y="0" width="130" height="70" fill="url(#page-grad)" opacity="0.1" />
+
+                        <!-- Headline -->
+                        <rect x="0" y="80" width="110" height="12" fill="#1A2F23" />
+                        <rect x="0" y="96" width="60" height="6" fill="#4F772D" />
+
+                        <!-- Text Columns -->
+                        <rect x="0" y="110" width="60" height="2" fill="#555" />
+                        <rect x="0" y="116" width="55" height="2" fill="#555" />
+                        <rect x="0" y="122" width="58" height="2" fill="#555" />
+                        <rect x="0" y="128" width="50" height="2" fill="#555" />
+                        <rect x="0" y="134" width="58" height="2" fill="#555" />
+
+                        <rect x="70" y="110" width="60" height="2" fill="#555" />
+                        <rect x="70" y="116" width="55" height="2" fill="#555" />
+                        <rect x="70" y="122" width="58" height="2" fill="#555" />
+                        <rect x="70" y="128" width="50" height="2" fill="#555" />
+                        <rect x="70" y="134" width="58" height="2" fill="#555" />
+                    </g>
+
+                    <!-- Content Simulation (Right Page - Modern Layout) -->
+                    <g opacity="0.8" transform="rotate(-4, 270, -100) translate(200, -180)">
+                        <!-- Sidebar Accent -->
+                        <rect x="-10" y="0" width="4" height="160" fill="#D4A373" opacity="0.6" />
+
+                        <!-- Header -->
+                        <rect x="0" y="0" width="100" height="8" fill="#1A2F23" />
+
+                        <!-- Diagram / Infographic -->
+                        <circle cx="65" cy="60" r="35" fill="none" stroke="#4F772D" stroke-width="1"
+                            stroke-dasharray="4,2" />
+                        <circle cx="65" cy="60" r="15" fill="#4F772D" opacity="0.2" />
+                        <line x1="65" y1="25" x2="65" y2="95" stroke="#4F772D" stroke-width="0.5" />
+                        <line x1="30" y1="60" x2="100" y2="60" stroke="#4F772D" stroke-width="0.5" />
+
+                        <!-- Text wrapping around -->
+                        <rect x="0" y="110" width="130" height="2" fill="#555" />
+                        <rect x="0" y="116" width="120" height="2" fill="#555" />
+                        <rect x="0" y="122" width="125" height="2" fill="#555" />
+                        <rect x="0" y="128" width="90" height="2" fill="#555" />
+
+                        <!-- Highlighted pull-quote -->
+                        <rect x="20" y="140" width="90" height="15" fill="#90A955" opacity="0.2" />
+                        <rect x="30" y="146" width="70" height="3" fill="#1A2F23" opacity="0.5" />
+                    </g>
+                </g>
+
+                <!-- Organic Elements (Vines & Growth) -->
+                <g class="animate-sway" style="transform-origin: 350px 350px;">
+                    <!-- Main Vines growing from the spine -->
+                    <path d="M365,250 Q380,180 350,120 Q320,60 380,0" fill="none" stroke="#4F772D" stroke-width="5"
+                        stroke-linecap="round" />
+                    <path d="M365,250 Q320,200 390,140 Q430,80 400,20" fill="none" stroke="#2A9D8F" stroke-width="3"
+                        stroke-linecap="round" opacity="0.8" />
+
+                    <!-- Leaves attached to vines (More detailed) -->
+                    <!-- Branch 1 -->
+                    <g transform="translate(370, 0) rotate(-15)">
+                        <path d="M0,0 Q10,-10 20,0 Q10,10 0,0" fill="#90A955" />
+                        <path d="M0,0 Q-10,-10 -20,0 Q-10,10 0,0" fill="#4F772D" />
+                    </g>
+                    <!-- Branch 2 -->
+                    <g transform="translate(350, 120) rotate(20)">
+                        <path d="M0,0 Q12,-8 24,0 Q12,8 0,0" fill="#4F772D" />
+                        <line x1="0" y1="0" x2="20" y2="0" stroke="#1A2F23" stroke-width="0.5" opacity="0.3" />
+                    </g>
+                    <!-- Branch 3 -->
+                    <g transform="translate(390, 140) rotate(-45)">
+                        <path d="M0,0 Q8,-15 16,0 Q8,15 0,0" fill="#90A955" />
+                    </g>
+
+                    <!-- Glowing "Ideas" / Fireflies -->
+                    <g filter="url(#glow)">
+                        <circle cx="380" cy="0" r="8" fill="#E9C46A" class="animate-pulse" />
+                        <circle cx="410" cy="60" r="4" fill="#E9C46A" opacity="0.7">
+                            <animate attributeName="cy" values="60;50;60" dur="3s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="330" cy="90" r="3" fill="#E9C46A" opacity="0.5">
+                            <animate attributeName="cx" values="330;340;330" dur="4s" repeatCount="indefinite" />
+                        </circle>
+                    </g>
+                </g>
+
+                <!-- Floating Holographic/Tech Elements Overlay (Subtle) -->
+                <g class="animate-float" style="opacity: 0.6; animation-delay: 1s;">
+                    <rect x="420" y="100" width="100" height="60" rx="4" stroke="#4ade80" stroke-width="1.5"
+                        fill="rgba(74, 222, 128, 0.05)" stroke-dasharray="4,4" />
+                    <text x="430" y="125" font-family="monospace" font-size="10" fill="#4ade80">ECO_METRICS</text>
+                    <rect x="430" y="135" width="40" height="4" fill="#4ade80" opacity="0.5" />
+                    <rect x="430" y="142" width="60" height="4" fill="#4ade80" opacity="0.3" />
+
+                    <!-- Connecting line to book -->
+                    <line x1="420" y1="130" x2="350" y2="150" stroke="#4ade80" stroke-width="0.5" stroke-dasharray="2,2"
+                        opacity="0.5" />
+                </g>
+            </svg>
+        </div>
+    </main>
+
+    <!-- Footer: Future Scope -->
+    <footer class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex gap-2 items-center text-xs font-mono uppercase tracking-widest text-white/40">
+                <span class="w-2 h-2 bg-white/20 rounded-full"></span>
+                Coming Soon
+            </div>
+
+            <!-- Future Scope Items -->
+            <div class="flex gap-8 text-sm font-editorial italic text-white/60">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    <span>Guest Contributions</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span>Digital Editions</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                    <span>Podcast Companion</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Subtle Parallax for the book
+        document.addEventListener('mousemove', (e) => {
+            const book = document.querySelector('svg');
+            const x = (window.innerWidth - e.pageX) / 60;
+            const y = (window.innerHeight - e.pageY) / 60;
+            book.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+
+</html>
