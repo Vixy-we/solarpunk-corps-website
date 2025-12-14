@@ -14,22 +14,22 @@ export async function registerRoutes(
     try {
       const validatedData = insertContactSchema.parse(req.body);
       const submission = await storage.createContactSubmission(validatedData);
-      res.status(201).json({ 
-        success: true, 
+      res.status(201).json({
+        success: true,
         message: "Contact submission received",
-        id: submission.id 
+        id: submission.id
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
         const validationError = fromError(error);
-        res.status(400).json({ 
-          success: false, 
-          message: validationError.toString() 
+        res.status(400).json({
+          success: false,
+          message: validationError.toString()
         });
       } else {
-        res.status(500).json({ 
-          success: false, 
-          message: "An error occurred while processing your request" 
+        res.status(500).json({
+          success: false,
+          message: "An error occurred while processing your request"
         });
       }
     }
@@ -41,9 +41,9 @@ export async function registerRoutes(
       const submissions = await storage.getContactSubmissions();
       res.json(submissions);
     } catch (error) {
-      res.status(500).json({ 
-        success: false, 
-        message: "An error occurred while fetching submissions" 
+      res.status(500).json({
+        success: false,
+        message: "An error occurred while fetching submissions"
       });
     }
   });

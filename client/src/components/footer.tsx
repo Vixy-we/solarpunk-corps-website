@@ -1,6 +1,7 @@
 import { Heart } from "lucide-react";
 import { useLocation } from "wouter";
 import { SiLinkedin, SiInstagram } from "react-icons/si";
+import { VisitorCounter } from "./VisitorCounter";
 
 const footerLinks = {
   about: [
@@ -169,6 +170,9 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             Solarpunk Corps — Launching 2026 • BIET Jhansi
           </p>
+
+          <VisitorCounter />
+
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Made with <Heart className="h-3 w-3 text-primary fill-current" /> for a sustainable future
             <a

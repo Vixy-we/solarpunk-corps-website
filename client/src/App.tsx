@@ -22,6 +22,8 @@ import ProjectSurvey from "@/pages/project-survey";
 import HiddenEgg from "@/pages/hidden-egg";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { useEffect } from "react";
+import ComingSoon from "@/pages/coming-soon";
+import { SITE_LIVE } from "@/config/site";
 
 function Router() {
   const [location] = useLocation();
@@ -67,6 +69,10 @@ function Router() {
 }
 
 function App() {
+  if (!SITE_LIVE) {
+    return <ComingSoon />;
+  }
+
   return (
     <ThemeProvider defaultTheme="light" storageKey="spc-theme">
       <QueryClientProvider client={queryClient}>
