@@ -28,7 +28,7 @@ This project is a full-stack web application designed to showcase the projects, 
 ### Backend
 - **Runtime**: Node.js
 - **Server**: Express.js
-- **Database**: PostgreSQL with Drizzle ORM
+- **Data Handling**: Google Apps Script (Forms), In-Memory (Session)
 - **Authentication**: Passport.js
 
 ## 📂 Project Structure
@@ -54,7 +54,6 @@ This project is a full-stack web application designed to showcase the projects, 
 
 ### Prerequisites
 - Node.js (v20 or higher recommended)
-- PostgreSQL database
 
 ### Installation
 
@@ -70,7 +69,19 @@ This project is a full-stack web application designed to showcase the projects, 
    ```
 
 3. **Environment Setup**
-   Ensure you have your environment variables set up, particularly `DATABASE_URL` for the database connection.
+
+   This project uses environment variables for external API integrations (Google Scripts).
+
+   1.  **Create a `.env` file** in the root directory.
+   2.  **Add the following variables**:
+
+       ```env
+       # External Integrations (Required for Forms)
+       VITE_GOOGLE_SCRIPT_ALUMNI_URL=your_google_script_web_app_url_for_alumni
+       VITE_GOOGLE_SCRIPT_PARTNER_URL=your_google_script_web_app_url_for_partners
+       ```
+
+       > **Note:** The Google Script URLs are required for the Alumni and Partner forms to function correctly. If you are forking this repo, you will need to set up your own Google Apps Script (or similar backend) and provide the Web App URL here.
 
 ### Running the App
 
@@ -82,21 +93,11 @@ npm run dev
 
 The application will typically be available at `http://localhost:5000`.
 
-### Database Management
-
-To push schema changes to the database:
-
-```bash
-npm run db:push
-```
-
-## 📜 Scripts
-
+### Scripts
 - `npm run dev`: Start the development server.
 - `npm run build`: Build the application for production.
 - `npm run start`: Start the production server.
 - `npm run check`: Run TypeScript type checking.
-- `npm run db:push`: Push Drizzle schema changes to the database.
 
 ---
 *Built for the Solarpunk Corps*
