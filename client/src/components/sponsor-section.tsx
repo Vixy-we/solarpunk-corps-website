@@ -128,12 +128,12 @@ export function SponsorSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Card className="bg-card border-2 border-primary/20">
+          <Card className="bg-card border-2 border-primary/20 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <TrendingUp className="h-7 w-7 text-primary" />
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                    <TrendingUp className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">The ROI of Sponsorship</h3>
@@ -152,9 +152,14 @@ export function SponsorSection() {
                   </div>
                 </div>
 
-                <Button size="lg" onClick={() => handleNavigate("/sponsors/partner")} data-testid="button-sponsor-contact">
+                <Button
+                  size="lg"
+                  onClick={() => handleNavigate("/sponsors/partner")}
+                  data-testid="button-sponsor-contact"
+                  className="group hover:scale-105 transition-all duration-300"
+                >
                   Partner With Us
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-active:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </CardContent>
@@ -168,12 +173,12 @@ export function SponsorSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-8"
         >
-          <Card className="bg-gradient-to-r from-emerald-500/5 to-emerald-400/5 border-2 border-emerald-500/20">
+          <Card className="bg-gradient-to-r from-emerald-500/5 to-emerald-400/5 border-2 border-emerald-500/20 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <CardContent className="p-10">
               <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
-                    <Users className="h-8 w-8 text-emerald-600" />
+                  <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-600 transition-colors duration-300">
+                    <Users className="h-8 w-8 text-emerald-600 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-800 dark:from-emerald-400 dark:to-emerald-200">
@@ -204,9 +209,14 @@ export function SponsorSection() {
                   </div>
                 </div>
 
-                <Button size="lg" onClick={() => handleNavigate("/sponsors/alumni")} data-testid="button-alumni-join">
+                <Button
+                  size="lg"
+                  onClick={() => handleNavigate("/sponsors/alumni")}
+                  data-testid="button-alumni-join"
+                  className="group hover:scale-105 transition-all duration-300"
+                >
                   Help Us
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-active:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </CardContent>

@@ -66,10 +66,20 @@ export default function ProjectSurvey() {
         }
 
         @keyframes morph-graph {
-            0% { d: path("M150,80 L220,150 L150,220 L80,150 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
-            33% { d: path("M150,60 L240,140 L160,240 L70,160 Z"); fill: rgba(244, 114, 182, 0.2); stroke: var(--accent-burnout); }
-            66% { d: path("M150,100 L200,150 L150,200 L100,150 Z"); fill: rgba(74, 222, 128, 0.2); stroke: var(--accent-eco); }
-            100% { d: path("M150,80 L220,150 L150,220 L80,150 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
+            /* 0% - Top Dominant -> BLUE */
+            0% { d: path("M150,60 L195,176 L90,184 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
+            
+            /* 25% - Bottom-Right Dominant -> PINK */
+            25% { d: path("M150,105 L220,190 L115,170 Z"); fill: rgba(244, 114, 182, 0.2); stroke: var(--accent-burnout); }
+            
+            /* 50% - Bottom-Left Dominant -> GREEN */
+            50% { d: path("M150,85 L205,182 L75,193 Z"); fill: rgba(74, 222, 128, 0.2); stroke: var(--accent-eco); }
+            
+            /* 75% - Top Dominant -> BLUE */
+            75% { d: path("M150,70 L215,187 L105,176 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
+            
+            /* 100% - Loop to A -> BLUE */
+            100% { d: path("M150,60 L195,176 L90,184 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
         }
         .animate-morph {
             animation: morph-graph 8s ease-in-out infinite;
@@ -218,14 +228,14 @@ export default function ProjectSurvey() {
                             <svg ref={chartRef} viewBox="0 0 300 300" className="w-full h-full drop-shadow-2xl">
                                 {/* Grid System (Concentric Hexagons) */}
                                 <g fill="none" className="chart-grid" stroke={'var(--text-secondary)'} strokeWidth="1">
-                                    <path d="M150,50 L236,100 L236,200 L150,250 L64,200 L64,100 Z" opacity="0.3" /> {/* Outer */}
-                                    <path d="M150,80 L202,110 L202,190 L150,220 L98,190 L98,110 Z" opacity="0.3" /> {/* Mid */}
-                                    <path d="M150,110 L168,120 L168,180 L150,190 L132,180 L132,120 Z" opacity="0.3" /> {/* Inner */}
+                                    <path d="M150,50 L237,100 L237,200 L150,250 L63,200 L63,100 Z" opacity="0.3" /> {/* Outer */}
+                                    <path d="M150,80 L211,115 L211,185 L150,220 L89,185 L89,115 Z" opacity="0.3" /> {/* Mid */}
+                                    <path d="M150,110 L185,130 L185,170 L150,190 L115,170 L115,130 Z" opacity="0.3" /> {/* Inner */}
 
                                     {/* Axis Lines */}
                                     <line x1="150" y1="150" x2="150" y2="50" opacity="0.3" />
-                                    <line x1="150" y1="150" x2="236" y2="200" opacity="0.3" />
-                                    <line x1="150" y1="150" x2="64" y2="200" opacity="0.3" />
+                                    <line x1="150" y1="150" x2="237" y2="200" opacity="0.3" />
+                                    <line x1="150" y1="150" x2="63" y2="200" opacity="0.3" />
                                 </g>
 
                                 {/* Axis Labels */}
