@@ -2,7 +2,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2 } from "lucide-react"; 
+import { CheckCircle2 } from "lucide-react";
 
 type ContextType = {
     title: string;
@@ -100,7 +100,7 @@ export default function Alumni() {
         try {
             // Generate Timestamp here to match Partner code
             const timestamp = new Date().toISOString();
-            
+
             const data = {
                 timestamp,
                 name: formData.name,
@@ -111,8 +111,15 @@ export default function Alumni() {
             };
 
             // 3. The Actual Request (Using your ALUMNI Link)
+            const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_ALUMNI_URL;
+            console.log("Alumni Script URL:", scriptUrl);
+
+            if (!scriptUrl) {
+                throw new Error("Google Script URL is not defined in environment variables");
+            }
+
             await fetch(
-                "https://script.google.com/macros/s/AKfycbyrhtVhXVrWH8k7dOEFSnUbkMsNp1IULvW1XmJdff7HOY8os91d4qb9zxhbcglp067vzg/exec",
+                scriptUrl,
                 {
                     method: "POST",
                     mode: "no-cors",
@@ -135,8 +142,8 @@ export default function Alumni() {
         } catch (err) {
             console.error(err);
             clearInterval(timer);
-            setStatus('error');
-            alert("Something went wrong. Please check your internet.");
+            setStatus('idle');
+            alert(err instanceof Error ? err.message : "Something went wrong. Please check your internet.");
         }
     };
 
@@ -426,7 +433,7 @@ export default function Alumni() {
                                                 </div>
                                                 <h4 className="text-lg font-bold text-green-800 dark:text-green-400">Welcome Aboard!</h4>
                                                 <p className="text-sm text-green-700 dark:text-green-300">
-                                                    Thank you for helping us build something new at our Alma Mater.
+                                                    Thank you a lot for helping us build SPC. We will contact you soon.
                                                 </p>
                                             </div>
                                         </motion.div>

@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin } from "lucide-react";
-import { SiLinkedin, SiInstagram } from "react-icons/si";
+import { SiLinkedin, SiInstagram, SiX, SiGithub } from "react-icons/si";
 import { motion } from "framer-motion";
 
 export function ContactSection() {
@@ -155,7 +155,7 @@ export function ContactSection() {
                   href="https://www.linkedin.com/company/solarpunk-corps/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-lg bg-[#0A66C2] text-white flex items-center justify-center hover-elevate transition-all"
+                  className="w-12 h-12 rounded-lg bg-[#0A66C2] text-white flex items-center justify-center hover-elevate transition-all hover:scale-110"
                   data-testid="link-social-linkedin"
                 >
                   <SiLinkedin className="h-5 w-5" />
@@ -164,10 +164,28 @@ export function ContactSection() {
                   href="https://www.instagram.com/we.the.spc/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] text-white flex items-center justify-center hover-elevate transition-all"
+                  className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] text-white flex items-center justify-center hover-elevate transition-all hover:scale-110"
                   data-testid="link-social-instagram"
                 >
                   <SiInstagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://x.com/SolarpunkCorps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-black text-white flex items-center justify-center hover-elevate transition-all hover:scale-110"
+                  data-testid="link-social-x"
+                >
+                  <SiX className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://github.com/SolarpunkCorps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-[#333] text-white flex items-center justify-center hover-elevate transition-all hover:scale-110"
+                  data-testid="link-social-github"
+                >
+                  <SiGithub className="h-5 w-5" />
                 </a>
               </div>
             </div>

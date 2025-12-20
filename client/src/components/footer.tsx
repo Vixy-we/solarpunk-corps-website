@@ -1,6 +1,6 @@
 import { Heart } from "lucide-react";
 import { useLocation } from "wouter";
-import { SiLinkedin, SiInstagram } from "react-icons/si";
+import { SiLinkedin, SiInstagram, SiX, SiGithub } from "react-icons/si";
 import { VisitorCounter } from "./VisitorCounter";
 
 const footerLinks = {
@@ -86,16 +86,34 @@ export function Footer() {
                 href="https://www.linkedin.com/company/solarpunk-corps/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all"
+                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
                 data-testid="link-footer-linkedin"
               >
                 <SiLinkedin className="h-4 w-4" />
               </a>
               <a
+                href="https://x.com/SolarpunkCorps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
+                data-testid="link-footer-x"
+              >
+                <SiX className="h-4 w-4" />
+              </a>
+              <a
+                href="https://github.com/SolarpunkCorps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
+                data-testid="link-footer-github"
+              >
+                <SiGithub className="h-4 w-4" />
+              </a>
+              <a
                 href="https://www.instagram.com/we.the.spc/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all"
+                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
                 data-testid="link-footer-instagram"
               >
                 <SiInstagram className="h-4 w-4" />
