@@ -9,10 +9,11 @@ This project is a full-stack web application designed to showcase the projects, 
 ## ✨ Features
 
 - **Interactive Projects Hub**: Dedicated pages for key initiatives like the Rover, Magazine, and Survey projects.
-- **Organization Info**: Detailed sections for About Us, Our Team, and Organization Structure.
-- **Engagement**: Membership and Contact forms for community involvement.
-- **Partner & Alumni Networks**: Showcasing our sponsors, partners, and previous members.
+- **Enhanced About Section**: Detailed "Who We Are" narrative with a dynamic "What Do We Actually Do?" showcase.
+- **Support Ecosystem**: Dedicated portals for Membership, Sponsors, and a new Alumni Support network.
+- **UX-First Navigation**: Redesigned Footer with clear categorization (Organization, Initiatives, Connect) for better discoverability.
 - **Dynamic Theming**: Built-in support for Light and Dark modes.
+- **Interactive Animations**: Custom "Pluck" effects on project cards and interactive icons.
 - **Hidden Easter Egg**: Hunt for the hidden surprise within the site!
 
 ## 🛠 Tech Stack

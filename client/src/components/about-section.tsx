@@ -51,16 +51,16 @@ export function AboutSection() {
           style={{ backgroundImage: "url('/csr.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
           <div className="absolute inset-0 bg-black/50" aria-hidden />
-              <div className="relative z-10 flex items-center justify-center h-full px-6 text-center">
-                <div className="inline-block bg-black/30 backdrop-blur-sm rounded-lg px-6 py-4">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-md">Solarpunk Corps</h1>
-                  <p className="mt-3 text-sm sm:text-base md:text-lg text-white/90 font-medium">Where Technology, Nature, and People Meet</p>
-                </div>
-              </div>
+          <div className="relative z-10 flex items-center justify-center h-full px-6 text-center">
+            <div className="inline-block bg-black/30 backdrop-blur-sm rounded-lg px-6 py-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-md">Solarpunk Corps</h1>
+              <p className="mt-3 text-sm sm:text-base md:text-lg text-white/90 font-medium">Where Technology, Nature, and People Meet</p>
+            </div>
+          </div>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,11 +70,11 @@ export function AboutSection() {
           <Badge variant="secondary" className="mb-4" data-testid="badge-about">About Us</Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-6" data-testid="text-about-title">Who We Are</h2>
           <p className="max-w-3xl mx-auto text-lg text-muted-foreground" data-testid="text-about-description">
-            Solarpunk Corps is in the founding stage — created by students who want a space where engineering meets ethics, creativity meets sustainability, and learning meets action. We want to fill the gap between classroom theory and real-world application.
+            Solarpunk Corps is an interdisciplinary student-led club currently in its founding stage. It is being built by students from diverse fields who believe engineering should meet ethics, creativity should meet sustainability, and learning should lead to real-world action. Our goal is to bridge the gap between classroom theory and practical, socially responsible application
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export function AboutSection() {
               <h3 className="text-xl font-semibold mb-6 text-center" data-testid="text-identity-title">Our Identity</h3>
               <div className="flex flex-wrap justify-center gap-4">
                 {identity.map((item, index) => (
-                  <div 
+                  <div
                     key={item.label}
                     className="flex items-center gap-2 px-4 py-2 bg-background/80 rounded-full border border-border"
                   >
@@ -100,6 +100,43 @@ export function AboutSection() {
               </div>
             </CardContent>
           </Card>
+        </motion.div>
+
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="mt-0 p-8 md:p-10 rounded-3xl bg-gradient-to-br from-background to-muted/50 border border-primary/10 shadow-sm text-left relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-12 -mr-12 -mt-12 bg-primary/5 rounded-full blur-3xl"></div>
+
+            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground relative z-10" data-testid="text-about-what-we-do-title">
+              What Do <span className="text-primary">We Actually Do?</span>
+            </h3>
+
+            <div className="space-y-6 relative z-10">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                At Solarpunk Corps, we work on <span className="font-semibold text-foreground">robotics, sustainable technologies, and socially responsible initiatives</span>—but we don’t put rigid limits on what that must look like.
+              </p>
+
+              <div className="pl-4 border-l-4 border-primary/20 italic text-muted-foreground">
+                Projects can range from building robots or automation systems to developing eco-friendly tech, community-focused engineering solutions, educational outreach, or creative–technical experiments.
+              </div>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Rather than handing students a fixed roadmap, <span className="font-semibold text-foreground">we encourage members to define the problems they care about</span>, shape the goals, and design the projects themselves.
+              </p>
+
+              <div className="mt-8 pt-6 border-t border-border">
+                <p className="text-lg font-medium text-foreground">
+                  If you want to propose an idea, lead a project, or even redefine what the club should work on next—
+                  <span className="text-primary font-bold">this is the place to do it.</span>
+                </p>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

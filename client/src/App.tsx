@@ -58,6 +58,7 @@ function Router() {
       <Route path="/our-team" component={OurTeam} />
       <Route path="/contact" component={Contact} />
       <Route path="/sponsors/alumni" component={Alumni} />
+      <Route path="/alumni" component={Alumni} />
       <Route path="/sponsors/partner" component={Partner} />
       <Route path="/projects/rover" component={ProjectRover} />
       <Route path="/projects/magazine" component={ProjectMagazine} />

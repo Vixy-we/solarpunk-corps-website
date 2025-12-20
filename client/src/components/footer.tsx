@@ -4,21 +4,23 @@ import { SiLinkedin, SiInstagram, SiX, SiGithub } from "react-icons/si";
 import { VisitorCounter } from "./VisitorCounter";
 
 const footerLinks = {
-  about: [
+  organization: [
     { label: "About Us", href: "/about" },
-    { label: "What We Do", href: "/what-we-do" },
     { label: "Our Team", href: "/our-team" },
-    { label: "Structure", href: "/structure" }
-  ],
-  join: [
     { label: "Structure", href: "/structure" },
-    { label: "Membership", href: "/membership" },
-    { label: "FAQ", href: "/contact#faq-top" },
-    { label: "Contact", href: "/contact#contact-main" }
+    { label: "Membership", href: "/membership" }
   ],
-  support: [
+  initiatives: [
+    { label: "Scope", href: "/what-we-do" },
+    { label: "Rover", href: "/projects/rover" },
+    { label: "Magazine", href: "/projects/magazine" },
+    { label: "Campus Survey", href: "/projects/survey" }
+  ],
+  connect: [
     { label: "Sponsor Us", href: "/sponsors" },
-    { label: "Projects", href: "/projects" }
+    { label: "Support as Alumni", href: "/alumni" },
+    { label: "FAQ", href: "/contact#faq-top" },
+    { label: "Contact", href: "/contact" }
   ]
 };
 
@@ -35,7 +37,9 @@ export function Footer() {
       "/structure": "structure-top",
       "/sponsors": "sponsor-top",
       "/projects": "projects-top",
-      "/membership": "membership-top"
+      "/membership": "membership-top",
+      "/contact": "contact-main",
+      "/alumni": "alumni-top"
     };
 
     if (path === "/" || path === "") {
@@ -66,70 +70,55 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-background via-emerald-950/5 to-blue-950/10 border-t border-border/40">
+
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-16">
+          {/* Column 1: Brand (Span 4 columns) */}
+          <div className="col-span-2 md:col-span-4 flex flex-col items-start">
             <a
               href="/"
               onClick={(e) => handleNavigate(e, "/")}
-              className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity"
+              className="flex items-center gap-3 mb-6 group"
             >
-              <img src="/SPC_logo.png" alt="Solarpunk Corps Logo" className="h-8 w-8 object-contain" />
-              <span className="font-bold text-lg">Solarpunk Corps</span>
+              <img src="/SPC_logo.png" alt="Solarpunk Corps Logo" className="h-10 w-10 object-contain group-hover:scale-110 transition-transform duration-300" />
+              <span className="font-bold text-xl tracking-tight">Solarpunk Corps</span>
             </a>
-            <p className="text-sm text-muted-foreground mb-4">
-              Where Technology, Nature, and People Meet.
+            <p className="text-muted-foreground mb-6 leading-relaxed max-w-sm">
+              <span className="text-base font-medium text-foreground/90">Where Technology, Nature, and People Meet.</span>
+              <span className="block text-sm mt-1">Building a humane future, together. 🌱⚡</span>
             </p>
             <div className="flex gap-3">
-              <a
-                href="https://www.linkedin.com/company/solarpunk-corps/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
-                data-testid="link-footer-linkedin"
-              >
-                <SiLinkedin className="h-4 w-4" />
-              </a>
-              <a
-                href="https://x.com/SolarpunkCorps"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
-                data-testid="link-footer-x"
-              >
-                <SiX className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/SolarpunkCorps"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
-                data-testid="link-footer-github"
-              >
-                <SiGithub className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/we.the.spc/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-accent hover:text-accent-foreground"
-                data-testid="link-footer-instagram"
-              >
-                <SiInstagram className="h-4 w-4" />
-              </a>
+              {[
+                { icon: SiLinkedin, href: "https://www.linkedin.com/company/solarpunk-corps/", testId: "link-footer-linkedin", color: "hover:text-[#0077b5]" },
+                { icon: SiX, href: "https://x.com/SolarpunkCorps", testId: "link-footer-x", color: "hover:text-foreground" },
+                { icon: SiGithub, href: "https://github.com/SolarpunkCorps", testId: "link-footer-github", color: "hover:text-foreground" },
+                { icon: SiInstagram, href: "https://www.instagram.com/we.the.spc/", testId: "link-footer-instagram", color: "hover:text-[#E4405F]" }
+              ].map((social) => (
+                <a
+                  key={social.href}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-10 h-10 rounded-lg bg-muted/50 border border-border flex items-center justify-center hover-elevate transition-all hover:scale-110 hover:bg-background ${social.color}`}
+                  data-testid={social.testId}
+                >
+                  <social.icon className="h-4 w-4 transition-colors" />
+                </a>
+              ))}
             </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">About</h3>
-            <ul className="space-y-2">
-              {footerLinks.about.map((link) => (
+          {/* Column 2: Organization (Span 2 columns) */}
+          <div className="col-span-1 md:col-span-2 md:col-start-6">
+            <h3 className="font-bold mb-6 text-foreground">Organization</h3>
+            <ul className="space-y-3">
+              {footerLinks.organization.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-0.5"
                   >
                     {link.label}
                   </a>
@@ -138,15 +127,16 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Join</h3>
-            <ul className="space-y-2">
-              {footerLinks.join.map((link) => (
+          {/* Column 3: Initiatives (Span 2 columns) */}
+          <div className="col-span-1 md:col-span-2">
+            <h3 className="font-bold mb-6 text-foreground">Initiatives</h3>
+            <ul className="space-y-3">
+              {footerLinks.initiatives.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-0.5"
                   >
                     {link.label}
                   </a>
@@ -155,48 +145,46 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
-              {footerLinks.support.map((link) => (
+          {/* Column 4: Connect (Span 2 columns) */}
+          <div className="col-span-2 md:col-span-2">
+            <h3 className="font-bold mb-6 text-foreground">Connect</h3>
+            <ul className="space-y-3">
+              {footerLinks.connect.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-0.5"
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="mt-4 pt-4 border-t border-border">
-              <p className="text-xs text-muted-foreground">
-                Email:<br />
-                <a
-                  href="mailto:solarpunkcorps@gmail.com"
-                  className="hover:text-foreground transition-colors"
-                >
-                  solarpunkcorps@gmail.com
-                </a>
-              </p>
+            <div className="mt-8 pt-6 border-t border-border">
+              <a
+                href="mailto:solarpunkcorps@gmail.com"
+                className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium"
+              >
+                solarpunkcorps@gmail.com
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-sm text-muted-foreground">
-            Solarpunk Corps — Launching 2026 • BIET Jhansi
+            © {new Date().getFullYear()} Solarpunk Corps • BIET Jhansi
           </p>
 
           <VisitorCounter />
 
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Made with <Heart className="h-3 w-3 text-primary fill-current" /> for a sustainable future
+            Made with <Heart className="h-3 w-3 text-rose-500 fill-current animate-pulse" /> for a sustainable future
             <a
               href="/hidden-egg"
               onClick={(e) => { e.preventDefault(); navigate('/hidden-egg'); }}
-              className="inline-block ml-1 hover:text-yellow-400 transition-colors"
+              className="inline-block ml-1 hover:text-yellow-400 transition-colors opacity-50 hover:opacity-100"
               aria-label="Star"
             >
               ★

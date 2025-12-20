@@ -186,7 +186,7 @@ export function Navigation() {
 
                 {/* Partners Dropdown */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={cn(isPartnersActive && "bg-[#FD8F36] text-accent-foreground")}>Partners</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={cn(isPartnersActive && "bg-[#FD8F36] text-accent-foreground")}>Sponsor Us</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                       <li className="row-span-3">
@@ -274,7 +274,7 @@ export function Navigation() {
               </div>
 
               <div className="px-2">
-                <h4 className="mb-2 px-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">Partners</h4>
+                <h4 className="mb-2 px-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">Sponsor Us</h4>
                 {partnerLinks.map((item) => (
                   <MobileLink key={item.href} href={item.href} onClick={(e) => handleNavigate(e, item.href)}>
                     {item.title}
