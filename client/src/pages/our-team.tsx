@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { GraduationCap, Crown, Users, Wrench, Leaf, Cpu, BookOpen, Globe, Calendar, Heart, Palette, Coins } from "lucide-react";
+import { GraduationCap, Sparkles, Users, Wrench, Leaf, Cpu, BookOpen, Globe, Calendar, Heart, Palette, Coins, Info } from "lucide-react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
@@ -33,7 +33,7 @@ const facultyAdvisors = [
 const leadership = [
   {
     title: "Founder & Chairperson",
-    icon: Crown,
+    icon: Sparkles,
     initials: "CP",
     color: "bg-primary/20 text-primary"
   },
@@ -200,6 +200,20 @@ export default function OurTeam() {
         <section id="team-top" className="py-20 md:py-32">
           <span id="our-team" />
           <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12 p-4 rounded-xl border border-yellow-500/20 bg-yellow-500/5 backdrop-blur-sm flex gap-4 items-start md:items-center max-w-3xl mx-auto"
+            >
+              <div className="p-2 rounded-full bg-yellow-500/10 shrink-0">
+                <Info className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
+              </div>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-yellow-700 dark:text-yellow-400 mr-1">Note:</span>
+                This page will be continually updated as full team members are officially announced and assigned roles.
+              </p>
+            </motion.div>
             <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
