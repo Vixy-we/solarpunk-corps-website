@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Cpu, Wrench, Newspaper, Heart, Building2, TrendingUp, ArrowRight, Users, Coins } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
+import { useEffect } from "react";
 
 const fundingAreas = [
   { icon: Cpu, title: "Hardware Lab", description: "Microcontrollers, sensors, motors, battery systems" },
@@ -22,6 +23,10 @@ const commitments = [
 
 export function SponsorSection() {
   const [location, setLocation] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const defaultAnchors: Record<string, string> = {
     "/sponsors/partner": "partner-top",

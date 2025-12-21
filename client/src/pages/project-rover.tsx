@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { Link } from "wouter";
 
 export default function ProjectRover() {
     const svgRef = useRef<SVGSVGElement>(null);
@@ -240,6 +241,19 @@ export default function ProjectRover() {
                         </svg>
                     </div>
                 </main>
+
+                {/* CTA Message */}
+                <div className="text-center mb-6 z-20 relative">
+                    <p className="font-mono text-sm mb-4 opacity-70" style={{ color: 'var(--text-muted)' }}>Help us build this future.</p>
+                    <Link href="/sponsors">
+                        <a className="group relative inline-flex items-center justify-center gap-3 px-8 py-3 overflow-hidden font-mono font-bold tracking-widest text-sm text-emerald-600 border border-emerald-500/50 rounded hover:bg-emerald-500/10 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 uppercase cursor-pointer bg-emerald-950/5 backdrop-blur-sm">
+                            <span className="relative z-10 flex items-center gap-2">
+                                SUPPORT PROJECT
+                                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                            </span>
+                        </a>
+                    </Link>
+                </div>
 
                 {/* Footer Stats */}
                 <div className="relative z-20 w-full p-6 border-t backdrop-blur-sm mt-auto transition-colors"

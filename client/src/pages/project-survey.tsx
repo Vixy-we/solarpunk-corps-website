@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Activity, Zap, Leaf } from "lucide-react";
+import { Link } from "wouter";
 
 export default function ProjectSurvey() {
     const chartRef = useRef<SVGSVGElement>(null);
@@ -112,6 +113,36 @@ export default function ProjectSurvey() {
         .text-gradient-tech { background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-gradient-burnout { background: linear-gradient(to right, #f472b6, #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-gradient-eco { background: linear-gradient(to right, #4ade80, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        @keyframes tri-pulse {
+            0% { 
+                box-shadow: 0 0 20px -5px rgba(56,189,248,0.3); 
+                border-color: rgba(56,189,248,0.5);
+                background-color: rgba(56,189,248,0.05); /* Blue */
+            }
+            33% { 
+                box-shadow: 0 0 20px -5px rgba(244,114,182,0.3); 
+                border-color: rgba(244,114,182,0.5);
+                background-color: rgba(244,114,182,0.05); /* Pink */
+            }
+            66% { 
+                box-shadow: 0 0 20px -5px rgba(74,222,128,0.3); 
+                border-color: rgba(74,222,128,0.5);
+                background-color: rgba(74,222,128,0.05); /* Green */
+            }
+            100% { 
+                box-shadow: 0 0 20px -5px rgba(56,189,248,0.3); 
+                border-color: rgba(56,189,248,0.5);
+                background-color: rgba(56,189,248,0.05);
+            }
+        }
+        .tri-glow-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tri-glow-hover:hover {
+            animation: tri-pulse 6s infinite ease-in-out;
+            transform: translateY(-2px);
+        }
       `}</style>
 
             <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -257,6 +288,21 @@ export default function ProjectSurvey() {
                         </div>
                     </div>
                 </main>
+
+                {/* CTA Message */}
+                <div className="text-center mb-8 z-20 relative">
+                    <p className="font-data text-xs uppercase tracking-widest mb-4 opacity-80" style={{ color: 'var(--text-secondary)' }}>Enable these insights.</p>
+                    <Link href="/sponsors">
+                        <a className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 cursor-pointer font-data font-bold text-sm tracking-wide overflow-hidden shadow-sm tri-glow-hover"
+                            style={{ color: 'var(--text-primary)' }}>
+
+                            <span className="relative z-10 flex items-center gap-2">
+                                Support This Initiative
+                                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                            </span>
+                        </a>
+                    </Link>
+                </div>
 
                 {/* Internal Footer: Future Scope */}
                 <div className="w-full border-t border-slate-700/50 backdrop-blur-md mt-auto transition-colors"

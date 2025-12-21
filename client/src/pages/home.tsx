@@ -204,7 +204,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Fuel the Movement</h2>
             <p className="text-lg text-muted-foreground mb-12">
-              A student club is only as strong as its community. Whether you are an alumni, a company, or a student — we need you.
+              A student club is only as strong as its community. <br /> Whether you are an alumni, an individual or a company — we need you.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -214,7 +214,7 @@ export default function Home() {
                     <Users className="h-8 w-8 text-emerald-600 dark:text-emerald-400 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">For Alumni</h3>
-                  <p className="text-sm text-muted-foreground mb-4">Mentor the next generation.</p>
+                  <p className="text-sm text-muted-foreground mb-4">Mentor and support the next generation.</p>
                   <span className="text-emerald-600 font-semibold text-sm">Join Network &rarr;</span>
                 </CardContent>
               </Card>
@@ -225,7 +225,7 @@ export default function Home() {
                     <Zap className="h-8 w-8 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">For Partners</h3>
-                  <p className="text-sm text-muted-foreground mb-4">Collaborate on innovation.</p>
+                  <p className="text-sm text-muted-foreground mb-4">Collaborate on innovation and impact.</p>
                   <span className="text-blue-600 font-semibold text-sm">Sponsor Us &rarr;</span>
                 </CardContent>
               </Card>
