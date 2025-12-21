@@ -1,5 +1,7 @@
 # SPC Website
 
+![SPC Website Screenshot](attached_assets/screenshot.webp)
+
 Official website for the Solarpunk Corps (SPC).
 
 ## 🚀 About
