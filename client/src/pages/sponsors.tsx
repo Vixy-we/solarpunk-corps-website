@@ -1,13 +1,13 @@
 import { Navigation } from "@/components/navigation";
-import { SponsorSection } from "@/components/sponsor-section";
+import { SupportSection } from "@/components/support-section";
 import { Footer } from "@/components/footer";
 
 export default function Sponsors() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <main className="pt-16">
-        <SponsorSection />
+        <SupportSection />
       </main>
       <Footer />
     </div>

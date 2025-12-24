@@ -51,6 +51,12 @@ const divisions = [
     title: "Design & Media",
     category: "Creative",
     description: "Posters, branding, solarpunk aesthetics, photography, and videography."
+  },
+  {
+    icon: Coins,
+    title: "Finance Division",
+    category: "Finance",
+    description: "Budgeting, expenditure logs, and sponsorship proposals."
   }
 ];
 
@@ -68,6 +74,8 @@ const getCategoryColor = (category: string) => {
       return "bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20";
     case "Creative":
       return "bg-accent/20 text-accent-foreground border-accent/30";
+    case "Finance":
+      return "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20";
     default:
       return "bg-secondary text-secondary-foreground border-secondary";
   }
@@ -77,7 +85,7 @@ export function DivisionsSection() {
   return (
     <section id="divisions" className="py-20 md:py-32 bg-card/50">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +100,7 @@ export function DivisionsSection() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {divisions.map((division, index) => (
+          {divisions.slice(0, 8).map((division, index) => (
             <motion.div
               key={division.title}
               initial={{ opacity: 0, y: 20 }}
@@ -118,25 +126,30 @@ export function DivisionsSection() {
           ))}
         </div>
 
-        <motion.div 
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <Card className="inline-block">
-            <CardContent className="p-6 flex flex-col sm:flex-row items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
-                <Coins className="h-6 w-6 text-accent-foreground" />
-              </div>
-              <div className="text-left">
-                <h3 className="font-semibold">Finance Division</h3>
+        <div className="mt-6 flex justify-center">
+          <motion.div
+            className="w-full sm:max-w-[calc(50%-12px)] lg:max-w-[calc(25%-18px)]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <Card className="h-full hover-elevate transition-all duration-300" data-testid="card-division-finance">
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between gap-2 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Coins className="h-6 w-6 text-primary" />
+                  </div>
+                  <Badge variant="outline" className={getCategoryColor("Finance")}>
+                    Finance
+                  </Badge>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" data-testid="text-division-title-finance">Finance Division</h3>
                 <p className="text-sm text-muted-foreground">Budgeting, expenditure logs, and sponsorship proposals.</p>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

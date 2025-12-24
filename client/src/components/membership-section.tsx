@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Compass, Briefcase, Crown, ArrowRight, Check } from "lucide-react";
+import { Compass, Briefcase, Zap, ArrowRight, Check } from "lucide-react";
 import { motion } from "framer-motion";
 
 const tiers = [
@@ -36,7 +36,7 @@ const tiers = [
     ]
   },
   {
-    icon: Crown,
+    icon: Zap,
     title: "Leaders",
     year: "3rd–4th Year",
     color: "from-primary/20 to-primary/30",
