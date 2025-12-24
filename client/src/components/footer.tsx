@@ -8,7 +8,8 @@ const footerLinks = {
     { label: "About Us", href: "/about" },
     { label: "Our Team", href: "/our-team" },
     { label: "Structure", href: "/structure" },
-    { label: "Membership", href: "/membership" }
+    { label: "Membership", href: "/membership" },
+    { label: "Experience SPC", href: "/under-construction" }
   ],
   initiatives: [
     { label: "Scope", href: "/what-we-do" },

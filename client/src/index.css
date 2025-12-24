@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -288,9 +289,17 @@
   }
 
   @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   .animate-gradient {
@@ -298,8 +307,15 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   .animate-float {

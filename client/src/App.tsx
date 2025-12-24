@@ -23,6 +23,8 @@ import HiddenEgg from "@/pages/hidden-egg";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { useEffect } from "react";
 import ComingSoon from "@/pages/coming-soon";
+import ExperienceSPC from "@/pages/experience-spc";
+import UnderConstruction from "@/pages/under-construction";
 import { SITE_LIVE } from "@/config/site";
 
 function Router() {
@@ -64,6 +66,8 @@ function Router() {
       <Route path="/projects/magazine" component={ProjectMagazine} />
       <Route path="/projects/survey" component={ProjectSurvey} />
       <Route path="/hidden-egg" component={HiddenEgg} />
+      <Route path="/experience-spc" component={ExperienceSPC} />
+      <Route path="/under-construction" component={UnderConstruction} />
       <Route component={NotFound} />
     </Switch>
   );
