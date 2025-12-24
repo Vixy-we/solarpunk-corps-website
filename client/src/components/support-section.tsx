@@ -31,6 +31,34 @@ const commitments = [
     { title: "Youth Mentorship First", description: "Priority is always given to student growth and professional development." }
 ];
 
+function BackgroundElements() {
+    return (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Animated Solar Circles */}
+            <motion.div
+                className="absolute top-[10%] left-[5%] w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+                animate={{
+                    scale: [1, 1.2, 1],
+                    x: [0, 20, 0],
+                    y: [0, -20, 0],
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+                className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"
+                animate={{
+                    scale: [1.2, 1, 1.2],
+                    x: [0, -30, 0],
+                    y: [0, 30, 0],
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Ambient Grid */}
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 pointer-events-none mix-blend-overlay"></div>
+        </div>
+    );
+}
+
 export function SupportSection() {
     const [, setLocation] = useLocation();
 
@@ -46,22 +74,28 @@ export function SupportSection() {
     };
 
     return (
-        <section id="support-top" className="py-20 md:py-32 bg-gradient-to-b from-background via-primary/5 to-background">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="support-top" className="relative py-20 md:py-32 bg-background transition-colors duration-500 overflow-hidden">
+            <BackgroundElements />
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
                 <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 20 }}
+                    className="text-center mb-24"
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <Badge variant="outline" className="mb-4 border-primary/30 text-primary px-4 py-1">Collaborate</Badge>
-                    <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+                    <Badge variant="outline" className="mb-6 border-primary/30 text-primary px-4 py-1.5 text-sm font-medium tracking-wide bg-primary/5">
+                        Collaborate with SPC
+                    </Badge>
+                    <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter leading-[1.1]">
                         Help Us Forge the <br />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-600">Solarpunk Future.</span>
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-500 to-primary bg-[length:200%_auto] animate-gradient">
+                            Solarpunk Future.
+                        </span>
                     </h2>
-                    <p className="max-w-3xl mx-auto text-xl text-muted-foreground font-serif leading-relaxed">
+                    <p className="max-w-3xl mx-auto text-xl md:text-2xl text-muted-foreground font-serif leading-relaxed opacity-90">
                         The future isn't just funded—it's forged. Whether you are an alumnus looking to share expertise or a partner seeking to empower innovation, your contribution shapes the next generation of builders.
                     </p>
                 </motion.div>
@@ -72,6 +106,7 @@ export function SupportSection() {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
+                        whileHover={{ scale: 1.01 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
@@ -93,32 +128,32 @@ export function SupportSection() {
                                 </p>
 
                                 <div className="grid grid-cols-2 gap-4 mb-10">
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                        <span>Mentorship & Insights</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                        <span>Resource Support</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                        <span>Financial Seed Fund</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                        <span>Advisory & Guidance</span>
-                                    </div>
+                                    {[
+                                        "Mentorship & Insights", "Resource Support",
+                                        "Financial Seed Fund", "Advisory & Guidance"
+                                    ].map((item, i) => (
+                                        <motion.div
+                                            key={item}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.3 + (i * 0.1) }}
+                                            className="flex items-center gap-2 text-sm font-medium"
+                                        >
+                                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                            <span>{item}</span>
+                                        </motion.div>
+                                    ))}
                                 </div>
 
                                 <div className="mt-auto">
                                     <Button
                                         size="lg"
-                                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white gap-2 text-lg h-14"
+                                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white gap-2 text-lg h-14 group/btn hover:scale-[1.02] transition-all duration-300"
                                         onClick={() => handleNavigate("/sponsors/alumni")}
                                     >
                                         Reconnect as Alumni
-                                        <ArrowRight className="h-5 w-5" />
+                                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                                     </Button>
                                 </div>
                             </CardContent>
@@ -129,6 +164,7 @@ export function SupportSection() {
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
+                        whileHover={{ scale: 1.01 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
@@ -150,32 +186,32 @@ export function SupportSection() {
                                 </p>
 
                                 <div className="grid grid-cols-2 gap-4 mb-10">
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-primary" />
-                                        <span>Corporate Sponsorship</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-primary" />
-                                        <span>Project Micro-Grants</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-primary" />
-                                        <span>Knowledge Shares</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-primary" />
-                                        <span>Hiring Access</span>
-                                    </div>
+                                    {[
+                                        "Corporate Sponsorship", "Project Micro-Grants",
+                                        "Knowledge Shares", "Hiring Access"
+                                    ].map((item, i) => (
+                                        <motion.div
+                                            key={item}
+                                            initial={{ opacity: 0, x: 10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.4 + (i * 0.1) }}
+                                            className="flex items-center gap-2 text-sm font-medium"
+                                        >
+                                            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                                            <span>{item}</span>
+                                        </motion.div>
+                                    ))}
                                 </div>
 
                                 <div className="mt-auto">
                                     <Button
                                         size="lg"
-                                        className="w-full bg-primary hover:bg-primary/90 gap-2 text-lg h-14"
+                                        className="w-full bg-primary hover:bg-primary/90 gap-2 text-lg h-14 group/btn hover:scale-[1.02] transition-all duration-300"
                                         onClick={() => handleNavigate("/sponsors/partner")}
                                     >
                                         Partner With Us
-                                        <ArrowRight className="h-5 w-5" />
+                                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                                     </Button>
                                 </div>
                             </CardContent>
@@ -199,15 +235,24 @@ export function SupportSection() {
 
                         <div className="grid md:grid-cols-4 gap-6">
                             {supportImpact.map((item, index) => (
-                                <Card key={item.title} className="bg-card/50 backdrop-blur-sm hover-elevate transition-all">
-                                    <CardContent className="p-6 text-center">
-                                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                                            <item.icon className="h-6 w-6 text-primary" />
-                                        </div>
-                                        <h4 className="font-bold mb-2">{item.title}</h4>
-                                        <p className="text-sm text-muted-foreground">{item.description}</p>
-                                    </CardContent>
-                                </Card>
+                                <motion.div
+                                    key={item.title}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    whileHover={{ y: -10, transition: { duration: 0.2 } }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                >
+                                    <Card className="bg-card/50 backdrop-blur-sm hover:shadow-2xl hover:shadow-primary/10 transition-all h-full border-primary/10">
+                                        <CardContent className="p-6 text-center">
+                                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                                                <item.icon className="h-6 w-6 text-primary" />
+                                            </div>
+                                            <h4 className="font-bold mb-2">{item.title}</h4>
+                                            <p className="text-sm text-muted-foreground">{item.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
