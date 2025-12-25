@@ -452,12 +452,12 @@ export default function ExperienceSPC() {
                         transition={{ duration: 1 }}
                     >
                         <h2 className="text-6xl md:text-9xl font-bold mb-8 tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-emerald-800 to-teal-600 drop-shadow-sm pb-4 leading-tight">
-                            Solarpunk Corps.
+                            Solarpunk Corps
                         </h2>
                     </motion.div>
 
                     <p className="text-2xl md:text-4xl text-emerald-800/90 font-serif italic mb-12 max-w-4xl mx-auto leading-relaxed">
-                        “This future feels possible.<br />I want to be part of it.”
+                        “Let’s build a future worth living for.”
                     </p>
 
                     <div className="relative group">
