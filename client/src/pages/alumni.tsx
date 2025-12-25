@@ -191,7 +191,7 @@ export default function Alumni() {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 dark:text-card-foreground mb-2 font-serif">The Builder</h3>
-                        <p className="text-sm text-gray-500 dark:text-muted-foreground leading-relaxed mb-4">We are building our inventory from zero. You can help kickstart our lab and clubroom with tools, equipment, or essential infrastructure.</p>
+                        <p className="text-sm text-gray-500 dark:text-muted-foreground leading-relaxed mb-4">We are building our inventory from zero. You can help kickstart our clubroom with tools, equipment, or essential infrastructure.</p>
                         <span className="text-amber-600 dark:text-amber-400 text-sm font-semibold flex items-center">Donate Gear <span className="ml-1 transition-transform group-hover:translate-x-1">→</span></span>
                     </div>
 
