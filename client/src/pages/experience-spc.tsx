@@ -1,7 +1,44 @@
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef, useState, useEffect, useMemo } from "react";
+import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowDown } from "lucide-react";
+import {
+    ArrowDown, Leaf, Sprout, Bot, TreeDeciduous, Sun, Building2,
+    Users, Heart, HandHeart, Globe, Cpu, Zap, Flower, Flower2,
+    Factory, Palette, Brush, Paintbrush
+} from "lucide-react";
+
+// --- FLOATING ICON COMPONENT ---
+const FloatingIcon = ({ Icon, index, opacity }: { Icon: any, index: number, opacity: MotionValue<number> }) => {
+    const randomX = useMemo(() => Math.random() * 80 + 10, []); // 10% - 90%
+    const randomY = useMemo(() => Math.random() * 80 + 10, []); // 10% - 90%
+    const duration = useMemo(() => 15 + Math.random() * 10, []);
+    const delay = useMemo(() => Math.random() * 5, []);
+    const size = useMemo(() => 24 + Math.random() * 24, []); // 24px - 48px
+
+    return (
+        <motion.div
+            className="absolute text-indigo-200/20"
+            style={{
+                left: `${randomX}%`,
+                top: `${randomY}%`,
+                opacity
+            }}
+            animate={{
+                y: [0, -20, 0],
+                rotate: [0, 5, -5, 0],
+                scale: [1, 1.1, 1]
+            }}
+            transition={{
+                duration,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay
+            }}
+        >
+            <Icon size={size} strokeWidth={1.5} />
+        </motion.div>
+    );
+};
 
 export default function ExperienceSPC() {
     // Scroll to top on mount
@@ -52,8 +89,8 @@ export default function ExperienceSPC() {
 
     // PHASE 2: THE CONFLICT (15% - 35%)
     // Start overlap with P1 (0.12), visible until 0.35
-    const p2Opacity = useTransform(smoothProgress, [0.12, 0.17, 0.28, 0.33], [0, 1, 1, 0]);
-    const p2Y = useTransform(smoothProgress, [0.12, 0.35], [50, -50]);
+    const p2Opacity = useTransform(smoothProgress, [0.15, 0.20, 0.35, 0.40], [0, 1, 1, 0]);
+    const p2Y = useTransform(smoothProgress, [0.15, 0.35], [50, -50]);
 
     // PHASE 3: THE FRAMEWORK (35% - 55%)
     // SHIFTED: Starts fading in at 0.28 (was 0.32/0.25 prev). Becomes full at 0.38
@@ -100,13 +137,13 @@ export default function ExperienceSPC() {
                     <motion.div style={{ opacity: p1Opacity, filter: useTransform(p1Blur, v => `blur(${v})`), scale: p1Scale }} className="max-w-6xl w-full relative">
 
                         {/* Fragmented Title with Independent Motion */}
-                        <div className="relative h-[20rem] flex items-center justify-center font-bold tracking-tighter mb-12 select-none">
-                            {"What is SPC?".split("").map((char, i) => (
+                        <div className="relative h-[20rem] flex items-center justify-center font-bold tracking-tighter mb-12 select-none text-center px-4">
+                            {"The future was supposed to feel exciting.".split("").map((char, i) => (
                                 <motion.span
                                     key={i}
-                                    className="inline-block text-6xl md:text-[9rem] leading-none text-neutral-100 relative"
+                                    className="inline-block text-4xl md:text-6xl leading-none text-neutral-100 relative"
                                     animate={{
-                                        y: [0, (i % 2 === 0 ? 1 : -1) * (Math.random() * 15), 0],
+                                        y: [0, (i % 2 === 0 ? 1 : -1) * (Math.random() * 5), 0],
                                         opacity: [0.9, 1, 0.8],
                                         filter: [`blur(0px)`, `blur(${Math.random() * 2}px)`, `blur(0px)`]
                                     }}
@@ -114,10 +151,10 @@ export default function ExperienceSPC() {
                                         duration: 3 + Math.random() * 2,
                                         repeat: Infinity,
                                         ease: "easeInOut",
-                                        delay: i * 0.15
+                                        delay: i * 0.05
                                     }}
                                     style={{
-                                        y: useTransform(smoothProgress, [0, 0.15], [0, (i % 3 === 0 ? -1 : 1) * 150])
+                                        y: useTransform(smoothProgress, [0, 0.15], [0, (i % 3 === 0 ? -1 : 1) * 50])
                                     }}
                                 >
                                     {char === " " ? "\u00A0" : char}
@@ -133,7 +170,7 @@ export default function ExperienceSPC() {
                                 className="md:col-span-5 text-left border-l-4 border-neutral-700/50 pl-6 py-2"
                                 style={{ x: useTransform(smoothProgress, [0, 0.15], [0, -40]) }}
                             >
-                                <p className="font-bold mb-2">You might be confused right now.</p>
+                                <p className="font-bold mb-2">It felt optimized.</p>
                                 <motion.div
                                     className="h-1 bg-red-500/50 w-12"
                                     animate={{ width: ["0%", "100%", "50%"] }}
@@ -146,7 +183,7 @@ export default function ExperienceSPC() {
                                 className="md:col-span-5 md:col-start-8 text-right pr-4"
                                 style={{ x: useTransform(smoothProgress, [0, 0.15], [0, 60]), y: 40 }}
                             >
-                                <p className="text-neutral-500 italic text-2xl">That’s not an accident.</p>
+                                <p className="text-neutral-500 italic text-2xl">Efficient. Gray.</p>
                             </motion.div>
 
                             {/* Block 3: Centered but Broken */}
@@ -156,7 +193,9 @@ export default function ExperienceSPC() {
                                 transition={{ duration: 0.2, repeat: Infinity, repeatType: "mirror", repeatDelay: 5 }}
                             >
                                 <p className="text-xl md:text-3xl font-light leading-relaxed">
-                                    Most things worth building don’t make immediate sense.
+                                    Technology everywhere.<br />
+                                    Progress everywhere.<br />
+                                    <span className="text-red-400 font-bold">Meaning nowhere.</span>
                                 </p>
                                 <div className="mt-4 flex justify-center gap-8 text-sm uppercase tracking-[0.3em] text-neutral-600">
                                     <span>[ Unshaped ]</span>
@@ -184,35 +223,97 @@ export default function ExperienceSPC() {
                 className="relative z-20 min-h-[80vh] flex items-start justify-center pt-10 p-8 text-center pointer-events-none"
             >
                 <motion.div
-                    className="max-w-2xl -mt-48"
+                    className="max-w-2xl -mt-48 text-left relative"
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >
-                    <p className="text-2xl md:text-4xl font-light text-neutral-300 leading-relaxed">
-                        Solarpunk was a refusal.<br />
-                        <span className="text-neutral-500">A refusal to believe the future must be gray.</span>
+                    {/* Background Emphasis */}
+                    <div className="absolute -left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-red-500/50 to-transparent opacity-50" />
+
+                    <p className="text-xl md:text-2xl font-light text-neutral-400 mb-6">
+                        Solarpunk didn’t begin as a plan.
                     </p>
+
+                    <h3 className="text-3xl md:text-5xl font-bold text-neutral-100 mb-10 tracking-tight">
+                        It began as a <span className="text-red-500 inline-block">refusal</span>.
+                    </h3>
+
+                    <div className="space-y-4 pl-0">
+                        <p className="text-lg md:text-xl text-neutral-300 font-light border-l border-neutral-700 pl-6 py-1">
+                            A refusal to believe that <span className="text-neutral-100">progress must be violent</span>.
+                        </p>
+                        <p className="text-lg md:text-xl text-neutral-300 font-light border-l border-neutral-700 pl-6 py-1">
+                            A refusal to accept that <span className="text-neutral-100">nature had to lose</span>.
+                        </p>
+                        <p className="text-lg md:text-xl text-neutral-300 font-light border-l border-neutral-700 pl-6 py-1">
+                            A refusal to imagine futures <span className="text-neutral-100">without people</span>.
+                        </p>
+                    </div>
                 </motion.div>
             </div>
 
             {/* --- PHASE 2: THE CONFLICT (Story: Art vs Reality) --- */}
             <div className="relative z-10 h-[200vh]">
-                <div className="sticky top-0 h-screen flex items-center justify-center p-6 overflow-hidden">
+                <div className="sticky top-0 h-screen flex items-center justify-center p-6">
                     {/* Background Wireframes */}
+                    {/* --- PHASE 2 BACKGROUND: ART / IMAGINATION --- */}
                     <motion.div
-                        className="absolute inset-0 opacity-10 pointer-events-none"
+                        className="absolute left-0 right-0 -top-[20vh] -bottom-[20vh] pointer-events-none"
                         style={{
-                            backgroundImage: "linear-gradient(#4f46e5 1px, transparent 1px), linear-gradient(90deg, #4f46e5 1px, transparent 1px)",
-                            backgroundSize: "40px 40px",
                             opacity: p2Opacity,
-                            maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
-                            WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)"
+                            maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+                            WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)"
                         }}
-                    />
+                    >
+                        {/* 1. Soft watercolor wash - Increased Opacity */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/30 via-purple-400/20 to-emerald-300/20 mix-blend-screen" />
+
+                        {/* 2. Watercolor blobs - Increased Opacity */}
+                        {[...Array(5)].map((_, i) => (
+                            <motion.div
+                                key={`blob-${i}`}
+                                className="absolute rounded-full blur-[90px]"
+                                style={{
+                                    width: 320,
+                                    height: 320,
+                                    background: "rgba(255,255,255,0.12)", // Increased from 0.07
+                                    top: `${Math.random() * 100}%`,
+                                    left: `${Math.random() * 100}%`,
+                                }}
+                                animate={{
+                                    x: [0, Math.random() * 80 - 40, 0],
+                                    y: [0, Math.random() * 80 - 40, 0],
+                                }}
+                                transition={{
+                                    duration: 14 + Math.random() * 6,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            />
+                        ))}
+
+                        {/* 3. Floating Dream Icons (Expanded Collection) */}
+                        {[
+                            // Nature
+                            Leaf, Sprout, TreeDeciduous, Sun, Flower, Flower2, Globe, Leaf,
+                            // Community / People
+                            Users, Heart, HandHeart,
+                            // Technology
+                            Bot, Cpu, Zap, Building2, Factory,
+                            // Art
+                            Palette, Brush, Paintbrush,
+                            // Doubles for density
+                            Sun, Sprout, Bot, Users, Globe
+                        ].map((Icon, i) => (
+                            <FloatingIcon key={`icon-${i}`} Icon={Icon} index={i} opacity={p2Opacity} />
+                        ))}
+
+                    </motion.div>
 
                     <motion.div style={{ opacity: p2Opacity, y: p2Y }} className="max-w-5xl relative z-10 w-full">
                         <div className="backdrop-blur-md bg-indigo-950/30 border border-indigo-500/20 p-8 md:p-16 rounded-2xl shadow-2xl">
                             <h2 className="text-4xl md:text-7xl font-bold mb-12 text-indigo-300 leading-tight">
+                                <span className="block text-2xl md:text-3xl text-indigo-400/60 mb-4 font-normal tracking-wide">At first, Solarpunk lived in art.</span>
                                 Art imagines futures.<br />
                                 <span className="text-white">Engineering builds them.</span>
                             </h2>
@@ -248,8 +349,8 @@ export default function ExperienceSPC() {
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 >
                     <p className="text-2xl md:text-3xl font-mono text-indigo-200/80 leading-relaxed">
-                        Clear goals create fast clubs.<br />
-                        <span className="text-indigo-100 font-bold">Clear values create lasting movements.</span>
+                        Art could imagine better worlds.<br />
+                        <span className="text-indigo-100 font-bold">But it couldn’t build them.</span>
                     </p>
                 </motion.div>
             </div>
@@ -265,6 +366,11 @@ export default function ExperienceSPC() {
 
                     <motion.div style={{ opacity: p3Opacity }} className="max-w-3xl text-center">
                         <p className="text-slate-400 text-sm uppercase tracking-[0.3em] mb-8">System Architecture</p>
+
+                        <div className="mb-12 space-y-2">
+                            <p className="text-xl md:text-2xl text-slate-300 font-light">This is where Solarpunk had to leave the canvas.</p>
+                            <p className="text-xl md:text-2xl text-white font-bold">This is where Solarpunk Corps begins.</p>
+                        </div>
 
                         <h2 className="text-4xl md:text-6xl font-bold mb-12 text-slate-100">
                             Not a discipline.<br />A direction.
@@ -367,8 +473,8 @@ export default function ExperienceSPC() {
                             </h2>
 
                             <p className="text-xl md:text-3xl text-orange-100/80 mb-16 max-w-3xl mx-auto leading-relaxed font-mono">
-                                SPC comes from a simple, uncomfortable belief:<br />
-                                <span className="bg-orange-500/20 text-orange-200 px-2 py-1">Waiting for perfect conditions is how futures die quietly.</span>
+                                SPC did not begin because the world was ready.<br />
+                                It began because <span className="bg-orange-500/20 text-orange-200 px-2 py-1">waiting was worse.</span>
                             </p>
                         </motion.div>
 
