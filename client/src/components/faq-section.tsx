@@ -5,35 +5,81 @@ import { motion } from "framer-motion";
 const faqs = [
   {
     question: "Is SPC a new club?",
-    answer: "Yes! Solarpunk Corps is newly launching at BIET Jhansi. We're in the founding stage, building our team and preparing our first projects. This is an exciting opportunity to be part of something from the very beginning."
+    answer: (
+      <div className="space-y-2">
+        <p><strong className="text-foreground font-semibold">Yes!</strong> Solarpunk Corps is newly launching at BIET Jhansi.</p>
+        <p>We're currently in the founding stage, building our core team and preparing our first batch of pilot projects. This is an exciting opportunity to be part of something from the very beginning.</p>
+      </div>
+    )
   },
   {
     question: "Can first-year students join?",
-    answer: "Absolutely! We welcome students from all years. First-year students join as Explorers and can participate in sessions, workshops, and mini-projects while learning the basics. There's no prior experience required."
+    answer: (
+      <div className="space-y-2">
+        <p><strong className="text-foreground font-semibold">Absolutely!</strong> But it's not just for 1st years.</p>
+        <p>Students from <strong className="text-primary font-bold">1st–3rd Year</strong> can join as <strong className="text-primary italic">Explorers</strong> — beginners who join to explore robotics, sustainability, and creative tech ideas. No prior experience is required.</p>
+      </div>
+    )
   },
   {
     question: "Is SPC only for robotics students?",
-    answer: "No, SPC is open to students from any branch. We're a multidisciplinary club that values diverse perspectives. Whether you're into engineering, design, writing, management, or social work, there's a place for you here."
+    answer: (
+      <div className="space-y-2">
+        <p>No, SPC is open to students from <strong className="text-foreground font-semibold">any branch</strong>.</p>
+        <p>We're a multidisciplinary club that values diverse perspectives. Whether you're into engineering, design, writing, management, or social work, there's a vital role for you here.</p>
+      </div>
+    )
   },
   {
     question: "Are the membership fees high?",
-    answer: "No, our fees are minimal and only cover basic resources and operational costs. We believe in accessibility and want every interested student to be able to participate, regardless of their financial situation."
+    answer: (
+      <div className="space-y-2">
+        <p>No, our fees are <strong className="text-foreground font-semibold">minimal</strong> and only cover basic collective resources.</p>
+        <p>We believe in accessibility. We want every interested student to be able to participate, regardless of their financial background.</p>
+      </div>
+    )
   },
   {
     question: "Do sponsors get regular updates?",
-    answer: "Yes! We provide quarterly Impact Reports to all sponsors, showing exactly how funds were used and the progress of projects they supported. Our financial records are transparent and available upon request."
+    answer: (
+      <div className="space-y-2">
+        <p><strong className="text-foreground font-semibold">Yes!</strong> Transparency is one of our core values.</p>
+        <p>We provide <strong className="text-primary">quarterly Impact Reports</strong> to all sponsors, showing exactly how funds were used and the progress of the projects they supported.</p>
+      </div>
+    )
   },
   {
     question: "What if I don't have any technical skills?",
-    answer: "That's perfectly fine! SPC is about learning by doing. We have divisions for research, documentation, outreach, events, community work, design, and finance. You can contribute based on your interests and grow your skills with us."
+    answer: (
+      <div className="space-y-2">
+        <p>That's perfectly fine! SPC is about <strong className="italic underline decoration-primary/30">learning by doing</strong>.</p>
+        <p>We have divisions for:</p>
+        <ul className="list-disc pl-5 space-y-1 text-sm">
+          <li>Research & Documentation</li>
+          <li>Outreach & Events</li>
+          <li>Community & Social Design</li>
+          <li>Finance & Management</li>
+        </ul>
+      </div>
+    )
   },
   {
     question: "When will SPC officially launch?",
-    answer: "We are in the active founding stage in 2026. Follow our social media channels for announcements about our official launch event and how to become a member."
+    answer: (
+      <div className="space-y-2">
+        <p>We are in the <strong className="text-foreground font-semibold">active founding stage in 2026</strong>.</p>
+        <p>Follow our social media channels for announcements about our official launch event and how to become a member.</p>
+      </div>
+    )
   },
   {
     question: "How can I support SPC as an external organization?",
-    answer: "We welcome partnerships and sponsorships from organizations that share our vision. You can support us through funding, equipment donations, mentorship, or collaboration opportunities. Reach out through our contact form!"
+    answer: (
+      <div className="space-y-2">
+        <p>We welcome partnerships and sponsorships from organizations that share our vision for a sustainable, tech-enabled future.</p>
+        <p>You can support us through <strong className="font-medium text-foreground">funding, equipment donations, mentorship</strong>, or collaboration opportunities. Please reach out through our contact form!</p>
+      </div>
+    )
   }
 ];
 

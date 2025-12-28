@@ -2,20 +2,28 @@ import { Heart } from "lucide-react";
 import { useLocation } from "wouter";
 import { SiLinkedin, SiInstagram, SiX, SiGithub } from "react-icons/si";
 import { VisitorCounter } from "./VisitorCounter";
+import { Badge } from "@/components/ui/badge";
 
-const footerLinks = {
+interface FooterLink {
+  label: string;
+  href: string;
+  badge?: string;
+}
+
+const footerLinks: Record<string, FooterLink[]> = {
   organization: [
     { label: "About Us", href: "/about" },
     { label: "Our Team", href: "/our-team" },
     { label: "Structure", href: "/structure" },
     { label: "Membership", href: "/membership" },
-    { label: "Experience SPC", href: "/under-construction" }
+    { label: "Experience SPC", href: "/under-construction", badge: "Experimental" }
   ],
   initiatives: [
     { label: "Scope", href: "/what-we-do" },
     { label: "Rover", href: "/projects/rover" },
     { label: "Magazine", href: "/projects/magazine" },
-    { label: "Campus Survey", href: "/projects/survey" }
+    { label: "Campus Survey", href: "/projects/survey" },
+    { label: "Club Social Responsibility (CSR)", href: "/csr" }
   ],
   connect: [
     { label: "Sponsor Us", href: "/sponsors" },
@@ -119,9 +127,17 @@ export function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-0.5"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex flex-col items-start gap-1 py-0.5"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {('badge' in link) && (
+                      <Badge
+                        variant="outline"
+                        className="text-[10px] px-1.5 py-0 leading-none bg-amber-500/10 text-amber-500 border-amber-500/20 font-medium"
+                      >
+                        {link.badge}
+                      </Badge>
+                    )}
                   </a>
                 </li>
               ))}
@@ -137,9 +153,17 @@ export function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-0.5"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex flex-col items-start gap-1 py-0.5"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {('badge' in link) && (
+                      <Badge
+                        variant="outline"
+                        className="text-[10px] px-1.5 py-0 leading-none bg-amber-500/10 text-amber-500 border-amber-500/20 font-medium"
+                      >
+                        {link.badge}
+                      </Badge>
+                    )}
                   </a>
                 </li>
               ))}
@@ -155,9 +179,17 @@ export function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavigate(e, link.href)}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-0.5"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 py-0.5"
                   >
                     {link.label}
+                    {('badge' in link) && (
+                      <Badge
+                        variant="outline"
+                        className="text-[10px] px-1.5 py-0 leading-none bg-amber-500/10 text-amber-500 border-amber-500/20 font-medium"
+                      >
+                        {link.badge}
+                      </Badge>
+                    )}
                   </a>
                 </li>
               ))}

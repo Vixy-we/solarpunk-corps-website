@@ -25,17 +25,14 @@ import { useEffect } from "react";
 import ComingSoon from "@/pages/coming-soon";
 import ExperienceSPC from "@/pages/experience-spc";
 import UnderConstruction from "@/pages/under-construction";
+import CSRPage from "@/pages/csr";
 import { SITE_LIVE } from "@/config/site";
 
 function Router() {
   const [location] = useLocation();
 
   useEffect(() => {
-    if (location === "/") {
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 10);
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location]);
 
   // Listen for custom scroll-to-top event
@@ -68,6 +65,7 @@ function Router() {
       <Route path="/hidden-egg" component={HiddenEgg} />
       <Route path="/experience-spc" component={ExperienceSPC} />
       <Route path="/under-construction" component={UnderConstruction} />
+      <Route path="/csr" component={CSRPage} />
       <Route component={NotFound} />
     </Switch>
   );
