@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Rocket, Heart, Users, Network, GraduationCap, Handshake } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -43,6 +43,11 @@ const workLinks = [
     title: "Projects",
     href: "/projects",
     description: "See the sustainable tech we are building.",
+  },
+  {
+    title: "CSR",
+    href: "/csr",
+    description: "Club Social Responsibility",
   },
 ];
 
@@ -116,30 +121,68 @@ export function Navigation() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={cn(isAboutActive && "bg-[#FD8F36] text-accent-foreground")}>About</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <ul className="grid gap-3 p-6 md:w-[500px] lg:w-[600px] lg:grid-cols-[1fr_1fr]">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-muted p-6 no-underline outline-none focus:shadow-md hover:bg-accent hover:text-accent-foreground transition-colors group"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-muted p-0 no-underline outline-none focus:shadow-md hover:bg-accent hover:text-accent-foreground transition-colors group overflow-hidden relative min-h-[280px]"
                             href="/about"
                             onClick={(e) => handleNavigate(e, "/about")}
                           >
-                            <div className="mb-2 text-lg font-medium">
-                              <span className="font-bold block mb-1">Who are we?</span>
-                              We are Solarpunk Corps
+                            <img
+                              src="/world pic.webp"
+                              alt="World Pic"
+                              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                            <div className="relative z-10 p-6">
+                              <div className="mb-2 text-lg font-medium text-white">
+                                <span className="font-bold block mb-1">Who are we?</span>
+                                We are Solarpunk Corps
+                              </div>
+                              <p className="text-sm leading-tight text-white font-medium">
+                                Technology with purpose. <br /> Nature in mind. <br /> People at heart.
+                              </p>
                             </div>
-                            <p className="text-sm leading-tight text-muted-foreground group-hover:text-accent-foreground/90">
-                              Technology with purpose. <br /> Nature in mind. <br /> People at heart.
+                          </a>
+                        </NavigationMenuLink>
+                      </li>
+                      <li className="flex flex-col gap-3 h-full">
+                        <NavigationMenuLink asChild>
+                          <a
+                            className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"
+                            href="/our-team"
+                            onClick={(e) => handleNavigate(e, "/our-team")}
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="p-2 bg-emerald-500/10 rounded-md">
+                                <Users className="h-4 w-4 text-emerald-500" />
+                              </div>
+                              <div className="text-base font-semibold">Our Team</div>
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-accent-foreground/90">
+                              Meet the people behind the movement.
+                            </p>
+                          </a>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <a
+                            className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"
+                            href="/structure"
+                            onClick={(e) => handleNavigate(e, "/structure")}
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="p-2 bg-orange-500/10 rounded-md">
+                                <Network className="h-4 w-4 text-orange-500" />
+                              </div>
+                              <div className="text-base font-semibold">Structure</div>
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-accent-foreground/90">
+                              How we are organized.
                             </p>
                           </a>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="/our-team" title="Our Team" onClick={(e) => handleNavigate(e, "/our-team")}>
-                        Meet the people behind the movement.
-                      </ListItem>
-                      <ListItem href="/structure" title="Structure" onClick={(e) => handleNavigate(e, "/structure")}>
-                        How we are organized.
-                      </ListItem>
 
                     </ul>
                   </NavigationMenuContent>
@@ -149,11 +192,11 @@ export function Navigation() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={cn(isWorkActive && "bg-[#FD8F36] text-accent-foreground")}>Work</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <ul className="grid gap-3 p-6 md:w-[500px] lg:w-[600px] lg:grid-cols-[1fr_1fr]">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-muted p-0 no-underline outline-none focus:shadow-md hover:bg-accent hover:text-accent-foreground transition-colors group overflow-hidden relative"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-muted p-0 no-underline outline-none focus:shadow-md hover:bg-accent hover:text-accent-foreground transition-colors group overflow-hidden relative min-h-[280px]"
                             href="/what-we-do"
                             onClick={(e) => handleNavigate(e, "/what-we-do")}
                           >
@@ -165,21 +208,51 @@ export function Navigation() {
                             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                             <div className="relative z-10 p-6">
                               <div className="mb-2 text-lg font-bold text-white">
-                                Work
+                                What We Do
                               </div>
-                              <p className="text-sm leading-tight text-white font-bold">
-                                Innovation in Action
+                              <p className="text-sm leading-tight text-white font-medium">
+                                Explore our workshops, events, and initiatives.
                               </p>
                             </div>
                           </a>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="/what-we-do" title="What We Do" onClick={(e) => handleNavigate(e, "/what-we-do")}>
-                        Explore our workshops, events, and initiatives.
-                      </ListItem>
-                      <ListItem href="/projects" title="Projects" onClick={(e) => handleNavigate(e, "/projects")}>
-                        See the sustainable tech we are building.
-                      </ListItem>
+                      <li className="flex flex-col gap-3 h-full">
+                        <NavigationMenuLink asChild>
+                          <a
+                            className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"
+                            href="/projects"
+                            onClick={(e) => handleNavigate(e, "/projects")}
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="p-2 bg-blue-500/10 rounded-md">
+                                <Rocket className="h-4 w-4 text-blue-500" />
+                              </div>
+                              <div className="text-base font-semibold">Projects</div>
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-accent-foreground">
+                              See the projects we are working on.
+                            </p>
+                          </a>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <a
+                            className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"
+                            href="/csr"
+                            onClick={(e) => handleNavigate(e, "/csr")}
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="p-2 bg-rose-500/10 rounded-md">
+                                <Heart className="h-4 w-4 text-rose-500" />
+                              </div>
+                              <div className="text-base font-semibold">CSR</div>
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-accent-foreground">
+                              Club Social Responsibility
+                            </p>
+                          </a>
+                        </NavigationMenuLink>
+                      </li>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -188,31 +261,69 @@ export function Navigation() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={cn(isPartnersActive && "bg-[#FD8F36] text-accent-foreground")}>Sponsor Us</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <ul className="grid gap-3 p-6 md:w-[500px] lg:w-[600px] lg:grid-cols-[1fr_1fr]">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-muted p-6 no-underline outline-none focus:shadow-md hover:bg-accent hover:text-accent-foreground transition-colors group"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-muted p-0 no-underline outline-none focus:shadow-md hover:bg-accent hover:text-accent-foreground transition-colors group overflow-hidden relative min-h-[280px]"
                             href="/sponsors"
                             onClick={(e) => handleNavigate(e, "/sponsors")}
                           >
-                            <div className="mb-2 text-lg font-medium">
-                              Sponsors
+                            <img
+                              src="/sponser pic.webp"
+                              alt="Sponsor Pic"
+                              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                            <div className="relative z-10 p-6">
+                              <div className="mb-2 text-lg font-medium text-white">
+                                Sponsors
+                              </div>
+                              <p className="text-sm leading-tight text-white font-medium">
+                                See how you can support our mission and help us grow.
+                                <br /> <br />
+                                Let us create a Humane Future, Together 🌱
+                              </p>
                             </div>
-                            <p className="text-sm leading-tight text-muted-foreground group-hover:text-accent-foreground/90">
-                              See how you can support our mission and help us grow.
-                              <br /> <br />
-                              Let us create a Humane Future, Together 🌱
+                          </a>
+                        </NavigationMenuLink>
+                      </li>
+                      <li className="flex flex-col gap-3 h-full">
+                        <NavigationMenuLink asChild>
+                          <a
+                            className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"
+                            href="/sponsors/alumni"
+                            onClick={(e) => handleNavigate(e, "/sponsors/alumni")}
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="p-2 bg-purple-500/10 rounded-md">
+                                <GraduationCap className="h-4 w-4 text-purple-500" />
+                              </div>
+                              <div className="text-base font-semibold">Alumni Network</div>
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-accent-foreground/90">
+                              For college alumni to connect back and mentor us.
+                            </p>
+                          </a>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <a
+                            className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"
+                            href="/sponsors/partner"
+                            onClick={(e) => handleNavigate(e, "/sponsors/partner")}
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="p-2 bg-indigo-500/10 rounded-md">
+                                <Handshake className="h-4 w-4 text-indigo-500" />
+                              </div>
+                              <div className="text-base font-semibold">Corporate Partners</div>
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-accent-foreground/90">
+                              Collaborate via Projects, CSR, or Research.
                             </p>
                           </a>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="/sponsors/alumni" title="Alumni Network" onClick={(e) => handleNavigate(e, "/sponsors/alumni")}>
-                        For college alumni to connect back and mentor us.
-                      </ListItem>
-                      <ListItem href="/sponsors/partner" title="Corporate Partners" onClick={(e) => handleNavigate(e, "/sponsors/partner")}>
-                        Collaborate via Projects, CSR, or Research.
-                      </ListItem>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>

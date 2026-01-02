@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import { ArrowRight, Cpu, Leaf, Heart, Zap, Globe, Rocket, Users, Target } from "lucide-react";
+import { ArrowRight, Cpu, Leaf, Heart, Zap, Globe, Rocket, Users, Target, Palette } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -24,54 +24,130 @@ export default function Home() {
         <HeroSection />
 
         {/* SECTION 1: THE MISSION SUMMARY (The "Why") */}
-        <section className="py-24 relative overflow-hidden bg-card/30 border-y border-border/50">
-          <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <Badge variant="outline" className="mb-4 border-primary/30 text-primary">The Solarpunk Ethos</Badge>
-                <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                  We don't just build machines. <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-blue-500">We build a Future.</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Engineering often forgets the human element. We're bringing it back.
-                  Solarpunk Corps is a student movement closing the gap between classroom theory and real-world impact.
-                </p>
-                <Button variant="ghost" className="p-0 h-auto text-primary text-base font-semibold group hover:bg-transparent hover:underline" onClick={() => handleNavigate("/about")}>
-                  Read our full manifesto <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
+        {/* SECTION 1: THE MISSION SUMMARY (The "Why") */}
+        {/* SECTION 1: THE MISSION SUMMARY (The "Why") */}
+        <section className="py-24 relative overflow-hidden bg-background border-y border-border/50">
+          {/* Abstract Background Element for this section */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute -left-[10%] -top-[10%] w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px]" />
+          </div>
 
-              <div className="grid gap-4">
-                {[
-                  { icon: Cpu, title: "The Technologist", desc: "Hardware, Sensors, Automation with purpose.", color: "text-blue-500", bg: "bg-blue-500/10" },
-                  { icon: Leaf, title: "The Ecologist", desc: "Sustainability, Renewables, Circular Economy.", color: "text-green-500", bg: "bg-green-500/10" },
-                  { icon: Heart, title: "The Humanist", desc: "Social Impact, Ethics, Community Service.", color: "text-rose-500", bg: "bg-rose-500/10" }
-                ].map((item, i) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="flex items-center gap-4 p-4 rounded-xl border border-border/50 bg-background/50 hover:bg-accent/10 transition-colors"
-                  >
-                    <div className={`w-12 h-12 rounded-lg ${item.bg} flex items-center justify-center flex-shrink-0`}>
-                      <item.icon className={`h-6 w-6 ${item.color}`} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Content Box */}
+              <div className="space-y-8">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Badge variant="outline" className="mb-4 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10">The Solarpunk Ethos</Badge>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-foreground">
+                    We don't just build machines. <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-blue-600 dark:to-blue-500">We build a Future.</span>
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                    Engineering often forgets the human element. We're bringing it back.
+                    Solarpunk Corps is a student movement closing the gap between classroom theory and real-world impact.
+                  </p>
+                </motion.div>
+
+                {/* Bottom Features Text */}
+                <motion.div
+                  className="pt-4 flex flex-wrap items-center gap-6 text-sm text-muted-foreground font-medium"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="flex items-center gap-2">
+                    <Cpu className="h-4 w-4 text-blue-500" /> Open Hardware
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Leaf className="h-4 w-4 text-emerald-500" /> Sustainable
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Users className="h-4 w-4 text-rose-500" /> Community First
+                  </div>
+                </motion.div>
+
+                <div className="pt-2">
+                  <Button variant="ghost" className="p-0 h-auto text-emerald-600 dark:text-emerald-400 text-base font-semibold group hover:bg-transparent hover:text-emerald-500" onClick={() => handleNavigate("/about")}>
+                    Read our full manifesto <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
               </div>
+
+              {/* Right Visual (Abstract Representation - Tilted Cards) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative hidden lg:block"
+              >
+                <div className="relative z-10 grid grid-cols-2 gap-4 translate-x-8">
+                  <div className="space-y-4 pt-12">
+                    <motion.div
+                      initial={{ rotate: -6 }}
+                      whileHover={{ scale: 1.15, rotate: 0, zIndex: 20 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="bg-card dark:bg-zinc-900 border border-border dark:border-zinc-800 p-6 rounded-2xl shadow-xl backdrop-blur-sm cursor-default relative"
+                    >
+                      <div className="h-10 w-10 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <Leaf className="h-6 w-6 text-emerald-600 dark:text-emerald-500" />
+                      </div>
+                      <h3 className="text-foreground dark:text-white font-bold mb-1">Ecologist</h3>
+                      <p className="text-muted-foreground dark:text-zinc-400 text-sm">Reshaping consumption.</p>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ rotate: -3 }}
+                      whileHover={{ scale: 1.15, rotate: 0, zIndex: 20 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="bg-card dark:bg-zinc-900 border border-border dark:border-zinc-800 p-6 rounded-2xl shadow-xl backdrop-blur-sm cursor-default relative"
+                    >
+                      <div className="h-10 w-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <Cpu className="h-6 w-6 text-blue-600 dark:text-blue-500" />
+                      </div>
+                      <h3 className="text-foreground dark:text-white font-bold mb-1">Technologist</h3>
+                      <p className="text-muted-foreground dark:text-zinc-400 text-sm">Automation for good.</p>
+                    </motion.div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <motion.div
+                      initial={{ rotate: 6 }}
+                      whileHover={{ scale: 1.15, rotate: 0, zIndex: 20 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="bg-card dark:bg-zinc-900 border border-border dark:border-zinc-800 p-6 rounded-2xl shadow-xl backdrop-blur-sm cursor-default relative"
+                    >
+                      <div className="h-10 w-10 bg-rose-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <Heart className="h-6 w-6 text-rose-600 dark:text-rose-500" />
+                      </div>
+                      <h3 className="text-foreground dark:text-white font-bold mb-1">Humanist</h3>
+                      <p className="text-muted-foreground dark:text-zinc-400 text-sm">People over profit.</p>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ rotate: 3 }}
+                      whileHover={{ scale: 1.15, rotate: 0, zIndex: 20 }}
+                      onClick={() => handleNavigate("/membership")}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="bg-gradient-to-br from-emerald-600 to-emerald-800 border border-emerald-500/50 p-6 rounded-2xl shadow-2xl backdrop-blur-sm flex flex-col justify-center items-center text-center cursor-pointer group relative"
+                    >
+                      <div className="h-12 w-12 bg-white/20 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <ArrowRight className="h-6 w-6 text-white" />
+                      </div>
+                      <h3 className="text-white font-bold text-lg leading-tight">Make an<br />Impact</h3>
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Decorative Elements behind grid */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-emerald-500/10 to-blue-500/10 rounded-full blur-3xl -z-10" />
+              </motion.div>
             </div>
           </div>
         </section>
@@ -96,7 +172,7 @@ export default function Home() {
               {[
                 { label: "Hardware Forge", icon: Zap, color: "#246AA5" },
                 { label: "Green Initiatives", icon: Leaf, color: "#58AC4A" },
-                { label: "Digital Art & UI", icon: Globe, color: "#FFC32F" },
+                { label: "Art and Voice", icon: Palette, color: "#FFC32F" },
                 { label: "Social Drives", icon: Users, color: "#FD8F36" },
               ].map((item, i) => (
                 <motion.div

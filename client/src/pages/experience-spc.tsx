@@ -137,29 +137,55 @@ export default function ExperienceSPC() {
                     <motion.div style={{ opacity: p1Opacity, filter: useTransform(p1Blur, v => `blur(${v})`), scale: p1Scale }} className="max-w-6xl w-full relative">
 
                         {/* Fragmented Title with Independent Motion */}
-                        <div className="relative h-[20rem] flex items-center justify-center font-bold tracking-tighter mb-12 select-none text-center px-4">
-                            {"The future was supposed to feel exciting.".split("").map((char, i) => (
-                                <motion.span
-                                    key={i}
-                                    className="inline-block text-4xl md:text-6xl leading-none text-neutral-100 relative"
-                                    animate={{
-                                        y: [0, (i % 2 === 0 ? 1 : -1) * (Math.random() * 5), 0],
-                                        opacity: [0.9, 1, 0.8],
-                                        filter: [`blur(0px)`, `blur(${Math.random() * 2}px)`, `blur(0px)`]
-                                    }}
-                                    transition={{
-                                        duration: 3 + Math.random() * 2,
-                                        repeat: Infinity,
-                                        ease: "easeInOut",
-                                        delay: i * 0.05
-                                    }}
-                                    style={{
-                                        y: useTransform(smoothProgress, [0, 0.15], [0, (i % 3 === 0 ? -1 : 1) * 50])
-                                    }}
-                                >
-                                    {char === " " ? "\u00A0" : char}
-                                </motion.span>
-                            ))}
+                        {/* Fragmented Title with Independent Motion */}
+                        <div className="relative min-h-[20rem] flex flex-col items-center justify-center font-bold tracking-tighter mb-12 select-none text-center px-4">
+                            {/* Line 1: The future was supposed to feel... */}
+                            <div className="mb-4">
+                                {"The future was supposed to feel.....".split("").map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        className="inline-block text-3xl md:text-5xl leading-none text-neutral-100 relative"
+                                        animate={{
+                                            y: [0, (i % 2 === 0 ? 1 : -1) * (Math.random() * 3), 0], // Reduced movement for line 1
+                                            opacity: [0.9, 1, 0.8],
+                                            filter: [`blur(0px)`, `blur(${Math.random() * 1}px)`, `blur(0px)`]
+                                        }}
+                                        transition={{
+                                            duration: 4 + Math.random() * 2,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: i * 0.05
+                                        }}
+                                    >
+                                        {char === " " ? "\u00A0" : char}
+                                    </motion.span>
+                                ))}
+                            </div>
+
+                            {/* Line 2: EXCITING. */}
+                            <div>
+                                {"EXCITING.".split("").map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        className="inline-block text-5xl md:text-8xl leading-none font-black text-white relative uppercase" // Larger, bolder, brighter
+                                        animate={{
+                                            y: [0, (i % 2 === 0 ? -1 : 1) * (Math.random() * 8), 0], // More energetic movement for EXCITING
+                                            opacity: [0.8, 1, 0.9],
+                                            scale: [1, 1.1, 1], // Slight pulse
+                                            filter: [`blur(0px)`, `blur(${Math.random() * 2}px)`, `blur(0px)`],
+                                            textShadow: ["0 0 10px rgba(255,255,255,0.2)", "0 0 20px rgba(255,255,255,0.5)", "0 0 10px rgba(255,255,255,0.2)"]
+                                        }}
+                                        transition={{
+                                            duration: 2 + Math.random() * 2, // Much slower (2s - 4s)
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: i * 0.05
+                                        }}
+                                    >
+                                        {char === " " ? "\u00A0" : char}
+                                    </motion.span>
+                                ))}
+                            </div>
                         </div>
 
                         {/* Misaligned & Staggered Text Blocks */}
@@ -170,7 +196,7 @@ export default function ExperienceSPC() {
                                 className="md:col-span-5 text-left border-l-4 border-neutral-700/50 pl-6 py-2"
                                 style={{ x: useTransform(smoothProgress, [0, 0.15], [0, -40]) }}
                             >
-                                <p className="font-bold mb-2">It felt optimized.</p>
+                                <p className="font-bold mb-2">But it just felt optimized.</p>
                                 <motion.div
                                     className="h-1 bg-red-500/50 w-12"
                                     animate={{ width: ["0%", "100%", "50%"] }}
@@ -183,7 +209,7 @@ export default function ExperienceSPC() {
                                 className="md:col-span-5 md:col-start-8 text-right pr-4"
                                 style={{ x: useTransform(smoothProgress, [0, 0.15], [0, 60]), y: 40 }}
                             >
-                                <p className="text-neutral-500 italic text-2xl">Efficient. Gray.</p>
+                                <p className="text-neutral-500 italic text-2xl">Efficient yes... BUT Gray. <br /> Lifeless. </p>
                             </motion.div>
 
                             {/* Block 3: Centered but Broken */}
