@@ -328,7 +328,7 @@ export default function Alumni() {
                                             onChange={(e) => handleRadioChange(e.target.value)}
                                         />
                                         <div className="border-2 border-gray-200 dark:border-border peer-checked:border-green-500 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 rounded-lg p-3 text-center transition-all hover:bg-gray-50 dark:hover:bg-muted h-full flex flex-col items-center justify-center">
-                                            <span className="text-2xl mb-1">🌱</span><span className="text-xs font-bold text-gray-700 dark:text-foreground">Donating</span>
+                                            <span className="text-2xl mb-1">🌱</span><span className="text-xs font-bold text-gray-700 dark:text-foreground">Sponsoring</span>
                                         </div>
                                     </label>
                                     <label className="cursor-pointer">

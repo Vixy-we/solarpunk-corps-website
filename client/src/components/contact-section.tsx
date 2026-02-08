@@ -130,6 +130,7 @@ export function ContactSection() {
                   <div>
                     <h4 className="font-semibold">Location</h4>
                     <p className="text-muted-foreground mb-3">
+                      Mechanical Engineering Department<br />
                       Bundelkhand Institute of Engineering & Technology<br />
                       Jhansi, Uttar Pradesh, India
                     </p>

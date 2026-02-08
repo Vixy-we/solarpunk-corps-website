@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
-import { Menu, X, ChevronDown, Rocket, Heart, Users, Network, GraduationCap, Handshake } from "lucide-react";
+import { Menu, X, ChevronDown, Rocket, Heart, Users, Network, GraduationCap, Handshake, Calendar } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -218,6 +218,23 @@ export function Navigation() {
                         </NavigationMenuLink>
                       </li>
                       <li className="flex flex-col gap-3 h-full">
+                        <NavigationMenuLink asChild>
+                          <a
+                            className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"
+                            href="/events"
+                            onClick={(e) => handleNavigate(e, "/events")}
+                          >
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="p-2 bg-purple-500/10 rounded-md">
+                                <Calendar className="h-4 w-4 text-purple-500" />
+                              </div>
+                              <div className="text-base font-semibold">Events</div>
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-accent-foreground">
+                              Join our workshops and sessions.
+                            </p>
+                          </a>
+                        </NavigationMenuLink>
                         <NavigationMenuLink asChild>
                           <a
                             className="flex flex-col justify-center rounded-md bg-muted/50 p-4 no-underline outline-none hover:bg-accent hover:text-accent-foreground transition-colors group flex-1"

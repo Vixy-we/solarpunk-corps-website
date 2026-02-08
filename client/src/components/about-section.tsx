@@ -70,7 +70,8 @@ export function AboutSection() {
           <Badge variant="secondary" className="mb-4" data-testid="badge-about">About Us</Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-6" data-testid="text-about-title">Who We Are</h2>
           <p className="max-w-3xl mx-auto text-lg text-muted-foreground" data-testid="text-about-description">
-            Solarpunk Corps is an interdisciplinary student-led club currently in its founding stage. It is being built by students from diverse fields who believe engineering should meet ethics, creativity should meet sustainability, and learning should lead to real-world action. Our goal is to bridge the gap between classroom theory and practical, socially responsible application
+            Solarpunk Corps is an interdisciplinary student-led club currently in its founding stage. It is being built by students from diverse fields who believe engineering should meet ethics, creativity should meet sustainability, and learning should lead to real-world action. <br />
+            Guided by faculty mentorship and institutional support, our goal is to bridge the gap between classroom theory and practical, socially responsible application.
           </p>
         </motion.div>
 

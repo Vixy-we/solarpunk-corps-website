@@ -16,6 +16,7 @@ const footerLinks: Record<string, FooterLink[]> = {
     { label: "Our Team", href: "/our-team" },
     { label: "Structure", href: "/structure" },
     { label: "Membership", href: "/membership" },
+    { label: "Manifesto", href: "/manifesto" },
     { label: "Experience SPC", href: "/under-construction", badge: "Experimental" }
   ],
   initiatives: [

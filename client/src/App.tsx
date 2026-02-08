@@ -26,6 +26,8 @@ import ComingSoon from "@/pages/coming-soon";
 import ExperienceSPC from "@/pages/experience-spc";
 import UnderConstruction from "@/pages/under-construction";
 import CSRPage from "@/pages/csr";
+import Manifesto from "@/pages/manifesto";
+import Events from "@/pages/events";
 import { SITE_LIVE } from "@/config/site";
 
 function Router() {
@@ -66,6 +68,8 @@ function Router() {
       <Route path="/experience-spc" component={ExperienceSPC} />
       <Route path="/under-construction" component={UnderConstruction} />
       <Route path="/csr" component={CSRPage} />
+      <Route path="/events" component={Events} />
+      <Route path="/manifesto" component={Manifesto} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -32,15 +32,15 @@ const facultyAdvisors = [
 
 const leadership = [
   {
-    title: "Founder & Chairperson",
+    title: "Founder & General Secretary",
     icon: Sparkles,
-    initials: "CP",
+    initials: "GS",
     color: "bg-primary/20 text-primary"
   },
   {
-    title: "Deputy Chairperson",
+    title: "Co-Founder and Secretary",
     icon: Users,
-    initials: "DC",
+    initials: "S",
     color: "bg-blue-500/20 text-blue-600 dark:text-blue-400"
   }
 ];
@@ -224,7 +224,7 @@ export default function OurTeam() {
               <Badge variant="secondary" className="mb-4">Our Heart, Mind  Soul</Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet Our Team</h2>
               <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-                The people of Solarpunk Corps are more than members—they're innovators shaping a sustainable future. Together, they combine technical expertise, creativity, and passion to turn ideas into meaningful impact.
+                The people of Solarpunk Corps are more than members—they're innovators shaping a sustainable future. Together, we combine technical expertise, creativity, and passion to turn ideas into meaningful impact.
               </p>
             </motion.div>
 
@@ -242,7 +242,7 @@ export default function OurTeam() {
             <TeamSection
               title="Leadership"
               badgeText="Leaders"
-              headingText="Leadership"
+              headingText="Student Leadership"
               subtitle="The founding team driving Solarpunk Corps forward"
               members={leadership}
               isLeadership={true}

@@ -22,7 +22,7 @@ const faqs = [
     )
   },
   {
-    question: "Is SPC only for robotics students?",
+    question: "Is SPC only for mechanical engineering students?",
     answer: (
       <div className="space-y-2">
         <p>No, SPC is open to students from <strong className="text-foreground font-semibold">any branch</strong>.</p>
