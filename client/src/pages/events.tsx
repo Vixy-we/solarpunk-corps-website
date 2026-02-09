@@ -54,7 +54,7 @@ export default function Events() {
                                     </div>
 
                                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-foreground mb-6 font-serif">
-                                        Green Shift
+                                        GreenShift
                                     </h2>
 
                                     <p className="text-lg text-gray-600 dark:text-muted-foreground mb-8 leading-relaxed">

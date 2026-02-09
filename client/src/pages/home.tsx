@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import { ArrowRight, Cpu, Leaf, Heart, Zap, Globe, Rocket, Users, Target, Palette, Handshake, GraduationCap } from "lucide-react";
+import { ArrowRight, Cpu, Leaf, Heart, Zap, Globe, Rocket, Users, Target, Palette, Handshake, GraduationCap, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -228,6 +228,82 @@ export default function Home() {
           </div>
         </section>
 
+
+        {/* SECTION 2.5: UPCOMING (GreenShift) - REFINED */}
+        <section className="py-24 relative overflow-hidden bg-background">
+          {/* Subtle Background Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute right-[5%] top-[10%] w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[100px]" />
+          </div>
+
+          <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+              <div>
+                <Badge className="mb-4 bg-emerald-600 text-white hover:bg-emerald-700">Upcoming Flagship Event</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold">Engineering for Sustainability</h2>
+                <p className="text-muted-foreground mt-2 max-w-md">
+                  Master the tools to build a greener future through our hands-on technical workshops.
+                </p>
+              </div>
+              <Button variant="outline" onClick={() => handleNavigate("/events")}>View All Events</Button>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-card dark:bg-zinc-900 border border-border p-8 md:p-12 rounded-3xl overflow-hidden shadow-2xl relative"
+            >
+              {/* Decorative Gradient Blob */}
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="relative z-10">
+                  <Badge variant="outline" className="mb-6 py-1.5 px-4 text-sm border-emerald-500/30 text-emerald-600 dark:text-emerald-400 bg-emerald-500/5">
+                    Annual Flagship Workshop
+                  </Badge>
+
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 font-serif tracking-tight text-foreground">
+                    GreenShift <span className="text-emerald-600 dark:text-emerald-500">2026</span>
+                  </h2>
+
+                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-lg">
+                    An immersive engineering workshop where sustainability meets innovation. Join us to build, learn, and shape the green future.
+                  </p>
+
+                  <div className="flex flex-wrap gap-4 items-center">
+                    <Button onClick={() => handleNavigate("/events/greenshift")} className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-6 h-auto text-base shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/40 transition-all rounded-full group">
+                      Explore Event
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 px-4 py-2 rounded-full border border-border/50">
+                      <Calendar className="w-4 h-4 text-emerald-600" />
+                      <span>Dates Announcement Soon</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg group cursor-pointer" onClick={() => handleNavigate("/events/greenshift")}>
+                  <div className="absolute inset-0 bg-emerald-900/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
+                  <img
+                    src="/hourglass.webp"
+                    alt="GreenShift 2026"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                    <div className="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                      <p className="font-bold text-lg mb-1">Coming Soon</p>
+                      <p className="text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">Tap to view details</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* SECTION 3: THE LAUNCH (The "Projects") */}
         <section className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-primary/5 -skew-y-3 z-0 transform origin-center scale-125" />
@@ -392,6 +468,6 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-    </div>
+    </div >
   );
 }
