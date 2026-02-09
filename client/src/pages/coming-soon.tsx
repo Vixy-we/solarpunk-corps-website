@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Instagram, Linkedin, Github } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 // --- Components ---
 
@@ -123,7 +124,7 @@ const AmbientParticles = () => {
     );
 };
 
-const SocialLink = ({ href, icon: Icon, label, delay }) => (
+const SocialLink = ({ href, icon: Icon, label, delay }: any) => (
     <motion.a
         href={href}
         target="_blank"
@@ -164,12 +165,55 @@ const LogoPlaceholder = () => (
     </div>
 );
 
-export default function SolarpunkLanding() {
+export default function SolarpunkLanding({ onEnter }: { onEnter?: () => void }) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    const handleEnter = () => {
+        // Trigger celebration confetti
+        const duration = 3000;
+        const end = Date.now() + duration;
+
+        // Launch confetti from both sides
+        const frame = () => {
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#059669', '#34d399', '#f59e0b'] // Emerald and Amber
+            });
+            confetti({
+                particleCount: 5,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#059669', '#34d399', '#f59e0b']
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        };
+
+        // Big initial burst
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#059669', '#10b981', '#f59e0b', '#fbbf24']
+        });
+
+        frame();
+
+        // Delay actual entry slightly to enjoy the show
+        setTimeout(() => {
+            if (onEnter) onEnter();
+        }, 1000);
+    };
 
     if (!mounted) return null;
 
@@ -179,7 +223,7 @@ export default function SolarpunkLanding() {
         // onContextMenu={(e) => e.preventDefault()}
         >
 
-            {/* Background Layers - No Parallax */}
+            {/* ... background layers ... */}
             <div className="absolute inset-0 bg-gradient-to-b from-amber-50/50 via-stone-50/30 to-emerald-50/20 pointer-events-none" />
             <BackgroundBioCircuitry />
             <AmbientParticles />
@@ -187,8 +231,9 @@ export default function SolarpunkLanding() {
             {/* Main Content Container */}
             <main className="flex-grow relative z-10 px-6 max-w-3xl w-full text-center flex flex-col items-center justify-center gap-4 py-8">
 
-                {/* Header Section */}
+                {/* ... Header Section ... */}
                 <div className="flex flex-col items-center gap-4">
+                    {/* ... Logo ... */}
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0, rotate: -10 }}
                         animate={{ scale: 1, opacity: 1, rotate: 0 }}
@@ -254,14 +299,34 @@ export default function SolarpunkLanding() {
 
                 {/* Status & Date */}
                 <div className="flex flex-col items-center gap-3">
-                    <motion.div
-                        className="px-4 py-1.5 rounded-full border border-emerald-900/10 bg-white/40 backdrop-blur-sm text-sm tracking-widest uppercase text-emerald-800 font-medium shadow-sm"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 1.2 }}
-                    >
-                        Coming Soon
-                    </motion.div>
+                    {onEnter ? (
+                        <motion.button
+                            onClick={handleEnter}
+                            className="group relative px-8 py-3 rounded-full overflow-hidden bg-emerald-900 text-emerald-50 font-medium tracking-widest uppercase text-sm hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-emerald-500/20"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 1.2 }}
+                            whileHover={{ letterSpacing: "0.2em" }}
+                        >
+                            <span className="relative z-10 flex items-center gap-2">
+                                Enter Solarpunk World
+                                <motion.span
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ repeat: Infinity, duration: 1.5 }}
+                                >→</motion.span>
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-800 to-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </motion.button>
+                    ) : (
+                        <motion.div
+                            className="px-4 py-1.5 rounded-full border border-emerald-900/10 bg-white/40 backdrop-blur-sm text-sm tracking-widest uppercase text-emerald-800 font-medium shadow-sm cursor-default"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 1.2 }}
+                        >
+                            Coming Soon
+                        </motion.div>
+                    )}
 
                     <motion.span
                         className="text-stone-500 text-sm md:text-base"

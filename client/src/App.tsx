@@ -28,7 +28,8 @@ import CSRPage from "@/pages/csr";
 import Manifesto from "@/pages/manifesto";
 import Events from "@/pages/events";
 import GreenShiftVision from "@/pages/green-shift";
-import { SITE_LIVE } from "@/config/site";
+import { SITE_LIVE, INAUGURATION_MODE } from "@/config/site";
+import { useState } from "react";
 
 function Router() {
   const [location] = useLocation();
@@ -75,9 +76,26 @@ function Router() {
   );
 }
 
+
+
 function App() {
+  const [hasEntered, setHasEntered] = useState(false);
+
+  // Logic:
+  // 1. If SITE_LIVE is true -> Always show the full app (Normal mode)
+  // 2. If SITE_LIVE is false:
+  //    a. If INAUGURATION_MODE is true -> Show Coming Soon, but allow entry (unlocks App)
+  //    b. If INAUGURATION_MODE is false -> Show Coming Soon, strictly locked (Construction mode)
+
   if (!SITE_LIVE) {
-    return <ComingSoon />;
+    if (INAUGURATION_MODE) {
+      if (!hasEntered) {
+        return <ComingSoon onEnter={() => setHasEntered(true)} />;
+      }
+      // If hasEntered is true, fall through to render the app
+    } else {
+      return <ComingSoon />;
+    }
   }
 
   return (
