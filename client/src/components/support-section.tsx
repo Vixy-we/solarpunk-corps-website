@@ -100,123 +100,115 @@ export function SupportSection() {
                     </p>
                 </motion.div>
 
-                {/* Major Pathways */}
-                <div className="grid lg:grid-cols-2 gap-8 mb-24">
-                    {/* Alumni Card - Top Priority */}
+                {/* Major Pathways - Redesigned */}
+                <div className="flex flex-col gap-16 mb-24">
+
+                    {/* Alumni Card - CENTRAL SPOTLIGHT */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        whileHover={{ scale: 1.01 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.6 }}
+                        className="w-full max-w-5xl mx-auto"
                     >
-                        <Card className="h-full border-2 border-emerald-500/20 bg-emerald-500/[0.02] dark:bg-emerald-500/[0.05] overflow-hidden group hover:border-emerald-500/40 transition-all duration-500 shadow-xl shadow-emerald-500/5">
-                            <CardContent className="p-10 flex flex-col h-full">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                                        <Users className="h-8 w-8 text-emerald-600" />
+                        <Card className="border-2 border-emerald-500/30 bg-gradient-to-br from-emerald-500/[0.03] via-background to-emerald-500/[0.05] dark:from-emerald-900/[0.1] dark:to-emerald-900/[0.05] overflow-hidden shadow-2xl shadow-emerald-500/10 relative">
+                            <div className="absolute top-0 right-0 p-32 bg-emerald-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+
+                            <CardContent className="p-8 md:p-12 relative z-10">
+                                <div className="flex flex-col md:flex-row gap-8 items-start md:items-center mb-8">
+                                    <div className="w-20 h-20 rounded-2xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+                                        <GraduationCap className="h-10 w-10 text-emerald-600" />
                                     </div>
                                     <div>
-                                        <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 mb-1">Guidance & Legacy</Badge>
-                                        <h3 className="text-3xl font-bold">For Alumni</h3>
+                                        <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 mb-2 px-3 py-1 text-sm">Guidance & Legacy</Badge>
+                                        <h3 className="text-4xl md:text-5xl font-bold font-serif text-foreground">For Alumni</h3>
                                     </div>
                                 </div>
 
-                                <p className="text-lg text-muted-foreground mb-8 font-serif leading-relaxed">
+                                <p className="text-xl md:text-2xl text-muted-foreground mb-10 font-serif leading-relaxed max-w-3xl">
                                     Reconnect with your roots. Share the wisdom you've gained, mentor the builders who came after you,
                                     and help us turn an empty room into a powerhouse of innovation.
                                 </p>
 
-                                <div className="grid grid-cols-2 gap-4 mb-10">
+                                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
                                     {[
                                         "Mentorship & Insights", "Resource Support",
                                         "Financial Seed Fund", "Advisory & Guidance"
                                     ].map((item, i) => (
                                         <motion.div
                                             key={item}
-                                            initial={{ opacity: 0, x: -10 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
+                                            initial={{ opacity: 0, y: 10 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
-                                            transition={{ delay: 0.3 + (i * 0.1) }}
-                                            className="flex items-center gap-2 text-sm font-medium"
+                                            transition={{ delay: 0.4 + (i * 0.1) }}
+                                            className="flex items-center gap-3 text-base font-medium p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/10"
                                         >
-                                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                                             <span>{item}</span>
                                         </motion.div>
                                     ))}
                                 </div>
 
-                                <div className="mt-auto">
+                                <div className="flex flex-col sm:flex-row gap-4">
                                     <Button
                                         size="lg"
-                                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white gap-2 text-lg h-14 group/btn hover:scale-[1.02] transition-all duration-300"
+                                        className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2 text-lg h-14 px-8 shadow-lg shadow-emerald-500/20 hover:scale-[1.02] transition-all"
                                         onClick={() => handleNavigate("/sponsors/alumni")}
                                     >
                                         Reconnect as Alumni
-                                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                                        <ArrowRight className="h-5 w-5" />
                                     </Button>
                                 </div>
                             </CardContent>
                         </Card>
                     </motion.div>
 
-                    {/* Partner Card */}
+                    {/* Partner Card - SECONDARY */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        whileHover={{ scale: 1.01 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="w-full max-w-3xl mx-auto"
                     >
-                        <Card className="h-full border-2 border-primary/20 bg-primary/[0.02] dark:bg-primary/[0.05] overflow-hidden group hover:border-primary/40 transition-all duration-500 shadow-xl shadow-primary/5">
-                            <CardContent className="p-10 flex flex-col h-full">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                                        <Building2 className="h-8 w-8 text-primary" />
-                                    </div>
-                                    <div>
-                                        <Badge className="bg-primary/10 text-primary mb-1">Innovation & Impact</Badge>
-                                        <h3 className="text-3xl font-bold">For Partners</h3>
-                                    </div>
+                        <Card className="border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
+                            <CardContent className="p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center text-center md:text-left">
+                                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                                    <Building2 className="h-8 w-8 text-primary" />
                                 </div>
 
-                                <p className="text-lg text-muted-foreground mb-8 font-serif leading-relaxed">
-                                    Partner with us to fuel hardware innovation and social impact.
-                                    Align your brand with sustainability and gain access to a dedicated talent pool of self-taught builders.
-                                </p>
+                                <div className="flex-grow">
+                                    <div className="flex flex-col md:flex-row items-center md:items-start gap-2 mb-2">
+                                        <Badge variant="outline" className="border-primary/20 text-primary">Innovation & Impact</Badge>
+                                    </div>
+                                    <h3 className="text-2xl font-bold mb-3">For Partners</h3>
+                                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                                        Partner with us to fuel hardware innovation and social impact.
+                                        Align your brand with sustainability and gain access to a dedicated talent pool of self-taught builders.
+                                    </p>
 
-                                <div className="grid grid-cols-2 gap-4 mb-10">
-                                    {[
-                                        "Corporate Sponsorship", "Project Micro-Grants",
-                                        "Knowledge Shares", "Hiring Access"
-                                    ].map((item, i) => (
-                                        <motion.div
-                                            key={item}
-                                            initial={{ opacity: 0, x: 10 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.4 + (i * 0.1) }}
-                                            className="flex items-center gap-2 text-sm font-medium"
-                                        >
-                                            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                                            <span>{item}</span>
-                                        </motion.div>
-                                    ))}
-                                </div>
+                                    <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm text-foreground/80 mb-6">
+                                        {["Corporate Sponsorship", "Project Micro-Grants", "Knowledge Shares", "Hiring Access"].map(item => (
+                                            <span key={item} className="flex items-center gap-1.5">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
 
-                                <div className="mt-auto">
                                     <Button
-                                        size="lg"
-                                        className="w-full bg-primary hover:bg-primary/90 gap-2 text-lg h-14 group/btn hover:scale-[1.02] transition-all duration-300"
+                                        variant="outline"
+                                        className="border-primary/20 text-primary hover:bg-primary/5 gap-2 group/btn"
                                         onClick={() => handleNavigate("/sponsors/partner")}
                                     >
                                         Partner With Us
-                                        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                                        <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                                     </Button>
                                 </div>
                             </CardContent>
                         </Card>
                     </motion.div>
+
                 </div>
 
                 {/* Re-using existing good blocks as requested */}

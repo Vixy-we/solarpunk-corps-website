@@ -28,6 +28,7 @@ import UnderConstruction from "@/pages/under-construction";
 import CSRPage from "@/pages/csr";
 import Manifesto from "@/pages/manifesto";
 import Events from "@/pages/events";
+import GreenShiftVision from "@/pages/green-shift";
 import { SITE_LIVE } from "@/config/site";
 
 function Router() {
@@ -69,6 +70,7 @@ function Router() {
       <Route path="/under-construction" component={UnderConstruction} />
       <Route path="/csr" component={CSRPage} />
       <Route path="/events" component={Events} />
+      <Route path="/events/greenshift" component={GreenShiftVision} />
       <Route path="/manifesto" component={Manifesto} />
       <Route component={NotFound} />
     </Switch>

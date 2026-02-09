@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sun, Leaf, Heart, Palette, Rocket, ArrowRight } from "lucide-react";
+import { Sun, Leaf, Heart, Palette, Rocket, ArrowRight, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocation, Link } from "wouter";
 
@@ -172,6 +172,16 @@ export function WhatWeDoSection() {
                 >
                   See Inaugural Projects
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform opacity-70 group-hover/btn:opacity-100" />
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => handleNavigate("/events")}
+                  className="rounded-full px-8 py-4 h-auto text-base font-medium border-primary/20 hover:border-primary/50 hover:bg-primary/5 text-foreground transition-all group/btn"
+                >
+                  Explore Our Events
+                  <Calendar className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform opacity-70 group-hover/btn:opacity-100" />
                 </Button>
               </div>
             </div>

@@ -208,7 +208,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Solarpunk Corps • BIET Jhansi
+            © {new Date().getFullYear()} Solarpunk Corps • MED • BIET Jhansi
           </p>
 
           <VisitorCounter />

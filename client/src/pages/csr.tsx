@@ -67,7 +67,7 @@ const InitiativeCard: React.FC<InitiativeCardProps> = ({ icon: Icon, title, item
     <motion.div
         layoutId={layoutId}
         onClick={onClick}
-        className="group relative h-80 rounded-[32px] cursor-pointer overflow-hidden border border-border bg-card/70 backdrop-blur-md shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+        className="group relative h-auto min-h-[280px] md:h-80 rounded-[24px] md:rounded-[32px] cursor-pointer overflow-hidden border border-border bg-card/70 backdrop-blur-md shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
         whileHover={{ y: -8 }}
     >
         {/* Baseline Themed Gradient */}
@@ -81,16 +81,16 @@ const InitiativeCard: React.FC<InitiativeCardProps> = ({ icon: Icon, title, item
         {/* Top Accent Line */}
         <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${color} opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
 
-        <div className="relative p-8 h-full flex flex-col justify-between z-10">
+        <div className="relative p-6 md:p-8 h-full flex flex-col justify-between z-10 gap-6 md:gap-0">
             <div>
-                <div className={`w-14 h-14 rounded-2xl bg-background shadow-md border border-border flex items-center justify-center mb-6 ${accent}`}>
-                    <Icon size={28} strokeWidth={1.5} />
+                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-background shadow-md border border-border flex items-center justify-center mb-6 ${accent}`}>
+                    <Icon size={24} strokeWidth={1.5} className="md:w-7 md:h-7" />
                 </div>
 
-                <h3 className="font-sans font-bold tracking-tight text-3xl text-foreground mb-2 leading-tight">{title}</h3>
+                <h3 className="font-sans font-bold tracking-tight text-2xl md:text-3xl text-foreground mb-2 leading-tight">{title}</h3>
                 <div className="flex items-center gap-2">
                     <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${color}`} />
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em]">{subtitle}</p>
+                    <p className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-[0.2em]">{subtitle}</p>
                 </div>
             </div>
 
@@ -129,7 +129,7 @@ const DetailOverlay: React.FC<DetailOverlayProps> = ({ initiative: init, onClose
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0 } }}
-                className="w-full max-w-4xl bg-card/80 backdrop-blur-3xl rounded-[40px] overflow-hidden shadow-2xl pointer-events-auto relative border border-border"
+                className="w-full max-w-4xl max-h-[90vh] md:max-h-none bg-card/80 backdrop-blur-3xl rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl pointer-events-auto relative border border-border flex flex-col md:block" // Changed: Added flex-col and max-h for mobile scrolling
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
                 {/* Top Accent Line - Mirror Card */}
@@ -142,45 +142,45 @@ const DetailOverlay: React.FC<DetailOverlayProps> = ({ initiative: init, onClose
 
                 <button
                     onClick={onClose}
-                    className="absolute top-8 right-8 p-3 rounded-full bg-background/50 backdrop-blur-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-all z-30 group"
+                    className="absolute top-4 right-4 md:top-8 md:right-8 p-2 md:p-3 rounded-full bg-background/50 backdrop-blur-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-all z-30 group shadow-sm border border-border/50"
                 >
                     <X size={20} className="transition-transform group-hover:rotate-90" />
                 </button>
 
-                <div className="grid md:grid-cols-[1fr_1.5fr] min-h-[500px] relative z-10">
+                <div className="grid md:grid-cols-[1fr_1.5fr] min-h-[500px] relative z-10 overflow-y-auto md:overflow-visible custom-scrollbar"> {/* Changed: Added overflow-y-auto for mobile */}
                     {/* Thematic Header Area */}
-                    <div className={`relative p-12 flex flex-col justify-end min-h-[300px] md:min-h-full border-r border-border/50`}>
+                    <div className={`relative p-8 md:p-12 flex flex-col justify-end min-h-[200px] md:min-h-full border-b md:border-b-0 md:border-r border-border/50`}>
                         {/* Soft Gradient Glow */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${init.color} opacity-10`} />
 
                         <div className="relative z-10">
-                            <div className={`w-20 h-20 rounded-[24px] bg-background shadow-lg border border-border flex items-center justify-center mb-8 ${init.accent}`}>
-                                <init.icon size={40} strokeWidth={1.5} />
+                            <div className={`w-16 h-16 md:w-20 md:h-20 rounded-[24px] bg-background shadow-lg border border-border flex items-center justify-center mb-6 md:mb-8 ${init.accent}`}>
+                                <init.icon size={32} strokeWidth={1.5} className="md:w-10 md:h-10" />
                             </div>
 
-                            <h2 className="font-sans font-bold tracking-tight text-4xl md:text-5xl mb-4 text-foreground leading-tight">{init.title}</h2>
+                            <h2 className="font-sans font-bold tracking-tight text-3xl md:text-5xl mb-2 md:mb-4 text-foreground leading-tight">{init.title}</h2>
                             <div className="flex items-center gap-2">
                                 <div className={`w-2.5 h-2.5 rounded-full bg-gradient-to-br ${init.color}`} />
-                                <p className="text-sm font-bold text-muted-foreground uppercase tracking-[0.2em]">{init.subtitle}</p>
+                                <p className="text-xs md:text-sm font-bold text-muted-foreground uppercase tracking-[0.2em]">{init.subtitle}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* Details Content */}
-                    <div className="p-8 md:p-16 flex flex-col justify-center bg-background/30 backdrop-blur-sm">
-                        <div className="mb-10">
-                            <h3 className="text-muted-foreground/40 font-bold uppercase tracking-[0.3em] text-[10px] mb-8">Strategic Initiatives</h3>
-                            <ul className="space-y-6">
+                    <div className="p-6 md:p-16 flex flex-col justify-center bg-background/30 backdrop-blur-sm">
+                        <div className="mb-8 md:mb-10">
+                            <h3 className="text-muted-foreground/40 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 md:mb-8">Strategic Initiatives</h3>
+                            <ul className="space-y-4 md:space-y-6">
                                 {init.items.map((item, idx) => (
                                     <motion.li
                                         key={idx}
                                         initial={{ opacity: 0, x: 20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: 0.1 + idx * 0.1 }}
-                                        className="flex items-start gap-5 group"
+                                        className="flex items-start gap-3 md:gap-5 group"
                                     >
-                                        <div className={`mt-2 w-2.5 h-2.5 rounded-full bg-gradient-to-br ${init.color} flex-shrink-0 shadow-sm`} />
-                                        <span className="text-foreground/90 font-light leading-relaxed text-lg md:text-xl">
+                                        <div className={`mt-2 w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-gradient-to-br ${init.color} flex-shrink-0 shadow-sm`} />
+                                        <span className="text-foreground/90 font-light leading-relaxed text-base md:text-xl">
                                             {item}
                                         </span>
                                     </motion.li>
@@ -194,18 +194,18 @@ const DetailOverlay: React.FC<DetailOverlayProps> = ({ initiative: init, onClose
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.5 }}
-                                    className="p-8 rounded-[32px] bg-background shadow-md border border-border group/btn cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1 relative overflow-hidden"
+                                    className="p-6 md:p-8 rounded-[24px] md:rounded-[32px] bg-background shadow-md border border-border group/btn cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1 relative overflow-hidden"
                                 >
                                     <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${init.color} opacity-40`} />
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <span className="text-2xl font-serif text-muted-foreground/20 block mb-2">“</span>
-                                            <span className="text-foreground/90 font-bold text-2xl tracking-tight leading-relaxed">
+                                            <span className="text-xl md:text-2xl font-serif text-muted-foreground/20 block mb-2">“</span>
+                                            <span className="text-foreground/90 font-bold text-lg md:text-2xl tracking-tight leading-relaxed">
                                                 {init.philosophy}
                                             </span>
                                         </div>
-                                        <div className={`p-4 rounded-2xl bg-gradient-to-br ${init.color} text-white shadow-lg transition-transform group-hover/btn:scale-110`}>
-                                            <MessageSquarePlus size={24} />
+                                        <div className={`p-3 md:p-4 rounded-2xl bg-gradient-to-br ${init.color} text-white shadow-lg transition-transform group-hover/btn:scale-110`}>
+                                            <MessageSquarePlus size={20} className="md:w-6 md:h-6" />
                                         </div>
                                     </div>
                                 </motion.div>
@@ -215,10 +215,10 @@ const DetailOverlay: React.FC<DetailOverlayProps> = ({ initiative: init, onClose
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.5 }}
-                                className="p-8 rounded-[32px] bg-background shadow-md border border-border italic font-light text-muted-foreground leading-relaxed relative overflow-hidden"
+                                className="p-6 md:p-8 rounded-[24px] md:rounded-[32px] bg-background shadow-md border border-border italic font-light text-muted-foreground leading-relaxed relative overflow-hidden text-sm md:text-base"
                             >
                                 <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${init.color} opacity-40`} />
-                                <span className="text-2xl font-serif text-muted-foreground/20 block mb-2">“</span>
+                                <span className="text-xl md:text-2xl font-serif text-muted-foreground/20 block mb-2">“</span>
                                 {init.philosophy}
                             </motion.div>
                         )}
@@ -537,7 +537,7 @@ export default function CSRPage() {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                             {initiatives.map((init) => (
                                 <InitiativeCard
                                     key={init.id}

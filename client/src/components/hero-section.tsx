@@ -104,7 +104,7 @@ export function HeroSection() {
               data-testid="badge-launching"
             >
               <Leaf className="h-4 w-4 text-emerald-200" />
-              <span>Launching at BIET Jhansi</span>
+              <span>Launching in Mechanical Engineering Department at BIET Jhansi</span>
             </div>
           </motion.div>
 

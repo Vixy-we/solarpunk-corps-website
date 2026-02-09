@@ -70,7 +70,7 @@ const partnerLinks = [
 ];
 
 
-export function Navigation() {
+export function Navigation({ className }: { className?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location, navigate] = useLocation();
 
@@ -94,7 +94,7 @@ export function Navigation() {
   const isContactActive = location === "/contact";
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className={cn("fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border", className)}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

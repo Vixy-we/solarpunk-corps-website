@@ -128,10 +128,12 @@ const TeamSection = ({
   headingText,
   isFaculty = false,
   isLeadership = false,
-  isDivision = false
+  isDivision = false,
+  secondSubtitle
 }: {
   title: string;
   subtitle?: string;
+  secondSubtitle?: string;
   members: any[];
   badgeText: string;
   headingText: string;
@@ -150,6 +152,7 @@ const TeamSection = ({
       <Badge variant="secondary" className="mb-4">{badgeText}</Badge>
       <h3 className="text-2xl md:text-3xl font-bold">{headingText}</h3>
       {subtitle && <p className="text-muted-foreground mt-2">{subtitle}</p>}
+      {secondSubtitle && <p className="mt-1 text-sm font-medium text-gray-600">{secondSubtitle}</p>}
     </div>
 
     <div className={`grid ${isFaculty ? "sm:grid-cols-3 max-w-3xl mx-auto gap-6" :
@@ -264,6 +267,7 @@ export default function OurTeam() {
               badgeText="Executive Members"
               headingText="Executives"
               subtitle="Action team helping organize events and manage projects"
+              secondSubtitle="Execution-focused members contributing across divisions, with a primary area of involvement."
               members={executiveMembers}
             />
 
