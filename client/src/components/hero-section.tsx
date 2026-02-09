@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Leaf, Cpu, Heart, Users } from "lucide-react";
+import { ArrowRight, Leaf, Cpu, Heart, Users, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "wouter";
@@ -150,7 +150,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 data-testid="text-hero-description"
               >
-                We are launching Solarpunk Corps — a new club being formed for students who want to build technology, promote sustainability, and create real social impact. Join us in building a future that is inclusive, practical, and green.
+                We are launching Solarpunk Corps — a new club being formed for students who want to build technology, promote sustainability, and create real social impact. We're a bunch of students who want to build cool stuff, care about the planet, and actually make a difference. <br /><br />Join us in building a future that is inclusive, practical, and green.
               </motion.p>
 
               <motion.div
@@ -200,7 +200,29 @@ export function HeroSection() {
             </div>
           </div>
         </div>
+
       </div>
-    </section>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        style={{ x: "-50%" }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 flex flex-col items-center gap-2 z-20 cursor-pointer pointer-events-auto"
+        onClick={() => {
+          const el = document.getElementById("mission"); // Assuming next section has an ID or we can scroll by height
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+          else window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+        }}
+      >
+        <span className="text-white/60 text-sm font-medium tracking-widest uppercase">Scroll to Explore</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-6 h-6 text-white/60" />
+        </motion.div>
+      </motion.div>
+    </section >
   );
 }

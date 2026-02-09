@@ -87,16 +87,16 @@ export function SupportSection() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <Badge variant="outline" className="mb-6 border-primary/30 text-primary px-4 py-1.5 text-sm font-medium tracking-wide bg-primary/5">
-                        Collaborate with SPC
+                        Support Our Club
                     </Badge>
                     <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter leading-[1.1]">
-                        Help Us Forge the <br />
+                        Help Us Build the<br />
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-500 to-primary bg-[length:200%_auto] animate-gradient">
                             Solarpunk Future.
                         </span>
                     </h2>
                     <p className="max-w-3xl mx-auto text-xl md:text-2xl text-muted-foreground font-serif leading-relaxed opacity-90">
-                        The future isn't just funded—it's forged. Whether you are an alumnus looking to share expertise or a partner seeking to empower innovation, your contribution shapes the next generation of builders.
+                        We're just a group of passionate students starting from scratch — building a future we believe in. Your support, whether it's mentorship, equipment, or just a word of encouragement, means the world to us. 💚
                     </p>
                 </motion.div>
 

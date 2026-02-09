@@ -224,10 +224,10 @@ export default function OurTeam() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Badge variant="secondary" className="mb-4">Our Heart, Mind  Soul</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet Our Team</h2>
+              <Badge variant="secondary" className="mb-4">Our Heart, Mind & Soul</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet the Humans Behind SPC</h2>
               <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-                The people of Solarpunk Corps are more than members—they're innovators shaping a sustainable future. Together, we combine technical expertise, creativity, and passion to turn ideas into meaningful impact.
+                The people of Solarpunk Corps are more than members—we're innovators shaping a sustainable future. We're just a bunch of humans who love building robots, care about sustainability, and believe great things happen when different minds work together.
               </p>
             </motion.div>
 

@@ -74,7 +74,7 @@ export default function Home() {
 
                 <div className="pt-2">
                   <Button variant="ghost" className="p-0 h-auto text-emerald-600 dark:text-emerald-400 text-base font-semibold group hover:bg-transparent hover:text-emerald-500" onClick={() => handleNavigate("/about")}>
-                    Read our full manifesto <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    Learn more about us <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
               </div>
