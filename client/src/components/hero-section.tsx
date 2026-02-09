@@ -26,10 +26,10 @@ export function HeroSection() {
     "/about": "about-top",
     "/what-we-do": "activities-top",
     "/our-team": "team-top",
-    "/structure": "divisions",
+
     "/sponsors": "sponsor-top",
     "/projects": "projects-top",
-    "/membership": "membership-top",
+
     "/contact": "contact-main"
   };
 
@@ -180,7 +180,7 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={(e) => handleNavigate(e, "/membership")}
+                  onClick={(e) => handleNavigate(e, "/structure")}
                   data-testid="button-hero-membership"
                   className="text-yellow-50 border-yellow-200/40 bg-yellow-500/10 hover:bg-yellow-500/20"
                 >

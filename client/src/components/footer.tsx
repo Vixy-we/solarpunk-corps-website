@@ -21,6 +21,7 @@ const footerLinks: Record<string, FooterLink[]> = {
   ],
   initiatives: [
     { label: "Scope", href: "/what-we-do" },
+    { label: "Events", href: "/events" },
     { label: "Rover", href: "/projects/rover" },
     { label: "Magazine", href: "/projects/magazine" },
     { label: "Campus Survey", href: "/projects/survey" },

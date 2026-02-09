@@ -13,7 +13,6 @@ import Projects from "@/pages/projects";
 import Sponsors from "@/pages/sponsors";
 import OurTeam from "@/pages/our-team";
 import Contact from "@/pages/contact";
-import Membership from "@/pages/membership";
 import Alumni from "@/pages/alumni";
 import Partner from "@/pages/partner";
 import ProjectRover from "@/pages/project-rover";
@@ -53,7 +52,6 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/structure" component={Structure} />
-      <Route path="/membership" component={Membership} />
       <Route path="/what-we-do" component={WhatWeDo} />
       <Route path="/projects" component={Projects} />
       <Route path="/sponsors" component={Sponsors} />

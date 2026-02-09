@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import { ArrowRight, Cpu, Leaf, Heart, Zap, Globe, Rocket, Users, Target, Palette } from "lucide-react";
+import { ArrowRight, Cpu, Leaf, Heart, Zap, Globe, Rocket, Users, Target, Palette, Handshake, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -133,7 +133,7 @@ export default function Home() {
                     <motion.div
                       initial={{ rotate: 3 }}
                       whileHover={{ scale: 1.15, rotate: 0, zIndex: 20 }}
-                      onClick={() => handleNavigate("/membership")}
+                      onClick={() => handleNavigate("/structure")}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                       className="bg-gradient-to-br from-emerald-600 to-emerald-800 border border-emerald-500/50 p-6 rounded-2xl shadow-2xl backdrop-blur-sm flex flex-col justify-center items-center text-center cursor-pointer group relative"
                     >
@@ -306,6 +306,63 @@ export default function Home() {
                 </CardContent>
               </Card>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-16 sm:mt-20 border-t border-border/40 pt-12"
+            >
+              <div className="mb-10 text-center max-w-3xl mx-auto">
+                <p className="text-base md:text-lg font-medium text-foreground/80 leading-relaxed">
+                  Solarpunk Corps is a <span className="text-emerald-600 dark:text-emerald-400 font-bold">non-profit student initiative</span>.
+                  All sponsorships and resources are strictly utilized for club activities, ensuring maximum impact and complete transparency.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
+                    <Target className="h-5 w-5" />
+                    <h3>100% Impact Allocation</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Every rupee/resource goes directly into hardware, tools, projects and work logistics.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold">
+                    <Globe className="h-5 w-5" />
+                    <h3>Radical Transparency</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Detailed reporting and open financial records for all major supporters.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold">
+                    <Handshake className="h-5 w-5" />
+                    <h3>Direct Engagement</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Choose to direct support toward specific projects or divisions.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold">
+                    <GraduationCap className="h-5 w-5" />
+                    <h3>Youth Mentorship First</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Priority is always given to student growth and professional development.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
