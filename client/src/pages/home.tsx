@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
@@ -18,6 +19,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background font-sans">
+      <SEO
+        title="Home"
+        description="Solarpunk Corps is a student-led club at BIET Jhansi blending robotics, sustainability, creativity, and community action. Join the movement for hopeful innovation."
+      />
       <Navigation />
 
       <main>

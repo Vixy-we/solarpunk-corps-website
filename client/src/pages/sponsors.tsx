@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Navigation } from "@/components/navigation";
 import { SupportSection } from "@/components/support-section";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 
 export default function Sponsors() {
   useEffect(() => {
@@ -17,6 +18,10 @@ export default function Sponsors() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Support Us"
+        description="Help us build the Solarpunk Future. Whether you're an alumni or partner, your support means the world to us."
+      />
       <Navigation />
       <main className="pt-16">
         <SupportSection />

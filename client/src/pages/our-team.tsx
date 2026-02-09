@@ -5,6 +5,7 @@ import { GraduationCap, Sparkles, Users, Wrench, Leaf, Cpu, BookOpen, Globe, Cal
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 
 const facultyAdvisors = [
   {
@@ -198,6 +199,10 @@ const TeamSection = ({
 export default function OurTeam() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Meet the Team"
+        description="The humans behind Solarpunk Corps — students from BIET Jhansi who love building robots, care about sustainability, and believe in collaboration."
+      />
       <Navigation />
       <main className="pt-16">
         <section id="team-top" className="py-20 md:py-32">

@@ -4,6 +4,7 @@ import { useLocation, Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 
 const BackgroundDecoration: React.FC = () => (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -442,6 +443,10 @@ export default function CSRPage() {
 
     return (
         <div className="font-sans text-foreground min-h-screen bg-background selection:bg-primary/20 selection:text-primary transition-colors duration-500 overflow-x-hidden">
+            <SEO
+                title="Club Social Responsibility"
+                description="Technology without responsibility is incomplete. Explore how Solarpunk Corps integrates social impact into everything we build."
+            />
             <BackgroundDecoration />
 
             <Navigation />

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sprout, Hammer, Globe, Heart, ArrowRight, Sun, Leaf } from "lucide-react";
 import { Link } from "wouter";
@@ -11,6 +12,10 @@ export default function Manifesto() {
 
     return (
         <div ref={containerRef} className="bg-stone-50 dark:bg-stone-900 min-h-screen text-stone-800 dark:text-stone-200 font-sans selection:bg-amber-100 dark:selection:bg-amber-900/30 selection:text-amber-900 dark:selection:text-amber-100">
+            <SEO
+                title="The Manifesto"
+                description="Our vision for a sustainable, hopeful future. The Solarpunk Corps manifesto outlines why we believe repair is radical and optimism is resistance."
+            />
             <Navigation />
 
             {/* HERO */}

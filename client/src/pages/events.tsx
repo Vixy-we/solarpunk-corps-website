@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { Leaf, Zap, Wrench, Sun, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +10,10 @@ import { Link } from "wouter";
 export default function Events() {
     return (
         <div className="min-h-screen bg-[#FDFBF7] dark:bg-background flex flex-col font-sans">
+            <SEO
+                title="Events"
+                description="From hands-on technical workshops to thought-provoking seminars, explore Solarpunk Corps events and activities."
+            />
             <Navigation />
 
             {/* Hero Section */}
