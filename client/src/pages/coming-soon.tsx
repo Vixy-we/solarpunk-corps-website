@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Instagram, Linkedin, Github } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -165,55 +165,173 @@ const LogoPlaceholder = () => (
     </div>
 );
 
+// --- Reforestation Effect Component ---
+
+const ReforestationOverlay = ({ active }: { active: boolean }) => {
+    // enhanced vine paths for better coverage
+    const vinePaths = [
+        // Main Trunks
+        "M150,400 C150,300 100,250 50,200", // Left Main
+        "M150,400 C150,300 200,250 250,200", // Right Main
+        "M150,400 C150,200 150,150 150,50",  // Center Main
+
+        // Secondary Branches
+        "M100,250 Q50,200 20,150",
+        "M200,250 Q250,200 280,150",
+        "M150,200 Q100,150 80,100",
+        "M150,200 Q200,150 220,100",
+
+        // Ground spread
+        "M150,400 Q80,380 20,350",
+        "M150,400 Q220,380 280,350"
+    ];
+
+    return (
+        <div className={`fixed inset-0 z-50 pointer-events-none transition-opacity duration-1000 ${active ? 'opacity-100' : 'opacity-0'}`}>
+            {/* 1. Flash of Light */}
+            <motion.div
+                className="absolute inset-0 bg-amber-100/20 mix-blend-overlay"
+                initial={{ opacity: 0 }}
+                animate={active ? { opacity: [0, 1, 0] } : { opacity: 0 }}
+                transition={{ duration: 1.5, times: [0, 0.5, 1] }}
+            />
+
+            {/* 2. Growing Vines Overlay */}
+            <svg className="absolute inset-0 w-full h-full text-emerald-800/60 drop-shadow-lg" viewBox="0 0 300 400" preserveAspectRatio="none">
+                {vinePaths.map((path, i) => (
+                    <motion.path
+                        key={i}
+                        d={path}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={i < 3 ? "4" : "2"} // Thicker mains
+                        strokeLinecap="round"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={active ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
+                        transition={{
+                            duration: 3.5,
+                            ease: "easeInOut",
+                            delay: i < 3 ? 0.2 : 1.5 // Branches grow after mains
+                        }}
+                    />
+                ))}
+            </svg>
+
+            {/* 3. Bloom Flash (Final Transition) */}
+            <motion.div
+                className="absolute inset-0 bg-gradient-to-t from-emerald-100 to-white"
+                initial={{ opacity: 0 }}
+                animate={active ? { opacity: [0, 0, 1] } : { opacity: 0 }}
+                transition={{ duration: 2, delay: 4, ease: "easeInOut" }}
+            />
+        </div>
+    );
+};
+
 export default function SolarpunkLanding({ onEnter }: { onEnter?: () => void }) {
     const [mounted, setMounted] = useState(false);
+    const [isCelebrating, setIsCelebrating] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
     const handleEnter = () => {
-        // Trigger celebration confetti
-        const duration = 3000;
-        const end = Date.now() + duration;
+        if (!onEnter) return;
+        setIsCelebrating(true);
 
-        // Launch confetti from both sides
-        const frame = () => {
-            confetti({
-                particleCount: 5,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0 },
-                colors: ['#059669', '#34d399', '#f59e0b'] // Emerald and Amber
-            });
-            confetti({
-                particleCount: 5,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1 },
-                colors: ['#059669', '#34d399', '#f59e0b']
-            });
+        // Custom Shapes
+        const leaf = confetti.shapeFromPath({ path: 'M50 0 Q0 50 50 100 Q100 50 50 0' });
+        const flower = confetti.shapeFromPath({ path: 'M50 0 Q65 40 100 50 Q65 60 50 100 Q35 60 0 50 Q35 40 50 0' });
 
-            if (Date.now() < end) {
-                requestAnimationFrame(frame);
-            }
-        };
-
-        // Big initial burst
+        // 1. Initial "Seed" Burst (Gold)
         confetti({
-            particleCount: 150,
-            spread: 70,
+            particleCount: 80,
+            spread: 100,
             origin: { y: 0.6 },
-            colors: ['#059669', '#10b981', '#f59e0b', '#fbbf24']
+            colors: ['#fbbf24', '#f59e0b', '#fffbeb'], // Amber & Cream
+            scalar: 0.8,
+            drift: 0,
+            ticks: 200
         });
 
-        frame();
+        // 2. Continuous Growth - Leaf Explosion (Emerald)
+        const duration = 4000; // Back to 4s (Longer)
+        const animationEnd = Date.now() + duration;
 
-        // Delay actual entry slightly to enjoy the show
+        const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+        const interval: any = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 40 * (timeLeft / duration); // Standard density
+
+            // Left Cannon
+            confetti({
+                particleCount,
+                startVelocity: 45,
+                spread: 80,
+                ticks: 100,
+                origin: { x: randomInRange(0, 0.2), y: Math.random() - 0.2 },
+                colors: ['#059669', '#10b981', '#34d399', '#065f46'],
+                shapes: [leaf],
+                scalar: randomInRange(1.5, 2.5), // Bigger leaves
+                drift: randomInRange(0, 0.5)
+            });
+
+            // Right Cannon
+            confetti({
+                particleCount,
+                startVelocity: 45,
+                spread: 80,
+                ticks: 100,
+                origin: { x: randomInRange(0.8, 1), y: Math.random() - 0.2 },
+                colors: ['#059669', '#10b981', '#34d399', '#065f46'],
+                shapes: [leaf],
+                scalar: randomInRange(1.5, 2.5), // Bigger leaves
+                drift: randomInRange(-0.5, 0)
+            });
+
+            // Center Cannon (New for filling gaps)
+            confetti({
+                particleCount: particleCount / 2,
+                startVelocity: 55,
+                spread: 120,
+                ticks: 120,
+                origin: { x: 0.5, y: 0.5 }, // Mid-screen explosion
+                colors: ['#34d399', '#6ee7b7'], // Lighter greens
+                shapes: [leaf],
+                scalar: randomInRange(1, 2), // Bigger leaves in center
+                drift: randomInRange(-0.2, 0.2)
+            });
+        }, 150);
+
+        // 3. Final Bloom (Flowers)
         setTimeout(() => {
-            if (onEnter) onEnter();
-        }, 1000);
+            confetti({
+                particleCount: 200, // Massive burst
+                spread: 160,
+                origin: { y: 0.6 },
+                colors: ['#fbbf24', '#f59e0b', '#d97706', '#fcd34d'],
+                shapes: [flower],
+                scalar: 2,
+                startVelocity: 60,
+                decay: 0.9,
+                gravity: 0.6,
+                ticks: 300
+            });
+        }, 3000); // 3.0s (Canon happens AFTER site reveal)
+
+        // 4. Transition to App handled by overlay bloom + timeout
+        setTimeout(() => {
+            onEnter();
+        }, 2200); // 2.2s (Site opens BEFORE canon)
     };
+
 
     if (!mounted) return null;
 
@@ -308,12 +426,39 @@ export default function SolarpunkLanding({ onEnter }: { onEnter?: () => void }) 
                             transition={{ duration: 0.8, delay: 1.2 }}
                             whileHover={{ letterSpacing: "0.2em" }}
                         >
-                            <span className="relative z-10 flex items-center gap-2">
-                                Enter Solarpunk World
-                                <motion.span
-                                    animate={{ x: [0, 5, 0] }}
-                                    transition={{ repeat: Infinity, duration: 1.5 }}
-                                >→</motion.span>
+                            <span className="relative z-10 flex items-center justify-center h-12 min-w-[240px]">
+                                <AnimatePresence mode="wait">
+                                    {isCelebrating ? (
+                                        <motion.span
+                                            key="welcome"
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 1.2 }}
+                                            transition={{ duration: 0.5, ease: "easeOut" }}
+                                            className="absolute text-xl tracking-[0.2em] font-bold"
+                                        >
+                                            WELCOME
+                                        </motion.span>
+                                    ) : (
+                                        <motion.span
+                                            key="enter"
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="absolute flex flex-col items-center leading-tight"
+                                        >
+                                            <span className="text-xs tracking-[0.3em] text-emerald-200/80 mb-0.5">ENTER</span>
+                                            <span className="flex items-center gap-2 text-base tracking-[0.15em] font-semibold">
+                                                SOLARPUNK WORLD
+                                                <motion.span
+                                                    animate={{ x: [0, 4, 0] }}
+                                                    transition={{ repeat: Infinity, duration: 1.5 }}
+                                                >→</motion.span>
+                                            </span>
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
                             </span>
                             <div className="absolute inset-0 bg-gradient-to-r from-emerald-800 to-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </motion.button>
