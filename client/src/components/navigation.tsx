@@ -40,6 +40,11 @@ const workLinks = [
     description: "Explore our workshops, events, and initiatives.",
   },
   {
+    title: "Events",
+    href: "/events",
+    description: "Join our workshops and sessions.",
+  },
+  {
     title: "Projects",
     href: "/projects",
     description: "See the sustainable tech we are building.",
