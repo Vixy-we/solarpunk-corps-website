@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Rocket, Banknote, Wrench, Mic, GraduationCap, Heart, Building2, CheckCircle2 } from "lucide-react";
@@ -151,6 +152,10 @@ export default function Partner() {
 
     return (
         <div id="partner-top" className="min-h-screen bg-[#FDFBF7] dark:bg-background text-gray-800 dark:text-foreground flex flex-col font-sans">
+            <SEO
+                title="Partner With Us"
+                description="Collaborate with Solarpunk Corps. Sponsorship, CSR, and hiring partnership opportunities."
+            />
             <Navigation />
 
             {/* Hero Section */}

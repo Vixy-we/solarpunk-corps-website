@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock } from "lucide-react";
@@ -8,6 +9,31 @@ import { Link } from "wouter";
 export default function GreenShiftVision() {
     return (
         <div className="h-screen overflow-hidden bg-black text-white font-sans selection:bg-green-500/30">
+            <SEO
+                title="GreenShift 2026 Vision"
+                description="GreenShift 2026: A Solarpunk Corps Vision. Annual flagship technical workshop on sustainability innovation."
+                jsonLd={{
+                    "@context": "https://schema.org",
+                    "@type": "Event",
+                    "name": "GreenShift 2026",
+                    "description": "Annual flagship technical workshop designed as an immersive, hands-on learning experience focused on sustainability-driven engineering.",
+                    "startDate": "2026-04-01",
+                    "location": {
+                        "@type": "Place",
+                        "name": "BIET Jhansi",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Jhansi",
+                            "addressRegion": "UP",
+                            "addressCountry": "IN"
+                        }
+                    },
+                    "organizer": {
+                        "@type": "Organization",
+                        "name": "Solarpunk Corps"
+                    }
+                }}
+            />
             <Navigation className="bg-zinc-900/90 border-green-900/30 text-white" />
 
             {/* Main content with top margin to account for fixed header */}

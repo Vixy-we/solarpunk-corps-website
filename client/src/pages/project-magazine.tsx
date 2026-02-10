@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { Pen, Download, Mic } from "lucide-react";
 import { Link } from "wouter";
 
@@ -28,6 +29,10 @@ export default function ProjectMagazine() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <SEO
+                title="CodeGreen Magazine"
+                description="The student-run publication defining our solarpunk aesthetic and voice. Read stories, articles, and research."
+            />
             <style>{`
         .magazine-page-container {
             --color-paper: #F3F0E6;

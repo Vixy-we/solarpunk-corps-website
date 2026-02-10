@@ -22,6 +22,22 @@ export default function Home() {
       <SEO
         title="Home"
         description="Solarpunk Corps is a student-led club at BIET Jhansi blending robotics, sustainability, creativity, and community action. Join the movement for hopeful innovation."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Solarpunk Corps",
+          "url": "https://solarpunkcorps.vercel.app",
+          "logo": "https://solarpunkcorps.vercel.app/SPC_logo.png",
+          "sameAs": [
+            "https://twitter.com/solarpunkcorps",
+            "https://instagram.com/solarpunkcorps"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "contact@solarpunkcorps.org"
+          }
+        }}
       />
       <Navigation />
 

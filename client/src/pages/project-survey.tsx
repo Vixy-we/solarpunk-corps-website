@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { Activity, Zap, Leaf } from "lucide-react";
 import { Link } from "wouter";
 
@@ -28,6 +29,10 @@ export default function ProjectSurvey() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <SEO
+                title="Campus Tech-Life Survey"
+                description="A comprehensive study mapping student technology usage, burnout, and sustainability habits."
+            />
             <style>{`
         .survey-page-container {
             /* Accents */

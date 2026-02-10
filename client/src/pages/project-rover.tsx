@@ -1,7 +1,7 @@
-
 import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { Link } from "wouter";
 
 export default function ProjectRover() {
@@ -27,6 +27,22 @@ export default function ProjectRover() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <SEO
+                title="Solar Rover Project"
+                description="Our environmental monitoring rover powered by solar energy. A 6-wheel autonomous prototype."
+                jsonLd={{
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": "Solar Rover Project",
+                    "description": "A 6-wheel environmental monitoring rover powered entirely by solar energy.",
+                    "category": "Robotics",
+                    "brand": {
+                        "@type": "Organization",
+                        "name": "Solarpunk Corps"
+                    }
+                }}
+            />
+
             <style>{`
         .rover-page-container {
             --color-solar: #E9C46A;

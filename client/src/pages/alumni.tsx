@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
@@ -149,6 +150,10 @@ export default function Alumni() {
 
     return (
         <div id="alumni-top" className="min-h-screen bg-[#FDFBF7] dark:bg-background text-gray-800 dark:text-foreground flex flex-col font-sans">
+            <SEO
+                title="Alumni Network"
+                description="Connect with Solarpunk Corps. Mentorship, support, and networking alumni opportunities."
+            />
             <Navigation />
 
             {/* Hero Section */}
