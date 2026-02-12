@@ -35,10 +35,32 @@ const allowlist = [
 async function buildAll() {
   await rm("dist", { recursive: true, force: true });
 
-  console.log("building client...");
+  // Step 1: Build client bundle (SPA assets)
+  console.log("Step 1/4: Building client...");
   await viteBuild();
 
-  console.log("building server...");
+  // Step 2: Build SSR entry (bundle ALL deps so CJS/ESM compat is handled by Vite)
+  console.log("Step 2/4: Building SSR entry for prerendering...");
+  await viteBuild({
+    build: {
+      ssr: "src/entry-server.tsx",
+      outDir: "../dist/server",
+      emptyOutDir: true,
+    },
+    ssr: {
+      // Bundle everything into the output so Node doesn't need to resolve
+      // CJS modules like react-helmet-async at runtime via ESM imports
+      noExternal: true,
+    },
+  });
+
+  // Step 3: Prerender all routes to static HTML
+  console.log("Step 3/4: Prerendering static pages...");
+  const { execSync } = await import("child_process");
+  execSync("npx tsx script/prerender.ts", { stdio: "inherit" });
+
+  // Step 4: Build Express server
+  console.log("Step 4/4: Building Express server...");
   const pkg = JSON.parse(await readFile("package.json", "utf-8"));
   const allDeps = [
     ...Object.keys(pkg.dependencies || {}),

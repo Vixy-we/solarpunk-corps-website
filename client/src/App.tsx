@@ -32,8 +32,12 @@ import GreenShiftVision from "@/pages/green-shift";
 import { SITE_LIVE, INAUGURATION_MODE } from "@/config/site";
 import { useState } from "react";
 
-function Router() {
-  const [location] = useLocation();
+// ... imports
+
+function Router({ hook }: { hook?: any }) {
+  // Use the provided hook or default to wouter's useLocation
+  // If hook is provided (SSR), it should behave like wouter's hook
+  const [location] = hook ? hook() : useLocation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -50,36 +54,53 @@ function Router() {
   }, []);
 
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/structure" component={Structure} />
-      <Route path="/what-we-do" component={WhatWeDo} />
-      <Route path="/projects" component={Projects} />
-      <Route path="/sponsors" component={Sponsors} />
-      <Route path="/our-team" component={OurTeam} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/sponsors/alumni" component={Alumni} />
-      <Route path="/alumni" component={Alumni} />
-      <Route path="/sponsors/partner" component={Partner} />
-      <Route path="/projects/rover" component={ProjectRover} />
-      <Route path="/projects/magazine" component={ProjectMagazine} />
-      <Route path="/projects/survey" component={ProjectSurvey} />
-      <Route path="/hidden-egg" component={HiddenEgg} />
-      <Route path="/experience-spc" component={ExperienceSPC} />
-      <Route path="/under-construction" component={UnderConstruction} />
-      <Route path="/csr" component={CSRPage} />
-      <Route path="/events" component={Events} />
-      <Route path="/events/greenshift" component={GreenShiftVision} />
-      <Route path="/manifesto" component={Manifesto} />
-      <Route component={NotFound} />
-    </Switch>
+    <RouterComponent hook={hook}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/structure" component={Structure} />
+        <Route path="/what-we-do" component={WhatWeDo} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/sponsors" component={Sponsors} />
+        <Route path="/our-team" component={OurTeam} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/sponsors/alumni" component={Alumni} />
+        <Route path="/alumni" component={Alumni} />
+        <Route path="/sponsors/partner" component={Partner} />
+        <Route path="/projects/rover" component={ProjectRover} />
+        <Route path="/projects/magazine" component={ProjectMagazine} />
+        <Route path="/projects/survey" component={ProjectSurvey} />
+        <Route path="/hidden-egg" component={HiddenEgg} />
+        <Route path="/experience-spc" component={ExperienceSPC} />
+        <Route path="/under-construction" component={UnderConstruction} />
+        <Route path="/csr" component={CSRPage} />
+        <Route path="/events" component={Events} />
+        <Route path="/events/greenshift" component={GreenShiftVision} />
+        <Route path="/manifesto" component={Manifesto} />
+        <Route component={NotFound} />
+      </Switch>
+    </RouterComponent>
   );
 }
 
+// Helper to wrap Switch in Router if hook is provided, or just return children if not (as Switch handles it)
+// wouter's useLocation works globally, but for SSR we need to pass the location via Router
+import { Router as WouterRouter } from "wouter";
+
+const RouterComponent = ({ children, hook }: { children: React.ReactNode, hook?: any }) => {
+  if (hook) {
+    return <WouterRouter hook={hook}>{children}</WouterRouter>
+  }
+  return <>{children}</>;
+}
 
 
-function App() {
+interface AppProps {
+  routerHook?: any; // For wouter SSR
+  helmetContext?: any; // For react-helmet-async SSR
+}
+
+function App({ routerHook, helmetContext = {} }: AppProps) {
   const [hasEntered, setHasEntered] = useState(false);
 
   // Logic:
@@ -100,12 +121,12 @@ function App() {
   }
 
   return (
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <ThemeProvider defaultTheme="light" storageKey="spc-theme">
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
             <Toaster />
-            <Router />
+            <Router hook={routerHook} />
             <ScrollToTop />
           </TooltipProvider>
         </QueryClientProvider>
