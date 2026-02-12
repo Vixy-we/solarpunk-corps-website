@@ -15,6 +15,7 @@ export default function Manifesto() {
             <SEO
                 title="The Manifesto"
                 description="Our vision for a sustainable, hopeful future. The Solarpunk Corps manifesto outlines why we believe repair is radical and optimism is resistance."
+                keywords={["manifesto", "philosophy", "radical optimism", "solarpunk", "future", "repair", "sustainability"]}
             />
             <Navigation />
 

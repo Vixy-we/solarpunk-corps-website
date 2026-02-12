@@ -202,6 +202,7 @@ export default function OurTeam() {
       <SEO
         title="Meet the Team"
         description="The humans behind Solarpunk Corps — students from BIET Jhansi who love building robots, care about sustainability, and believe in collaboration."
+        keywords={["team members", "leadership", "core committee", "faculty advisors", "executive members", "explorer members", "students", "BIET Jhansi"]}
       />
       <Navigation />
       <main className="pt-16">

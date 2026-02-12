@@ -9,6 +9,7 @@ export default function Projects() {
       <SEO
         title="Projects"
         description="Explore our ongoing initiatives — from sustainable rovers to community surveys. See what students at Solarpunk Corps are building."
+        keywords={["student projects", "solar rover", "magazine", "survey", "engineering projects", "innovation", "BIET Jhansi"]}
       />
       <Navigation />
       <main className="pt-16">

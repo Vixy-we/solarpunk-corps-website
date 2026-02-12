@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Instagram, Linkedin, Github } from 'lucide-react';
 import confetti from 'canvas-confetti';
-
+import { SEO } from "@/components/seo"; // Import SEO
 // --- Components ---
 
 const BackgroundBioCircuitry = () => {
@@ -338,8 +338,12 @@ export default function SolarpunkLanding({ onEnter }: { onEnter?: () => void }) 
     return (
         <div
             className="relative min-h-screen w-full bg-[#FDFCF8] text-emerald-950 font-sans flex flex-col items-center overflow-hidden selection:bg-amber-100 selection:text-emerald-900 select-none"
-        // onContextMenu={(e) => e.preventDefault()}
         >
+            <SEO
+                title="Coming Soon"
+                description="Solarpunk Corps is launching soon. Technology with purpose, nature in mind, people at heart."
+                keywords={["coming soon", "launch", "solarpunk corps", "technology", "nature", "people", "BIET Jhansi"]}
+            />
 
             {/* ... background layers ... */}
             <div className="absolute inset-0 bg-gradient-to-b from-amber-50/50 via-stone-50/30 to-emerald-50/20 pointer-events-none" />

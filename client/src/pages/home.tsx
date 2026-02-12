@@ -22,6 +22,7 @@ export default function Home() {
       <SEO
         title="Home"
         description="Solarpunk Corps is a student-led club at BIET Jhansi blending robotics, sustainability, creativity, and community action. Join the movement for hopeful innovation."
+        keywords={["solarpunk", "robotics", "sustainability", "student club", "BIET Jhansi", "engineering", "innovation", "green technology", "community"]}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",

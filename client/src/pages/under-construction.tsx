@@ -1,10 +1,12 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Leaf, Hammer, ArrowLeft, ArrowRight } from "lucide-react";
+import { SEO } from "@/components/seo";
 
 export default function UnderConstruction() {
     return (
         <div className="min-h-screen bg-background font-sans flex flex-col items-center justify-center p-6 overflow-hidden relative">
+            <SEO title="Under Construction" robots="noindex, follow" />
 
             {/* Background Gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-background to-blue-500/5" />

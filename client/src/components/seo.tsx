@@ -8,6 +8,9 @@ interface SEOProps {
     type?: string;
     canonical?: string;
     jsonLd?: Record<string, any>;
+    keywords?: string | string[];
+    author?: string;
+    robots?: string;
 }
 
 const defaultMeta = {
@@ -16,6 +19,9 @@ const defaultMeta = {
     image: '/SPC_logo.png',
     url: 'https://solarpunkcorps.vercel.app',
     type: 'website',
+    author: 'Solarpunk Corps',
+    keywords: 'solarpunk, robotics, sustainability, student club, BIET Jhansi, engineering, innovation, green technology, community',
+    robots: 'index, follow',
 };
 
 export function SEO({
@@ -26,6 +32,9 @@ export function SEO({
     type = defaultMeta.type,
     canonical,
     jsonLd,
+    keywords = defaultMeta.keywords,
+    author = defaultMeta.author,
+    robots = defaultMeta.robots,
 }: SEOProps) {
     const fullTitle = title
         ? `${title} | Solarpunk Corps`
@@ -34,12 +43,17 @@ export function SEO({
     const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : defaultMeta.url);
     const canonicalUrl = canonical || currentUrl;
 
+    const keywordsContent = Array.isArray(keywords) ? keywords.join(', ') : keywords;
+
     return (
         <Helmet>
             {/* Primary Meta Tags */}
             <title>{fullTitle}</title>
             <meta name="title" content={fullTitle} />
             <meta name="description" content={description} />
+            <meta name="keywords" content={keywordsContent} />
+            <meta name="author" content={author} />
+            <meta name="robots" content={robots} />
             <link rel="canonical" href={canonicalUrl} />
 
             {/* Open Graph / Facebook */}

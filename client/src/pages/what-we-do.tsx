@@ -9,6 +9,7 @@ export default function WhatWeDo() {
       <SEO
         title="What We Do"
         description="Explore our activities at Solarpunk Corps, including projects, workshops, and community initiatives."
+        keywords={["activities", "workshops", "projects", "community", "events", "initiatives", "student club"]}
       />
       <Navigation />
       <main className="pt-16">

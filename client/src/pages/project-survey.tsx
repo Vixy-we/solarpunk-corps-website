@@ -32,6 +32,7 @@ export default function ProjectSurvey() {
             <SEO
                 title="Campus Tech-Life Survey"
                 description="A comprehensive study mapping student technology usage, burnout, and sustainability habits."
+                keywords={["tech-life survey", "student technology usage", "digital burnout", "sustainability habits", "campus research", "BIET Jhansi"]}
             />
             <style>{`
         .survey-page-container {

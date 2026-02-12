@@ -10,6 +10,7 @@ export default function Contact() {
       <SEO
         title="Contact Us"
         description="Get in touch with Solarpunk Corps. Questions, ideas, or just want to say hi? We'd love to hear from you."
+        keywords={["contact", "reach out", "email", "support", "inquiries", "questions", "feedback", "location"]}
       />
       <Navigation />
       <main className="pt-16">

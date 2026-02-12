@@ -153,6 +153,7 @@ export default function Alumni() {
             <SEO
                 title="Alumni Network"
                 description="Connect with Solarpunk Corps. Mentorship, support, and networking alumni opportunities."
+                keywords={["alumni", "network", "mentorship", "support", "donation", "connect", "graduates", "BIET Jhansi alumni"]}
             />
             <Navigation />
 

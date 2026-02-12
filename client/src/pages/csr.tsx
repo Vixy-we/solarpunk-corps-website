@@ -446,6 +446,7 @@ export default function CSRPage() {
             <SEO
                 title="Club Social Responsibility"
                 description="Technology without responsibility is incomplete. Explore how Solarpunk Corps integrates social impact into everything we build."
+                keywords={["club social responsibility", "CSR", "community impact", "social initiatives", "tech for good", "volunteering", "BIET Jhansi"]}
             />
             <BackgroundDecoration />
 

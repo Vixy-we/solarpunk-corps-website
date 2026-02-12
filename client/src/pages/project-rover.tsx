@@ -30,6 +30,7 @@ export default function ProjectRover() {
             <SEO
                 title="Solar Rover Project"
                 description="Our environmental monitoring rover powered by solar energy. A 6-wheel autonomous prototype."
+                keywords={["solar rover", "robotics", "sustainable technology", "six-wheel", "autonomous", "engineering project", "environmental monitoring"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "Product",

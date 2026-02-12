@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useMemo } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { Link } from "wouter";
+import { SEO } from "@/components/seo";
 import {
     ArrowDown, Leaf, Sprout, Bot, TreeDeciduous, Sun, Building2,
     Users, Heart, HandHeart, Globe, Cpu, Zap, Flower, Flower2,
@@ -123,6 +124,11 @@ export default function ExperienceSPC() {
             style={{ backgroundColor }}
             className="relative min-h-[1200vh] text-neutral-200 overflow-hidden font-serif selection:bg-emerald-500/30"
         >
+            <SEO
+                title="Experience Solarpunk Corps"
+                description="An immersive digital journey through the philosophy and vision of Solarpunk Corps."
+                keywords={["experience", "immersive", "philosophy", "vision", "solarpunk corps", "digital journey", "storytelling"]}
+            />
 
             {/* PROGRESS INDICATOR */}
             <motion.div

@@ -10,6 +10,7 @@ export default function Structure() {
       <SEO
         title="Club Structure"
         description="Explore membership tiers and the 9 divisions of Solarpunk Corps — from Robotics to Storytelling."
+        keywords={["club structure", "hierarchy", "divisions", "roles", "membership", "robotics", "storytelling", "teams"]}
       />
       <Navigation />
       <main className="pt-16">

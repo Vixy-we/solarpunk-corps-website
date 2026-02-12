@@ -155,6 +155,7 @@ export default function Partner() {
             <SEO
                 title="Partner With Us"
                 description="Collaborate with Solarpunk Corps. Sponsorship, CSR, and hiring partnership opportunities."
+                keywords={["partner", "sponsor", "CSR", "collaboration", "corporate", "funding", "projects", "hiring", "talent"]}
             />
             <Navigation />
 

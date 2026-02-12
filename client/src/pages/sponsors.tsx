@@ -21,6 +21,7 @@ export default function Sponsors() {
       <SEO
         title="Support Us"
         description="Help us build the Solarpunk Future. Whether you're an alumni or partner, your support means the world to us."
+        keywords={["sponsorship", "partnership", "alumni", "support", "collaborate", "donate", "BIET Jhansi"]}
       />
       <Navigation />
       <main className="pt-16">

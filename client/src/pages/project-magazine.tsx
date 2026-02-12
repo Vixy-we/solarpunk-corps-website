@@ -32,6 +32,7 @@ export default function ProjectMagazine() {
             <SEO
                 title="CodeGreen Magazine"
                 description="The student-run publication defining our solarpunk aesthetic and voice. Read stories, articles, and research."
+                keywords={["CodeGreen", "magazine", "student publication", "solarpunk aesthetic", "stories", "articles", "research", "BIET Jhansi"]}
             />
             <style>{`
         .magazine-page-container {

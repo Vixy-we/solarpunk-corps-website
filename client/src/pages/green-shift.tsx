@@ -12,6 +12,7 @@ export default function GreenShiftVision() {
             <SEO
                 title="GreenShift 2026 Vision"
                 description="GreenShift 2026: A Solarpunk Corps Vision. Annual flagship technical workshop on sustainability innovation."
+                keywords={["GreenShift 2026", "technical workshop", "sustainability engineering", "innovation", "BIET Jhansi", "student event", "engineering workshop"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "Event",
