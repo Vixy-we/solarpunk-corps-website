@@ -20,7 +20,7 @@ const defaultMeta = {
     url: 'https://solarpunkcorps.vercel.app',
     type: 'website',
     author: 'Solarpunk Corps',
-    keywords: 'solarpunk, robotics, sustainability, student club, BIET Jhansi, engineering, innovation, green technology, community',
+    keywords: 'BIET Jhansi, Bundelkhand Institute of Engineering and Technology Jhansi, Solarpunk Corps, SPC Jhansi, SPC BIET, Robotics Club Jhansi, Robotics Society Jhansi, Sustainability Jhansi, Solarpunk, Eco-friendly Club BIET, Green Technology, Student Club, Engineering, Innovation, Community, robotics club, nature technology, green engineering, spc',
     robots: 'index, follow',
 };
 

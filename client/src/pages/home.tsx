@@ -21,8 +21,24 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans">
       <SEO
         title="Home"
-        description="Solarpunk Corps is a student-led club at BIET Jhansi blending robotics, sustainability, creativity, and community action. Join the movement for hopeful innovation."
-        keywords={["solarpunk", "robotics", "sustainability", "student club", "BIET Jhansi", "engineering", "innovation", "green technology", "community"]}
+        description="Solarpunk Corps is the premier student-led robotics and sustainability club at BIET Jhansi. We are blending robotics, sustainability, creativity, and community action to build a hopeful future. Join the movement for hopeful innovation."
+        keywords={[
+          "BIET Jhansi",
+          "Bundelkhand Institute of Engineering and Technology Jhansi",
+          "Solarpunk Corps",
+          "SPC Jhansi",
+          "SPC BIET",
+          "Robotics Club Jhansi",
+          "Robotics Society Jhansi",
+          "Sustainability Jhansi",
+          "Solarpunk",
+          "Eco-friendly Club BIET",
+          "Green Technology",
+          "Student Club",
+          "Engineering",
+          "Innovation",
+          "Community"
+        ]}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
