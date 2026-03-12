@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
 import { useLocation } from "wouter";
 import { SiLinkedin, SiInstagram, SiX, SiGithub } from "react-icons/si";
-import { VisitorCounter } from "./VisitorCounter";
+
 import { Badge } from "@/components/ui/badge";
 
 interface FooterLink {
@@ -212,7 +212,15 @@ export function Footer() {
             © {new Date().getFullYear()} Solarpunk Corps • MED • BIET Jhansi
           </p>
 
-          <VisitorCounter />
+          {/* hitwebcounter Code START */}
+          <a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://hitwebcounter.com/counter/counter.php?page=21482333&style=0002&nbdigits=4&type=page&initCount=57"
+              title="Free Tools"
+              alt="Free Tools"
+              style={{ border: 0 }}
+            />
+          </a>
 
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Made with <Heart className="h-3 w-3 text-rose-500 fill-current animate-pulse" /> for a sustainable future
