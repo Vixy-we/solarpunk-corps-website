@@ -112,11 +112,19 @@ function App({ routerHook, helmetContext = {} }: AppProps) {
   if (!SITE_LIVE) {
     if (INAUGURATION_MODE) {
       if (!hasEntered) {
-        return <ComingSoon onEnter={() => setHasEntered(true)} />;
+        return (
+          <HelmetProvider context={helmetContext}>
+            <ComingSoon onEnter={() => setHasEntered(true)} />
+          </HelmetProvider>
+        );
       }
       // If hasEntered is true, fall through to render the app
     } else {
-      return <ComingSoon />;
+      return (
+        <HelmetProvider context={helmetContext}>
+          <ComingSoon />
+        </HelmetProvider>
+      );
     }
   }
 
