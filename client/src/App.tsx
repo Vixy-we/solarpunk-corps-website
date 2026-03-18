@@ -29,6 +29,7 @@ import CSRPage from "@/pages/csr";
 import Manifesto from "@/pages/manifesto";
 import Events from "@/pages/events";
 import GreenShiftVision from "@/pages/green-shift";
+import Workshop from "@/pages/workshop";
 import { SITE_LIVE, INAUGURATION_MODE } from "@/config/site";
 import { useState } from "react";
 
@@ -76,6 +77,7 @@ function Router({ hook }: { hook?: any }) {
         <Route path="/csr" component={CSRPage} />
         <Route path="/events" component={Events} />
         <Route path="/events/greenshift" component={GreenShiftVision} />
+        <Route path="/workshop" component={Workshop} />
         <Route path="/manifesto" component={Manifesto} />
         <Route component={NotFound} />
       </Switch>

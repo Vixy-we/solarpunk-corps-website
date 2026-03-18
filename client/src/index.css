@@ -321,4 +321,25 @@
   .animate-float {
     animation: float 4s ease-in-out infinite;
   }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+  }
+
+  .bg-pattern-dots {
+    background-image: radial-gradient(rgba(28, 25, 23, 0.1) 2px, transparent 2px);
+    background-size: 24px 24px;
+  }
 }
