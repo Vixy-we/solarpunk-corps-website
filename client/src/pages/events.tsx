@@ -13,7 +13,7 @@ export default function Events() {
             <SEO
                 title="Events"
                 description="From hands-on technical workshops to thought-provoking seminars, explore Solarpunk Corps events and activities."
-                keywords={["events", "workshops", "seminars", "hackathons", "meetups", "activities", "calendar", "GreenShift"]}
+                keywords={["events", "workshops", "seminars", "hackathons", "meetups", "activities", "calendar", "Horizon"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "ItemList",
@@ -21,8 +21,8 @@ export default function Events() {
                         {
                             "@type": "ListItem",
                             "position": 1,
-                            "name": "GreenShift 2026",
-                            "url": "https://solarpunkcorps.vercel.app/events/greenshift"
+                            "name": "Horizon 1.0",
+                            "url": "https://solarpunkcorps.vercel.app/events/horizon"
                         }
                     ]
                 }}
@@ -48,8 +48,8 @@ export default function Events() {
 
             <main className="flex-grow px-6 pb-24 max-w-7xl mx-auto w-full space-y-24">
 
-                {/* Flagship Event: Green Shift */}
-                <section className="relative group cursor-pointer" onClick={() => window.location.href = "/events/greenshift"}>
+                {/* Flagship Event: Horizon */}
+                <section className="relative group cursor-pointer" onClick={() => window.location.href = "/events/horizon"}>
                     <div className="absolute -inset-4 bg-gradient-to-r from-green-100/50 via-emerald-50/50 to-teal-100/30 dark:from-green-900/20 dark:via-emerald-900/10 dark:to-teal-900/10 rounded-3xl blur-2xl -z-10 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="bg-white dark:bg-card border border-green-100 dark:border-green-900/50 rounded-3xl overflow-hidden shadow-2xl relative group-hover:scale-[1.01] transition-transform duration-300">
                         {/* Coming Soon/Badge */}
@@ -71,19 +71,20 @@ export default function Events() {
                                         <span className="text-green-700 dark:text-green-400 font-bold tracking-wider text-sm uppercase">Annual Flagship Workshop</span>
                                     </div>
 
-                                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-foreground mb-6 font-serif">
-                                        GreenShift
+                                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-foreground mb-2 font-horizon tracking-tight">
+                                        Horizon 1.0
                                     </h2>
+                                    <p className="text-green-600 dark:text-green-400 font-bold text-sm mb-6 uppercase tracking-widest">Beyond the Machine</p>
 
                                     <p className="text-lg text-gray-600 dark:text-muted-foreground mb-8 leading-relaxed">
-                                        Our annual flagship technical workshop designed as an immersive, hands-on learning experience focused on sustainability-driven engineering and technology.
+                                        Our annual flagship technical workshop designed as an immersive, hands-on learning experience focused on curiosity. Where logic meets the sandbox, and minds meet the machine.
                                     </p>
 
                                     <ul className="space-y-4 mb-8">
                                         {[
-                                            "Sustainable energy systems",
-                                            "Electronics and applied technology",
-                                            "Solutions for environmental challenges"
+                                            "Simulating logical sandboxes",
+                                            "Tangible hacking & prototyping",
+                                            "Exploring automated boundaries"
                                         ].map((item, i) => (
                                             <li key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -104,7 +105,7 @@ export default function Events() {
                             <div className="relative h-full min-h-[300px] bg-gray-100 dark:bg-muted">
                                 <img
                                     src="/hourglass.webp"
-                                    alt="Green Shift Workshop"
+                                    alt="Horizon Workshop"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-l from-transparent to-white/10 dark:to-transparent" />

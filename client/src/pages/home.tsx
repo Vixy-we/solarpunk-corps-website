@@ -260,14 +260,16 @@ export default function Home() {
               ))}
             </div>
 
-            <Button onClick={() => handleNavigate("/what-we-do")}>
-              Explore All Activities
-            </Button>
+            <div className="flex justify-end">
+              <Button variant="outline" size="sm" onClick={() => handleNavigate("/what-we-do")}>
+                Explore All Activities
+              </Button>
+            </div>
           </div>
         </section>
 
 
-        {/* SECTION 2.5: UPCOMING (GreenShift) - REFINED */}
+        {/* SECTION 2.5: UPCOMING (Horizon) - REFINED */}
         <section className="py-24 relative overflow-hidden bg-background">
           {/* Subtle Background Elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -275,16 +277,23 @@ export default function Home() {
           </div>
 
           <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
-              <div>
-                <Badge className="mb-4 bg-emerald-600 text-white hover:bg-emerald-700">Upcoming Flagship Event</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold">Engineering for Sustainability</h2>
-                <p className="text-muted-foreground mt-2 max-w-md">
-                  Master the tools to build a greener future through our hands-on technical workshops.
-                </p>
+              <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-6 w-full">
+                <div className="flex-1">
+                  <Badge className="mb-4 bg-emerald-600 text-white hover:bg-emerald-700">Upcoming Flagship Event</Badge>
+                  <h2 className="text-4xl md:text-6xl font-horizon font-bold tracking-tight mb-6 text-gray-900 dark:text-white">Horizon</h2>
+                  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
+                    Our annual flagship technical workshop designed as an immersive, hands-on learning experience focused on curiosity.
+                  </p>
+                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="group border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all font-bold rounded-full mt-4 md:mt-0"
+                  onClick={() => handleNavigate("/events")}
+                >
+                  View All Events <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
-              <Button variant="outline" onClick={() => handleNavigate("/events")}>View All Events</Button>
-            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -302,17 +311,18 @@ export default function Home() {
                     Annual Flagship Workshop
                   </Badge>
 
-                  <h2 className="text-3xl md:text-5xl font-bold mb-6 font-serif tracking-tight text-foreground">
-                    GreenShift <span className="text-emerald-600 dark:text-emerald-500">2026</span>
+                  <h2 className="text-3xl md:text-5xl font-bold mb-2 font-horizon tracking-tight text-foreground">
+                    Horizon <span className="text-emerald-600 dark:text-emerald-500">1.0</span>
                   </h2>
+                  <p className="text-emerald-600 dark:text-emerald-400 font-bold text-lg mb-6 uppercase tracking-[0.2em]">Beyond the Machine</p>
 
                   <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-lg">
-                    An immersive engineering workshop where sustainability meets innovation. Join us to build, learn, and shape the green future.
+                    Where logic meets the sandbox, and minds meet the machine. Fueling curiosity by providing tools for the unknown.
                   </p>
 
                   <div className="flex flex-wrap gap-4 items-center">
-                    <Button onClick={() => handleNavigate("/events/greenshift")} className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-6 h-auto text-base shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/40 transition-all rounded-full group">
-                      Explore Event
+                    <Button onClick={() => handleNavigate("/events/horizon")} className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-6 h-auto text-base shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/40 transition-all rounded-full group">
+                      Explore the Horizon
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
 
@@ -323,17 +333,17 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg group cursor-pointer" onClick={() => handleNavigate("/events/greenshift")}>
+                <div className="relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg group cursor-pointer" onClick={() => handleNavigate("/events/horizon")}>
                   <div className="absolute inset-0 bg-emerald-900/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
                   <img
                     src="/hourglass.webp"
-                    alt="GreenShift 2026"
+                    alt="Horizon 1.0"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                     <div className="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                      <p className="font-bold text-lg mb-1">Coming Soon</p>
-                      <p className="text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">Tap to view details</p>
+                      <p className="font-bold text-lg mb-1">The sequence begins soon.</p>
+                      <p className="text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">Tap to see the horizon</p>
                     </div>
                   </div>
                 </div>
@@ -354,7 +364,7 @@ export default function Home() {
                   We are kicking off our journey with three ambitious flagship projects for 2026.
                 </p>
               </div>
-              <Button variant="outline" onClick={() => handleNavigate("/projects")}>View Roadmaps</Button>
+              <Button variant="outline" size="sm" onClick={() => handleNavigate("/projects")}>View Roadmaps</Button>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">

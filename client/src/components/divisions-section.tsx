@@ -23,10 +23,10 @@ const leadership = [
   },
   {
     icon: CheckCircle2,
-    title: "Secretary",
+    title: "Joint Secretary",
     role: "Operations & Execution",
     description: "Oversees execution, internal coordination, and continuity of SPC operations.",
-    details: "The Secretary allows the club to function effectively day-to-day. They manage the operational backbone, ensuring that resources are available, schedules are met, and internal communications flow smoothly.",
+    details: "The Joint Secretary allows the club to function effectively day-to-day. They manage the operational backbone, ensuring that resources are available, schedules are met, and internal communications flow smoothly.",
     focusAreas: ["Operational Efficiency", "Resource Management", "Internal Communication", "Process Optimization"],
     skills: ["Operational Planning", "Conflict Resolution", "Administrative Management", "Workflow Optimization"]
   }

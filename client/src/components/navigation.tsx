@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
-import { Menu, X, ChevronDown, Rocket, Heart, Users, Network, GraduationCap, Handshake, Calendar } from "lucide-react";
+import { Menu, X, ChevronDown, Rocket, Heart, Users, Network, GraduationCap, Handshake, Calendar, Sparkles, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -77,7 +78,27 @@ const partnerLinks = [
 
 export function Navigation({ className }: { className?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [location, navigate] = useLocation();
+  const notifRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (notifRef.current && !notifRef.current.contains(event.target as Node)) {
+        setIsNotifOpen(false);
+      }
+    };
+
+    if (isNotifOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isNotifOpen]);
 
   const handleNavigate = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
@@ -364,7 +385,86 @@ export function Navigation({ className }: { className?: string }) {
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 relative">
+            <div className="relative" ref={notifRef}>
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsNotifOpen(!isNotifOpen)}
+                className={cn(
+                  "flex items-center gap-2 px-4 h-9 rounded-full border transition-all mr-1 relative group text-xs font-medium",
+                  isNotifOpen 
+                    ? "bg-emerald-50 border-emerald-200 text-emerald-700 dark:bg-emerald-500/10 dark:border-emerald-500/30 dark:text-emerald-400" 
+                    : "bg-background border-border hover:border-emerald-500/40 text-muted-foreground hover:text-emerald-600 shadow-sm"
+                )}
+              >
+                <div className="relative">
+                  <Sparkles className={cn("h-3.5 w-3.5 transition-colors", isNotifOpen ? "text-emerald-500" : "group-hover:text-emerald-500")} />
+                  {!isNotifOpen && (
+                    <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                  )}
+                </div>
+                <span className="hidden lg:inline">What's New?</span>
+              </motion.button>
+
+              <AnimatePresence>
+                {isNotifOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    className="absolute top-12 right-0 w-64 z-[60]"
+                  >
+                    {/* Arrow */}
+                    <div className="absolute -top-1 right-6 w-3 h-3 bg-popover border-t border-l border-border rotate-45 z-10" />
+                    
+                    <div className="relative bg-popover border border-border rounded-xl shadow-2xl overflow-hidden backdrop-blur-xl">
+                      {/* Top Accent Bar */}
+                      <div className="h-1 w-full bg-gradient-to-r from-emerald-500 to-teal-500" />
+                      
+                      <div className="p-4 space-y-3">
+                        <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-500 font-bold text-[8px] uppercase tracking-[0.2em] opacity-80">
+                          <Sparkles className="h-2.5 w-2.5" />
+                          Upcoming Event
+                        </div>
+                        
+                        <div className="space-y-0.5">
+                          <h3 className="text-base font-horizon font-bold tracking-tight text-foreground line-height-none">
+                            Horizon 1.0
+                          </h3>
+                          <p className="text-[9px] font-bold text-emerald-600 uppercase tracking-widest opacity-70">
+                            Beyond the Machine
+                          </p>
+                        </div>
+                        
+                        <p className="text-[11px] text-muted-foreground leading-snug">
+                          Our flagship technical workshop is designed as an immersive learning experience.
+                        </p>
+                        
+                        <div className="pt-1">
+                          <Button 
+                            className="w-full h-8 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px] rounded-full group"
+                            size="sm"
+                            onClick={(e) => {
+                              handleNavigate(e, "/events/horizon");
+                              setIsNotifOpen(false);
+                            }}
+                          >
+                            Explore the Vision
+                            <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             <ThemeToggle />
             <a href="/structure" onClick={(e) => handleNavigate(e, "/structure")}>
               <Button className="hidden sm:inline-flex bg-green-600 hover:bg-green-700 text-white">

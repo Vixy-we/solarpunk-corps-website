@@ -222,7 +222,7 @@ export default function Manifesto() {
 
                     <div className="space-y-6">
                         {[
-                            { action: "We Scavenge", detail: "repurposing e-waste, scrap, and discarded tech into functional systems." },
+                            { action: "We Explore", detail: "going beyond traditional thinking to achieve what others deem impossible." },
                             { action: "We Sow", detail: "integrating biology, ecology, and sustainability into engineering decisions." },
                             { action: "We Range", detail: "using robotics, automation, and sensing to reach places humans cannot." },
                             { action: "We Teach", detail: "because knowledge hoarded is power wasted." },

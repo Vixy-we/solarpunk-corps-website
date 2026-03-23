@@ -100,12 +100,14 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
           >
             <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-700/25 border border-emerald-400/30 text-emerald-100 text-sm font-semibold mb-8 backdrop-blur-sm drop-shadow-md"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-700/25 border border-emerald-400/30 text-emerald-100 text-sm font-semibold mb-8 backdrop-blur-sm drop-shadow-md mx-auto"
               data-testid="badge-launching"
             >
               <Leaf className="h-4 w-4 text-emerald-200" />
-              <span>Launching in Mechanical Engineering Department at BIET Jhansi</span>
+              <span>Mechanical Engineering Department at BIET Jhansi</span>
             </div>
+
+
           </motion.div>
 
           <div className="mx-auto max-w-4xl">
@@ -198,8 +200,10 @@ export function HeroSection() {
                 </Button>
               </motion.div>
             </div>
+ 
           </div>
-        </div>
+ 
+       </div>
 
       </div>
 
