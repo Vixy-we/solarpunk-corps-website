@@ -38,14 +38,64 @@ const BrutalistCard = ({ children, colorClass, className = "", noHover = false }
   );
 };
 
-export default function Workshop() {
+function MainHero() {
+  return (
+    <header className="relative w-full min-h-[90vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden bg-[#111] text-white py-20 md:py-32 px-4 md:px-12">
+      {/* Background Chaos */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-20 pattern-stripes"></div>
+      <div className="absolute -top-24 -left-24 w-64 md:w-96 h-64 md:h-96 bg-solar-green rounded-full mix-blend-screen animate-pulse blur-3xl"></div>
+      <div className="absolute -bottom-24 -right-24 w-64 md:w-96 h-64 md:h-96 bg-neo-pink rounded-full mix-blend-screen animate-pulse blur-3xl shadow-[0_0_100px_rgba(255,144,232,0.5)]"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <div className="inline-block bg-sun-yellow text-black px-6 md:px-8 py-3 md:py-3 brutal-border mb-10 md:mb-12 transform -rotate-2 md:-rotate-2 hover:rotate-0 transition-all duration-300 active:scale-95 cursor-default shadow-[6px_6px_0px_#111]">
+          <span className="font-black tracking-[0.1em] md:tracking-[0.3em] uppercase text-base md:text-xl whitespace-nowrap">An Initiative of Solarpunk Corps</span>
+        </div>
+
+        <h1 className="text-7xl sm:text-8xl md:text-[13rem] lg:text-[15rem] font-black tracking-tighter leading-[0.8] md:leading-[0.8] uppercase mb-12 md:mb-16">
+          <span className="block text-white drop-shadow-[5px_5px_0px_#27AE60] md:drop-shadow-[12px_12px_0px_#27AE60]">HORIZON</span>
+          <span className="block text-sun-yellow mt-1 md:mt-4 transform translate-x-1 sm:translate-x-4 text-[0.32em] sm:text-[0.32em] md:text-[0.32em] lg:text-[0.32em] tracking-[0.1em] leading-none">beyond the machine</span>
+        </h1>
+
+        <div className="max-w-4xl mx-auto relative px-4 sm:px-2">
+          <div className="absolute -inset-1 md:-inset-4 bg-white/5 backdrop-blur-md rounded-xl md:rounded-2xl transform rotate-1 block sm:block"></div>
+          <p className="relative z-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black md:font-medium leading-[1.1] md:leading-tight tracking-tight text-white/95 p-4 md:p-6 bg-white/5 sm:bg-transparent rounded-lg backdrop-blur-sm sm:backdrop-blur-none border-2 border-white/10 sm:border-none uppercase">
+            From Circuitry to Conscious Design. <br />
+            Think differently. <br />
+            Build confidently. <br />
+            Engineer with purpose. <br />
+            <span className="flex flex-wrap justify-center gap-x-3 mt-4 md:mt-0">
+              <span className="text-solar-green tracking-tighter">build</span>
+              <span className="text-tech-blue tracking-tighter">simulate</span>
+              <span className="text-neo-pink tracking-tighter">evolve</span>
+            </span>
+          </p>
+        </div>
+
+        <div className="mt-12 md:mt-20 flex flex-wrap justify-center gap-6">
+          <div className="w-16 h-16 md:w-24 md:h-24 bg-white brutal-border rounded-full flex items-center justify-center text-black transform rotate-6 hover:rotate-0 transition-all duration-300 shadow-[4px_4px_0px_#27AE60] overflow-hidden">
+            <img src="/SPC_logo.png" alt="SPC Logo" className="w-[85%] h-[85%] object-contain" />
+          </div>
+        </div>
+      </div>
+
+      {/* Down Arrow */}
+      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-8 h-8 md:w-12 md:h-12 border-b-4 border-r-4 border-white/40 rotate-45 transform"></div>
+      </div>
+    </header>
+  );
+}
+
+export default function Horizon10() {
   return (
     <div className="min-h-screen bg-[#F4F4F0] dark:bg-background text-stone-900 dark:text-foreground font-sans selection:bg-[#A1E4A3] selection:text-stone-900 overflow-x-hidden transition-colors duration-300">
-      <SEO 
-        title="Ecotech Workshop"
-        description="Join the Ecotech Workshop by Solarpunk Corps. Build the future, don't break the planet. Hardware hacking, conceptual AI, and sustainability."
+      <SEO
+        title="Horizon 1.0 - Beyond the Machine"
+        description="Horizon 1.0 by Solarpunk Corps. An immersive, hands-on technical workshop blending hardware hacking, conceptual AI, and sustainability."
       />
       <Navigation />
+
+      <MainHero />
 
       {/* HERO SECTION */}
       <header className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden bg-pattern-dots py-20 px-4">
@@ -58,23 +108,27 @@ export default function Workshop() {
           <div className="lg:col-span-7 flex flex-col items-start gap-6">
             <div className="inline-flex items-center gap-2 bg-[#A1E4A3] dark:bg-[#A1E4A3]/20 border-[3px] border-stone-900 dark:border-white px-4 py-2 rounded-full font-mono font-bold text-sm shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">
               <span className="w-2 h-2 rounded-full bg-stone-900 dark:bg-[#A1E4A3] animate-pulse"></span>
-              <span className="dark:text-[#A1E4A3]">An Initiative By Solarpunk Corps</span>
+              <span className="dark:text-[#A1E4A3]">Applications Open Now</span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9]">
+            <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9]">
               The <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone-900 to-stone-600 dark:from-white dark:to-stone-400 block my-2">Ecotech</span>
-              Workshop
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone-900 to-stone-600 dark:from-white dark:to-stone-400 block my-2">Experimental</span>
+              Sandbox
             </h1>
+
+            <p className="mt-4 font-mono font-bold text-sm uppercase tracking-widest text-stone-600 dark:text-stone-400">
+              Come Explore // Limited Seats Available
+            </p>
 
             <div className="flex flex-wrap gap-3 font-mono text-lg md:text-xl font-bold">
               <span className="bg-[#FFE975] dark:bg-[#FFE975]/30 dark:text-[#FFE975] border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">March 27-29</span>
-              <span className="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 dark:text-[#B5A1E5] border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">Open to All</span>
+              <span className="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 dark:text-[#B5A1E5] border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">Open to All 2nd years</span>
             </div>
 
-            <p className="text-2xl md:text-4xl font-black mt-4 leading-tight">
-              Build the Future. <br />
-              <span className="text-stone-500 dark:text-stone-400">Don't Break The Planet.</span>
+            <p className="text-2xl md:text-3xl font-black mt-4 leading-tight">
+              Prototype the Future. <br />
+              <span className="text-stone-500 dark:text-stone-400">Refine the Innovation.</span>
             </p>
           </div>
 
@@ -113,6 +167,71 @@ export default function Workshop() {
           <span className="mx-4">*</span> QUESTION ASSUMPTIONS
         </div>
       </div>
+
+      {/* SCHEDULE OVERVIEW */}
+      <section className="py-24 px-4 bg-white dark:bg-zinc-900 border-y-[3px] border-stone-900 dark:border-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center lg:text-left">
+            <h2 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight">Event Roadmap</h2>
+            <p className="text-2xl font-medium max-w-2xl text-stone-600 dark:text-stone-400 font-mono">
+              3 Days of Intensive Simulation, Intelligence, and Physical Construction.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {/* Day 1 */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-stone-900 dark:bg-white rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-white"></div>
+              <div className="relative bg-[#FFE975] dark:bg-[#FFE975]/30 p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-white h-full flex flex-col">
+                <div className="flex justify-between items-start mb-8">
+                  <span className="bg-stone-900 text-white dark:bg-white dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Virtual</span>
+                  <span className="font-black text-4xl opacity-20">01</span>
+                </div>
+                <h3 className="text-4xl font-black uppercase mb-2">Tinkering</h3>
+                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
+                <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
+                  Software and electronics hands-on simulations. Map out your logic in a digital sandbox.
+                </p>
+              </div>
+            </div>
+
+            {/* Day 2 */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-stone-900 dark:bg-white rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-white"></div>
+              <div className="relative bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-white h-full flex flex-col">
+                <div className="flex justify-between items-start mb-8">
+                  <span className="bg-stone-900 text-white dark:bg-white dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Evolution</span>
+                  <span className="font-black text-4xl opacity-20">02</span>
+                </div>
+                <h3 className="text-3xl font-black uppercase mb-2 leading-tight">Intelligent <br /> Evolution</h3>
+                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
+                <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
+                  AI & ML understanding and hands-on demo. Explore the potential of automated minds.
+                </p>
+              </div>
+            </div>
+
+            {/* Day 3 */}
+            <div className="relative group md:col-span-2 lg:col-span-1">
+              <div className="absolute inset-0 bg-stone-900 dark:bg-white rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-white"></div>
+              <div className="relative bg-[#A1E4A3] dark:bg-[#A1E4A3]/30 p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-white h-full flex flex-col">
+                <div className="flex justify-between items-start mb-8">
+                  <span className="bg-stone-900 text-white dark:bg-white dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Showdown</span>
+                  <span className="font-black text-4xl opacity-20">03</span>
+                </div>
+                <h3 className="text-3xl font-black uppercase mb-2 leading-tight">Hardware <br /> Showdown</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded w-fit">9:00 AM - 12:00 PM</p>
+                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded w-fit">3:00 PM - 6:00 PM</p>
+                </div>
+                <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
+                  Physical build-a-thon prototype and debate. Pitch your vision for the future.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* THE EXPERIENCE (Bento Grid) */}
       <section className="py-24 px-4 max-w-7xl mx-auto">
@@ -240,12 +359,12 @@ export default function Workshop() {
             </div>
 
             <div className="space-y-8 flex flex-col items-center">
-               <p className="text-xl font-medium max-w-xl mx-auto dark:text-zinc-300">
+              <p className="text-xl font-medium max-w-xl mx-auto dark:text-zinc-300">
                 Ready to join the movement? We use an external platform to handle applications more efficiently. Click the button below to start your journey.
               </p>
 
               <a
-                href="https://forms.google.com/your-placeholder-link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdVaAEpqv_UnHOKPLbEEBgjunrIE-XtdVXQBoJ5caJzhBeg5Q/viewform?usp=dialog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex bg-[#A1E4A3] text-stone-900 border-[3px] border-stone-900 dark:border-white p-6 rounded-xl font-black text-3xl uppercase tracking-wider hover:bg-[#FFE975] active:translate-y-1 active:shadow-none shadow-[10px_10px_0px_0px_rgba(28,25,23,1)] dark:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.8)] transition-all relative overflow-hidden group"
@@ -256,7 +375,7 @@ export default function Workshop() {
                   OPEN EXTERNAL LINK &gt;
                 </span>
               </a>
-              
+
               <p className="text-sm font-bold font-mono text-stone-500 dark:text-stone-400 mt-4">
                 * Application takes approximately 5-10 minutes.
               </p>

@@ -28,8 +28,8 @@ import UnderConstruction from "@/pages/under-construction";
 import CSRPage from "@/pages/csr";
 import Manifesto from "@/pages/manifesto";
 import Events from "@/pages/events";
-import HorizonVision from "@/pages/horizon";
-import Workshop from "@/pages/workshop";
+import Horizon10 from "@/pages/horizon1-0";
+
 import { SITE_LIVE, INAUGURATION_MODE } from "@/config/site";
 import { useState } from "react";
 
@@ -76,8 +76,8 @@ function Router({ hook }: { hook?: any }) {
         <Route path="/under-construction" component={UnderConstruction} />
         <Route path="/csr" component={CSRPage} />
         <Route path="/events" component={Events} />
-        <Route path="/events/horizon" component={HorizonVision} />
-        <Route path="/workshopxyz" component={Workshop} />
+        <Route path="/events/horizon" component={Horizon10} />
+
         <Route path="/manifesto" component={Manifesto} />
         <Route component={NotFound} />
       </Switch>

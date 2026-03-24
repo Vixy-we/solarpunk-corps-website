@@ -346,4 +346,51 @@
   .font-horizon {
     font-family: 'Cinzel', serif;
   }
+
+  .brutal-border {
+    border: 4px solid #111111;
+  }
+
+  .brutal-shadow {
+    box-shadow: 6px 6px 0px #111111;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .brutal-shadow:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px #111111;
+  }
+
+  .brutal-shadow-sm {
+    box-shadow: 4px 4px 0px #111111;
+  }
+
+  .shape-circle {
+    border-radius: 50%;
+  }
+
+  .shape-quarter {
+    border-radius: 100% 0 0 0;
+  }
+
+  .shape-pill {
+    border-radius: 9999px;
+  }
+
+  .pattern-stripes {
+    background: repeating-linear-gradient(45deg,
+        transparent,
+        transparent 10px,
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(0, 0, 0, 0.1) 20px);
+  }
+
+  .bg-solar-green { background-color: #27AE60 !important; }
+  .bg-sun-yellow { background-color: #F2C94C !important; }
+  .bg-neo-pink { background-color: #FF90E8 !important; }
+  .bg-tech-blue { background-color: #2D9CDB !important; }
+  .bg-rust-orange { background-color: #FF5722 !important; }
+  .text-solar-green { color: #27AE60 !important; }
+  .text-tech-blue { color: #2D9CDB !important; }
+  .text-neo-pink { color: #FF90E8 !important; }
 }
