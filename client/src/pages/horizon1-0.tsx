@@ -369,7 +369,7 @@ export default function Horizon10() {
                 rel="noopener noreferrer"
                 className="inline-flex bg-[#A1E4A3] text-stone-900 border-[3px] border-stone-900 dark:border-white p-6 rounded-xl font-black text-3xl uppercase tracking-wider hover:bg-[#FFE975] active:translate-y-1 active:shadow-none shadow-[10px_10px_0px_0px_rgba(28,25,23,1)] dark:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.8)] transition-all relative overflow-hidden group"
               >
-                <span className="relative z-10 transition-opacity duration-300 group-hover:opacity-0">Apply via External Form</span>
+                <span className="relative z-10 transition-opacity duration-300 group-hover:opacity-0">Apply via Google Forms</span>
                 <div className="absolute inset-0 bg-stone-900 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out -z-0"></div>
                 <span className="absolute inset-0 flex items-center justify-center text-white dark:text-stone-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10 delay-100 font-mono text-xl text-center">
                   OPEN EXTERNAL LINK &gt;
