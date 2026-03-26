@@ -8,11 +8,14 @@ import {
   MessageSquareWarning,
   MonitorPlay,
   ArrowRight,
-  Globe2
+  Globe2,
+  X,
+  Plus
 } from 'lucide-react';
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { SEO } from "@/components/seo";
+import { AnimatePresence, motion } from 'framer-motion';
 
 // Custom component for the recurring Neo-Brutalist card style
 interface BrutalistCardProps {
@@ -86,9 +89,84 @@ function MainHero() {
   );
 }
 
+const roadmapData = [
+  {
+    day: "Day 1",
+    date: "27 March",
+    time: "3 PM",
+    type: "Virtual",
+    title: "Solarpunk – The Foundation & Virtual Sandbox",
+    objective: "Establish the theoretical floor and bridge the gap between abstract electronics and functional digital simulations.",
+    sessions: [
+      { title: "Initial Briefing (Simulation Mechanics)", detail: "Introduction to the 'Theory First' philosophy and the safety of the virtual sandbox." },
+      { title: "Theory of Robotics", detail: "Deep dive into sensors, actuators, and layered systems. Exploration of hardware communication and robot architecture." },
+      { title: "Simulation Environment Setup", detail: "Onboarding for Tinkercad. Interface familiarization and workspace readiness." },
+      { title: "Hands-On Digital Prototyping", detail: "Transition from theory to practice by building, wiring, and testing digital circuits based on theoretical frameworks." },
+      { title: "Future Visions", detail: "Exploring how basic electronics act as the bridge to Artificial Intelligence and the next phase of evolution." },
+    ],
+    color: "#FFE975"
+  },
+  {
+    day: "Day 2",
+    date: "28 March",
+    time: "3 PM",
+    type: "Evolution",
+    title: "Intelligent Evolution – The Mind & The Ethics",
+    objective: "Add a layer of 'intelligence' to the previous day’s systems while introducing critical thinking regarding AI's impact.",
+    sessions: [
+      { title: "Initial Briefing (Evolution Mechanics)", detail: "Introduction to training models to classify data and trigger intelligent responses." },
+      { title: "Reality Check & Inspiration", detail: "Analysis of real-world examples (e.g., AI waste sorting). Identification of technological limitations and brainstorming AI-driven solutions." },
+      { title: "Machine Intelligence Lab", detail: "Training simple models using Teachable Machine. Conceptualizing AI extensions for an MVP to classify conditions or trigger alerts." },
+      { title: "Exploring Intelligence Limits", detail: "Critical examination of AI failure points, including data bias, sensor errors, and sustainability ethics." },
+      { title: "Advanced Robotics Exposure", detail: "Visual exploration of digital twins, the Gazebo environment, and the Robot Operating System (ROS) ecosystem." },
+    ],
+    color: "#B5A1E5"
+  },
+  {
+    day: "Day 3",
+    date: "29 March",
+    time: "9 AM & 3 PM",
+    type: "Showdown",
+    title: "Hardware Showdown – The Market & Physical Realization",
+    objective: "Move from simulation to reality through a resource-constrained 'Market Day' ending in a public exhibition and debate.",
+    slots: [
+      {
+        time: "9:00 AM - 12:00 PM",
+        name: "Slot 1: The Build",
+        sessions: [
+          { title: "Catalog Drop & Briefing", detail: "Release of the Component Catalog and the 6 Problem Statements. Distribution of the 100-credit team budgets." },
+          { title: "The Marketplace Launch", detail: "Official opening of the hardware stalls. Teams engage in strategic procurement using their credits on a First-Come, First-Serve basis." },
+          { title: "Physical Prototyping", detail: "The shift from virtual logic to tangible hardware. Teams begin assembling their physical Minimum Viable Products (MVPs) based on their earlier simulations." },
+          { title: "System Validation", detail: "Finalizing the physical build and conducting iterative testing to ensure hardware reliability and alignment with the chosen problem statement." },
+        ]
+      },
+      {
+        time: "12:00 PM - 3:00 PM",
+        name: "Intermission: The Reset",
+        sessions: [
+          { title: "Lunch Break", detail: "A mandatory period to disconnect, recharge, and refuel. No preparation or project work is permitted during this time." }
+        ]
+      },
+      {
+        time: "3:00 PM - 6:00 PM",
+        name: "Slot 2: The Showcase & Reflection",
+        sessions: [
+          { title: "Green Parliamentary Debate", detail: "A shift to advocacy and ethics. Participation in intense debates regarding various topics like the role of AI in climate survival and environmental policy." },
+          { title: "Exhibition & Judging", detail: "Formal demonstration of the physical MVPs. Teams explain their system logic, sustainability impact, and conceptual intelligence upgrades to judges." },
+          { title: "Final Reflection", detail: "Closing session focused on shifting perspectives, filling out shared reviews, and summarizing the three-day evolution." }
+        ]
+      }
+    ],
+    color: "#A1E4A3"
+  }
+];
+
 export default function Horizon10() {
+  const [selectedDay, setSelectedDay] = React.useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-[#F4F4F0] dark:bg-background text-stone-900 dark:text-foreground font-sans selection:bg-[#A1E4A3] selection:text-stone-900 overflow-x-hidden transition-colors duration-300">
+
       <SEO
         title="Horizon 1.0 - Beyond the Machine"
         description="Horizon 1.0 by Solarpunk Corps. An immersive, hands-on technical workshop blending hardware hacking, conceptual AI, and sustainability."
@@ -126,9 +204,10 @@ export default function Horizon10() {
               <span className="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 dark:text-white border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">Open to All 2nd years</span>
             </div>
 
-            <p className="text-2xl md:text-3xl font-black mt-4 leading-tight">
-              Prototype the Future. <br />
-              <span className="text-stone-500 dark:text-stone-400">Refine the Innovation.</span>
+            <p className="text-2xl md:text-3xl font-black mt-4 leading-tight uppercase">
+              Think differently. <br />
+              Build confidently. <br />
+              <span className="text-stone-500 dark:text-stone-400">Engineer with purpose.</span>
             </p>
           </div>
 
@@ -179,57 +258,165 @@ export default function Horizon10() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Day 1 */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-stone-900 dark:bg-[#FFE975]/20 rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-[#FFE975]/50"></div>
-              <div className="relative bg-[#FFE975] dark:bg-[#111] p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-[#FFE975] h-full flex flex-col">
-                <div className="flex justify-between items-start mb-8">
-                  <span className="bg-stone-900 text-white dark:bg-[#FFE975] dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Virtual</span>
-                  <span className="font-black text-4xl opacity-20 dark:text-[#FFE975]">01</span>
+            {roadmapData.map((day, index) => (
+              <motion.div
+                key={index}
+                className="relative group cursor-pointer"
+                onClick={() => setSelectedDay(index)}
+                whileHover={{ y: -5 }}
+              >
+                <div
+                  className="absolute inset-0 bg-stone-900 rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900"
+                  style={{
+                    backgroundColor: `var(--card-shadow, ${day.color})`,
+                    opacity: 0.2
+                  }}
+                ></div>
+                <div 
+                  className="relative p-8 rounded-[2rem] border-[3px] border-stone-900 h-full flex flex-col group-hover:scale-[1.01] transition-transform"
+                  style={{ 
+                    borderColor: day.color,
+                    backgroundColor: selectedDay === index ? 'transparent' : day.color + '1A', // 10% opacity in light mode
+                  }}
+                >
+                  <div className="dark:bg-[#111] absolute inset-0 rounded-[1.8rem] -z-10 bg-transparent"></div> {/* Keep dark mode bg dark */}
+                  <div className="flex justify-between items-start mb-8">
+                    <span 
+                      className="text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase shadow-[2px_2px_0px_#000]"
+                      style={{ backgroundColor: day.color }}
+                    >
+                      {day.type}
+                    </span>
+                    <span className="font-black text-5xl opacity-30 select-none" style={{ color: day.color }}>0{index + 1}</span>
+                  </div>
+                  <h3 className="text-4xl font-black uppercase mb-2 dark:text-white leading-tight">
+                    {index === 0 ? "Tinkering" : index === 1 ? "Evolution" : "Showdown"}
+                  </h3>
+                  <p 
+                    className="font-mono text-xs font-bold px-2 py-1 rounded mb-4 w-fit text-stone-900 border-2 border-stone-900 shadow-[2px_2px_0px_#000]"
+                    style={{ backgroundColor: day.color }}
+                  >
+                    {day.time}
+                  </p>
+                  <p className="text-lg font-medium leading-relaxed dark:text-stone-300 mb-6">
+                    {index === 0 
+                      ? "Software and electronics hands-on simulations. Map out your logic in a digital sandbox."
+                      : index === 1 
+                        ? "AI & ML understanding and hands-on demo. Explore the potential of automated minds."
+                        : "Physical build-a-thon prototype and debate. Pitch your vision for the future."
+                    }
+                  </p>
+                  <div 
+                    className="mt-auto flex items-center gap-2 font-mono text-sm font-black group-hover:gap-4 transition-all"
+                    style={{ color: index === 0 ? '#B8860B' : index === 1 ? '#4B0082' : '#006400' }} // Darker variants for readable text
+                  >
+                    <span className="bg-white/50 dark:bg-black/20 px-2 py-0.5 rounded cursor-pointer">VIEW FULL SCHEDULE <Plus size={16} className="inline ml-1" /></span>
+                  </div>
                 </div>
-                <h3 className="text-4xl font-black uppercase mb-2 dark:text-white">Tinkering</h3>
-                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#FFE975] dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
-                <p className="text-lg font-medium leading-relaxed dark:text-stone-300">
-                  Software and electronics hands-on simulations. Map out your logic in a digital sandbox.
-                </p>
-              </div>
-            </div>
-
-            {/* Day 2 */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-stone-900 dark:bg-[#B5A1E5]/20 rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-[#B5A1E5]/50"></div>
-              <div className="relative bg-[#B5A1E5] dark:bg-[#111] p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-[#B5A1E5] h-full flex flex-col">
-                <div className="flex justify-between items-start mb-8">
-                  <span className="bg-stone-900 text-white dark:bg-[#B5A1E5] dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Evolution</span>
-                  <span className="font-black text-4xl opacity-20 dark:text-[#B5A1E5]">02</span>
-                </div>
-                <h3 className="text-3xl font-black uppercase mb-2 leading-tight dark:text-white">Intelligent <br /> Evolution</h3>
-                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#B5A1E5] dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
-                <p className="text-lg font-medium leading-relaxed dark:text-stone-300">
-                  AI & ML understanding and hands-on demo. Explore the potential of automated minds.
-                </p>
-              </div>
-            </div>
-
-            {/* Day 3 */}
-            <div className="relative group md:col-span-2 lg:col-span-1">
-              <div className="absolute inset-0 bg-stone-900 dark:bg-[#A1E4A3]/20 rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-[#A1E4A3]/50"></div>
-              <div className="relative bg-[#A1E4A3] dark:bg-[#111] p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-[#A1E4A3] h-full flex flex-col">
-                <div className="flex justify-between items-start mb-8">
-                  <span className="bg-stone-900 text-white dark:bg-[#A1E4A3] dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Showdown</span>
-                  <span className="font-black text-4xl opacity-20 dark:text-[#A1E4A3]">03</span>
-                </div>
-                <h3 className="text-3xl font-black uppercase mb-2 leading-tight dark:text-white">Hardware <br /> Showdown</h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#A1E4A3] dark:text-stone-900 px-2 py-1 rounded w-fit">9:00 AM - 12:00 PM</p>
-                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#A1E4A3] dark:text-stone-900 px-2 py-1 rounded w-fit">3:00 PM - 6:00 PM</p>
-                </div>
-                <p className="text-lg font-medium leading-relaxed dark:text-stone-300">
-                  Physical build-a-thon prototype and debate. Pitch your vision for the future.
-                </p>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
+
+          <AnimatePresence>
+            {selectedDay !== null && (
+              <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedDay(null)}
+                  className="absolute inset-0 bg-stone-900/60 backdrop-blur-md"
+                />
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                  className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-stone-950 border-[4px] border-stone-900 dark:border-white rounded-[2rem] shadow-[12px_12px_0px_0px_rgba(28,25,23,1)] dark:shadow-[12px_12px_0px_0px_rgba(255,255,255,0.2)] p-6 md:p-12"
+                >
+                  <button
+                    onClick={() => setSelectedDay(null)}
+                    className="absolute top-6 right-6 p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors"
+                  >
+                    <X size={32} />
+                  </button>
+
+                  <div className="mb-10">
+                    <div className="flex items-center gap-4 mb-4">
+                      <span
+                        className="font-mono font-black text-xl px-4 py-1 rounded-lg text-stone-900 uppercase"
+                        style={{ backgroundColor: roadmapData[selectedDay].color }}
+                      >
+                        {roadmapData[selectedDay].day}
+                      </span>
+                      <span className="font-mono font-bold text-stone-500">{roadmapData[selectedDay].date} // {roadmapData[selectedDay].time}</span>
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6">
+                      {roadmapData[selectedDay].title}
+                    </h2>
+                    <div className="p-4 bg-stone-50 dark:bg-stone-900 border-l-[6px] border-stone-900 dark:border-white" style={{ borderLeftColor: roadmapData[selectedDay].color }}>
+                      <p className="font-mono text-sm font-bold uppercase tracking-widest text-stone-500 mb-2">Primary Objective</p>
+                      <p className="text-xl font-bold italic leading-relaxed">"{roadmapData[selectedDay].objective}"</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-12">
+                    {roadmapData[selectedDay].sessions ? (
+                      <div className="space-y-6">
+                        {roadmapData[selectedDay].sessions.map((session, idx) => (
+                          <div key={idx} className="group relative">
+                            <div className="pl-8 border-l-2 border-stone-200 dark:border-stone-800 group-hover:border-stone-900 dark:group-hover:border-white transition-colors">
+                              <div
+                                className="absolute left-0 top-0 w-3 h-3 rounded-full -translate-x-[7px] border-2 border-stone-900 dark:border-white bg-white dark:bg-stone-950"
+                                style={{ backgroundColor: roadmapData[selectedDay].color }}
+                              ></div>
+                              <h4 className="text-xl font-black uppercase mb-1">{session.title}</h4>
+                              <p className="text-stone-600 dark:text-stone-400 font-medium">{session.detail}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      roadmapData[selectedDay].slots?.map((slot, sIdx) => (
+                        <div key={sIdx} className="space-y-6">
+                          <div className="flex items-center gap-4">
+                            <h3 className="text-2xl font-black bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-4 py-1 skew-x-[-10deg]">
+                              {slot.name}
+                            </h3>
+                            <span className="font-mono font-bold text-stone-500">{slot.time}</span>
+                          </div>
+                          <div className="space-y-6">
+                            {slot.sessions.map((session, idx) => (
+                              <div key={idx} className="group relative">
+                                <div className="pl-8 border-l-2 border-stone-200 dark:border-stone-800 group-hover:border-stone-900 dark:group-hover:border-white transition-colors">
+                                  <div
+                                    className="absolute left-0 top-0 w-3 h-3 rounded-full -translate-x-[7px] border-2 border-stone-900 dark:border-white bg-white dark:bg-stone-950"
+                                    style={{ backgroundColor: roadmapData[selectedDay].color }}
+                                  ></div>
+                                  <h4 className="text-xl font-black uppercase mb-1">{session.title}</h4>
+                                  <p className="text-stone-600 dark:text-stone-400 font-medium">{session.detail}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                  <div className="mt-16 pt-8 border-t-2 border-stone-100 dark:border-stone-900 flex justify-between items-center">
+                    <p className="font-mono text-xs font-bold text-stone-400 uppercase tracking-widest">Horizon 1.0 // Solarpunk Corps</p>
+                    <button
+                      onClick={() => setSelectedDay(null)}
+                      className="bg-stone-900 dark:bg-white text-white dark:text-stone-900 px-8 py-3 rounded-xl font-black uppercase hover:scale-105 transition-transform"
+                    >
+                      Close Details
+                    </button>
+                  </div>
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
