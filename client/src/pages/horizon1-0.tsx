@@ -122,8 +122,8 @@ export default function Horizon10() {
             </p>
 
             <div className="flex flex-wrap gap-3 font-mono text-lg md:text-xl font-bold">
-              <span className="bg-[#FFE975] dark:bg-[#FFE975]/30 dark:text-[#FFE975] border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">March 27-29</span>
-              <span className="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 dark:text-[#B5A1E5] border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">Open to All 2nd years</span>
+              <span className="bg-[#FFE975] dark:bg-[#FFE975]/30 dark:text-white border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">March 27-29</span>
+              <span className="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 dark:text-white border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">Open to All 2nd years</span>
             </div>
 
             <p className="text-2xl md:text-3xl font-black mt-4 leading-tight">
@@ -181,15 +181,15 @@ export default function Horizon10() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Day 1 */}
             <div className="relative group">
-              <div className="absolute inset-0 bg-stone-900 dark:bg-white rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-white"></div>
-              <div className="relative bg-[#FFE975] dark:bg-[#FFE975]/30 p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-white h-full flex flex-col">
+              <div className="absolute inset-0 bg-stone-900 dark:bg-[#FFE975]/20 rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-[#FFE975]/50"></div>
+              <div className="relative bg-[#FFE975] dark:bg-[#111] p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-[#FFE975] h-full flex flex-col">
                 <div className="flex justify-between items-start mb-8">
-                  <span className="bg-stone-900 text-white dark:bg-white dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Virtual</span>
-                  <span className="font-black text-4xl opacity-20">01</span>
+                  <span className="bg-stone-900 text-white dark:bg-[#FFE975] dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Virtual</span>
+                  <span className="font-black text-4xl opacity-20 dark:text-[#FFE975]">01</span>
                 </div>
-                <h3 className="text-4xl font-black uppercase mb-2">Tinkering</h3>
-                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
-                <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
+                <h3 className="text-4xl font-black uppercase mb-2 dark:text-white">Tinkering</h3>
+                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#FFE975] dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
+                <p className="text-lg font-medium leading-relaxed dark:text-stone-300">
                   Software and electronics hands-on simulations. Map out your logic in a digital sandbox.
                 </p>
               </div>
@@ -197,15 +197,15 @@ export default function Horizon10() {
 
             {/* Day 2 */}
             <div className="relative group">
-              <div className="absolute inset-0 bg-stone-900 dark:bg-white rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-white"></div>
-              <div className="relative bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-white h-full flex flex-col">
+              <div className="absolute inset-0 bg-stone-900 dark:bg-[#B5A1E5]/20 rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-[#B5A1E5]/50"></div>
+              <div className="relative bg-[#B5A1E5] dark:bg-[#111] p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-[#B5A1E5] h-full flex flex-col">
                 <div className="flex justify-between items-start mb-8">
-                  <span className="bg-stone-900 text-white dark:bg-white dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Evolution</span>
-                  <span className="font-black text-4xl opacity-20">02</span>
+                  <span className="bg-stone-900 text-white dark:bg-[#B5A1E5] dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Evolution</span>
+                  <span className="font-black text-4xl opacity-20 dark:text-[#B5A1E5]">02</span>
                 </div>
-                <h3 className="text-3xl font-black uppercase mb-2 leading-tight">Intelligent <br /> Evolution</h3>
-                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
-                <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
+                <h3 className="text-3xl font-black uppercase mb-2 leading-tight dark:text-white">Intelligent <br /> Evolution</h3>
+                <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#B5A1E5] dark:text-stone-900 px-2 py-1 rounded mb-4 w-fit">3:00 PM - 6:00 PM</p>
+                <p className="text-lg font-medium leading-relaxed dark:text-stone-300">
                   AI & ML understanding and hands-on demo. Explore the potential of automated minds.
                 </p>
               </div>
@@ -213,18 +213,18 @@ export default function Horizon10() {
 
             {/* Day 3 */}
             <div className="relative group md:col-span-2 lg:col-span-1">
-              <div className="absolute inset-0 bg-stone-900 dark:bg-white rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-white"></div>
-              <div className="relative bg-[#A1E4A3] dark:bg-[#A1E4A3]/30 p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-white h-full flex flex-col">
+              <div className="absolute inset-0 bg-stone-900 dark:bg-[#A1E4A3]/20 rounded-[2rem] translate-x-3 translate-y-3 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform border-[3px] border-stone-900 dark:border-[#A1E4A3]/50"></div>
+              <div className="relative bg-[#A1E4A3] dark:bg-[#111] p-8 rounded-[2rem] border-[3px] border-stone-900 dark:border-[#A1E4A3] h-full flex flex-col">
                 <div className="flex justify-between items-start mb-8">
-                  <span className="bg-stone-900 text-white dark:bg-white dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Showdown</span>
-                  <span className="font-black text-4xl opacity-20">03</span>
+                  <span className="bg-stone-900 text-white dark:bg-[#A1E4A3] dark:text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase">Showdown</span>
+                  <span className="font-black text-4xl opacity-20 dark:text-[#A1E4A3]">03</span>
                 </div>
-                <h3 className="text-3xl font-black uppercase mb-2 leading-tight">Hardware <br /> Showdown</h3>
+                <h3 className="text-3xl font-black uppercase mb-2 leading-tight dark:text-white">Hardware <br /> Showdown</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded w-fit">9:00 AM - 12:00 PM</p>
-                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-white dark:text-stone-900 px-2 py-1 rounded w-fit">3:00 PM - 6:00 PM</p>
+                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#A1E4A3] dark:text-stone-900 px-2 py-1 rounded w-fit">9:00 AM - 12:00 PM</p>
+                  <p className="font-mono text-xs font-bold bg-stone-900 text-white dark:bg-[#A1E4A3] dark:text-stone-900 px-2 py-1 rounded w-fit">3:00 PM - 6:00 PM</p>
                 </div>
-                <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
+                <p className="text-lg font-medium leading-relaxed dark:text-stone-300">
                   Physical build-a-thon prototype and debate. Pitch your vision for the future.
                 </p>
               </div>
@@ -237,7 +237,7 @@ export default function Horizon10() {
       <section className="py-24 px-4 max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-5xl md:text-7xl font-black mb-6">The Experience</h2>
-          <p className="text-2xl font-medium max-w-2xl bg-[#FFE975] dark:bg-[#FFE975]/30 dark:text-[#FFE975] inline-block p-2 border-[3px] border-stone-900 dark:border-white shadow-[4px_4px_0px_0px_rgba(28,25,23,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.8)]">
+          <p className="text-2xl font-medium max-w-2xl bg-[#FFE975] dark:bg-[#FFE975]/30 dark:text-white inline-block p-2 border-[3px] border-stone-900 dark:border-white shadow-[4px_4px_0px_0px_rgba(28,25,23,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.8)]">
             We provide the tools, the space, and the guidance. You bring the brains.
           </p>
         </div>
@@ -245,7 +245,7 @@ export default function Horizon10() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <BrutalistCard colorClass="bg-[#7AC0FF] dark:bg-[#7AC0FF]/30 lg:col-span-2">
             <div className="flex justify-between items-start mb-12">
-              <h3 className="text-4xl font-black dark:text-[#7AC0FF]">Simulate</h3>
+              <h3 className="text-4xl font-black dark:text-white">Simulate</h3>
               <div className="bg-white dark:bg-zinc-800 p-3 rounded-full border-[3px] border-stone-900 dark:border-white shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">
                 <MonitorPlay size={32} className="dark:text-white" />
               </div>
@@ -257,7 +257,7 @@ export default function Horizon10() {
 
           <BrutalistCard colorClass="bg-[#A1E4A3] dark:bg-[#A1E4A3]/30">
             <div className="flex justify-between items-start mb-12">
-              <h3 className="text-4xl font-black dark:text-[#A1E4A3]">Prototype</h3>
+              <h3 className="text-4xl font-black dark:text-white">Prototype</h3>
               <div className="bg-white dark:bg-zinc-800 p-3 rounded-full border-[3px] border-stone-900 dark:border-white shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">
                 <Wrench size={32} className="dark:text-white" />
               </div>
@@ -269,7 +269,7 @@ export default function Horizon10() {
 
           <BrutalistCard colorClass="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30">
             <div className="flex justify-between items-start mb-12">
-              <h3 className="text-4xl font-black dark:text-[#B5A1E5]">? Intelligence</h3>
+              <h3 className="text-4xl font-black dark:text-white">? Intelligence</h3>
               <div className="bg-white dark:bg-zinc-800 p-3 rounded-full border-[3px] border-stone-900 dark:border-white shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">
                 <BrainCircuit size={32} className="dark:text-white" />
               </div>
@@ -281,7 +281,7 @@ export default function Horizon10() {
 
           <BrutalistCard colorClass="bg-[#FFB17A] dark:bg-[#FFB17A]/30 lg:col-span-2">
             <div className="flex justify-between items-start mb-12">
-              <h3 className="text-4xl font-black dark:text-[#FFB17A]">Debate</h3>
+              <h3 className="text-4xl font-black dark:text-white">Debate</h3>
               <div className="bg-white dark:bg-zinc-800 p-3 rounded-full border-[3px] border-stone-900 dark:border-white shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">
                 <MessageSquareWarning size={32} className="dark:text-white" />
               </div>
