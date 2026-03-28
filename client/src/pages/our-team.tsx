@@ -60,7 +60,7 @@ const img37 = "/Photos/AKP.jpeg";
 const facultyAdvisors = [
   {
     title: "President",
-    name: "Dr. Narendra Pratap Yadav",
+    name: "Prof. Nagendra Prasad Yadav",
     img: img35,
     subtitle: "Head of Department of Mechanical Engineering",
     icon: GraduationCap,
@@ -69,7 +69,7 @@ const facultyAdvisors = [
   },
   {
     title: "Officer in Charge",
-    name: "Dr. Nitish Kumar",
+    name: "Dr. Narendra Kumar",
     img: img36,
     subtitle: "Faculty Advisor",
     icon: GraduationCap,
@@ -78,7 +78,7 @@ const facultyAdvisors = [
   },
   {
     title: "Officer in Charge",
-    name: "Dr. Amit Kumar Pandey",
+    name: "Dr. Aditya Kumar Padap",
     img: img37,
     subtitle: "Faculty Advisor",
     icon: GraduationCap,
