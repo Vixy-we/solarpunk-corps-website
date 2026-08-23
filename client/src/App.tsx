@@ -1,4 +1,5 @@
 import { Switch, Route, useLocation } from "wouter";
+import { HelmetProvider } from "react-helmet-async";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,7 +14,6 @@ import Projects from "@/pages/projects";
 import Sponsors from "@/pages/sponsors";
 import OurTeam from "@/pages/our-team";
 import Contact from "@/pages/contact";
-import Membership from "@/pages/membership";
 import Alumni from "@/pages/alumni";
 import Partner from "@/pages/partner";
 import ProjectRover from "@/pages/project-rover";
@@ -22,17 +22,37 @@ import ProjectSurvey from "@/pages/project-survey";
 import HiddenEgg from "@/pages/hidden-egg";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { useEffect } from "react";
+import {
+  APPLY_NOW_ANCHOR,
+  consumePendingScrollAnchor,
+  scrollToAnchor,
+  setPendingScrollAnchor,
+} from "@/lib/navigation";
 import ComingSoon from "@/pages/coming-soon";
-import { SITE_LIVE } from "@/config/site";
+import ExperienceSPC from "@/pages/experience-spc";
+import UnderConstruction from "@/pages/under-construction";
+import CSRPage from "@/pages/csr";
+import Manifesto from "@/pages/manifesto";
+import Events from "@/pages/events";
+import Horizon10 from "@/pages/horizon1-0";
+import Horizon1_2026 from "@/pages/horizon1-2026";
 
-function Router() {
-  const [location] = useLocation();
+import { SITE_LIVE, INAUGURATION_MODE } from "@/config/site";
+import { useState } from "react";
+
+// ... imports
+
+function Router({ hook }: { hook?: any }) {
+  // Use the provided hook or default to wouter's useLocation
+  // If hook is provided (SSR), it should behave like wouter's hook
+  const [location] = hook ? hook() : useLocation();
 
   useEffect(() => {
-    if (location === "/") {
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 10);
+    const pendingAnchor = consumePendingScrollAnchor();
+    if (pendingAnchor) {
+      scrollToAnchor(pendingAnchor);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
 
@@ -47,42 +67,106 @@ function Router() {
   }, []);
 
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/structure" component={Structure} />
-      <Route path="/membership" component={Membership} />
-      <Route path="/what-we-do" component={WhatWeDo} />
-      <Route path="/projects" component={Projects} />
-      <Route path="/sponsors" component={Sponsors} />
-      <Route path="/our-team" component={OurTeam} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/sponsors/alumni" component={Alumni} />
-      <Route path="/sponsors/partner" component={Partner} />
-      <Route path="/projects/rover" component={ProjectRover} />
-      <Route path="/projects/magazine" component={ProjectMagazine} />
-      <Route path="/projects/survey" component={ProjectSurvey} />
-      <Route path="/hidden-egg" component={HiddenEgg} />
-      <Route component={NotFound} />
-    </Switch>
+    <RouterComponent hook={hook}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/structure" component={Structure} />
+        <Route path="/membership" component={MembershipRedirect} />
+        <Route path="/what-we-do" component={WhatWeDo} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/sponsors" component={Sponsors} />
+        <Route path="/our-team" component={OurTeam} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/sponsors/alumni" component={Alumni} />
+        <Route path="/alumni" component={Alumni} />
+        <Route path="/sponsors/partner" component={Partner} />
+        <Route path="/projects/rover" component={ProjectRover} />
+        <Route path="/projects/magazine" component={ProjectMagazine} />
+        <Route path="/projects/survey" component={ProjectSurvey} />
+        <Route path="/hidden-egg" component={HiddenEgg} />
+        <Route path="/experience-spc" component={ExperienceSPC} />
+        <Route path="/under-construction" component={UnderConstruction} />
+        <Route path="/csr" component={CSRPage} />
+        <Route path="/events" component={Events} />
+        <Route path="/events/horizon" component={Horizon10} />
+        <Route path="/events/horizon1-2026" component={Horizon1_2026} />
+
+        <Route path="/manifesto" component={Manifesto} />
+        <Route component={NotFound} />
+      </Switch>
+    </RouterComponent>
   );
 }
 
-function App() {
+// Helper to wrap Switch in Router if hook is provided, or just return children if not (as Switch handles it)
+// wouter's useLocation works globally, but for SSR we need to pass the location via Router
+import { Router as WouterRouter } from "wouter";
+
+const RouterComponent = ({ children, hook }: { children: React.ReactNode, hook?: any }) => {
+  if (hook) {
+    return <WouterRouter hook={hook}>{children}</WouterRouter>
+  }
+  return <>{children}</>;
+}
+
+function MembershipRedirect() {
+  const [, navigate] = useLocation();
+
+  useEffect(() => {
+    setPendingScrollAnchor(APPLY_NOW_ANCHOR);
+    navigate("/structure");
+  }, [navigate]);
+
+  return null;
+}
+
+
+interface AppProps {
+  routerHook?: any; // For wouter SSR
+  helmetContext?: any; // For react-helmet-async SSR
+}
+
+function App({ routerHook, helmetContext = {} }: AppProps) {
+  const [hasEntered, setHasEntered] = useState(false);
+
+  // Logic:
+  // 1. If SITE_LIVE is true -> Always show the full app (Normal mode)
+  // 2. If SITE_LIVE is false:
+  //    a. If INAUGURATION_MODE is true -> Show Coming Soon, but allow entry (unlocks App)
+  //    b. If INAUGURATION_MODE is false -> Show Coming Soon, strictly locked (Construction mode)
+
   if (!SITE_LIVE) {
-    return <ComingSoon />;
+    if (INAUGURATION_MODE) {
+      if (!hasEntered) {
+        return (
+          <HelmetProvider context={helmetContext}>
+            <ComingSoon onEnter={() => setHasEntered(true)} />
+          </HelmetProvider>
+        );
+      }
+      // If hasEntered is true, fall through to render the app
+    } else {
+      return (
+        <HelmetProvider context={helmetContext}>
+          <ComingSoon />
+        </HelmetProvider>
+      );
+    }
   }
 
   return (
-    <ThemeProvider defaultTheme="light" storageKey="spc-theme">
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-          <ScrollToTop />
-        </TooltipProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <HelmetProvider context={helmetContext}>
+      <ThemeProvider defaultTheme="light" storageKey="spc-theme">
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster />
+            <Router hook={routerHook} />
+            <ScrollToTop />
+          </TooltipProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

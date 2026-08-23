@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Rocket, Banknote, Wrench, Mic, GraduationCap, Heart, Building2, CheckCircle2 } from "lucide-react";
@@ -104,7 +105,7 @@ export default function Partner() {
 
         try {
             const timestamp = new Date().toISOString();
-            
+
             const data = {
                 timestamp,
                 name: formData.name,
@@ -115,8 +116,15 @@ export default function Partner() {
             };
 
             // PARTNER URL
+            const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_PARTNER_URL;
+            console.log("Partner Script URL:", scriptUrl);
+
+            if (!scriptUrl) {
+                throw new Error("Google Script URL is not defined in environment variables");
+            }
+
             await fetch(
-                "https://script.google.com/macros/s/AKfycby4xXqJBqdT7lRuE53ymEp9qrgytzi-2PDGDXGz60ocmavSB141ktvS4jQZrc-BkbuH/exec",
+                scriptUrl,
                 {
                     method: "POST",
                     mode: "no-cors",
@@ -137,13 +145,18 @@ export default function Partner() {
         } catch (err) {
             console.error(err);
             clearInterval(timer);
-            setStatus('error');
-            alert("Something went wrong. Please check your internet.");
+            setStatus('idle');
+            alert(err instanceof Error ? err.message : "Something went wrong. Please check your internet.");
         }
     };
 
     return (
         <div id="partner-top" className="min-h-screen bg-[#FDFBF7] dark:bg-background text-gray-800 dark:text-foreground flex flex-col font-sans">
+            <SEO
+                title="Partner With Us"
+                description="Collaborate with Solarpunk Corps. Sponsorship, CSR, and hiring partnership opportunities."
+                keywords={["partner", "sponsor", "CSR", "collaboration", "corporate", "funding", "projects", "hiring", "talent"]}
+            />
             <Navigation />
 
             {/* Hero Section */}

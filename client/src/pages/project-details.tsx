@@ -1,10 +1,12 @@
 
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 
 export default function ProjectDetails() {
     return (
         <div className="min-h-screen bg-background flex flex-col">
+            <SEO title="Project Details" robots="noindex, follow" />
             <Navigation />
             <main className="flex-grow pt-16 flex items-center justify-center">
                 <div className="text-center px-4">

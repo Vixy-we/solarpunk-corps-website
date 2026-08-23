@@ -1,8 +1,9 @@
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2 } from "lucide-react"; 
+import { CheckCircle2 } from "lucide-react";
 
 type ContextType = {
     title: string;
@@ -100,7 +101,7 @@ export default function Alumni() {
         try {
             // Generate Timestamp here to match Partner code
             const timestamp = new Date().toISOString();
-            
+
             const data = {
                 timestamp,
                 name: formData.name,
@@ -111,8 +112,15 @@ export default function Alumni() {
             };
 
             // 3. The Actual Request (Using your ALUMNI Link)
+            const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_ALUMNI_URL;
+            console.log("Alumni Script URL:", scriptUrl);
+
+            if (!scriptUrl) {
+                throw new Error("Google Script URL is not defined in environment variables");
+            }
+
             await fetch(
-                "https://script.google.com/macros/s/AKfycbyrhtVhXVrWH8k7dOEFSnUbkMsNp1IULvW1XmJdff7HOY8os91d4qb9zxhbcglp067vzg/exec",
+                scriptUrl,
                 {
                     method: "POST",
                     mode: "no-cors",
@@ -135,13 +143,18 @@ export default function Alumni() {
         } catch (err) {
             console.error(err);
             clearInterval(timer);
-            setStatus('error');
-            alert("Something went wrong. Please check your internet.");
+            setStatus('idle');
+            alert(err instanceof Error ? err.message : "Something went wrong. Please check your internet.");
         }
     };
 
     return (
         <div id="alumni-top" className="min-h-screen bg-[#FDFBF7] dark:bg-background text-gray-800 dark:text-foreground flex flex-col font-sans">
+            <SEO
+                title="Alumni Network"
+                description="Connect with Solarpunk Corps. Mentorship, support, and networking alumni opportunities."
+                keywords={["alumni", "network", "mentorship", "support", "donation", "connect", "graduates", "BIET Jhansi alumni"]}
+            />
             <Navigation />
 
             {/* Hero Section */}
@@ -167,7 +180,8 @@ export default function Alumni() {
                 <div className="flex flex-wrap justify-center gap-6">
 
                     {/* Card 1: Mentorship */}
-                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]" onClick={() => handleCardClick('mentorship')}>
+                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] relative overflow-hidden" onClick={() => handleCardClick('mentorship')}>
+                        <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
                         <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                         </div>
@@ -177,17 +191,19 @@ export default function Alumni() {
                     </div>
 
                     {/* Card 2: Material */}
-                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]" onClick={() => handleCardClick('material')}>
+                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] relative overflow-hidden" onClick={() => handleCardClick('material')}>
+                        <div className="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
                         <div className="w-12 h-12 bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 dark:text-card-foreground mb-2 font-serif">The Builder</h3>
-                        <p className="text-sm text-gray-500 dark:text-muted-foreground leading-relaxed mb-4">We are building our inventory from zero. Your old laptops, tools, or sensors can kickstart our first lab.</p>
+                        <p className="text-sm text-gray-500 dark:text-muted-foreground leading-relaxed mb-4">We are building our inventory from zero. You can help kickstart our clubroom with tools, equipment, or essential infrastructure.</p>
                         <span className="text-amber-600 dark:text-amber-400 text-sm font-semibold flex items-center">Donate Gear <span className="ml-1 transition-transform group-hover:translate-x-1">→</span></span>
                     </div>
 
                     {/* Card 3: Network */}
-                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]" onClick={() => handleCardClick('network')}>
+                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] relative overflow-hidden" onClick={() => handleCardClick('network')}>
+                        <div className="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
                         <div className="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                         </div>
@@ -197,7 +213,8 @@ export default function Alumni() {
                     </div>
 
                     {/* Card 4: Financial */}
-                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]" onClick={() => handleCardClick('financial')}>
+                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] relative overflow-hidden" onClick={() => handleCardClick('financial')}>
+                        <div className="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
                         <div className="w-12 h-12 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         </div>
@@ -207,7 +224,8 @@ export default function Alumni() {
                     </div>
 
                     {/* Card 5: CSR */}
-                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]" onClick={() => handleCardClick('csr')}>
+                    <div className="bg-white dark:bg-card p-8 rounded-2xl border border-gray-100 dark:border-border hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] relative overflow-hidden" onClick={() => handleCardClick('csr')}>
+                        <div className="absolute top-0 left-0 w-1 h-full bg-rose-500"></div>
                         <div className="w-12 h-12 bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                         </div>
@@ -316,7 +334,7 @@ export default function Alumni() {
                                             onChange={(e) => handleRadioChange(e.target.value)}
                                         />
                                         <div className="border-2 border-gray-200 dark:border-border peer-checked:border-green-500 peer-checked:bg-green-50 dark:peer-checked:bg-green-900/20 rounded-lg p-3 text-center transition-all hover:bg-gray-50 dark:hover:bg-muted h-full flex flex-col items-center justify-center">
-                                            <span className="text-2xl mb-1">🌱</span><span className="text-xs font-bold text-gray-700 dark:text-foreground">Donating</span>
+                                            <span className="text-2xl mb-1">🌱</span><span className="text-xs font-bold text-gray-700 dark:text-foreground">Sponsoring</span>
                                         </div>
                                     </label>
                                     <label className="cursor-pointer">
@@ -426,7 +444,7 @@ export default function Alumni() {
                                                 </div>
                                                 <h4 className="text-lg font-bold text-green-800 dark:text-green-400">Welcome Aboard!</h4>
                                                 <p className="text-sm text-green-700 dark:text-green-300">
-                                                    Thank you for helping us build something new at our Alma Mater.
+                                                    Thank you a lot for helping us build SPC. We will contact you soon.
                                                 </p>
                                             </div>
                                         </motion.div>

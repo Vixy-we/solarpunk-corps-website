@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from "wouter";
-
+import { SEO } from "@/components/seo"; // Import SEO
 // --- CONFIGURATION ---
 const config = {
     lines: ["SOLARPUNK", "CORPS"],
@@ -432,6 +432,7 @@ export default function HiddenEgg() {
 
     return (
         <>
+            <SEO title="Hidden Easter Egg" robots="noindex, follow" />
             <style>
                 {`@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@900&display=swap');`}
             </style>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart-Shaped Gallery</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        nb: {
+                            bg: '#f4f0eb',
+                            yellow: '#FFD33D',
+                            blue: '#4A90E2',
+                            pink: '#FF88A8',
+                            green: '#34D399',
+                            red: '#FF5757',
+                            dark: '#111111'
+                        }
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px rgba(17,17,17,1)',
+                        'brutal-sm': '4px 4px 0px 0px rgba(17,17,17,1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f4f0eb;
+            color: #111111;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .brutal-border {
+            border: 4px solid #111111;
+        }
+        .brutal-card {
+            transition: all 0.15s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Memories Gallery (Heart Shape Photo Dump) -->
+    <section class="py-32 bg-nb-dark border-y-4 border-nb-dark overflow-hidden relative min-h-screen flex items-center justify-center">
+        <!-- Abstract grid background -->
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 32px 32px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-7xl font-black inline-block bg-white text-nb-dark brutal-border px-8 py-3 shadow-[8px_8px_0px_0px_rgba(255,211,61,1)] rotate-[-1deg]">
+                    PHOTO DUMP
+                </h2>
+                <p class="mt-6 font-mono font-bold text-xl text-white max-w-2xl mx-auto px-4 bg-nb-dark inline-block py-2">
+                    Explore, inspire, create — the visuals that brought HORIZON to life.
+                </p>
+            </div>
+
+            <!-- Heart Grid Container (12-column) -->
+            <div class="w-full max-w-5xl mx-auto grid grid-cols-12 gap-1 sm:gap-2 md:gap-3 p-2 relative">
+                
+                <!-- ROW 1 & 2 (Large 2x2 Blocks - The Top Lobes) -->
+                <div class="col-start-2 col-span-2 row-start-1 row-span-2 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-4 col-span-2 row-start-1 row-span-2 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-8 col-span-2 row-start-1 row-span-2 aspect-square brutal-border bg-nb-pink overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-10 col-span-2 row-start-1 row-span-2 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+
+                <!-- ROW 3 & 4 (Large 2x2 Blocks - The Widest Part) -->
+                <div class="col-start-1 col-span-2 row-start-3 row-span-2 aspect-square brutal-border bg-nb-red overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1528901173705-97627a833c8b?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-3 col-span-2 row-start-3 row-span-2 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-5 col-span-2 row-start-3 row-span-2 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-7 col-span-2 row-start-3 row-span-2 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-9 col-span-2 row-start-3 row-span-2 aspect-square brutal-border bg-white overflow-hidden relative group cursor-pointer flex items-center justify-center">
+                    <h3 class="font-black text-2xl md:text-5xl text-nb-dark -rotate-12 group-hover:scale-110 transition-transform">#HZ</h3>
+                </div>
+                <div class="col-start-11 col-span-2 row-start-3 row-span-2 aspect-square brutal-border bg-nb-pink overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+
+                <!-- ROW 5 (Small 1x1 Blocks - Starts Tapering) -->
+                <!-- 10 blocks: columns 2 through 11 -->
+                <div class="col-start-2 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-3 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-4 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-red overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-5 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <!-- Center point icon -->
+                <div class="col-start-6 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-white flex items-center justify-center text-nb-dark text-xl sm:text-2xl group cursor-pointer hover:bg-nb-pink transition-colors">
+                    <i class="fa-solid fa-heart group-hover:scale-125 transition-transform"></i>
+                </div>
+                <div class="col-start-7 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-dark text-white flex items-center justify-center text-xl sm:text-2xl group cursor-pointer hover:bg-nb-blue transition-colors">
+                    <i class="fa-solid fa-bolt group-hover:scale-125 transition-transform"></i>
+                </div>
+                <div class="col-start-8 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-pink overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1528901173705-97627a833c8b?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-9 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-10 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-11 col-span-1 row-start-[5] row-span-1 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+
+                <!-- ROW 6 (Small 1x1 Blocks) -->
+                <!-- 8 blocks: columns 3 through 10 -->
+                <div class="col-start-3 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-pink overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-4 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-yellow flex items-center justify-center font-bold text-xl hover:bg-white transition-colors cursor-pointer">?</div>
+                <div class="col-start-5 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-6 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-red overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-7 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-8 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-9 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-pink flex items-center justify-center font-bold text-xl hover:bg-white transition-colors cursor-pointer">*</div>
+                <div class="col-start-10 col-span-1 row-start-[6] row-span-1 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1528901173705-97627a833c8b?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+
+                <!-- ROW 7 (Small 1x1 Blocks) -->
+                <!-- 6 blocks: columns 4 through 9 -->
+                <div class="col-start-4 col-span-1 row-start-[7] row-span-1 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-5 col-span-1 row-start-[7] row-span-1 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-6 col-span-1 row-start-[7] row-span-1 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-7 col-span-1 row-start-[7] row-span-1 aspect-square brutal-border bg-nb-pink overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-8 col-span-1 row-start-[7] row-span-1 aspect-square brutal-border bg-nb-red overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-9 col-span-1 row-start-[7] row-span-1 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+
+                <!-- ROW 8 (Small 1x1 Blocks) -->
+                <!-- 4 blocks: columns 5 through 8 -->
+                <div class="col-start-5 col-span-1 row-start-[8] row-span-1 aspect-square brutal-border bg-nb-pink overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-6 col-span-1 row-start-[8] row-span-1 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-7 col-span-1 row-start-[8] row-span-1 aspect-square brutal-border bg-nb-green overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1528901173705-97627a833c8b?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                <div class="col-start-8 col-span-1 row-start-[8] row-span-1 aspect-square brutal-border bg-nb-blue overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+
+                <!-- ROW 9 (Small 1x1 Blocks - The Bottom Tip) -->
+                <!-- 2 blocks: columns 6 and 7 -->
+                <div class="col-start-6 col-span-1 row-start-[9] row-span-1 aspect-square brutal-border bg-nb-red flex items-center justify-center font-bold text-xl hover:bg-white transition-colors cursor-pointer">~</div>
+                <div class="col-start-7 col-span-1 row-start-[9] row-span-1 aspect-square brutal-border bg-nb-yellow overflow-hidden relative group cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=200" alt="Gallery" class="w-full h-full object-cover mix-blend-multiply grayscale group-hover:grayscale-0 group-hover:mix-blend-normal">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Lightbox Modal (Neobrutalist style) -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-[#f4f0eb]/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 bg-nb-red text-white w-12 h-12 flex items-center justify-center text-2xl font-black brutal-border shadow-brutal hover:translate-y-1 hover:shadow-brutal-sm focus:outline-none z-[101] brutal-card">
+            X
+        </button>
+        <div class="max-w-5xl max-h-[90vh] p-4 relative w-full flex justify-center">
+            <div class="bg-white p-4 brutal-border shadow-brutal">
+                <img id="lightbox-img" src="" alt="Fullscreen view" class="max-w-full max-h-[75vh] object-contain border-4 border-[#111111]">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+            setTimeout(() => {
+                lightboxImg.src = '';
+            }, 300);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('pointer-events-none')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -2,7 +2,9 @@
 import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { Pen, Download, Mic } from "lucide-react";
+import { Link } from "wouter";
 
 export default function ProjectMagazine() {
     const svgRef = useRef<SVGSVGElement>(null);
@@ -27,6 +29,11 @@ export default function ProjectMagazine() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <SEO
+                title="CodeGreen Magazine"
+                description="The student-run publication defining our solarpunk aesthetic and voice. Read stories, articles, and research."
+                keywords={["CodeGreen", "magazine", "student publication", "solarpunk aesthetic", "stories", "articles", "research", "BIET Jhansi"]}
+            />
             <style>{`
         .magazine-page-container {
             --color-paper: #F3F0E6;
@@ -320,6 +327,18 @@ export default function ProjectMagazine() {
                             </svg>
                         </div>
                     </main>
+
+                    {/* CTA Message */}
+                    <div className="text-center mb-8 z-20 relative">
+                        <p className="font-mono text-xs uppercase tracking-widest mb-4 opacity-80" style={{ color: 'var(--text-muted)' }}>Help us publish our voice.</p>
+                        <Link href="/sponsors">
+                            <a className="group relative inline-flex items-center gap-3 px-10 py-4 border border-green-800/20 rounded-full hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(79,119,45,0.2)] transition-all duration-300 font-editorial italic text-xl cursor-pointer"
+                                style={{ color: 'var(--text-main)', borderColor: 'var(--border-color)', backgroundColor: 'var(--bg-color)' }}>
+                                Contribute
+                                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                            </a>
+                        </Link>
+                    </div>
 
                     {/* Internal Footer: Future Scope */}
                     <div className="w-full border-t backdrop-blur-md mt-auto transition-colors" style={{ borderColor: 'var(--border-color)', backgroundColor: 'var(--border-color)' }}>

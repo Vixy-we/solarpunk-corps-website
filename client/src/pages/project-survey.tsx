@@ -2,7 +2,9 @@
 import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 import { Activity, Zap, Leaf } from "lucide-react";
+import { Link } from "wouter";
 
 export default function ProjectSurvey() {
     const chartRef = useRef<SVGSVGElement>(null);
@@ -27,6 +29,11 @@ export default function ProjectSurvey() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <SEO
+                title="Campus Tech-Life Survey"
+                description="A comprehensive study mapping student technology usage, burnout, and sustainability habits."
+                keywords={["tech-life survey", "student technology usage", "digital burnout", "sustainability habits", "campus research", "BIET Jhansi"]}
+            />
             <style>{`
         .survey-page-container {
             /* Accents */
@@ -66,10 +73,20 @@ export default function ProjectSurvey() {
         }
 
         @keyframes morph-graph {
-            0% { d: path("M150,80 L220,150 L150,220 L80,150 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
-            33% { d: path("M150,60 L240,140 L160,240 L70,160 Z"); fill: rgba(244, 114, 182, 0.2); stroke: var(--accent-burnout); }
-            66% { d: path("M150,100 L200,150 L150,200 L100,150 Z"); fill: rgba(74, 222, 128, 0.2); stroke: var(--accent-eco); }
-            100% { d: path("M150,80 L220,150 L150,220 L80,150 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
+            /* 0% - Top Dominant -> BLUE */
+            0% { d: path("M150,60 L195,176 L90,184 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
+            
+            /* 25% - Bottom-Right Dominant -> PINK */
+            25% { d: path("M150,105 L220,190 L115,170 Z"); fill: rgba(244, 114, 182, 0.2); stroke: var(--accent-burnout); }
+            
+            /* 50% - Bottom-Left Dominant -> GREEN */
+            50% { d: path("M150,85 L205,182 L75,193 Z"); fill: rgba(74, 222, 128, 0.2); stroke: var(--accent-eco); }
+            
+            /* 75% - Top Dominant -> BLUE */
+            75% { d: path("M150,70 L215,187 L105,176 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
+            
+            /* 100% - Loop to A -> BLUE */
+            100% { d: path("M150,60 L195,176 L90,184 Z"); fill: rgba(56, 189, 248, 0.2); stroke: var(--accent-tech); }
         }
         .animate-morph {
             animation: morph-graph 8s ease-in-out infinite;
@@ -102,6 +119,36 @@ export default function ProjectSurvey() {
         .text-gradient-tech { background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-gradient-burnout { background: linear-gradient(to right, #f472b6, #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-gradient-eco { background: linear-gradient(to right, #4ade80, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        @keyframes tri-pulse {
+            0% { 
+                box-shadow: 0 0 20px -5px rgba(56,189,248,0.3); 
+                border-color: rgba(56,189,248,0.5);
+                background-color: rgba(56,189,248,0.05); /* Blue */
+            }
+            33% { 
+                box-shadow: 0 0 20px -5px rgba(244,114,182,0.3); 
+                border-color: rgba(244,114,182,0.5);
+                background-color: rgba(244,114,182,0.05); /* Pink */
+            }
+            66% { 
+                box-shadow: 0 0 20px -5px rgba(74,222,128,0.3); 
+                border-color: rgba(74,222,128,0.5);
+                background-color: rgba(74,222,128,0.05); /* Green */
+            }
+            100% { 
+                box-shadow: 0 0 20px -5px rgba(56,189,248,0.3); 
+                border-color: rgba(56,189,248,0.5);
+                background-color: rgba(56,189,248,0.05);
+            }
+        }
+        .tri-glow-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tri-glow-hover:hover {
+            animation: tri-pulse 6s infinite ease-in-out;
+            transform: translateY(-2px);
+        }
       `}</style>
 
             <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -218,14 +265,14 @@ export default function ProjectSurvey() {
                             <svg ref={chartRef} viewBox="0 0 300 300" className="w-full h-full drop-shadow-2xl">
                                 {/* Grid System (Concentric Hexagons) */}
                                 <g fill="none" className="chart-grid" stroke={'var(--text-secondary)'} strokeWidth="1">
-                                    <path d="M150,50 L236,100 L236,200 L150,250 L64,200 L64,100 Z" opacity="0.3" /> {/* Outer */}
-                                    <path d="M150,80 L202,110 L202,190 L150,220 L98,190 L98,110 Z" opacity="0.3" /> {/* Mid */}
-                                    <path d="M150,110 L168,120 L168,180 L150,190 L132,180 L132,120 Z" opacity="0.3" /> {/* Inner */}
+                                    <path d="M150,50 L237,100 L237,200 L150,250 L63,200 L63,100 Z" opacity="0.3" /> {/* Outer */}
+                                    <path d="M150,80 L211,115 L211,185 L150,220 L89,185 L89,115 Z" opacity="0.3" /> {/* Mid */}
+                                    <path d="M150,110 L185,130 L185,170 L150,190 L115,170 L115,130 Z" opacity="0.3" /> {/* Inner */}
 
                                     {/* Axis Lines */}
                                     <line x1="150" y1="150" x2="150" y2="50" opacity="0.3" />
-                                    <line x1="150" y1="150" x2="236" y2="200" opacity="0.3" />
-                                    <line x1="150" y1="150" x2="64" y2="200" opacity="0.3" />
+                                    <line x1="150" y1="150" x2="237" y2="200" opacity="0.3" />
+                                    <line x1="150" y1="150" x2="63" y2="200" opacity="0.3" />
                                 </g>
 
                                 {/* Axis Labels */}
@@ -247,6 +294,21 @@ export default function ProjectSurvey() {
                         </div>
                     </div>
                 </main>
+
+                {/* CTA Message */}
+                <div className="text-center mb-8 z-20 relative">
+                    <p className="font-data text-xs uppercase tracking-widest mb-4 opacity-80" style={{ color: 'var(--text-secondary)' }}>Enable these insights.</p>
+                    <Link href="/sponsors">
+                        <a className="group relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 cursor-pointer font-data font-bold text-sm tracking-wide overflow-hidden shadow-sm tri-glow-hover"
+                            style={{ color: 'var(--text-primary)' }}>
+
+                            <span className="relative z-10 flex items-center gap-2">
+                                Support This Initiative
+                                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                            </span>
+                        </a>
+                    </Link>
+                </div>
 
                 {/* Internal Footer: Future Scope */}
                 <div className="w-full border-t border-slate-700/50 backdrop-blur-md mt-auto transition-colors"

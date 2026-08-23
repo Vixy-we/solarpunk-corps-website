@@ -1,0 +1,63 @@
+✓ Server entry loaded successfully
+Entry Server: Rendering url /
+App: Rendering with routerHook
+  ✗ /: localStorage is not defined
+Entry Server: Rendering url /about
+App: Rendering with routerHook
+  ✗ /about: localStorage is not defined
+Entry Server: Rendering url /structure
+App: Rendering with routerHook
+  ✗ /structure: localStorage is not defined
+Entry Server: Rendering url /what-we-do
+App: Rendering with routerHook
+  ✗ /what-we-do: localStorage is not defined
+Entry Server: Rendering url /projects
+App: Rendering with routerHook
+  ✗ /projects: localStorage is not defined
+Entry Server: Rendering url /sponsors
+App: Rendering with routerHook
+  ✗ /sponsors: localStorage is not defined
+Entry Server: Rendering url /our-team
+App: Rendering with routerHook
+  ✗ /our-team: localStorage is not defined
+Entry Server: Rendering url /contact
+App: Rendering with routerHook
+  ✗ /contact: localStorage is not defined
+Entry Server: Rendering url /alumni
+App: Rendering with routerHook
+  ✗ /alumni: localStorage is not defined
+Entry Server: Rendering url /sponsors/partner
+App: Rendering with routerHook
+  ✗ /sponsors/partner: localStorage is not defined
+Entry Server: Rendering url /projects/rover
+App: Rendering with routerHook
+  ✗ /projects/rover: localStorage is not defined
+Entry Server: Rendering url /projects/magazine
+App: Rendering with routerHook
+  ✗ /projects/magazine: localStorage is not defined
+Entry Server: Rendering url /projects/survey
+App: Rendering with routerHook
+  ✗ /projects/survey: localStorage is not defined
+Entry Server: Rendering url /hidden-egg
+App: Rendering with routerHook
+  ✗ /hidden-egg: localStorage is not defined
+Entry Server: Rendering url /experience-spc
+App: Rendering with routerHook
+  ✗ /experience-spc: localStorage is not defined
+Entry Server: Rendering url /under-construction
+App: Rendering with routerHook
+  ✗ /under-construction: localStorage is not defined
+Entry Server: Rendering url /csr
+App: Rendering with routerHook
+  ✗ /csr: localStorage is not defined
+Entry Server: Rendering url /events
+App: Rendering with routerHook
+  ✗ /events: localStorage is not defined
+Entry Server: Rendering url /events/greenshift
+App: Rendering with routerHook
+  ✗ /events/greenshift: localStorage is not defined
+Entry Server: Rendering url /manifesto
+App: Rendering with routerHook
+  ✗ /manifesto: localStorage is not defined
+
+Prerender complete: 0 succeeded, 20 failed

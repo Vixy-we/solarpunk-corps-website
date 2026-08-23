@@ -2,10 +2,16 @@ import { Navigation } from "@/components/navigation";
 import { ContactSection } from "@/components/contact-section";
 import { FaqSection } from "@/components/faq-section";
 import { Footer } from "@/components/footer";
+import { SEO } from "@/components/seo";
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Solarpunk Corps. Questions, ideas, or just want to say hi? We'd love to hear from you."
+        keywords={["contact", "reach out", "email", "support", "inquiries", "questions", "feedback", "location"]}
+      />
       <Navigation />
       <main className="pt-16">
         <ContactSection />

@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Leaf, Cpu, Heart, Users } from "lucide-react";
+import { ArrowRight, Leaf, Cpu, Heart, Users, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "wouter";
+import { navigateWithScroll, APPLY_NOW_ANCHOR } from "@/lib/navigation";
 
 export function HeroSection() {
   const ref = useRef(null);
@@ -22,40 +23,9 @@ export function HeroSection() {
 
   const [location, navigate] = useLocation();
 
-  const defaultAnchors: Record<string, string> = {
-    "/about": "about-top",
-    "/what-we-do": "activities-top",
-    "/our-team": "team-top",
-    "/structure": "divisions",
-    "/sponsors": "sponsor-top",
-    "/projects": "projects-top",
-    "/membership": "membership-top",
-    "/contact": "contact-main"
-  };
-
   const handleNavigate = (e: React.MouseEvent | null, href: string) => {
     if (e) e.preventDefault();
-    const [path, hash] = href.split("#");
-
-    if (path && path !== location) {
-      navigate(path);
-      let attempts = 0;
-      const tryScroll = () => {
-        attempts += 1;
-        const targetHash = hash || defaultAnchors[path];
-        if (!targetHash) return;
-        const el = document.getElementById(targetHash);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-        else if (attempts < 20) setTimeout(tryScroll, 100);
-      };
-      setTimeout(tryScroll, 120);
-    } else {
-      const targetHash = hash || defaultAnchors[location];
-      if (targetHash) {
-        const el = document.getElementById(targetHash);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    navigateWithScroll(navigate, location, href);
   };
 
   return (
@@ -100,12 +70,14 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
           >
             <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-700/25 border border-emerald-400/30 text-emerald-100 text-sm font-semibold mb-8 backdrop-blur-sm drop-shadow-md"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-700/25 border border-emerald-400/30 text-emerald-100 text-sm font-semibold mb-8 backdrop-blur-sm drop-shadow-md mx-auto"
               data-testid="badge-launching"
             >
               <Leaf className="h-4 w-4 text-emerald-200" />
-              <span>Launching at BIET Jhansi</span>
+              <span>Mechanical Engineering Department at BIET Jhansi</span>
             </div>
+
+
           </motion.div>
 
           <div className="mx-auto max-w-4xl">
@@ -150,7 +122,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 data-testid="text-hero-description"
               >
-                We are launching Solarpunk Corps — a new club being formed for students who want to build technology, promote sustainability, and create real social impact. Join us in building a future that is inclusive, practical, and green.
+                We are launching Solarpunk Corps — a new club being formed for students who want to build technology, promote sustainability, and create real social impact. We're a bunch of students who want to build cool stuff, care about the planet, and actually make a difference. <br /><br />Join us in building a future that is inclusive, practical, and green.
               </motion.p>
 
               <motion.div
@@ -180,7 +152,7 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={(e) => handleNavigate(e, "/membership")}
+                  onClick={(e) => handleNavigate(e, `/structure#${APPLY_NOW_ANCHOR}`)}
                   data-testid="button-hero-membership"
                   className="text-yellow-50 border-yellow-200/40 bg-yellow-500/10 hover:bg-yellow-500/20"
                 >
@@ -198,9 +170,33 @@ export function HeroSection() {
                 </Button>
               </motion.div>
             </div>
+ 
           </div>
-        </div>
+ 
+       </div>
+
       </div>
-    </section>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        style={{ x: "-50%" }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 flex flex-col items-center gap-2 z-20 cursor-pointer pointer-events-auto"
+        onClick={() => {
+          const el = document.getElementById("mission"); // Assuming next section has an ID or we can scroll by height
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+          else window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+        }}
+      >
+        <span className="text-white/60 text-sm font-medium tracking-widest uppercase">Scroll to Explore</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-6 h-6 text-white/60" />
+        </motion.div>
+      </motion.div>
+    </section >
   );
 }

@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sun, BookOpen, ClipboardList, Cpu, Battery, Eye, Bot, Newspaper, Pen, Users, BarChart3, Leaf, Heart } from "lucide-react";
-import { Link } from "wouter";
+import { Sun, BookOpen, ClipboardList, Cpu, Battery, Eye, Bot, Newspaper, Pen, Users, BarChart3, Leaf, Heart, ArrowRight } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -66,6 +67,7 @@ const projects = [
 ];
 
 export function ProjectsSection() {
+  const [, setLocation] = useLocation();
   return (
     <section id="projects-top" className="py-20 md:py-32 bg-card/50">
       <span id="projects" />
@@ -149,6 +151,24 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </div>
+
+
+        <motion.div
+          className="mt-20 text-center bg-primary/5 rounded-3xl p-12 border border-primary/10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">Want to Bring These Projects to Life?</h3>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            We are looking for partners and alumni to fund materials, provide mentorship, or donate equipment for these inaugural builds.
+          </p>
+          <Button size="lg" className="group" onClick={() => setLocation("/sponsors")}>
+            Support These Projects
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </motion.div>
       </div >
     </section >
   );

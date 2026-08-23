@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon // SPC Workshop Wrap-Up</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        nb: {
+                            bg: '#f4f0eb',       // Warm off-white paper
+                            yellow: '#FFD33D',   // Vibrant yellow
+                            blue: '#4A90E2',     // Punchy blue
+                            pink: '#FF88A8',     // Bubblegum pink
+                            green: '#34D399',    // Minty green
+                            red: '#FF5757',      // Bright red
+                            dark: '#111111'      // Stark black
+                        }
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px rgba(17,17,17,1)',
+                        'brutal-sm': '4px 4px 0px 0px rgba(17,17,17,1)',
+                        'brutal-hover': '2px 2px 0px 0px rgba(17,17,17,1)',
+                        'brutal-white': '8px 8px 0px 0px rgba(255,255,255,1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Neobrutalist Theme */
+        body {
+            background-color: #f4f0eb;
+            color: #111111;
+            overflow-x: hidden;
+            background-image: radial-gradient(#111 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            border-left: 3px solid #111;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f4f0eb;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+            border: 2px solid #111;
+        }
+
+        /* Neobrutalist Utilities */
+        .brutal-border {
+            border: 4px solid #111111;
+        }
+
+        .brutal-card {
+            transition: all 0.15s ease-out;
+        }
+
+        /* The "Press" effect */
+        .brutal-card:active,
+        .brutal-btn:active {
+            transform: translate(6px, 6px);
+            box-shadow: 2px 2px 0px 0px rgba(17, 17, 17, 1);
+        }
+
+        /* Continuous Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100vw;
+            border-top: 4px solid #111;
+            border-bottom: 4px solid #111;
+            background-color: #FFD33D;
+            padding: 10px 0;
+            display: flex;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Image hover effects */
+        .img-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Typography overrides */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-nb-pink selection:text-white">
+
+    <!-- Hero Section -->
+    <main class="relative flex flex-col items-center justify-center min-h-[90vh] px-4 py-20 text-center">
+        <div data-aos="fade-down"
+            class="mb-8 brutal-border bg-nb-green shadow-brutal px-6 py-2 rotate-[-2deg] inline-block">
+            <span class="font-mono text-nb-dark font-bold text-sm tracking-widest uppercase">
+                Glimpses of the workshop // wrap-up
+            </span>
+        </div>
+
+        <h1 data-aos="zoom-in" data-aos-delay="100"
+            class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-2 leading-none relative z-10">
+            HORIZON
+        </h1>
+        <h2 data-aos="zoom-in" data-aos-delay="200"
+            class="text-3xl md:text-5xl font-bold bg-nb-dark text-white inline-block px-4 py-2 brutal-border mb-8 shadow-brutal rotate-[1deg]">
+            BEYOND THE MACHINE
+        </h2>
+
+        <div data-aos="fade-up" data-aos-delay="300"
+            class="flex flex-wrap justify-center gap-4 mb-12 font-mono font-bold text-lg">
+            <span class="bg-nb-yellow brutal-border shadow-brutal-sm px-4 py-2">BUILD</span>
+            <span class="bg-nb-pink brutal-border shadow-brutal-sm px-4 py-2">SIMULATE</span>
+            <span class="bg-nb-blue brutal-border shadow-brutal-sm px-4 py-2 text-white">EVOLVE</span>
+        </div>
+
+        <p data-aos="fade-up" data-aos-delay="400"
+            class="max-w-3xl text-xl md:text-2xl font-medium leading-relaxed bg-white brutal-border shadow-brutal p-6 md:p-8 text-left">
+            <span class="block text-2xl font-bold mb-2">Welcome, co-pioneers!</span>
+            To kick off Solarpunk Corps, we hosted our very first hands-on build-a-thon. We blended hardware hacking,
+            conceptual AI, and sustainability into one epic weekend. You brought your curiosity, teamed up, and
+            engineered systems that actually matter.
+            <br><br>
+            <span class="italic font-bold text-nb-blue">From Circuitry to Conscious Design.</span>
+        </p>
+    </main>
+
+    <!-- Marquee Text -->
+    <div class="marquee-container shadow-brutal relative z-20" data-aos="fade-up">
+        <div class="marquee-content font-mono font-bold text-xl tracking-widest flex items-center gap-4">
+            <span>HARMONY BETWEEN TECH, NATURE, AND PEOPLE</span> <i class="fa-solid fa-asterisk"></i>
+            <span>NO INSTRUCTION MANUALS</span> <i class="fa-solid fa-asterisk"></i>
+            <span>PROTOTYPE AND HACK</span> <i class="fa-solid fa-asterisk"></i>
+            <span>QUESTION ASSUMPTIONS</span> <i class="fa-solid fa-asterisk"></i>
+            <!-- Repeat for seamless looping -->
+            <span>HARMONY BETWEEN TECH, NATURE, AND PEOPLE</span> <i class="fa-solid fa-asterisk"></i>
+            <span>NO INSTRUCTION MANUALS</span> <i class="fa-solid fa-asterisk"></i>
+            <span>PROTOTYPE AND HACK</span> <i class="fa-solid fa-asterisk"></i>
+            <span>QUESTION ASSUMPTIONS</span> <i class="fa-solid fa-asterisk"></i>
+        </div>
+    </div>
+
+    <!-- The Experience / Arsenal -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-16" data-aos="fade-right">
+            <h2 class="text-5xl font-black bg-white inline-block brutal-border px-4 py-2 shadow-brutal">The Arsenal</h2>
+            <p class="mt-4 font-mono font-bold text-lg max-w-2xl">Think differently. Build confidently. Engineer with
+                purpose.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-nb-pink brutal-border p-6 shadow-brutal brutal-card hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_rgba(17,17,17,1)]"
+                data-aos="fade-up" data-aos-delay="100">
+                <div
+                    class="w-12 h-12 bg-white brutal-border shadow-brutal-sm flex items-center justify-center text-2xl font-black mb-6">
+                    ~</div>
+                <h3 class="text-2xl font-bold mb-3">Simulate</h3>
+                <p class="font-medium text-sm border-t-2 border-nb-dark pt-3">Mapped out logic in a digital sandbox.
+                    Tested theories, understood system behaviors, and pushed boundaries in a virtual space.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-nb-yellow brutal-border p-6 shadow-brutal brutal-card hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_rgba(17,17,17,1)]"
+                data-aos="fade-up" data-aos-delay="200">
+                <div
+                    class="w-12 h-12 bg-white brutal-border shadow-brutal-sm flex items-center justify-center text-2xl font-black mb-6">
+                    *</div>
+                <h3 class="text-2xl font-bold mb-3">Prototype</h3>
+                <p class="font-medium text-sm border-t-2 border-nb-dark pt-3">Translated ideas into reality.
+                    Collaborated to hack together tangible solutions, iterating rapidly to build functional systems from
+                    scratch.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-nb-blue text-white brutal-border p-6 shadow-brutal brutal-card hover:-translate-y-2 hover:shadow-[10px_10px_0px_0px_rgba(17,17,17,1)]"
+                data-aos="fade-up" data-aos-delay="300">
+                <div
+                    class="w-12 h-12 bg-white text-nb-dark brutal-border shadow-brutal-sm flex items-center justify-center text-2xl font-black mb-6">
+                    ?</div>
+                <h3 class="text-2xl font-bold mb-3">Intelligence</h3>
+                <p class="font-medium text-sm border-t-2 border-white pt-3">Explored the potential of automated minds.
+                    Understood how data shapes decisions and what it means to build responsible tech.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Roadmap (Timeline & Gallery) -->
+    <section class="py-24 bg-white border-y-4 border-nb-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-20 text-center" data-aos="zoom-in">
+                <h2
+                    class="text-4xl md:text-6xl font-black inline-block bg-nb-green brutal-border px-6 py-3 shadow-brutal rotate-[1deg]">
+                    Event Roadmap</h2>
+                <p class="mt-6 font-mono font-bold text-xl">March 27-29 // The Experimental Sandbox</p>
+            </div>
+
+            <div class="space-y-32">
+                <!-- Node: Inauguration -->
+                <div class="relative flex flex-col lg:flex-row gap-12 items-center" data-aos="fade-up">
+                    <div class="lg:w-1/3 z-10">
+                        <div class="bg-nb-yellow brutal-border shadow-brutal p-6 rotate-[-2deg]">
+                            <h4 class="text-3xl font-black mb-2">Kick-Off</h4>
+                            <p class="font-mono font-bold text-nb-dark/70 mb-4">Inauguration & Setup</p>
+                            <p class="font-medium">The gathering of minds. Handing out the hardware kits and setting the
+                                ground rules: there are no rules.</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 grid grid-cols-2 gap-4 w-full">
+                        <div class="img-container bg-white p-2 brutal-border shadow-brutal cursor-pointer"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1000"
+                                alt="Audience gathered"
+                                class="w-full h-48 md:h-64 object-cover border-2 border-nb-dark">
+                        </div>
+                        <div class="img-container bg-white p-2 brutal-border shadow-brutal cursor-pointer translate-y-4"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1475721028070-51cb84305459?auto=format&fit=crop&q=80&w=1000"
+                                alt="Speaker on stage"
+                                class="w-full h-48 md:h-64 object-cover border-2 border-nb-dark grayscale hover:grayscale-0 transition-all">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Node: Day 1 -->
+                <div class="relative flex flex-col lg:flex-row-reverse gap-12 items-center" data-aos="fade-up">
+                    <div class="lg:w-1/3 z-10">
+                        <div class="bg-nb-blue text-white brutal-border shadow-brutal p-6 rotate-[1deg]">
+                            <div
+                                class="font-mono bg-white text-nb-dark inline-block px-2 py-1 border-2 border-nb-dark mb-2 text-sm font-bold shadow-brutal-sm">
+                                3 PM</div>
+                            <h4 class="text-3xl font-black mb-2">Virtual Tinkering</h4>
+                            <p class="font-mono font-bold text-white/80 mb-4">Day 01 // Software & Logic</p>
+                            <p class="font-medium">Software and electronics hands-on simulations. Teams mapped out their
+                                logic in a digital sandbox.</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                        <div class="img-container bg-white p-2 brutal-border shadow-brutal cursor-pointer sm:col-span-2"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1000"
+                                alt="Team brainstorming"
+                                class="w-full h-64 md:h-80 object-cover border-2 border-nb-dark grayscale hover:grayscale-0 transition-all">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Node: Day 2 -->
+                <div class="relative flex flex-col lg:flex-row gap-12 items-center" data-aos="fade-up">
+                    <div class="lg:w-1/3 z-10">
+                        <div class="bg-nb-pink brutal-border shadow-brutal p-6 rotate-[-1deg]">
+                            <div
+                                class="font-mono bg-white text-nb-dark inline-block px-2 py-1 border-2 border-nb-dark mb-2 text-sm font-bold shadow-brutal-sm">
+                                3 PM</div>
+                            <h4 class="text-3xl font-black mb-2">Evolution</h4>
+                            <p class="font-mono font-bold text-nb-dark/70 mb-4">Day 02 // AI & ML Hands-on</p>
+                            <p class="font-medium">Training simple browser ML models. Learning not just how AI works,
+                                but when it fails and why data bias matters.</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 grid grid-cols-2 gap-4 w-full">
+                        <div class="img-container bg-white p-2 brutal-border shadow-brutal cursor-pointer -translate-y-4"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000"
+                                alt="Coding laptop" class="w-full h-48 md:h-64 object-cover border-2 border-nb-dark">
+                        </div>
+                        <div class="img-container bg-white p-2 brutal-border shadow-brutal cursor-pointer"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000"
+                                alt="Whiteboarding"
+                                class="w-full h-48 md:h-64 object-cover border-2 border-nb-dark grayscale hover:grayscale-0 transition-all">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Node: Day 3 -->
+                <div class="relative flex flex-col lg:flex-row-reverse gap-12 items-center" data-aos="fade-up">
+                    <div class="lg:w-1/3 z-10">
+                        <div class="bg-nb-red text-white brutal-border shadow-brutal p-6 rotate-[2deg]">
+                            <div
+                                class="font-mono bg-white text-nb-dark inline-block px-2 py-1 border-2 border-nb-dark mb-2 text-sm font-bold shadow-brutal-sm">
+                                9 AM & 3 PM</div>
+                            <h4 class="text-3xl font-black mb-2">Showdown</h4>
+                            <p class="font-mono font-bold text-white/80 mb-4">Day 03 // Physical Build</p>
+                            <p class="font-medium">Wiring up real sensors and actuators. Going from digital simulation
+                                to a physical MVP. The chaotic component marketplace.</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                        <div class="img-container bg-white p-2 brutal-border shadow-brutal cursor-pointer sm:col-span-2"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1528901173705-97627a833c8b?auto=format&fit=crop&q=80&w=1000"
+                                alt="Hardware hacking"
+                                class="w-full h-64 md:h-80 object-cover border-2 border-nb-dark grayscale hover:grayscale-0 transition-all">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Participants Roster -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-16" data-aos="fade-right">
+            <h2 class="text-4xl font-black bg-white inline-block brutal-border px-4 py-2 shadow-brutal mb-4">The
+                Vanguard</h2>
+            <p class="font-mono font-bold text-lg max-w-3xl border-l-4 border-nb-dark pl-4 bg-white p-2">
+                Props to every single builder who stepped into the sandbox. 3 days of grinding, breaking things, and
+                building them back better.
+            </p>
+        </div>
+
+        <!-- Teams Grid (Neobrutalist blocks) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Team blocks with randomized pastel/bright backgrounds -->
+            <div class="p-4 bg-nb-yellow brutal-border shadow-brutal text-center brutal-card hover:bg-white"
+                data-aos="zoom-in" data-aos-delay="50">
+                <h4 class="font-black text-xl">Team Alpha</h4>
+            </div>
+            <div class="p-4 bg-[#FF90E8] brutal-border shadow-brutal text-center brutal-card hover:bg-white"
+                data-aos="zoom-in" data-aos-delay="100">
+                <h4 class="font-black text-xl">Cyber Synthetics</h4>
+            </div>
+            <div class="p-4 bg-white brutal-border shadow-brutal text-center brutal-card hover:bg-[#90FF98]"
+                data-aos="zoom-in" data-aos-delay="150">
+                <h4 class="font-black text-xl">Null Pointers</h4>
+            </div>
+            <div class="p-4 bg-[#90FF98] brutal-border shadow-brutal text-center brutal-card hover:bg-white"
+                data-aos="zoom-in" data-aos-delay="200">
+                <h4 class="font-black text-xl">Solar Nodes</h4>
+            </div>
+            <div class="p-4 bg-[#23A094] text-white brutal-border shadow-brutal text-center brutal-card hover:bg-white hover:text-nb-dark"
+                data-aos="zoom-in" data-aos-delay="250">
+                <h4 class="font-black text-xl">Runtime Terror</h4>
+            </div>
+            <div class="p-4 bg-white brutal-border shadow-brutal text-center brutal-card hover:bg-nb-yellow"
+                data-aos="zoom-in" data-aos-delay="300">
+                <h4 class="font-black text-xl">Byte Force</h4>
+            </div>
+            <div class="p-4 bg-nb-red text-white brutal-border shadow-brutal text-center brutal-card hover:bg-white hover:text-nb-dark"
+                data-aos="zoom-in" data-aos-delay="350">
+                <h4 class="font-black text-xl">The Alchemists</h4>
+            </div>
+            <div class="p-4 bg-white brutal-border shadow-brutal text-center brutal-card hover:bg-[#FF90E8]"
+                data-aos="zoom-in" data-aos-delay="400">
+                <h4 class="font-black text-xl">Ctrl+Alt+Defeat</h4>
+            </div>
+            <div class="p-4 bg-nb-yellow brutal-border shadow-brutal text-center brutal-card hover:bg-white"
+                data-aos="zoom-in" data-aos-delay="450">
+                <h4 class="font-black text-xl">Echo Chamber</h4>
+            </div>
+            <div class="p-4 bg-[#90FF98] brutal-border shadow-brutal text-center brutal-card hover:bg-white"
+                data-aos="zoom-in" data-aos-delay="500">
+                <h4 class="font-black text-xl">Grid Walkers</h4>
+            </div>
+            <div class="p-4 bg-white brutal-border shadow-brutal text-center brutal-card hover:bg-[#23A094] hover:text-white"
+                data-aos="zoom-in" data-aos-delay="550">
+                <h4 class="font-black text-xl">Syntax Squad</h4>
+            </div>
+            <div class="p-4 bg-[#FF90E8] brutal-border shadow-brutal text-center brutal-card hover:bg-white"
+                data-aos="zoom-in" data-aos-delay="600">
+                <h4 class="font-black text-xl">Neon Genesis</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards / Winners Section -->
+    <section class="py-32 bg-nb-dark text-white relative z-10 border-t-4 border-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2
+                    class="text-5xl md:text-7xl font-black text-nb-yellow inline-block brutal-border border-nb-yellow px-6 py-2 shadow-brutal-white bg-nb-dark rotate-[-1deg]">
+                    THE CHAMPIONS
+                </h2>
+                <p class="mt-8 font-mono text-xl max-w-2xl mx-auto bg-white text-nb-dark p-4 brutal-border">
+                    The architectures that stood out. The prototypes that didn't catch fire.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-end justify-center gap-8 lg:gap-12 min-h-[500px]">
+
+                <!-- Runner Up (2nd Place) -->
+                <div class="w-full lg:w-1/3 order-2 lg:order-1" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="bg-white text-nb-dark brutal-border p-6 text-center relative shadow-brutal-white rotate-[-2deg]">
+                        <div
+                            class="absolute -top-6 left-1/2 -translate-x-1/2 bg-nb-blue text-white font-mono font-bold px-4 py-1 brutal-border shadow-brutal-sm">
+                            2ND PLACE
+                        </div>
+
+                        <h3 class="text-3xl font-black mt-4 mb-4">Team Cyber Synthetics</h3>
+
+                        <!-- Team Photo -->
+                        <div class="img-container bg-nb-bg p-2 brutal-border mb-4 cursor-pointer"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=600"
+                                alt="2nd Place Team" class="w-full h-48 object-cover border-2 border-nb-dark grayscale">
+                        </div>
+
+                        <p class="font-medium text-sm border-t-2 border-nb-dark pt-2">Created an innovative
+                            waste-tracking ledger using decentralized tech.</p>
+                    </div>
+                </div>
+
+                <!-- Grand Champions (1st Place) -->
+                <div class="w-full lg:w-1/3 order-1 lg:order-2 transform lg:-translate-y-12 z-20" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <div
+                        class="bg-nb-yellow text-nb-dark brutal-border p-8 text-center relative shadow-[12px_12px_0px_0px_rgba(255,255,255,1)]">
+                        <div
+                            class="absolute -top-8 left-1/2 -translate-x-1/2 bg-nb-red text-white text-xl font-black px-6 py-2 brutal-border shadow-brutal scale-110">
+                            1ST PLACE
+                        </div>
+
+                        <h3 class="text-4xl font-black mt-6 mb-4">Team Nexus</h3>
+
+                        <!-- Team Photo -->
+                        <div class="img-container bg-white p-2 brutal-border mb-4 cursor-pointer"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600"
+                                alt="1st Place Team" class="w-full h-56 object-cover border-2 border-nb-dark">
+                        </div>
+
+                        <p class="font-bold text-base border-t-4 border-nb-dark pt-3">Awarded for building an AI-driven
+                            localized power-grid optimization tool. Outstanding execution.</p>
+                    </div>
+                </div>
+
+                <!-- 3rd Place -->
+                <div class="w-full lg:w-1/3 order-3 lg:order-3" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="bg-white text-nb-dark brutal-border p-6 text-center relative shadow-brutal-white rotate-[2deg]">
+                        <div
+                            class="absolute -top-6 left-1/2 -translate-x-1/2 bg-nb-green text-nb-dark font-mono font-bold px-4 py-1 brutal-border shadow-brutal-sm">
+                            3RD PLACE
+                        </div>
+
+                        <h3 class="text-3xl font-black mt-4 mb-4">Team Solar Nodes</h3>
+
+                        <!-- Team Photo -->
+                        <div class="img-container bg-nb-bg p-2 brutal-border mb-4 cursor-pointer"
+                            onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600"
+                                alt="3rd Place Team" class="w-full h-48 object-cover border-2 border-nb-dark grayscale">
+                        </div>
+
+                        <p class="font-medium text-sm border-t-2 border-nb-dark pt-2">Developed a beautiful mesh-network
+                            communication app for remote areas.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-nb-yellow border-t-8 border-nb-dark py-16 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <h2 class="text-4xl font-black bg-white brutal-border px-6 py-2 shadow-brutal mb-6">SOLARPUNK CORPS</h2>
+            <p class="font-bold text-xl mb-8 max-w-md">Engineering systems that actually matter.</p>
+
+            <div class="font-mono font-bold text-sm bg-nb-dark text-white px-4 py-2 brutal-border shadow-brutal-white">
+                © 2026 HORIZON WORKSHOP
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Lightbox Modal (Neobrutalist style) -->
+    <div id="lightbox"
+        class="fixed inset-0 z-[100] bg-nb-bg/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200">
+        <button onclick="closeLightbox()"
+            class="absolute top-6 right-6 bg-nb-red text-white w-12 h-12 flex items-center justify-center text-2xl font-black brutal-border shadow-brutal hover:translate-y-1 hover:shadow-brutal-sm focus:outline-none z-[101] brutal-card">
+            X
+        </button>
+        <div class="max-w-5xl max-h-[90vh] p-4 relative w-full flex justify-center">
+            <div class="bg-white p-4 brutal-border shadow-brutal">
+                <img id="lightbox-img" src="" alt="Fullscreen view"
+                    class="max-w-full max-h-[75vh] object-contain border-4 border-nb-dark">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Animations
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 600,
+            easing: 'ease-out-cubic',
+        });
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+            setTimeout(() => {
+                lightboxImg.src = '';
+            }, 300);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('pointer-events-none')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>
