@@ -268,6 +268,77 @@ export default function Home() {
           </div>
         </section>
 
+        {/* IMAGE CAROUSEL */}
+        <section id="glimpses-section" className="py-24 bg-[#FFD33D]/20 dark:bg-zinc-900 border-y-[4px] border-stone-900 dark:border-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 relative">
+            <div className="absolute left-4 md:left-12 top-0 hidden lg:block transform -rotate-12">
+              <span className="font-writing text-2xl font-bold italic">See the action</span>
+              <svg className="w-12 h-12 mt-2 ml-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </div>
+            <div className="absolute right-4 md:right-12 bottom-0 hidden lg:block transform rotate-12">
+              <span className="font-writing text-2xl font-bold italic">Unforgettable</span>
+              <svg className="w-12 h-12 mt-2 mr-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-black inline-block bg-white dark:bg-zinc-800 border-[3px] border-stone-900 dark:border-white px-6 py-3 shadow-[8px_8px_0px_rgba(28,25,23,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,0.8)] rotate-[-1deg] text-stone-900 dark:text-white uppercase">
+              Glimpses of Horizon
+            </h2>
+            <p className="mt-8 font-mono text-xl max-w-2xl mx-auto dark:text-zinc-300 font-bold">
+              Relive the energy. The late nights, the breakthroughs, and the community we built together.
+            </p>
+          </div>
+
+          {/* Carousel Container */}
+          <div className="relative w-full max-w-[100vw] overflow-hidden py-4">
+            <motion.div
+              className="flex gap-6 md:gap-8 px-4 w-max hover:[animation-play-state:paused]"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ ease: "linear", duration: 50, repeat: Infinity }}
+            >
+              {[
+                "/Horizon1/DayOne1.webp",
+                "/Horizon1/DayTwo1.webp",
+                "/Horizon1/DayThree1.webp",
+                "/Horizon1/DayOne2.webp",
+                "/Horizon1/DayTwo2.webp",
+                "/Horizon1/DayThree2.webp",
+                "/Horizon1/DayTwo3.webp",
+                "/Horizon1/DayThree3.webp",
+                "/Horizon1/DayTwo4.webp",
+                "/Horizon1/DayThree4.webp",
+                "/Horizon1/DayTwo5.webp",
+                "/Horizon1/DayThree5.webp",
+              ].map((src, idx) => (
+                <div
+                  key={idx}
+                  className={`flex-none w-[280px] md:w-[350px] lg:w-[400px] h-[350px] md:h-[450px] shrink-0 
+                            border-[4px] border-stone-900 dark:border-white shadow-[8px_8px_0px_rgba(28,25,23,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,0.8)] 
+                            bg-white p-2 md:p-3 cursor-pointer transition-all duration-300 group
+                            hover:-translate-y-4 hover:shadow-[16px_16px_0px_rgba(28,25,23,1)]
+                            ${idx % 2 === 0 ? 'rotate-2 hover:rotate-0' : '-rotate-2 hover:rotate-0'}
+                          `}
+                >
+                  <img
+                    src={src}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    alt={`Horizon Highlight ${idx + 1}`}
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          <div className="mt-16 flex flex-col items-center justify-center relative z-10 px-4">
+            <p className="font-mono text-xl font-bold mb-6 dark:text-zinc-300">Want to see more?</p>
+            <Link href="/events/horizon1-2026">
+              <a className="group relative inline-flex items-center justify-center gap-4 bg-[#FF5757] text-white font-black text-2xl md:text-4xl py-6 px-12 rounded-2xl border-[4px] border-stone-900 dark:border-white shadow-[8px_8px_0px_rgba(28,25,23,1)] hover:shadow-[2px_2px_0px_rgba(28,25,23,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                TAKE A PEEK
+                <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
+              </a>
+            </Link>
+          </div>
+        </section>
+
 
         {/* SECTION 2.5: UPCOMING (Horizon) - REFINED */}
         <section className="py-24 relative overflow-hidden bg-background">
@@ -277,23 +348,23 @@ export default function Home() {
           </div>
 
           <div className="max-w-6xl mx-auto px-6 relative z-10">
-              <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-6 w-full">
-                <div className="flex-1">
-                  <Badge className="mb-4 bg-emerald-600 text-white hover:bg-emerald-700">Upcoming Flagship Event</Badge>
-                  <h2 className="text-4xl md:text-6xl font-horizon font-bold tracking-tight mb-6 text-gray-900 dark:text-white">Horizon</h2>
-                  <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
-                    Our annual flagship technical workshop designed as an immersive, hands-on learning experience focused on curiosity.
-                  </p>
-                </div>
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="group border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all font-bold rounded-full mt-4 md:mt-0"
-                  onClick={() => handleNavigate("/events")}
-                >
-                  View All Events <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+            <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-6 w-full">
+              <div className="flex-1">
+                <Badge className="mb-4 bg-emerald-600 text-white hover:bg-emerald-700">Upcoming Flagship Event</Badge>
+                <h2 className="text-4xl md:text-6xl font-horizon font-bold tracking-tight mb-6 text-gray-900 dark:text-white">Horizon</h2>
+                <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
+                  Our annual flagship technical workshop designed as an immersive, hands-on learning experience focused on curiosity.
+                </p>
               </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="group border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all font-bold rounded-full mt-4 md:mt-0"
+                onClick={() => handleNavigate("/events")}
+              >
+                View All Events <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
