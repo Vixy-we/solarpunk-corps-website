@@ -16,8 +16,8 @@ const faqs = [
     question: "Can first-year students join?",
     answer: (
       <div className="space-y-2">
-        <p><strong className="text-foreground font-semibold">Absolutely!</strong> But it's not just for 1st years.</p>
-        <p>Students from <strong className="text-primary font-bold">1st–3rd Year</strong> can join as <strong className="text-primary italic">Explorers</strong> — beginners who join to explore robotics, sustainability, and creative tech ideas. No prior experience is required.</p>
+        <p><strong className="text-foreground font-semibold">Currently no...</strong> But you can join in your 2nd year.</p>
+        <p>Students from <strong className="text-primary font-bold">2nd years</strong> can join as <strong className="text-primary italic">Explorers</strong> — beginners who join to explore robotics, sustainability, and creative tech ideas. No prior experience is required.</p>
       </div>
     )
   },
@@ -44,7 +44,7 @@ const faqs = [
     answer: (
       <div className="space-y-2">
         <p><strong className="text-foreground font-semibold">Yes!</strong> Transparency is one of our core values.</p>
-        <p>We provide <strong className="text-primary">quarterly Impact Reports</strong> to all sponsors, showing exactly how funds were used and the progress of the projects they supported.</p>
+        <p>We provide <strong className="text-primary">Annual Impact Reports</strong> to all sponsors, showing exactly how funds were used and the progress of the projects they supported.</p>
       </div>
     )
   },
@@ -67,7 +67,7 @@ const faqs = [
     question: "When will SPC officially launch?",
     answer: (
       <div className="space-y-2">
-        <p>We are in the <strong className="text-foreground font-semibold">active founding stage in 2026</strong>.</p>
+        <p>We launched on <strong className="text-foreground font-semibold">4th March 2026</strong>.</p>
         <p>Follow our social media channels for announcements about our official launch event and how to become a member.</p>
       </div>
     )

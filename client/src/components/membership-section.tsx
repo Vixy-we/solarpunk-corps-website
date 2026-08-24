@@ -7,7 +7,7 @@ const tiers = [
   {
     icon: Compass,
     title: "Explorer Members",
-    year: "1st–2nd Year",
+    year: "Explorers",
     color: "from-amber-400/20 to-yellow-500/20",
     borderColor: "border-amber-400/30",
     iconColor: "text-amber-500",
@@ -22,7 +22,7 @@ const tiers = [
   {
     icon: Briefcase,
     title: "Executive Members",
-    year: "3rd-4th Year",
+    year: "Executives",
     color: "from-blue-400/20 to-blue-600/20",
     borderColor: "border-blue-400/30",
     iconColor: "text-blue-500",
@@ -37,7 +37,7 @@ const tiers = [
   {
     icon: Zap,
     title: "Lead Members",
-    year: "4th Year",
+    year: "Leaders",
     color: "from-primary/20 to-primary/30",
     borderColor: "border-primary/30",
     iconColor: "text-primary",
