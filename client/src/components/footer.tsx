@@ -24,6 +24,8 @@ const footerLinks: Record<string, FooterLink[]> = {
     { label: "Scope", href: "/what-we-do" },
     { label: "Events", href: "/events" },
     { label: "Rover", href: "/projects/rover" },
+    { label: "Robotic Arm", href: "/projects/robotic-arm" },
+    { label: "LiDAR Mapping", href: "/projects/LiDAR-mapping" },
     { label: "Magazine", href: "/projects/magazine" },
     { label: "Campus Survey", href: "/projects/survey" },
     { label: "Club Social Responsibility (CSR)", href: "/csr" }

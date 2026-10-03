@@ -19,6 +19,8 @@ import Partner from "@/pages/partner";
 import ProjectRover from "@/pages/project-rover";
 import ProjectMagazine from "@/pages/project-magazine";
 import ProjectSurvey from "@/pages/project-survey";
+import ProjectRoboticArm from "@/pages/project-robotic-arm";
+import ProjectLidar from "@/pages/project-lidar";
 import HiddenEgg from "@/pages/hidden-egg";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { useEffect } from "react";
@@ -84,6 +86,8 @@ function Router({ hook }: { hook?: any }) {
         <Route path="/projects/rover" component={ProjectRover} />
         <Route path="/projects/magazine" component={ProjectMagazine} />
         <Route path="/projects/survey" component={ProjectSurvey} />
+        <Route path="/projects/robotic-arm" component={ProjectRoboticArm} />
+        <Route path="/projects/LiDAR-mapping" component={ProjectLidar} />
         <Route path="/hidden-egg" component={HiddenEgg} />
         <Route path="/experience-spc" component={ExperienceSPC} />
         <Route path="/under-construction" component={UnderConstruction} />

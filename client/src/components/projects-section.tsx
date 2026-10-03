@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sun, BookOpen, ClipboardList, Cpu, Battery, Eye, Bot, Newspaper, Pen, Users, BarChart3, Leaf, Heart, ArrowRight } from "lucide-react";
+import { Sun, BookOpen, ClipboardList, Cpu, Battery, Eye, Bot, Newspaper, Pen, Users, BarChart3, Leaf, Heart, ArrowRight, Radar } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 
@@ -24,6 +24,44 @@ const projects = [
       "Autonomous movement"
     ],
     href: "/projects/rover"
+  },
+  {
+    icon: Bot,
+    title: "Project Robotic Arm",
+    badge: "Prototype",
+    badgeColor: "bg-orange-500 text-white",
+    description: "A 6-axis robotic arm concept for precision work, sustainable sorting, and advanced fabrication research.",
+    image: "/RoboticArm.webp",
+    features: [
+      { icon: Cpu, text: "6-axis articulation" },
+      { icon: Bot, text: "Precision manipulation" },
+      { icon: Leaf, text: "Sustainable automation" }
+    ],
+    futureScope: [
+      "AI vision assistance",
+      "Recycling automation",
+      "Adaptive motion control"
+    ],
+    href: "/projects/robotic-arm"
+  },
+  {
+    icon: Radar,
+    title: "LiDAR Mapping",
+    badge: "Simulation",
+    badgeColor: "bg-sky-500 text-white",
+    description: "A 2D LiDAR point-cloud mapping simulation with a moving rover, scan controls, and live coverage telemetry.",
+    image: "/LiDAR.webp",
+    features: [
+      { icon: Radar, text: "Point-cloud mapping" },
+      { icon: Cpu, text: "SLAM simulation" },
+      { icon: Eye, text: "Obstacle detection" }
+    ],
+    futureScope: [
+      "Autonomous navigation",
+      "Rover integration",
+      "Environment mapping"
+    ],
+    href: "/projects/LiDAR-mapping"
   },
   {
     icon: BookOpen,
