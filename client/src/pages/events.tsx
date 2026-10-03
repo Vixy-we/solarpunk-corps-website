@@ -21,7 +21,7 @@ export default function Events() {
                         {
                             "@type": "ListItem",
                             "position": 1,
-                            "name": "Horizon 1.0",
+                            "name": "Horizon",
                             "url": "https://solarpunkcorps.vercel.app/events/horizon"
                         }
                     ]
@@ -49,9 +49,9 @@ export default function Events() {
             <main className="flex-grow px-6 pb-24 max-w-7xl mx-auto w-full space-y-24">
 
                 {/* Flagship Event: Horizon */}
-                <section className="relative group cursor-pointer" onClick={() => window.location.href = "/events/horizon"}>
+                <section className="relative group">
                     <div className="absolute -inset-4 bg-gradient-to-r from-green-100/50 via-emerald-50/50 to-teal-100/30 dark:from-green-900/20 dark:via-emerald-900/10 dark:to-teal-900/10 rounded-3xl blur-2xl -z-10 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="bg-white dark:bg-card border border-green-100 dark:border-green-900/50 rounded-3xl overflow-hidden shadow-2xl relative group-hover:scale-[1.01] transition-transform duration-300">
+                    <div className="bg-white dark:bg-card border border-green-100 dark:border-green-900/50 rounded-3xl overflow-hidden shadow-2xl relative">
                         {/* Coming Soon/Badge */}
                         <div className="absolute top-6 right-6 z-20">
                             <Badge className="bg-green-600 hover:bg-green-700 text-white px-4 py-1 text-sm shadow-lg animate-pulse">
@@ -93,14 +93,25 @@ export default function Events() {
                                         ))}
                                     </ul>
 
-                                    <div className="inline-block p-4 rounded-lg bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-800/30">
-                                        <p className="text-sm font-medium text-green-800 dark:text-green-300 flex items-center gap-2">
-                                            <Calendar className="w-4 h-4" />
-                                            Dates to be announced soon
-                                        </p>
+                                    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                                        <Link href="/events/horizon">
+                                            <Button variant="outline" className="group w-full justify-center border-green-700 text-green-800 hover:bg-green-50 dark:border-green-400 dark:text-green-300 dark:hover:bg-green-900/20 sm:w-auto">
+                                                <Calendar className="mr-2 h-4 w-4" />
+                                                Dates to be announced soon
+                                                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                            </Button>
+                                        </Link>
+                                        <Link href="/events/horizon1-2026">
+                                            <Button className="group w-full justify-center bg-green-700 text-white hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-700 sm:w-auto">
+                                                Take a peek into Horizon 1.0
+                                                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                            </Button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
+
+                            
 
                             <div className="relative h-full min-h-[300px] bg-gray-100 dark:bg-muted">
                                 <img

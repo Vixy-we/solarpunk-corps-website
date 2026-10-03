@@ -209,7 +209,7 @@ function MainHero() {
       
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         <div className="inline-block bg-[#FFD33D] text-black px-6 md:px-8 py-2 md:py-3 border-[4px] border-stone-900 mb-6 md:mb-8 transform rotate-2 hover:-rotate-1 transition-all duration-300 shadow-[6px_6px_0px_rgba(28,25,23,1)]">
-          <span className="font-black tracking-[0.1em] md:tracking-[0.2em] uppercase text-sm md:text-xl whitespace-nowrap">Event Wrap-up // 2026</span>
+          <span className="font-black tracking-[0.1em] md:tracking-[0.2em] uppercase text-sm md:text-xl whitespace-nowrap">Event Wrap-up // March 2026</span>
         </div>
 
         <h1 className="text-7xl sm:text-8xl md:text-[13rem] lg:text-[15rem] font-black tracking-tighter leading-[0.8] md:leading-[0.8] uppercase mb-12 md:mb-16">

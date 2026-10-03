@@ -122,7 +122,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 data-testid="text-hero-description"
               >
-                We are launching Solarpunk Corps — a new club being formed for students who want to build technology, promote sustainability, and create real social impact. We're a bunch of students who want to build cool stuff, care about the planet, and actually make a difference. <br /><br />Join us in building a future that is inclusive, practical, and green.
+                Solarpunk Corps (SPC) is a Robotics and Sustainability Club, bringing together students at the intersection of Robotics, AI, and Sustainability. We design, build, program, and experiment with technology to understand and address real-world environmental, social, and resource-related challenges.
               </motion.p>
 
               <motion.div

@@ -338,6 +338,53 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SECTION 3: THE LAUNCH (The "Projects") */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-primary/5 -skew-y-3 z-0 transform origin-center scale-125" />
+          <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+              <div>
+                <Badge className="mb-4 bg-primary text-primary-foreground">Pilot Phase</Badge>
+                <h2 className="text-3xl md:text-4xl font-bold">Launching with Impact</h2>
+                <p className="text-muted-foreground mt-2 max-w-md">
+                  We are kicking off our journey with three ambitious flagship projects for 2026.
+                </p>
+              </div>
+              <Button variant="outline" size="sm" onClick={() => handleNavigate("/projects")}>View Roadmaps</Button>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Solar Rover", role: "The Builder", desc: "A 6-wheel environmental monitoring bot.", icon: Rocket, color: "text-orange-500", img: "/rover.webp" },
+                { title: "CodeGreen", role: "The Voice", desc: "Our magazine defining the solarpunk aesthetic.", icon: Globe, color: "text-purple-500", img: "/magazine.webp" },
+                { title: "Campus Survey", role: "The Mirror", desc: "Mapping tech burnout & eco-habits.", icon: Target, color: "text-blue-500", img: "/survey.webp" },
+              ].map((proj, i) => (
+                <motion.div
+                  key={proj.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.2 }}
+                  onClick={() => handleNavigate("/projects")}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative h-48 mb-4 rounded-xl overflow-hidden bg-muted">
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10" />
+                    <img src={proj.img} alt={proj.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute bottom-3 left-3 z-20 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold flex items-center gap-2">
+                      <proj.icon className={`h-3 w-3 ${proj.color}`} />
+                      {proj.role}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{proj.title}</h3>
+                  <p className="text-sm text-muted-foreground">{proj.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 2: THE PLAYGROUND (The "What") */}
         <section className="py-24 bg-gradient-to-b from-background to-accent/5">
           <div className="max-w-6xl mx-auto px-6 text-center">
@@ -412,53 +459,6 @@ export default function Home() {
               <Button variant="outline" size="sm" onClick={() => handleNavigate("/what-we-do")}>
                 Explore All Activities
               </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 3: THE LAUNCH (The "Projects") */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5 -skew-y-3 z-0 transform origin-center scale-125" />
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
-              <div>
-                <Badge className="mb-4 bg-primary text-primary-foreground">Pilot Phase</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold">Launching with Impact</h2>
-                <p className="text-muted-foreground mt-2 max-w-md">
-                  We are kicking off our journey with three ambitious flagship projects for 2026.
-                </p>
-              </div>
-              <Button variant="outline" size="sm" onClick={() => handleNavigate("/projects")}>View Roadmaps</Button>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { title: "Solar Rover", role: "The Builder", desc: "A 6-wheel environmental monitoring bot.", icon: Rocket, color: "text-orange-500", img: "/rover.webp" },
-                { title: "CodeGreen", role: "The Voice", desc: "Our magazine defining the solarpunk aesthetic.", icon: Globe, color: "text-purple-500", img: "/magazine.webp" },
-                { title: "Campus Survey", role: "The Mirror", desc: "Mapping tech burnout & eco-habits.", icon: Target, color: "text-blue-500", img: "/survey.webp" },
-              ].map((proj, i) => (
-                <motion.div
-                  key={proj.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.2 }}
-                  onClick={() => handleNavigate("/projects")}
-                  className="group cursor-pointer"
-                >
-                  <div className="relative h-48 mb-4 rounded-xl overflow-hidden bg-muted">
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10" />
-                    <img src={proj.img} alt={proj.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute bottom-3 left-3 z-20 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold flex items-center gap-2">
-                      <proj.icon className={`h-3 w-3 ${proj.color}`} />
-                      {proj.role}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{proj.title}</h3>
-                  <p className="text-sm text-muted-foreground">{proj.desc}</p>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
