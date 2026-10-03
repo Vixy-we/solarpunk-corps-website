@@ -56,7 +56,7 @@ function MainHero() {
         </div>
 
         <h1 className="text-7xl sm:text-8xl md:text-[13rem] lg:text-[15rem] font-black tracking-tighter leading-[0.8] md:leading-[0.8] uppercase mb-12 md:mb-16">
-          <span className="block text-white drop-shadow-[5px_5px_0px_#27AE60] md:drop-shadow-[12px_12px_0px_#27AE60]">HORIZON</span>
+          <span className="block text-white drop-shadow-[5px_5px_0px_#27AE60] md:drop-shadow-[12px_12px_0px_#27AE60]">HORIZON 2.0</span>
           <span className="block text-sun-yellow mt-1 md:mt-4 transform translate-x-1 sm:translate-x-4 text-[0.32em] sm:text-[0.32em] md:text-[0.32em] lg:text-[0.32em] tracking-[0.1em] leading-none">beyond the machine</span>
         </h1>
 
@@ -92,79 +92,117 @@ function MainHero() {
 
 const roadmapData = [
   {
-    day: "Day 1",
-    date: "Phase 1",
+    day: "DAY 1",
+    date: "3:00–6:00 PM",
     time: "3 PM",
     type: "Virtual",
-    title: "Solarpunk – The Foundation & Virtual Sandbox",
-    objective: "Establish the theoretical floor and bridge the gap between abstract electronics and functional digital simulations.",
+    title: "Foundation",
+    summary: "Build the foundation. Explore robotics, electronics, intelligent systems, AI, and sustainability through hands-on learning.",
+    objective: "Build the foundation for intelligent technology by understanding how mechanical systems, electronics, programming, and Artificial Intelligence come together to create robotics and solve real-world problems.",
     sessions: [
-      { title: "Initial Briefing (Simulation Mechanics)", detail: "Introduction to the 'Theory First' philosophy and the safety of the virtual sandbox." },
-      { title: "Theory of Robotics", detail: "Deep dive into sensors, actuators, and layered systems. Exploration of hardware communication and robot architecture." },
-      { title: "Simulation Environment Setup", detail: "Onboarding for Tinkercad. Interface familiarization and workspace readiness." },
-      { title: "Hands-On Digital Prototyping", detail: "Transition from theory to practice by building, wiring, and testing digital circuits based on theoretical frameworks." },
-      { title: "Future Visions", detail: "Exploring how basic electronics act as the bridge to Artificial Intelligence and the next phase of evolution." },
+      { title: "Robotics, Electronics & Intelligent Systems", detail: "Introduction to robotics, electronics, and intelligent systems." },
+      { title: "Sensors, Actuators, Motors & Controllers", detail: "Understanding the fundamental components that allow machines to sense, move, and respond." },
+      { title: "AI Fundamentals & Technological Advancements", detail: "Explore the fundamentals of Artificial Intelligence and the rapidly evolving landscape of intelligent technologies." },
+      { title: "Future Visions", detail: "Exploring how basic mechanical engineering, electronics, programming, and Artificial Intelligence act as the bridge to build robotics systems and solve real-world problems." },
+      { title: "Future Scope of Robotics & AI", detail: "Explore where robotics, automation, intelligent systems, and AI can lead across engineering, industry, sustainability, and society." },
+      { title: "Sustainability & Real-World Challenges", detail: "Connect technological development with real-world environmental and societal challenges." },
+      { title: "Robotics & AI for Environmental and Societal Needs", detail: "Explore how intelligent technologies can be applied to practical challenges involving people, resources, infrastructure, and the environment." },
+      { title: "Technical & Logical Quiz", detail: "Individual technical and logical assessment." },
     ],
     color: "#FFE975"
   },
   {
-    day: "Day 2",
-    date: "Phase 2",
+    day: "DAY 2",
+    date: "3:00–6:00 PM",
     time: "3 PM",
-    type: "Evolution",
-    title: "Intelligent Evolution – The Mind & The Ethics",
-    objective: "Add a layer of 'intelligence' to the previous day’s systems while introducing critical thinking regarding AI's impact.",
+    type: "Virtual",
+    title: "Intelligence",
+    summary: "Put intelligence into action. Explore AI, computer vision, and simulation while building mini workable solutions.",
+    objective: "Put intelligence into action by using AI, computer vision, and simulation to develop mini workable solutions addressing real-world or sustainability challenges.",
     sessions: [
-      { title: "Initial Briefing (Evolution Mechanics)", detail: "Introduction to training models to classify data and trigger intelligent responses." },
-      { title: "Reality Check & Inspiration", detail: "Analysis of real-world examples (e.g., AI waste sorting). Identification of technological limitations and brainstorming AI-driven solutions." },
-      { title: "Machine Intelligence Lab", detail: "Training simple models using Teachable Machine. Conceptualizing AI extensions for an MVP to classify conditions or trigger alerts." },
-      { title: "Exploring Intelligence Limits", detail: "Critical examination of AI failure points, including data bias, sensor errors, and sustainability ethics." },
-      { title: "Advanced Robotics Exposure", detail: "Visual exploration of digital twins, the Gazebo environment, and the Robot Operating System (ROS) ecosystem." },
+      { title: "AI & Machine Learning Fundamentals", detail: "Understand the fundamental concepts behind Artificial Intelligence and Machine Learning." },
+      { title: "Computer Vision with OpenCV & MediaPipe", detail: "Explore how machines interpret visual information using computer vision tools." },
+      { title: "Camera-Based Intelligent Systems", detail: "Build systems that use cameras and visual information to understand and respond to their surroundings." },
+      { title: "Simulation with Tinkercad & Wokwi", detail: "Design and test ideas virtually before moving toward physical implementation." },
+      { title: "Team Mini Projects", detail: "Work in teams to create mini workable projects addressing a real-world or sustainability challenge." },
+      { title: "Technology Applied to Purpose", detail: "Projects may address resource efficiency, environmental observation, safety, accessibility, health, responsible infrastructure, or other societal needs." },
+      { title: "Resource-Conscious Development", detail: "Use simulation to test ideas before physical implementation, supporting safer and more resource-conscious development." },
     ],
     color: "#B5A1E5"
   },
   {
-    day: "Day 3",
-    date: "Phase 3",
-    time: "9 AM & 3 PM",
-    type: "Showdown",
-    title: "Hardware Showdown – The Market & Physical Realization",
-    objective: "Move from simulation to reality through a resource-constrained 'Market Day' ending in a public exhibition and debate.",
+    day: "DAY 3",
+    date: "3:00–6:00 PM",
+    time: "3 PM",
+    type: "Fun Event",
+    title: "Robo Race",
+    summary: "Take control. Race through obstacles, test robotic systems, and challenge your control and coordination.",
+    objective: "Put robotic systems to the test through hands-on control, navigation, obstacle handling, and coordinated system response.",
+    sessions: [
+      { title: "Hands-On Robotic Control", detail: "Take control of a physical robotic system and understand how it responds to commands." },
+      { title: "Motors, Sensors & Navigation", detail: "Work with motors and sensors to control movement and navigate the race environment." },
+      { title: "Obstacle Handling", detail: "Test how the robotic system responds to obstacles and changing conditions." },
+      { title: "Control & Coordination", detail: "Challenge your control, timing, coordination, and system response." },
+    ],
+    color: "#A1E4A3"
+  },
+  {
+    day: "DAY 4",
+    date: "10:00 AM–1:00 PM",
+    time: "10 AM & 3 PM",
+    type: "Physical",
+    title: "Buildathon",
+    summary: "From problem to prototype to impact. Build a working solution within resource and time constraints.",
+    objective: "Turn a real-world problem into a working prototype through resource-conscious design, rapid building, and practical engineering.",
     slots: [
       {
-        time: "9:00 AM - 12:00 PM",
-        name: "Slot 1: The Build",
+        time: "10:00 AM–1:00 PM",
+        name: "Hardware Buildathon — Part I",
         sessions: [
-          { title: "Catalog Drop & Briefing", detail: "Release of the Component Catalog and the 6 Problem Statements. Distribution of the 100-credit team budgets." },
-          { title: "The Marketplace Launch", detail: "Official opening of the hardware stalls. Teams engage in strategic procurement using their credits on a First-Come, First-Serve basis." },
-          { title: "Physical Prototyping", detail: "The shift from virtual logic to tangible hardware. Teams begin assembling their physical Minimum Viable Products (MVPs) based on their earlier simulations." },
-          { title: "System Validation", detail: "Finalizing the physical build and conducting iterative testing to ensure hardware reliability and alignment with the chosen problem statement." },
+          { title: "Real-World Problem Statement", detail: "Teams receive a problem statement based on an environmental, social, or resource challenge." },
+          { title: "100-Credit Component Marketplace", detail: "Each team receives 100 credits to select components from the available marketplace." },
+          { title: "Resource Selection", detail: "Choose components strategically while staying within the available credit limit." },
+          { title: "Problem & Context Analysis", detail: "Analyse the environmental or societal context behind the assigned problem." },
+          { title: "Design, Build & Program", detail: "Design, assemble, and program a functional prototype within the given time." },
         ]
       },
       {
-        time: "12:00 PM - 3:00 PM",
-        name: "Intermission: The Reset",
+        time: "3:00–6:00 PM",
+        name: "Buildathon — Part II & Showcase",
         sessions: [
-          { title: "Lunch Break", detail: "A mandatory period to disconnect, recharge, and refuel. No preparation or project work is permitted during this time." }
-        ]
-      },
-      {
-        time: "3:00 PM - 6:00 PM",
-        name: "Slot 2: The Showcase & Reflection",
-        sessions: [
-          { title: "Green Parliamentary Debate", detail: "A shift to advocacy and ethics. Participation in intense debates regarding various topics like the role of AI in climate survival and environmental policy." },
-          { title: "Exhibition & Judging", detail: "Formal demonstration of the physical MVPs. Teams explain their system logic, sustainability impact, and conceptual intelligence upgrades to judges." },
-          { title: "Final Reflection", detail: "Closing session focused on shifting perspectives, filling out shared reviews, and summarizing the three-day evolution." }
+          { title: "Continue, Integrate & Test", detail: "Continue development and integrate the selected components into the prototype." },
+          { title: "Debugging & Optimization", detail: "Identify problems, improve system performance, and optimize the design." },
+          { title: "Resource-Conscious Design", detail: "Evaluate how effectively the team used its limited resources." },
+          { title: "Working Demonstration", detail: "Demonstrate the working solution to the judges." },
+          { title: "Practical Impact", detail: "Explain how the proposed solution addresses the given problem." },
+          { title: "Future Scope & Improvements", detail: "Identify limitations, possible improvements, and future development." },
+          { title: "UN SDG Connection", detail: "Explain the relevant Sustainable Development Goal connected to the project." },
+          { title: "Technical Pitch & Judging", detail: "Present the solution, technical approach, impact, and future scope before judging." },
+          { title: "Results & Closure", detail: "Final evaluation, results, and closing of HORIZON 2.0." },
         ]
       }
     ],
-    color: "#A1E4A3"
+    color: "#FFB17A"
   }
 ];
 
-export default function Horizon10() {
+
+export default function HorizonSchedule() {
   const [selectedDay, setSelectedDay] = React.useState<number | null>(null);
   const [lightboxImg, setLightboxImg] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    const isModalOpen = selectedDay !== null || lightboxImg !== null;
+    const previousOverflow = document.body.style.overflow;
+
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selectedDay, lightboxImg]);
 
   return (
     <div className="min-h-screen bg-[#F4F4F0] dark:bg-background text-stone-900 dark:text-foreground font-sans selection:bg-[#A1E4A3] selection:text-stone-900 overflow-x-hidden transition-colors duration-300">
@@ -198,12 +236,12 @@ export default function Horizon10() {
             </h1>
 
             <p className="mt-4 font-mono font-bold text-sm uppercase tracking-widest text-stone-600 dark:text-stone-400">
-              Horizon 2.0 Coming Soon
+              A 4-day immersive workshop blending Robotics, AI, and sustainability.
             </p>
 
             <div className="flex flex-wrap gap-3 font-mono text-lg md:text-xl font-bold">
-              <span className="bg-[#FFE975] dark:bg-[#FFE975]/30 dark:text-white border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">2026</span>
-              <span className="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 dark:text-white border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">Horizon 1.0</span>
+              <span className="bg-[#FFE975] dark:bg-[#FFE975]/30 dark:text-white border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">October, 2026</span>
+              <span className="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30 dark:text-white border-[3px] border-stone-900 dark:border-white px-4 py-1 rounded-lg shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">Horizon 2.0</span>
             </div>
 
             <p className="text-2xl md:text-3xl font-black mt-4 leading-tight uppercase">
@@ -216,9 +254,9 @@ export default function Horizon10() {
           <div className="lg:col-span-5 relative">
             <BrutalistCard colorClass="bg-white dark:bg-zinc-900" noHover className="rotate-2">
               <p className="text-lg font-medium leading-relaxed mb-8 dark:text-zinc-300">
-                <strong className="font-black text-xl dark:text-white">Our Flagship Event.</strong> Horizon is our flagship event, and we started our first chapter, <strong>Horizon 1.0: Beyond the Machine</strong>, in 2026. We blended hardware hacking, conceptual AI, and sustainability into one epic weekend.
+                <strong className="font-black text-xl dark:text-white">Our Flagship Event.</strong> Horizon is our flagship event, and we started our first chapter, <strong>Horizon 1.0: Beyond the Machine</strong>, in March 2026. We blended hardware hacking, conceptual AI, and sustainability into one epic weekend.
                 <br /><br />
-                <span className="font-bold text-[#FF5757] dark:text-[#FF88A8]">Horizon 2.0 will be coming soon...</span>
+                <span className="font-bold text-[#FF5757] dark:text-[#FF88A8]">Horizon 2.0 is coming this OCTOBER...</span>
               </p>
               <button 
                 onClick={() => document.getElementById('glimpses-section')?.scrollIntoView({ behavior: 'smooth' })}
@@ -258,11 +296,11 @@ export default function Horizon10() {
           <div className="mb-16 text-center lg:text-left">
             <h2 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tight">Event Roadmap</h2>
             <p className="text-2xl font-medium max-w-2xl text-stone-600 dark:text-stone-400 font-mono">
-              3 Days of Intensive Simulation, Intelligence, and Physical Construction.
+              4 Days of Intelligence, Simulation, Competition, and Physical Construction.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {roadmapData.map((day, index) => (
               <motion.div
                 key={index}
@@ -277,14 +315,16 @@ export default function Horizon10() {
                     opacity: 0.2
                   }}
                 ></div>
+
                 <div 
                   className="relative p-8 rounded-[2rem] border-[3px] border-stone-900 h-full flex flex-col group-hover:scale-[1.01] transition-transform"
                   style={{ 
                     borderColor: day.color,
-                    backgroundColor: selectedDay === index ? 'transparent' : day.color + '1A', // 10% opacity in light mode
+                    backgroundColor: selectedDay === index ? 'transparent' : day.color + '1A',
                   }}
                 >
-                  <div className="dark:bg-[#111] absolute inset-0 rounded-[1.8rem] -z-10 bg-transparent"></div> {/* Keep dark mode bg dark */}
+                  <div className="dark:bg-[#111] absolute inset-0 rounded-[1.8rem] -z-10 bg-transparent"></div>
+
                   <div className="flex justify-between items-start mb-8">
                     <span 
                       className="text-stone-900 font-mono font-bold text-sm px-4 py-1 rounded-full uppercase shadow-[2px_2px_0px_#000]"
@@ -294,26 +334,25 @@ export default function Horizon10() {
                     </span>
                     <span className="font-black text-5xl opacity-30 select-none" style={{ color: day.color }}>0{index + 1}</span>
                   </div>
+
                   <h3 className="text-4xl font-black uppercase mb-2 dark:text-white leading-tight">
-                    {index === 0 ? "Tinkering" : index === 1 ? "Evolution" : "Showdown"}
+                    {day.title}
                   </h3>
+
                   <p 
                     className="font-mono text-xs font-bold px-2 py-1 rounded mb-4 w-fit text-stone-900 border-2 border-stone-900 shadow-[2px_2px_0px_#000]"
                     style={{ backgroundColor: day.color }}
                   >
                     {day.time}
                   </p>
+
                   <p className="text-lg font-medium leading-relaxed dark:text-stone-300 mb-6">
-                    {index === 0 
-                      ? "Software and electronics hands-on simulations. Map out your logic in a digital sandbox."
-                      : index === 1 
-                        ? "AI & ML understanding and hands-on demo. Explore the potential of automated minds."
-                        : "Physical build-a-thon prototype and debate. Pitch your vision for the future."
-                    }
+                    {day.summary}
                   </p>
+
                   <div 
                     className="mt-auto flex items-center gap-2 font-mono text-sm font-black group-hover:gap-4 transition-all"
-                    style={{ color: index === 0 ? '#B8860B' : index === 1 ? '#4B0082' : '#006400' }} // Darker variants for readable text
+                    style={{ color: index === 0 ? '#B8860B' : index === 1 ? '#4B0082' : index === 2 ? '#006400' : '#8B4513' }}
                   >
                     <span className="bg-white/50 dark:bg-black/20 px-2 py-0.5 rounded cursor-pointer">VIEW FULL SCHEDULE <Plus size={16} className="inline ml-1" /></span>
                   </div>
@@ -337,7 +376,7 @@ export default function Horizon10() {
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                  className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-stone-950 border-[4px] border-stone-900 dark:border-white rounded-[2rem] shadow-[12px_12px_0px_0px_rgba(28,25,23,1)] dark:shadow-[12px_12px_0px_0px_rgba(255,255,255,0.2)] p-6 md:p-12"
+                  className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto overscroll-contain bg-white dark:bg-stone-950 border-[4px] border-stone-900 dark:border-white rounded-[2rem] shadow-[12px_12px_0px_0px_rgba(28,25,23,1)] dark:shadow-[12px_12px_0px_0px_rgba(255,255,255,0.2)] p-6 md:p-12"
                 >
                   <button
                     onClick={() => setSelectedDay(null)}
@@ -356,9 +395,11 @@ export default function Horizon10() {
                       </span>
                       <span className="font-mono font-bold text-stone-500">{roadmapData[selectedDay].date} // {roadmapData[selectedDay].time}</span>
                     </div>
+
                     <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-6">
                       {roadmapData[selectedDay].title}
                     </h2>
+
                     <div className="p-4 bg-stone-50 dark:bg-stone-900 border-l-[6px] border-stone-900 dark:border-white" style={{ borderLeftColor: roadmapData[selectedDay].color }}>
                       <p className="font-mono text-sm font-bold uppercase tracking-widest text-stone-500 mb-2">Primary Objective</p>
                       <p className="text-xl font-bold italic leading-relaxed">"{roadmapData[selectedDay].objective}"</p>
@@ -390,6 +431,7 @@ export default function Horizon10() {
                             </h3>
                             <span className="font-mono font-bold text-stone-500">{slot.time}</span>
                           </div>
+
                           <div className="space-y-6">
                             {slot.sessions.map((session, idx) => (
                               <div key={idx} className="group relative">
@@ -410,7 +452,7 @@ export default function Horizon10() {
                   </div>
 
                   <div className="mt-16 pt-8 border-t-2 border-stone-100 dark:border-stone-900 flex justify-between items-center">
-                    <p className="font-mono text-xs font-bold text-stone-400 uppercase tracking-widest">Horizon 1.0 // Solarpunk Corps</p>
+                    <p className="font-mono text-xs font-bold text-stone-400 uppercase tracking-widest">Horizon 2.0 // Solarpunk Corps</p>
                     <button
                       onClick={() => setSelectedDay(null)}
                       className="bg-stone-900 dark:bg-white text-white dark:text-stone-900 px-8 py-3 rounded-xl font-black uppercase hover:scale-105 transition-transform"
@@ -443,7 +485,7 @@ export default function Horizon10() {
               </div>
             </div>
             <p className="text-xl font-medium leading-relaxed max-w-xl dark:text-zinc-200">
-              Map out your logic in a digital sandbox. Test theories, understand system behaviors, and push boundaries in a virtual space before committing to the physical realm.
+              Use simulation to test ideas before physical implementation. Explore system behaviour, develop logic, and build solutions in a safer, more resource-conscious digital space.
             </p>
           </BrutalistCard>
 
@@ -455,31 +497,31 @@ export default function Horizon10() {
               </div>
             </div>
             <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
-              Translate ideas into reality. Collaborate with your team to hack together tangible solutions, iterating rapidly to build functional, physical systems from scratch.
+              Translate ideas into working systems. Build, integrate, test, and iterate with your team to turn a real-world problem into a functional prototype.
             </p>
           </BrutalistCard>
 
           <BrutalistCard colorClass="bg-[#B5A1E5] dark:bg-[#B5A1E5]/30">
             <div className="flex justify-between items-start mb-12">
-              <h3 className="text-4xl font-black dark:text-white">? Intelligence</h3>
+              <h3 className="text-4xl font-black dark:text-white">Intelligence</h3>
               <div className="bg-white dark:bg-zinc-800 p-3 rounded-full border-[3px] border-stone-900 dark:border-white shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">
                 <BrainCircuit size={32} className="dark:text-white" />
               </div>
             </div>
             <p className="text-lg font-medium leading-relaxed dark:text-zinc-200">
-              Explore the potential and boundaries of automated minds. Understand how data shapes decisions, where algorithms fail, and what it means to build responsible tech.
+              Explore AI, computer vision, and intelligent systems. Understand how data, algorithms, and perception can be applied to real-world challenges and purposeful technology.
             </p>
           </BrutalistCard>
 
           <BrutalistCard colorClass="bg-[#FFB17A] dark:bg-[#FFB17A]/30 lg:col-span-2">
             <div className="flex justify-between items-start mb-12">
-              <h3 className="text-4xl font-black dark:text-white">Debate</h3>
+              <h3 className="text-4xl font-black dark:text-white">Impact</h3>
               <div className="bg-white dark:bg-zinc-800 p-3 rounded-full border-[3px] border-stone-900 dark:border-white shadow-[3px_3px_0px_0px_rgba(28,25,23,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.8)]">
                 <MessageSquareWarning size={32} className="dark:text-white" />
               </div>
             </div>
             <p className="text-xl font-medium leading-relaxed max-w-xl dark:text-zinc-200">
-              Challenge the status quo. Defend your engineering choices, question the impact of emerging technologies, and pitch your vision for a sustainable, upgraded future.
+              Connect engineering with purpose. Explain the problem, defend your design choices, demonstrate practical impact, and show how your solution can contribute to a more sustainable future.
             </p>
           </BrutalistCard>
         </div>
@@ -491,7 +533,7 @@ export default function Horizon10() {
           <div className="mb-16">
             <h2 className="text-5xl md:text-7xl font-black mb-6 text-[#FFE975]">The Arsenal</h2>
             <p className="text-2xl font-medium max-w-2xl font-mono text-[#A1E4A3]">
-              Walk away with real skills, new allies, and a fresh perspective on tech.
+              Build skills, solve problems, and turn technology into purposeful solutions.
             </p>
           </div>
 
@@ -499,46 +541,46 @@ export default function Horizon10() {
             <div className="border-[3px] border-[#F4F4F0] dark:border-zinc-800 rounded-2xl p-6 hover:bg-[#F4F4F0] hover:text-stone-900 dark:hover:bg-zinc-900 dark:hover:text-[#A1E4A3] transition-colors group">
               <div className="text-[#A1E4A3] group-hover:text-stone-900 dark:group-hover:text-[#A1E4A3] mb-6 font-mono text-3xl font-black">*</div>
               <h4 className="text-2xl font-black mb-4 flex items-center gap-2">
-                <Cpu className="group-hover:animate-pulse" /> Hardware Hacking
+                <Cpu className="group-hover:animate-pulse" /> Hardware & Robotics
               </h4>
               <p className="font-medium opacity-90 group-hover:opacity-100">
-                Wire up real sensors and actuators. Go from a digital Tinkercad simulation to a physical MVP.
+                Work with sensors, actuators, motors, controllers, and real hardware. Move from system concepts and simulations to functional robotic prototypes.
               </p>
             </div>
 
             <div className="border-[3px] border-[#F4F4F0] dark:border-zinc-800 rounded-2xl p-6 hover:bg-[#F4F4F0] hover:text-stone-900 dark:hover:bg-zinc-900 dark:hover:text-[#7AC0FF] transition-colors group">
               <div className="text-[#7AC0FF] group-hover:text-stone-900 dark:group-hover:text-[#7AC0FF] mb-6 font-mono text-3xl font-black">+</div>
               <h4 className="text-2xl font-black mb-4 flex items-center gap-2">
-                <TerminalSquare className="group-hover:animate-pulse" /> Applied AI
+                <TerminalSquare className="group-hover:animate-pulse" /> AI & Computer Vision
               </h4>
               <p className="font-medium opacity-90 group-hover:opacity-100">
-                Train simple browser ML models. Learn not just how AI works, but when it fails and why data bias matters.
+                Explore AI and machine learning fundamentals, computer vision with OpenCV and MediaPipe, and camera-based intelligent systems.
               </p>
             </div>
 
             <div className="border-[3px] border-[#F4F4F0] dark:border-zinc-800 rounded-2xl p-6 hover:bg-[#F4F4F0] hover:text-stone-900 dark:hover:bg-zinc-900 dark:hover:text-[#FFB17A] transition-colors group">
               <div className="text-[#FFB17A] group-hover:text-stone-900 dark:group-hover:text-[#FFB17A] mb-6 font-mono text-3xl font-black">#</div>
               <h4 className="text-2xl font-black mb-4 flex items-center gap-2">
-                <Zap className="group-hover:animate-bounce" /> Rapid Prototyping
+                <Zap className="group-hover:animate-bounce" /> Resourceful Prototyping
               </h4>
               <p className="font-medium opacity-90 group-hover:opacity-100">
-                Navigate a chaotic component marketplace. Manage your budget, collaborate, and build against the clock.
+                Navigate a component marketplace with limited credits. Manage resources, collaborate, and build a working solution against the clock.
               </p>
             </div>
 
             <div className="border-[3px] border-[#F4F4F0] dark:border-zinc-800 rounded-2xl p-6 hover:bg-[#F4F4F0] hover:text-stone-900 dark:hover:bg-zinc-900 dark:hover:text-[#B5A1E5] transition-colors group">
               <div className="text-[#B5A1E5] group-hover:text-stone-900 dark:group-hover:text-[#B5A1E5] mb-6 font-mono text-3xl font-black">~</div>
               <h4 className="text-2xl font-black mb-4 flex items-center gap-2">
-                <Globe2 className="group-hover:rotate-12 transition-transform" /> The Pitch
+                <Globe2 className="group-hover:rotate-12 transition-transform" /> Purpose & Impact
               </h4>
               <p className="font-medium opacity-90 group-hover:opacity-100">
-                Engage in rapid-fire parliamentary debates. Defend your tech, pitch your vision, and win over the judges.
+                Present your solution, explain its practical impact, connect it with relevant UN SDGs, and define its future scope and improvements.
               </p>
             </div>
           </div>
         </div>
       </section>
-
+      
       {/* IMAGE CAROUSEL */}
       <section id="glimpses-section" className="py-24 bg-[#FFD33D]/20 dark:bg-zinc-900 border-y-[4px] border-stone-900 dark:border-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 relative">
@@ -552,7 +594,7 @@ export default function Horizon10() {
           </div>
           
           <h2 className="text-4xl md:text-6xl font-black inline-block bg-white dark:bg-zinc-800 border-[3px] border-stone-900 dark:border-white px-6 py-3 shadow-[8px_8px_0px_rgba(28,25,23,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,0.8)] rotate-[-1deg] text-stone-900 dark:text-white uppercase">
-            Glimpses of Horizon
+            Glimpses of Horizon 1.0
           </h2>
           <p className="mt-8 font-mono text-xl max-w-2xl mx-auto dark:text-zinc-300 font-bold">
             Relive the energy. The late nights, the breakthroughs, and the community we built together.

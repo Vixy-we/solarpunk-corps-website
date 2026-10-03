@@ -34,7 +34,7 @@ import UnderConstruction from "@/pages/under-construction";
 import CSRPage from "@/pages/csr";
 import Manifesto from "@/pages/manifesto";
 import Events from "@/pages/events";
-import Horizon10 from "@/pages/horizon1-0";
+import HorizonSchedule from "@/pages/horizon-schedule";
 import Horizon1_2026 from "@/pages/horizon1-2026";
 
 import { SITE_LIVE, INAUGURATION_MODE } from "@/config/site";
@@ -89,7 +89,7 @@ function Router({ hook }: { hook?: any }) {
         <Route path="/under-construction" component={UnderConstruction} />
         <Route path="/csr" component={CSRPage} />
         <Route path="/events" component={Events} />
-        <Route path="/events/horizon" component={Horizon10} />
+        <Route path="/events/horizon" component={HorizonSchedule} />
         <Route path="/events/horizon1-2026" component={Horizon1_2026} />
 
         <Route path="/manifesto" component={Manifesto} />

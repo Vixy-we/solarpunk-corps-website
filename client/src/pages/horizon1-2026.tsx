@@ -214,7 +214,7 @@ function MainHero() {
 
         <h1 className="text-7xl sm:text-8xl md:text-[13rem] lg:text-[15rem] font-black tracking-tighter leading-[0.8] md:leading-[0.8] uppercase mb-12 md:mb-16">
           <span className="block text-[#FF5757] drop-shadow-[5px_5px_0px_rgba(28,25,23,1)] md:drop-shadow-[12px_12px_0px_rgba(28,25,23,1)] stroke-stone-900 stroke-2">HORIZON</span>
-          <span className="block text-stone-900 mt-2 md:mt-4 transform translate-x-1 sm:translate-x-4 text-[0.45em] md:text-[0.45em] tracking-[0.05em] leading-none drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">THE ARCHIVE</span>
+          <span className="block text-stone-900 mt-2 md:mt-4 transform translate-x-1 sm:translate-x-4 text-[0.45em] md:text-[0.45em] tracking-[0.05em] leading-none drop-shadow-[2px_2px_0px_rgba(255,255,255,1)]">1.0 ARCHIVE</span>
         </h1>
 
         <div className="max-w-4xl mx-auto relative px-4 sm:px-2">

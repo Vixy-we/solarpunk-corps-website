@@ -190,84 +190,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 2: THE PLAYGROUND (The "What") */}
-        <section className="py-24 bg-gradient-to-b from-background to-accent/5">
-          <div className="max-w-6xl mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Playground</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                We're breaking down the silos. <br /> Whether you code, design, solder, or write, there is a place for you here.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-              {[
-                { label: "Hardware Forge", icon: Zap, color: "#246AA5" },
-                { label: "Green Initiatives", icon: Leaf, color: "#58AC4A" },
-                { label: "Art and Voice", icon: Palette, color: "#FFC32F" },
-                { label: "Social Drives", icon: Users, color: "#FD8F36" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial="initial"
-                  whileInView="visible"
-                  whileHover="hover"
-                  viewport={{ once: true }}
-                  variants={{
-                    initial: { opacity: 0, scale: 0.9 },
-                    visible: {
-                      opacity: 1,
-                      scale: 1,
-                      transition: { duration: 0.3, delay: i * 0.1 }
-                    },
-                    hover: {
-                      scale: 1.05,
-                      y: -8,
-                      boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-                      transition: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 25,
-                        delay: 0.2
-                      }
-                    }
-                  }}
-                  style={{ "--theme-color": item.color } as React.CSSProperties}
-                  className="relative p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 transition-colors duration-300 delay-150 cursor-default group hover:border-[var(--theme-color)] overflow-hidden"
-                >
-                  <motion.div
-                    className="absolute inset-0"
-                    style={{ backgroundColor: item.color }}
-                    variants={{
-                      initial: { opacity: 0 },
-                      hover: { opacity: 0.15 }
-                    }}
-                    transition={{ duration: 0.3, delay: 0.15 }}
-                  />
-                  <div className="relative z-10">
-                    <item.icon
-                      className="h-8 w-8 mx-auto mb-3 text-muted-foreground transition-colors duration-200 group-hover:text-[var(--theme-color)]"
-                    />
-                    <span className="font-semibold block group-hover:text-[var(--theme-color)] transition-colors duration-200">{item.label}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="flex justify-end">
-              <Button variant="outline" size="sm" onClick={() => handleNavigate("/what-we-do")}>
-                Explore All Activities
-              </Button>
-            </div>
-          </div>
-        </section>
-
         {/* IMAGE CAROUSEL */}
         <section id="glimpses-section" className="py-24 bg-[#FFD33D]/20 dark:bg-zinc-900 border-y-[4px] border-stone-900 dark:border-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 relative">
@@ -281,7 +203,7 @@ export default function Home() {
             </div>
 
             <h2 className="text-4xl md:text-6xl font-black inline-block bg-white dark:bg-zinc-800 border-[3px] border-stone-900 dark:border-white px-6 py-3 shadow-[8px_8px_0px_rgba(28,25,23,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,0.8)] rotate-[-1deg] text-stone-900 dark:text-white uppercase">
-              Glimpses of Horizon
+              Glimpses of Horizon 1.0
             </h2>
             <p className="mt-8 font-mono text-xl max-w-2xl mx-auto dark:text-zinc-300 font-bold">
               Relive the energy. The late nights, the breakthroughs, and the community we built together.
@@ -383,7 +305,7 @@ export default function Home() {
                   </Badge>
 
                   <h2 className="text-3xl md:text-5xl font-bold mb-2 font-horizon tracking-tight text-foreground">
-                    Horizon <span className="text-emerald-600 dark:text-emerald-500">1.0</span>
+                    Horizon <span className="text-emerald-600 dark:text-emerald-500">2.0</span>
                   </h2>
                   <p className="text-emerald-600 dark:text-emerald-400 font-bold text-lg mb-6 uppercase tracking-[0.2em]">Beyond the Machine</p>
 
@@ -420,6 +342,84 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 2: THE PLAYGROUND (The "What") */}
+        <section className="py-24 bg-gradient-to-b from-background to-accent/5">
+          <div className="max-w-6xl mx-auto px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Playground</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We're breaking down the silos. <br /> Whether you code, design, solder, or write, there is a place for you here.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+              {[
+                { label: "Hardware Forge", icon: Zap, color: "#246AA5" },
+                { label: "Green Initiatives", icon: Leaf, color: "#58AC4A" },
+                { label: "Art and Voice", icon: Palette, color: "#FFC32F" },
+                { label: "Social Drives", icon: Users, color: "#FD8F36" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial="initial"
+                  whileInView="visible"
+                  whileHover="hover"
+                  viewport={{ once: true }}
+                  variants={{
+                    initial: { opacity: 0, scale: 0.9 },
+                    visible: {
+                      opacity: 1,
+                      scale: 1,
+                      transition: { duration: 0.3, delay: i * 0.1 }
+                    },
+                    hover: {
+                      scale: 1.05,
+                      y: -8,
+                      boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                      transition: {
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25,
+                        delay: 0.2
+                      }
+                    }
+                  }}
+                  style={{ "--theme-color": item.color } as React.CSSProperties}
+                  className="relative p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 transition-colors duration-300 delay-150 cursor-default group hover:border-[var(--theme-color)] overflow-hidden"
+                >
+                  <motion.div
+                    className="absolute inset-0"
+                    style={{ backgroundColor: item.color }}
+                    variants={{
+                      initial: { opacity: 0 },
+                      hover: { opacity: 0.15 }
+                    }}
+                    transition={{ duration: 0.3, delay: 0.15 }}
+                  />
+                  <div className="relative z-10">
+                    <item.icon
+                      className="h-8 w-8 mx-auto mb-3 text-muted-foreground transition-colors duration-200 group-hover:text-[var(--theme-color)]"
+                    />
+                    <span className="font-semibold block group-hover:text-[var(--theme-color)] transition-colors duration-200">{item.label}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="flex justify-end">
+              <Button variant="outline" size="sm" onClick={() => handleNavigate("/what-we-do")}>
+                Explore All Activities
+              </Button>
+            </div>
           </div>
         </section>
 

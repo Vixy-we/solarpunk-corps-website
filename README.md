@@ -91,9 +91,9 @@ Anything in `attached_assets/` is for reference only — the browser cannot load
 
 | Path | Used on | Referenced from |
 |---|---|---|
-| `SPC_logo.png` | Nav, footer, hero, coming-soon, SEO | `navigation.tsx`, `footer.tsx`, `seo.tsx`, `horizon1-0.tsx` |
+| `SPC_logo.png` | Nav, footer, hero, coming-soon, SEO | `navigation.tsx`, `footer.tsx`, `seo.tsx`, `horizon-schedule.tsx` |
 | `Photos/*.jpeg` | **Our Team** page member headshots | `pages/our-team.tsx` (each person has a `const imgN = "/Photos/Name.jpeg"`) |
-| `Horizon1/*.webp` | **Horizon 1.0** landing + wrap-up event photos | `pages/horizon1-0.tsx`, `pages/horizon1-2026.tsx` |
+| `Horizon1/*.webp` | **Horizon 1.0** landing + wrap-up event photos | `pages/horizon-schedule.tsx`, `pages/horizon1-2026.tsx` |
 | `world pic.webp` | Nav dropdown "About" card background | `navigation.tsx` |
 | `work-cover.webp` | Nav dropdown "Work" card background | `navigation.tsx` |
 | `sponser pic.webp` | Nav dropdown "Sponsor Us" card background | `navigation.tsx` |
@@ -138,7 +138,7 @@ Each page file is a thin wrapper: it mounts `<Navigation />`, content sections, 
 | `/projects/magazine` | `pages/project-magazine.tsx` | CodeGreen magazine page |
 | `/projects/survey` | `pages/project-survey.tsx` | Campus Survey page |
 | `/events` | `pages/events.tsx` | Events listing (Horizon card, upcoming events) |
-| `/events/horizon` | `pages/horizon1-0.tsx` | Horizon 1.0 landing (roadmap, carousel, CTA to wrap-up) |
+| `/events/horizon` | `pages/horizon-schedule.tsx` | Horizon 1.0 landing (roadmap, carousel, CTA to wrap-up) |
 | `/events/horizon1-2026` | `pages/horizon1-2026.tsx` | Horizon 1.0 wrap-up / archive (photo galleries, teams, winners) |
 | `/sponsors` | `pages/sponsors.tsx` | `SupportSection` + sponsorship flipbook embed |
 | `/sponsors/alumni` | `pages/alumni.tsx` | Alumni support form |
@@ -250,7 +250,7 @@ Both Horizon pages use a **grayscale → color on hover** effect on all photos. 
 
 ---
 
-### `/events/horizon` → `client/src/pages/horizon1-0.tsx`
+### `/events/horizon` → `client/src/pages/horizon-schedule.tsx`
 
 Horizon 1.0 **landing page** (roadmap, CTA to wrap-up).
 
@@ -281,7 +281,7 @@ Horizon 1.0 **wrap-up / archive** page. This file has helper utilities at the to
 
 | Section | Lines (approx.) | How images are assigned |
 |---|---|---|
-| **Glimpses carousel** | ~207–237 | Hardcoded `/Horizon1/...` string array (same pattern as horizon1-0) |
+| **Glimpses carousel** | ~207–237 | Hardcoded `/Horizon1/...` string array (same pattern as horizon-schedule) |
 | **Event Roadmap — Kick-Off** | ~289–293 | Explicit paths: `/Horizon1/Inauguration1.webp` … `Inauguration4.webp` |
 | **Event Roadmap — Virtual Tinkering (Day 1)** | ~308–312 | `hz(4)`, `hz(5)`, etc. |
 | **Event Roadmap — Evolution (Day 2)** | ~327–330 | `hz(6)` … `hz(9)` |
@@ -322,7 +322,7 @@ Edit `HORIZON_IMG_HOVER` or `HORIZON_IMG_GROUP_HOVER` near the top of `horizon1-
 | `script/prerender.ts` | Routes pre-rendered to static HTML at build time |
 | `components/ui/` | Shadcn/UI primitives (Button, Card, Dialog, etc.) — rarely edit directly |
 | `pages/membership.tsx` | Old standalone membership page — **not routed**; content lives in `MembershipSection` on `/structure` |
-| `pages/horizon.tsx` | Older Horizon vision page — **not routed**; replaced by `horizon1-0.tsx` |
+| `pages/horizon.tsx` | Older Horizon vision page — **not routed**; replaced by `horizon-schedule.tsx` |
 
 ---
 
