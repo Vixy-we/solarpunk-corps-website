@@ -426,6 +426,49 @@ export default function HiddenEgg() {
     const [, navigate] = useLocation();
     const [viewMode, setViewMode] = useState<'title' | 'games'>('title');
     const [spinningDieId, setSpinningDieId] = useState<number | null>(null);
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0, visible: false });
+    const [cursorTrail, setCursorTrail] = useState<Array<{ x: number; y: number; life: number; size: number }>>([]);
+
+    useEffect(() => {
+        const handlePointerMove = (event: PointerEvent) => {
+            const nextDot = {
+                x: event.clientX,
+                y: event.clientY,
+                life: 1,
+                size: 5 + Math.random() * 10,
+            };
+
+            setCursorPosition({
+                x: event.clientX,
+                y: event.clientY,
+                visible: true,
+            });
+
+            setCursorTrail((prev) => [...prev.slice(-18), nextDot]);
+        };
+
+        const handlePointerLeave = () => {
+            setCursorPosition((prev) => ({ ...prev, visible: false }));
+        };
+
+        const interval = window.setInterval(() => {
+            setCursorTrail((prev) =>
+                prev
+                    .map((dot) => ({ ...dot, life: dot.life - 0.12 }))
+                    .filter((dot) => dot.life > 0)
+                    .slice(-20)
+            );
+        }, 30);
+
+        window.addEventListener('pointermove', handlePointerMove);
+        window.addEventListener('pointerleave', handlePointerLeave);
+
+        return () => {
+            window.clearInterval(interval);
+            window.removeEventListener('pointermove', handlePointerMove);
+            window.removeEventListener('pointerleave', handlePointerLeave);
+        };
+    }, []);
 
     const handleDieClick = (game: GameItem) => {
         setSpinningDieId(game.id);
@@ -670,6 +713,30 @@ export default function HiddenEgg() {
                     display: block;
                     width: 100%;
                     height: 100%;
+                    cursor: none;
+                }
+
+                .cursor-glow {
+                    position: fixed;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 90;
+                    background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(74, 222, 128, 0.9) 18%, rgba(74, 222, 128, 0.3) 42%, rgba(74, 222, 128, 0) 70%);
+                    box-shadow: 0 0 18px rgba(74, 222, 128, 0.9), 0 0 32px rgba(74, 222, 128, 0.5), 0 0 50px rgba(74, 222, 128, 0.25);
+                    transform: translate(-50%, -50%);
+                    transition: opacity 0.15s ease;
+                }
+
+                .cursor-trail-dot {
+                    position: fixed;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 89;
+                    background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(74, 222, 128, 0.85) 25%, rgba(74, 222, 128, 0.2) 55%, rgba(74, 222, 128, 0) 75%);
+                    box-shadow: 0 0 12px rgba(74, 222, 128, 0.65);
+                    transform: translate(-50%, -50%);
                 }
 
                 .title-overlay-container {
@@ -987,6 +1054,29 @@ export default function HiddenEgg() {
                     </button>
                 )}
             </div>
+
+            {cursorTrail.map((dot, index) => (
+                <div
+                    key={`${dot.x}-${dot.y}-${index}`}
+                    className="cursor-trail-dot"
+                    style={{
+                        left: `${dot.x}px`,
+                        top: `${dot.y}px`,
+                        width: `${dot.size * (0.2 + dot.life) * 1.5}px`,
+                        height: `${dot.size * (0.2 + dot.life) * 1.5}px`,
+                        opacity: Math.max(0, dot.life),
+                    }}
+                />
+            ))}
+
+            <div
+                className="cursor-glow"
+                style={{
+                    left: `${cursorPosition.x}px`,
+                    top: `${cursorPosition.y}px`,
+                    opacity: cursorPosition.visible ? 1 : 0,
+                }}
+            />
 
             <canvas ref={canvasRef} className="main-canvas" />
 

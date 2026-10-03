@@ -111,7 +111,7 @@ const leadership = [
 
 const coreTeam = [
   {
-    title: "Robotics & Engineering Lead",
+    title: "Robotics & Engineering Head",
     name: "Abhay Singh",
     img: "/Photos/abhay.jpeg",
     subtitle: "ECE",
@@ -124,7 +124,7 @@ const coreTeam = [
     color: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400",
   },
   {
-    title: "Robotics & Engineering Lead",
+    title: "Robotics & Engineering Head",
     name: "Deepanshu Yadav",
     img: "/Photos/deepanshu.jpeg",
     subtitle: "ME",
@@ -137,7 +137,7 @@ const coreTeam = [
     color: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400",
   },
   {
-    title: "Robotics & Engineering Lead",
+    title: "Robotics & Engineering Head",
     name: "Yuvraj Singh Yadav",
     img: "/Photos/yuvraj.jpeg",
     subtitle: "ECE",
@@ -150,7 +150,7 @@ const coreTeam = [
     color: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400",
   },
   {
-    title: "Sustainable Development Lead",
+    title: "Sustainable Development Head",
     name: "Krishna Mathur",
     img: "/Photos/mathur.jpeg",
     subtitle: "ME",
@@ -163,7 +163,7 @@ const coreTeam = [
     color: "bg-green-500/20 text-green-600 dark:text-green-400",
   },
   {
-    title: "Sustainable Development Lead",
+    title: "Sustainable Development Head",
     name: "Vijay Pratap Chauhan",
     img: "/Photos/Vijay.jpeg",
     subtitle: "ME",
@@ -176,7 +176,7 @@ const coreTeam = [
     color: "bg-green-500/20 text-green-600 dark:text-green-400",
   },
   {
-    title: "Emerging Tech & Research Lead",
+    title: "Emerging Tech & Research Head",
     name: "Pallavi Yadav",
     img: "/Photos/pallavi.jpeg",
     subtitle: "IT",
@@ -189,7 +189,7 @@ const coreTeam = [
     color: "bg-cyan-500/20 text-cyan-600 dark:text-cyan-400",
   },
   {
-    title: "Emerging Tech & Research Lead",
+    title: "Emerging Tech & Research Head",
     name: "Nipun Bhardwaj",
     img: "/Photos/nipun.jpeg",
     subtitle: "IT",
@@ -202,7 +202,7 @@ const coreTeam = [
     color: "bg-cyan-500/20 text-cyan-600 dark:text-cyan-400",
   },
   {
-    title: "Events & Coordination Lead",
+    title: "Events & Coordination Head",
     name: "Arvind Yadav",
     img: "/Photos/Arvind.jpeg",
     subtitle: "ME",
@@ -215,7 +215,7 @@ const coreTeam = [
     color: "bg-orange-500/20 text-orange-600 dark:text-orange-400",
   },
   {
-    title: "Events & Coordination Lead",
+    title: "Events & Coordination Head",
     name: "Khushi Singh",
     img: "/Photos/khushi.jpeg",
     subtitle: "ME",
@@ -228,7 +228,7 @@ const coreTeam = [
     color: "bg-orange-500/20 text-orange-600 dark:text-orange-400",
   },
   {
-    title: "Events & Coordination Lead",
+    title: "Events & Coordination Head",
     name: "Nikhil Kumar",
     img: "/Photos/Nikhil.jpeg",
     subtitle: "ME",
@@ -241,7 +241,7 @@ const coreTeam = [
     color: "bg-orange-500/20 text-orange-600 dark:text-orange-400",
   },
   {
-    title: "Content & Documentation Lead",
+    title: "Content & Documentation Head",
     name: "Peeyush Verma",
     img: "/Photos/Piyush.jpeg",
     subtitle: "ME",
@@ -254,7 +254,7 @@ const coreTeam = [
     color: "bg-blue-600/20 text-blue-700 dark:text-blue-300",
   },
   {
-    title: "Content & Documentation Lead",
+    title: "Content & Documentation Head",
     name: "Muhammad Asif Husain",
     img: "/Photos/Asif.jpeg",
     subtitle: "ME",
@@ -267,7 +267,7 @@ const coreTeam = [
     color: "bg-blue-600/20 text-blue-700 dark:text-blue-300",
   },
   {
-    title: "Creative & Design Lead",
+    title: "Creative & Design Head",
     name: "Radhe Mohan Yadav",
     img: "/Photos/Radhemohan.jpeg",
     subtitle: "ME",
@@ -280,7 +280,7 @@ const coreTeam = [
     color: "bg-amber-500/20 text-amber-600 dark:text-amber-400",
   },
   {
-    title: "Creative & Design Lead",
+    title: "Creative & Design Head",
     name: "Neelakshi",
     img: "/Photos/Nilakshi.jpeg",
     subtitle: "ME",
@@ -293,7 +293,7 @@ const coreTeam = [
     color: "bg-amber-500/20 text-amber-600 dark:text-amber-400",
   },
   {
-    title: "PR & Outreach Lead",
+    title: "PR & Outreach Head",
     name: "Vikas Yadav",
     img: "/Photos/vikas.jpeg",
     subtitle: "ME",
@@ -306,7 +306,7 @@ const coreTeam = [
     color: "bg-purple-500/20 text-purple-600 dark:text-purple-400",
   },
   {
-    title: "PR & Outreach Lead",
+    title: "PR & Outreach Head",
     name: "Srishti Bundela",
     img: "/Photos/shrishti.jpeg",
     subtitle: "ME",
@@ -319,7 +319,7 @@ const coreTeam = [
     color: "bg-purple-500/20 text-purple-600 dark:text-purple-400",
   },
   {
-    title: "Resources & Logistics Lead",
+    title: "Resources & Logistics Head",
     name: "Prabhash Ranjan",
     img: "/Photos/Prabhash.jpeg",
     subtitle: "CSE",
@@ -332,7 +332,7 @@ const coreTeam = [
     color: "bg-slate-500/20 text-slate-600 dark:text-slate-400",
   },
   {
-    title: "Finance Lead",
+    title: "Finance Head",
     name: "Prateek Maurya",
     img: "/Photos/Prateek.jpeg",
     subtitle: "ME",
@@ -345,7 +345,7 @@ const coreTeam = [
     color: "bg-green-600/20 text-green-700 dark:text-green-300",
   },
   {
-    title: "Social Media Lead",
+    title: "Social Media Head",
     name: "Aditya Rai",
     img: "/Photos/Aditya.jpeg",
     subtitle: "CE",
@@ -605,34 +605,44 @@ const TeamSection = ({
   showIcon?: boolean;
 }) => (
   <motion.div
-    className="mb-16"
+    className="mb-12"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
   >
-    <div className="text-center mb-12">
-      <Badge variant="secondary" className="mb-4">
+    <div className="mb-6 text-center">
+      <Badge
+        variant="secondary"
+        className="mb-4 border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300"
+      >
         {badgeText}
       </Badge>
-      <h3 className="text-2xl md:text-3xl font-bold">{headingText}</h3>
-      {subtitle && <p className="text-muted-foreground mt-2">{subtitle}</p>}
+      <h3 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
+        {headingText}
+      </h3>
+      {subtitle && (
+        <p className="mt-3 text-muted-foreground text-sm md:text-base">
+          {subtitle}
+        </p>
+      )}
       {secondSubtitle && (
-        <p className="mt-1 text-sm font-medium text-gray-600">
+        <p className="mt-1 text-sm font-medium text-slate-600 dark:text-slate-300">
           {secondSubtitle}
         </p>
       )}
     </div>
 
     <div
-      className={`grid ${isFaculty
-        ? "sm:grid-cols-3 max-w-3xl mx-auto gap-6"
-        : isLeadership
-          ? "sm:grid-cols-2 max-w-2xl mx-auto gap-6"
-          : isDivision
-            ? "sm:grid-cols-2 lg:grid-cols-5 gap-6"
-            : "sm:grid-cols-2 lg:grid-cols-5 gap-4"
-        }`}
+      className={`grid ${
+        isFaculty
+          ? "sm:grid-cols-3 max-w-3xl mx-auto gap-6"
+          : isLeadership
+            ? "sm:grid-cols-2 max-w-2xl mx-auto gap-6"
+            : isDivision
+              ? "sm:grid-cols-2 lg:grid-cols-5 gap-6"
+              : "sm:grid-cols-2 lg:grid-cols-5 gap-4"
+      }`}
     >
       {members.map((member: any, index: number) => {
         const year = member.year;
@@ -641,149 +651,153 @@ const TeamSection = ({
         const linkedinUrl = buildSocialUrl("linkedin", member.linkedinId ?? "");
 
         return (
-        <motion.div
-          key={`${title}-${index}`}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: index * 0.05 }}
-        >
-          <Dialog>
-            <DialogTrigger asChild>
-              <Card className="h-full cursor-pointer text-left transition-all duration-300 hover-elevate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                <CardContent className="p-6 text-center">
-                  <Avatar className="mx-auto mb-4 h-24 w-24 border-2 border-border md:h-28 md:w-28">
-                    <AvatarImage src={member.img} alt={member.name || "Team Member"} />
-                    <AvatarFallback
-                      className={`text-lg font-bold md:text-xl ${member.color}`}
-                    >
-                      {member.name?.charAt(0)}
-                    </AvatarFallback>
-                  </Avatar>
-
-                  <h4 className="font-semibold text-base md:text-lg">
-                    {member.name}
-                  </h4>
-
-                  {showIcon && member.icon && (
-                    <div className="my-2 flex justify-center">
-                      <member.icon
-                        className={`h-5 w-5 ${member.color
-                          .split(" ")
-                          .filter(
-                            (c: string) =>
-                              c.startsWith("text-") || c.startsWith("dark:text-")
-                          )
-                          .join(" ")}`}
-                      />
+          <motion.div
+            key={`${title}-${index}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+          >
+            <Dialog>
+              <DialogTrigger asChild>
+                <Card className="group h-full cursor-pointer border border-slate-200/80 bg-white/80 text-left shadow-[0_18px_45px_rgba(15,23,42,0.06)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[4px_4px_0_rgba(16,185,129,0.65),0_18px_45px_rgba(15,23,42,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60 focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-950/70 dark:shadow-[0_18px_45px_rgba(2,6,23,0.35)]">
+                  <CardContent className="p-5 text-center sm:p-6">
+                    <div className="relative mx-auto mb-4 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border-2 border-emerald-200 bg-gradient-to-br from-emerald-100 to-slate-100 shadow-inner shadow-emerald-200/50 md:h-28 md:w-28 dark:border-emerald-500/30 dark:from-emerald-500/10 dark:to-slate-900 dark:shadow-none">
+                      <Avatar className="h-full w-full rounded-full border-0">
+                        <AvatarImage src={member.img} alt={member.name || "Team Member"} />
+                        <AvatarFallback
+                          className={`text-lg font-bold md:text-xl ${member.color}`}
+                        >
+                          {member.name?.charAt(0)}
+                        </AvatarFallback>
+                      </Avatar>
                     </div>
-                  )}
 
-                  {showPost && (
-                    <h4 className="font-medium text-sm md:text-base">
-                      {member.title}
-                    </h4>
-                  )}
-
-                  {member.subtitle && (
-                    <p className="mt-1 text-sm italic text-muted-foreground">
-                      {formatBranch(member.subtitle)}
-                    </p>
-                  )}
-                </CardContent>
-              </Card>
-            </DialogTrigger>
-
-            <DialogContent className="max-h-[90vh] overflow-y-auto p-0 sm:max-w-2xl">
-              <div className="grid sm:grid-cols-[0.9fr_1.1fr]">
-                <div className="flex min-h-[260px] items-center justify-center bg-muted sm:min-h-[420px]">
-                  {member.img ? (
-                    <img
-                      src={member.img}
-                      alt={member.name || "Team member"}
-                      className="max-h-[42vh] w-full object-cover sm:h-full sm:max-h-none"
-                    />
-                  ) : (
-                    <div className={`flex h-36 w-36 items-center justify-center rounded-full text-4xl font-bold ${member.color}`}>
-                      {member.initials || member.name?.charAt(0)}
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-6 sm:p-8">
-                  <DialogHeader className="space-y-1 text-left">
-                    <DialogTitle className="pr-8 text-2xl font-bold sm:text-3xl">
+                    <h4 className="font-bold text-base tracking-tight text-slate-900 dark:text-white md:text-lg">
                       {member.name}
-                    </DialogTitle>
-                    {showPost && member.title && (
-                      <p className="font-medium leading-tight text-foreground">{member.title}</p>
+                    </h4>
+
+                    {showIcon && member.icon && (
+                      <div className="my-2 flex justify-center">
+                        <member.icon
+                          className={`h-5 w-5 ${member.color
+                            .split(" ")
+                            .filter(
+                              (c: string) =>
+                                c.startsWith("text-") || c.startsWith("dark:text-")
+                            )
+                            .join(" ")}`}
+                        />
+                      </div>
                     )}
-                    <DialogDescription className="text-sm italic">
-                      {member.subtitle
-                        ? formatBranch(member.subtitle)
-                        : "Solarpunk Corps team member"}
-                    </DialogDescription>
-                  </DialogHeader>
 
-                  {year && (
-                    <p className="mt-1 text-sm font-medium italic text-foreground">
-                      {year}
-                    </p>
-                  )}
-
-                  {description && (
-                    <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                      {description}
-                    </p>
-                  )}
-
-                  <div className="mt-6 flex gap-3">
-                    {instagramUrl ? (
-                      <a
-                        href={instagramUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${member.name} on Instagram`}
-                        title="Instagram"
-                        className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted/50 transition-all hover:scale-110 hover:bg-background hover:text-[#E4405F]"
-                      >
-                        <SiInstagram className="h-4 w-4 transition-colors" />
-                      </a>
-                    ) : (
-                      <span
-                        aria-label="Add Instagram ID to this member's profile entry"
-                        title="Add Instagram ID to this member's profile entry"
-                        className="flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-lg border border-border bg-muted/50 text-muted-foreground/50"
-                      >
-                        <SiInstagram className="h-4 w-4" />
-                      </span>
+                    {showPost && (
+                      <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200 md:text-base">
+                        {member.title}
+                      </h4>
                     )}
-                    {linkedinUrl ? (
-                      <a
-                        href={linkedinUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${member.name} on LinkedIn`}
-                        title="LinkedIn"
-                        className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted/50 transition-all hover:scale-110 hover:bg-background hover:text-[#0077b5]"
-                      >
-                        <SiLinkedin className="h-4 w-4 transition-colors" />
-                      </a>
+
+                    {member.subtitle && (
+                      <p className="mt-1 text-xs italic text-muted-foreground md:text-sm">
+                        {formatBranch(member.subtitle)}
+                      </p>
+                    )}
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+
+              <DialogContent className="max-h-[90vh] overflow-y-auto rounded-2xl border border-emerald-100 bg-white p-0 shadow-[8px_8px_0_rgba(16,185,129,0.12),0_30px_80px_rgba(15,23,42,0.18)] dark:border-emerald-900/60 dark:bg-slate-950 dark:shadow-[8px_8px_0_rgba(16,185,129,0.1),0_30px_80px_rgba(2,6,23,0.5)] sm:max-w-2xl">
+                <div className="grid sm:grid-cols-[0.9fr_1.1fr]">
+                  <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-100 via-white to-cyan-100 p-[5px] sm:min-h-[420px] dark:from-emerald-950 dark:via-slate-900 dark:to-cyan-950">
+                    {member.img ? (
+                      <img
+                        src={member.img}
+                        alt={member.name || "Team member"}
+                        className="relative max-h-[42vh] w-full rounded-xl object-cover shadow-[0_12px_30px_rgba(15,23,42,0.16)] sm:h-full sm:max-h-[520px]"
+                      />
                     ) : (
-                      <span
-                        aria-label="Add LinkedIn ID to this member's profile entry"
-                        title="Add LinkedIn ID to this member's profile entry"
-                        className="flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-lg border border-border bg-muted/50 text-muted-foreground/50"
-                      >
-                        <SiLinkedin className="h-4 w-4" />
-                      </span>
+                      <div className={`flex h-36 w-36 items-center justify-center rounded-full border-4 border-white/80 text-4xl font-bold shadow-[0_12px_30px_rgba(15,23,42,0.12)] dark:border-slate-700 ${member.color}`}>
+                        {member.initials || member.name?.charAt(0)}
+                      </div>
                     )}
                   </div>
+
+                  <div className="flex flex-col justify-center p-[7px] sm:p-2">
+                    <DialogHeader className="space-y-2 text-left">
+                      <DialogTitle className="pr-8 text-2xl font-black tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+                        {member.name}
+                      </DialogTitle>
+                      {showPost && member.title && (
+                        <p className="font-semibold leading-tight text-emerald-700 dark:text-emerald-300">
+                          {member.title}
+                        </p>
+                      )}
+                      <DialogDescription className="text-sm text-muted-foreground">
+                        {member.subtitle
+                          ? formatBranch(member.subtitle)
+                          : "Solarpunk Corps team member"}
+                      </DialogDescription>
+                    </DialogHeader>
+
+                    {year && (
+                      <p className="mt-3 w-fit rounded-md bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-800 dark:text-emerald-200">
+                        {year}
+                      </p>
+                    )}
+
+                    {description && (
+                      <p className="mt-5 border-t border-border/70 pt-5 text-sm leading-relaxed text-muted-foreground">
+                        {description}
+                      </p>
+                    )}
+
+                    <div className="mt-7 flex gap-3">
+                      {instagramUrl ? (
+                        <a
+                          href={instagramUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${member.name} on Instagram`}
+                          title="Instagram"
+                          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted/50 transition-all hover:-translate-y-0.5 hover:border-[#E4405F]/50 hover:bg-background hover:shadow-[3px_3px_0_rgba(228,64,95,0.22)] hover:text-[#E4405F]"
+                        >
+                          <SiInstagram className="h-4 w-4 transition-colors" />
+                        </a>
+                      ) : (
+                        <span
+                          aria-label="Add Instagram ID to this member's profile entry"
+                          title="Add Instagram ID to this member's profile entry"
+                          className="flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-lg border border-border bg-muted/50 text-muted-foreground/50"
+                        >
+                          <SiInstagram className="h-4 w-4" />
+                        </span>
+                      )}
+                      {linkedinUrl ? (
+                        <a
+                          href={linkedinUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${member.name} on LinkedIn`}
+                          title="LinkedIn"
+                          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted/50 transition-all hover:-translate-y-0.5 hover:border-[#0077b5]/50 hover:bg-background hover:shadow-[3px_3px_0_rgba(0,119,181,0.22)] hover:text-[#0077b5]"
+                        >
+                          <SiLinkedin className="h-4 w-4 transition-colors" />
+                        </a>
+                      ) : (
+                        <span
+                          aria-label="Add LinkedIn ID to this member's profile entry"
+                          title="Add LinkedIn ID to this member's profile entry"
+                          className="flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-lg border border-border bg-muted/50 text-muted-foreground/50"
+                        >
+                          <SiLinkedin className="h-4 w-4" />
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </DialogContent>
-          </Dialog>
-        </motion.div>
+              </DialogContent>
+            </Dialog>
+          </motion.div>
         );
       })}
     </div>
@@ -810,28 +824,34 @@ export default function OurTeam() {
       />
       <Navigation />
       <main className="pt-16">
-        <section id="team-top" className="py-20 md:py-32">
+        <section id="team-top" className="relative py-20 md:py-32">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_55%)]" />
           <span id="our-team" />
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
-              className="text-center mb-16"
+              className="relative overflow-hidden rounded-[32px] border border-emerald-200/70 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 px-6 py-12 shadow-[0_30px_80px_rgba(16,185,129,0.12)] md:px-12 md:py-16 dark:border-emerald-500/20 dark:from-emerald-950/80 dark:via-slate-950 dark:to-slate-900"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Badge variant="secondary" className="mb-4">
-                Our Heart, Mind & Soul
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Meet the Humans Behind SPC
-              </h2>
-              <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-                The people of Solarpunk Corps are more than members—we're
-                innovators shaping a sustainable future. We're just a bunch of
-                humans who love building robots, care about sustainability, and
-                believe great things happen when different minds work together.
-              </p>
+              <div className="pointer-events-none absolute -left-10 top-8 h-48 w-48 rounded-full bg-emerald-500/15 blur-3xl" />
+              <div className="pointer-events-none absolute -right-10 bottom-0 h-52 w-52 rounded-full bg-cyan-500/10 blur-3xl" />
+
+              <div className="relative text-center">
+                <Badge className="mb-5 border border-emerald-400/30 bg-emerald-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-200">
+                  Our Heart, Mind & Soul
+                </Badge>
+                <h2 className="mb-6 text-3xl font-black tracking-tight text-slate-900 dark:text-white md:text-5xl">
+                  Meet the Humans Behind SPC
+                </h2>
+                <p className="mx-auto max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+                  The people of Solarpunk Corps are more than members—we're
+                  innovators shaping a sustainable future. We're just a bunch of
+                  humans who love building robots, care about sustainability, and
+                  believe great things happen when different minds work together.
+                </p>
+              </div>
             </motion.div>
 
             {/* Faculty Advisors */}
@@ -847,7 +867,7 @@ export default function OurTeam() {
             {/* Leadership */}
             <TeamSection
               title="Leadership"
-              badgeText="Lead Members"
+              badgeText="Head Members"
               headingText="Student Leadership"
               subtitle="The founding team driving Solarpunk Corps forward"
               members={leadership}
@@ -907,17 +927,17 @@ export default function OurTeam() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center py-12 px-6 rounded-2xl border-2 border-dashed border-primary/20 bg-primary/5 max-w-4xl mx-auto mb-20"
+              className="mx-auto mb-20 max-w-4xl overflow-hidden rounded-[28px] border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 via-white to-cyan-500/10 px-6 py-12 text-center shadow-[0_20px_50px_rgba(16,185,129,0.12)] dark:from-emerald-500/10 dark:via-slate-950 dark:to-sky-500/10"
             >
-              <Sparkles className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              <Sparkles className="mx-auto mb-4 h-10 w-10 text-emerald-600 dark:text-emerald-300" />
+              <h3 className="mb-4 text-2xl font-black tracking-tight text-slate-900 dark:text-white md:text-3xl">
                 You can be next to carry the torch forward!
               </h3>
-              <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
+              <p className="mx-auto mb-8 max-w-2xl text-base text-slate-600 dark:text-slate-300 md:text-lg">
                 Join us as an Explorer and start your journey with Solarpunk Corps
                 today.
               </p>
-              <div className="mt-8 p-3 px-6 rounded-full bg-primary/10 border border-primary/20 inline-block font-semibold text-primary">
+              <div className="inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-6 py-3 text-sm font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
                 Applications Open Soon!
               </div>
             </motion.div>
