@@ -263,28 +263,24 @@ export default function Home() {
 
 
         {/* SECTION 2.5: UPCOMING (Horizon) - REFINED */}
-        <section className="py-24 relative overflow-hidden bg-background">
-          {/* Subtle Background Elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute right-[5%] top-[10%] w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[100px]" />
-          </div>
-
-          <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-6 w-full">
-              <div className="flex-1">
-                <Badge className="mb-4 bg-emerald-600 text-white hover:bg-emerald-700">Upcoming Flagship Event</Badge>
-                <h2 className="text-4xl md:text-6xl font-horizon font-bold tracking-tight mb-6 text-gray-900 dark:text-white">Horizon</h2>
-                <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
-                  Our annual flagship technical workshop designed as an immersive, hands-on learning experience focused on curiosity.
+        <section id="upcoming-horizon" className="scroll-mt-24 border-y-[4px] border-stone-900 bg-[#E8F0F5] py-20 dark:border-white dark:bg-zinc-900 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+              <div>
+                <span className="flex w-fit -rotate-1 border-[3px] border-stone-900 bg-[#FFD33D] px-4 py-2 font-mono text-sm font-bold text-stone-900 shadow-[4px_4px_0px_rgba(28,25,23,1)] dark:border-white">
+                  Upcoming Flagship Event
+                </span>
+                <h2 className="mt-6 inline-block border-b-[5px] border-[#FFD33D] pb-2 text-6xl font-black leading-tight text-[#102A43] drop-shadow-[3px_3px_0px_#7AC0FF] dark:text-white dark:drop-shadow-[3px_3px_0px_#FFD33D] sm:text-7xl lg:text-8xl">Horizon</h2>
+                <p className="mt-5 max-w-2xl border-l-[3px] border-[#7AC0FF] pl-4 font-mono text-base leading-relaxed text-stone-700 dark:text-zinc-300 md:text-lg">
+                  <span className="font-bold text-stone-900 dark:text-white">Our annual flagship technical workshop:</span> an immersive, hands-on learning experience built around curiosity.
                 </p>
               </div>
               <Button
                 variant="outline"
-                size="sm"
-                className="group border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all font-bold rounded-full mt-4 md:mt-0"
+                className="group border-[3px] border-stone-900 bg-white font-black text-stone-900 shadow-[4px_4px_0px_rgba(28,25,23,1)] transition-all hover:translate-x-1 hover:translate-y-1 hover:bg-[#7AC0FF] hover:text-stone-900 hover:shadow-[2px_2px_0px_rgba(28,25,23,1)] dark:border-white dark:bg-zinc-800 dark:text-white"
                 onClick={() => handleNavigate("/events")}
               >
-                View All Events <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                View All Events <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
 
@@ -293,52 +289,49 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-card dark:bg-zinc-900 border border-border p-8 md:p-12 rounded-3xl overflow-hidden shadow-2xl relative"
+              className="grid overflow-hidden border-[4px] border-stone-900 bg-[#102A43] shadow-[10px_10px_0px_rgba(28,25,23,1)] dark:border-white md:grid-cols-2"
             >
-              {/* Decorative Gradient Blob */}
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="flex flex-col items-start justify-center p-6 sm:p-9 md:p-12 lg:p-14">
+                <span className="border-[3px] border-stone-900 bg-[#7AC0FF] px-3 py-1 font-mono text-xs font-bold uppercase text-stone-900 shadow-[3px_3px_0px_rgba(255,255,255,0.8)] dark:border-white">
+                  Annual Flagship Workshop
+                </span>
+                <h3 className="mt-7 text-5xl font-black leading-[0.9] text-white sm:text-6xl md:text-7xl">
+                  Horizon <span className="block text-[#FFD33D] sm:inline sm:ml-2">2.0</span>
+                </h3>
+                <p className="mt-5 border-l-[5px] border-[#7AC0FF] pl-3 font-mono text-lg font-bold uppercase text-[#B9DEFF] sm:text-xl">
+                  Beyond the Machine
+                </p>
+                <p className="mt-6 max-w-lg text-base leading-relaxed text-white/85 md:text-lg">
+                  Where logic meets the sandbox, and minds meet the machine. Fueling curiosity by providing tools for the unknown.
+                </p>
 
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="relative z-10">
-                  <Badge variant="outline" className="mb-6 py-1.5 px-4 text-sm border-emerald-500/30 text-emerald-600 dark:text-emerald-400 bg-emerald-500/5">
-                    Annual Flagship Workshop
-                  </Badge>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Button onClick={() => handleNavigate("/events/horizon")} className="group h-auto border-[3px] border-[#FFD33D] bg-[#FFD33D] px-6 py-4 font-black text-stone-900 shadow-[4px_4px_0px_rgba(255,255,255,0.6)] transition-all hover:translate-x-1 hover:translate-y-1 hover:bg-white hover:shadow-[2px_2px_0px_rgba(255,255,255,0.6)]">
+                    Explore the Horizon
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
 
-                  <h2 className="text-3xl md:text-5xl font-bold mb-2 font-horizon tracking-tight text-foreground">
-                    Horizon <span className="text-emerald-600 dark:text-emerald-500">2.0</span>
-                  </h2>
-                  <p className="text-emerald-600 dark:text-emerald-400 font-bold text-lg mb-6 uppercase tracking-[0.2em]">Beyond the Machine</p>
-
-                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-lg">
-                    Where logic meets the sandbox, and minds meet the machine. Fueling curiosity by providing tools for the unknown.
-                  </p>
-
-                  <div className="flex flex-wrap gap-4 items-center">
-                    <Button onClick={() => handleNavigate("/events/horizon")} className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-6 h-auto text-base shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/40 transition-all rounded-full group">
-                      Explore the Horizon
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 px-4 py-2 rounded-full border border-border/50">
-                      <Calendar className="w-4 h-4 text-emerald-600" />
-                      <span>Dates Announcement Soon</span>
-                    </div>
+                  <div className="flex flex-col border-l-2 border-white/30 pl-4 text-white">
+                    <span className="font-mono text-xs font-bold uppercase text-white/60">Next gathering</span>
+                    <span className="mt-1 inline-flex items-center gap-2 font-mono text-sm font-bold sm:text-base">
+                      <Calendar className="h-4 w-4 shrink-0 text-[#FFD33D]" />
+                      Dates announced soon
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                <div className="relative h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg group cursor-pointer" onClick={() => handleNavigate("/events/horizon")}>
-                  <div className="absolute inset-0 bg-emerald-900/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
-                  <img
-                    src="/hourglass.webp"
-                    alt="Horizon 1.0"
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-                    <div className="text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                      <p className="font-bold text-lg mb-1">The sequence begins soon.</p>
-                      <p className="text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">Tap to see the horizon</p>
-                    </div>
-                  </div>
+              <div className="relative min-h-[320px] border-t-[4px] border-stone-900 bg-[#7AC0FF] p-3 dark:border-white sm:min-h-[400px] md:min-h-[500px] md:border-l-[4px] md:border-t-0">
+                <img
+                  src="/hourglass.webp"
+                  alt="An hourglass representing the next Horizon workshop"
+                  className="h-full min-h-[296px] w-full border-[3px] border-stone-900 object-cover sm:min-h-[376px] md:min-h-0"
+                />
+                <div className="absolute right-6 top-6 rotate-2 border-[3px] border-stone-900 bg-[#FFD33D] px-4 py-2 font-mono text-sm font-black text-stone-900 shadow-[4px_4px_0px_rgba(28,25,23,1)]">
+                  OCTOBER 2026
+                </div>
+                <div className="absolute bottom-6 left-6 border-[3px] border-stone-900 bg-white px-4 py-2 font-black text-stone-900 shadow-[4px_4px_0px_rgba(28,25,23,1)] sm:bottom-8 sm:left-8">
+                  THE SEQUENCE BEGINS
                 </div>
               </div>
             </motion.div>

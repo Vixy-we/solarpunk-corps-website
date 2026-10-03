@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const leaders = [
   {
-    title: "Founder & Chairperson",
+    title: "Chairperson",
     icon: Crown,
     initials: "FC",
     color: "bg-primary/20 text-primary"

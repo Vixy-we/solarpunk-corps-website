@@ -177,26 +177,28 @@ export function HeroSection() {
 
       </div>
 
-      <motion.div
+      <motion.button
+        type="button"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         style={{ x: "-50%" }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 flex flex-col items-center gap-2 z-20 cursor-pointer pointer-events-auto"
+        className="group absolute bottom-8 left-1/2 z-20 inline-flex cursor-pointer flex-col items-center gap-1 bg-transparent p-0 font-mono text-sm font-bold uppercase text-white drop-shadow-md transition-colors hover:text-[#FFD33D] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-base"
         onClick={() => {
-          const el = document.getElementById("mission"); // Assuming next section has an ID or we can scroll by height
+          const el = document.getElementById("upcoming-horizon");
           if (el) el.scrollIntoView({ behavior: "smooth" });
           else window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
         }}
       >
-        <span className="text-white/60 text-sm font-medium tracking-widest uppercase">Scroll to Explore</span>
+        <span>Discover Horizon 2.0</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-white transition-colors group-hover:text-[#FFD33D]"
         >
-          <ChevronDown className="w-6 h-6 text-white/60" />
+          <ChevronDown className="h-7 w-7" />
         </motion.div>
-      </motion.div>
+      </motion.button>
     </section >
   );
 }

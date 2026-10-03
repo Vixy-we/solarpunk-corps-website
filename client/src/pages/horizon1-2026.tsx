@@ -271,6 +271,24 @@ export default function Horizon2026WrapUp() {
         </div>
       </div>
 
+      <section className="border-b-[4px] border-stone-900 bg-[#34D399]/20 px-4 py-14 dark:border-white dark:bg-zinc-900 md:py-20">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div className="max-w-4xl">
+            <p className="inline-block -rotate-1 border-[3px] border-stone-900 bg-[#FFD33D] px-4 py-2 font-mono text-sm font-bold uppercase text-stone-900 shadow-[4px_4px_0px_rgba(28,25,23,1)] dark:border-white">The next chapter</p>
+            <h2 className="mt-6 text-4xl font-black leading-[0.95] text-stone-900 dark:text-white sm:text-5xl md:text-6xl">
+              Horizon 2.0 is coming <span className="inline-block border-[3px] border-stone-900 bg-[#FFD33D] px-2 text-stone-900 shadow-[4px_4px_0px_rgba(28,25,23,1)] dark:border-white">this October.</span>
+            </h2>
+            <p className="mt-5 font-mono text-xl font-bold text-stone-700 dark:text-zinc-300 md:text-2xl">Be part of the story.</p>
+          </div>
+          <a
+            href="/events/horizon"
+            className="inline-flex shrink-0 items-center justify-center border-[3px] border-stone-900 bg-[#FFD33D] px-6 py-4 font-black text-stone-900 shadow-[5px_5px_0px_rgba(28,25,23,1)] transition-all hover:translate-x-1 hover:translate-y-1 hover:bg-[#34D399] hover:shadow-[2px_2px_0px_rgba(28,25,23,1)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-stone-900 dark:border-white"
+          >
+            Explore Horizon 2.0 <span className="ml-2" aria-hidden="true">-&gt;</span>
+          </a>
+        </div>
+      </section>
+
       {/* IMAGE CAROUSEL */}
       <section className="py-24 bg-[#FFD33D]/20 dark:bg-zinc-900 border-y-[4px] border-stone-900 dark:border-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 relative">
