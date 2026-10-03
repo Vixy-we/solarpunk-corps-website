@@ -143,11 +143,11 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={(e) => handleNavigate(e, "/structure#divisions")}
-                  data-testid="button-hero-divisions"
+                  onClick={(e) => handleNavigate(e, "/our-team")}
+                  data-testid="button-hero-team"
                   className="text-emerald-50 border-emerald-200/40 bg-emerald-500/10 hover:bg-emerald-500/20"
                 >
-                  Our Divisions
+                  Our Team
                 </Button>
                 <Button
                   size="lg"
@@ -162,11 +162,11 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   variant="secondary"
-                  onClick={(e) => handleNavigate(e, "/sponsors")}
-                  data-testid="button-hero-sponsor"
+                  onClick={(e) => handleNavigate(e, "/events/horizon")}
+                  data-testid="button-hero-horizon"
                   className="bg-accent text-accent-foreground hover:bg-accent/90 border-accent"
                 >
-                  Sponsor Us
+                  Horizon 2.0
                 </Button>
               </motion.div>
             </div>

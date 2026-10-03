@@ -208,8 +208,8 @@ const coreTeam = [
     subtitle: "ME",
     year: "B.Tech Final Year",
     description: "Plans events and coordinates people, resources, and timelines.",
-    instagramId: "",
-    linkedinId: "",
+    instagramId: "arvindyadav8075",
+    linkedinId: "arvind-yadav-b3563a361",
     icon: Calendar,
     initials: "AY",
     color: "bg-orange-500/20 text-orange-600 dark:text-orange-400",
@@ -480,12 +480,12 @@ const advisoryMembers = [
 
 const pastMembers = [
   {
-    title: "Past Members of SPC",
+    title: "Board Member",
     name: "Sumit Kumar Thakur",
     img: "/Photos/sk.jpeg",
     subtitle: "Electronics and Communication Engineering",
     year: "B.Tech Final Year",
-    description: "Previously built robotics engineering projects with the team.",
+    description: "Contributes to robotics engineering projects with the team.",
     instagramId: "",
     linkedinId: "",
     icon: Wrench,
@@ -493,12 +493,12 @@ const pastMembers = [
     color: "bg-emerald-500/20 text-emerald-600 dark:text-emerald-400",
   },
   {
-    title: "Past Members of SPC",
+    title: "Board Member",
     name: "Mohd. Suhel",
     img: "/Photos/suhel.jpeg",
     subtitle: "Electrical Engineering",
     year: "B.Tech Final Year",
-    description: "Previously developed sustainability initiatives for campus communities.",
+    description: "Contributes to sustainability initiatives for campus communities.",
     instagramId: "",
     linkedinId: "",
     icon: Leaf,
@@ -506,12 +506,12 @@ const pastMembers = [
     color: "bg-green-500/20 text-green-600 dark:text-green-400",
   },
   {
-    title: "Past Members of SPC",
+    title: "Board Member",
     name: "Kalpana Yadav",
     img: "/Photos/kalpana.jpeg",
     subtitle: "Mechanical Engineering",
     year: "B.Tech Final Year",
-    description: "Previously strengthened community programs and social impact.",
+    description: "Contributes to community programs and social impact.",
     instagramId: "",
     linkedinId: "",
     icon: Heart,
@@ -519,12 +519,12 @@ const pastMembers = [
     color: "bg-pink-500/20 text-pink-600 dark:text-pink-400",
   },
   {
-    title: "Past Members of SPC",
+    title: "Board Member",
     name: "Anjney Singh",
     img: "/Photos/Anjnay.jpeg",
     subtitle: "Mechanical Engineering",
     year: "B.Tech Final Year",
-    description: "Previously shaped visual identity and design projects.",
+    description: "Contributes to visual identity and design projects.",
     instagramId: "",
     linkedinId: "",
     icon: Palette,
@@ -532,12 +532,12 @@ const pastMembers = [
     color: "bg-amber-500/20 text-amber-600 dark:text-amber-400",
   },
   {
-    title: "Past Members of SPC",
+    title: "Board Member",
     name: "Ritesh Kushwaha",
     img: "/Photos/Ritesh.jpeg",
     subtitle: "Computer Science & Engineering",
     year: "B.Tech Final Year",
-    description: "Previously explored frontier technology and design initiatives.",
+    description: "Contributes to emerging technology and design initiatives.",
     instagramId: "",
     linkedinId: "",
     icon: Cpu,
@@ -903,12 +903,12 @@ export default function OurTeam() {
               showPost={false}
             /> */}
 
-            {/* Past Members */}
+            {/* Board Members */}
             <TeamSection
-              title="Past Members of SPC"
-              badgeText="Past Members of SPC"
-              headingText="Past Members of SPC"
-              subtitle="Former members who have contributed to SPC's journey"
+              title="Board Members"
+              badgeText="Board Members"
+              headingText="Board Members"
+              subtitle="Contributors supporting SPC's projects and community"
               members={pastMembers}
               showPost={false}
               showIcon={false}
