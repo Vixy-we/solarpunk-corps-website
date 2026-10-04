@@ -472,6 +472,10 @@ export default function HiddenEgg() {
 
     const handleDieClick = (game: GameItem) => {
         setSpinningDieId(game.id);
+        const gameWindow = game.url && game.url !== '#'
+            ? window.open('about:blank', '_blank')
+            : null;
+        if (gameWindow) gameWindow.opener = null;
 
         if (mouse.x > 0 && mouse.y > 0) {
             for (let i = 0; i < 25; i++) {
@@ -480,8 +484,8 @@ export default function HiddenEgg() {
         }
 
         setTimeout(() => {
-            if (game.url && game.url !== '#') {
-                window.open(game.url, '_blank', 'noopener,noreferrer');
+            if (gameWindow && game.url && game.url !== '#' && !gameWindow.closed) {
+                gameWindow.location.href = game.url;
             }
             setSpinningDieId(null);
         }, 750);
