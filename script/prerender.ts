@@ -99,6 +99,8 @@ console.error = (...args: any[]) => {
 const template = fs.readFileSync(toAbsolute("dist/public/index.html"), "utf-8");
 
 let render: (url: string, context: any) => { html: string; helmet: any };
+const documentCreateElement = (globalThis as any).document.createElement;
+delete (globalThis as any).document.createElement;
 try {
     const entryPath = toAbsolute("dist/server/entry-server.js");
     const mod = await import(pathToFileURL(entryPath).href);
@@ -108,6 +110,8 @@ try {
     console.error("✗ Failed to load server entry:", e.message);
     console.error(e.stack);
     process.exit(1);
+} finally {
+    (globalThis as any).document.createElement = documentCreateElement;
 }
 
 // Routes to prerender — keep in sync with sitemap.xml
@@ -125,12 +129,13 @@ const routesToPrerender = [
     "/projects/rover",
     "/projects/magazine",
     "/projects/survey",
-    "/hidden-egg",
+    "/projects/robotic-arm",
+    "/projects/LiDAR-mapping",
     "/experience-spc",
-    "/under-construction",
     "/csr",
     "/events",
-    "/events/greenshift",
+    "/events/horizon",
+    "/events/horizon1-2026",
     "/manifesto",
 ];
 
@@ -139,6 +144,16 @@ let failed = 0;
 
 for (const url of routesToPrerender) {
     try {
+        const routeUrl = new URL(url, "https://solarpunkcorps.vercel.app");
+        (globalThis as any).window.location = {
+            href: routeUrl.href,
+            origin: routeUrl.origin,
+            pathname: routeUrl.pathname,
+            search: "",
+            hash: "",
+        };
+        (globalThis as any).location = (globalThis as any).window.location;
+
         const { html: appMarkup, helmet } = render(url, {});
 
         // react-helmet-async stores data in helmet.helmet
@@ -155,6 +170,7 @@ for (const url of routesToPrerender) {
 
         const html = template
             .replace("<!--app-head-->", headTags)
+            .replace(/<!--app-default-seo-start-->[\s\S]*?<!--app-default-seo-end-->/, "")
             .replace("<!--app-html-->", appMarkup);
 
         // Determine output file path

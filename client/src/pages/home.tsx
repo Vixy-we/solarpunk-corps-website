@@ -20,8 +20,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <SEO
-        title="Home"
-        description="Solarpunk Corps is the premier student-led robotics and sustainability club at BIET Jhansi. We are blending robotics, sustainability, creativity, and community action to build a hopeful future. Join the movement for hopeful innovation."
+        title="Robotics & Sustainability at BIET Jhansi"
+        description="Solarpunk Corps (SPC) is a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi. Explore robotics, green technology, projects, events, and community innovation."
         keywords={[
           "BIET Jhansi",
           "Bundelkhand Institute of Engineering and Technology Jhansi",
@@ -37,13 +37,31 @@ export default function Home() {
           "Student Club",
           "Engineering",
           "Innovation",
-          "Community"
+          "Community",
+          "robotics club",
+          "nature technology",
+          "green engineering",
+          "spc"
         ]}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Solarpunk Corps",
+          "alternateName": "SPC",
+          "description": "A student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology, Jhansi.",
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Bundelkhand Institute of Engineering and Technology",
+            "alternateName": "BIET Jhansi",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Jhansi",
+              "addressRegion": "Uttar Pradesh",
+              "addressCountry": "IN"
+            }
+          },
           "url": "https://solarpunkcorps.vercel.app",
+          "@id": "https://solarpunkcorps.vercel.app/#organization",
           "logo": "https://solarpunkcorps.vercel.app/SPC_logo.png",
           "sameAs": [
             "https://twitter.com/solarpunkcorps",

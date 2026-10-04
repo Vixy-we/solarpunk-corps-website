@@ -250,8 +250,8 @@ export default function Horizon2026WrapUp() {
   return (
     <div className="min-h-screen bg-[#F4F4F0] dark:bg-background text-stone-900 dark:text-foreground font-sans selection:bg-[#FF88A8] selection:text-white overflow-x-hidden transition-colors duration-300">
       <SEO
-        title="Horizon 1.0 Wrap-Up - Solarpunk Corps"
-        description="Horizon 2026 workshop wrap-up by Solarpunk Corps. Relive the epic weekend of hardware hacking, conceptual AI, and sustainability."
+        title="Horizon 1.0 Workshop Recap"
+        description="Explore the Horizon 1.0 workshop recap from Solarpunk Corps at BIET Jhansi, with hands-on prototyping, robotics, AI and sustainability highlights—and a look ahead to Horizon 2.0."
       />
       <Navigation />
 

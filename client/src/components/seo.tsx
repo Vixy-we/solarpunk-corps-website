@@ -13,14 +13,17 @@ interface SEOProps {
     robots?: string;
 }
 
+const siteUrl = 'https://solarpunkcorps.vercel.app';
+const siteName = 'Solarpunk Corps';
+
 const defaultMeta = {
-    title: 'Solarpunk Corps',
-    description: 'Solarpunk Corps is a student-led club at BIET Jhansi blending robotics, sustainability, creativity, and community action. Join the movement for hopeful innovation.',
+    title: siteName,
+    description: 'Solarpunk Corps is a student-led club at BIET Jhansi building robotics, sustainable technology and community projects through hands-on learning and creative collaboration.',
     image: '/SPC_logo.png',
-    url: 'https://solarpunkcorps.vercel.app',
+    url: siteUrl,
     type: 'website',
-    author: 'Solarpunk Corps',
-    keywords: 'BIET Jhansi, Bundelkhand Institute of Engineering and Technology Jhansi, Solarpunk Corps, SPC Jhansi, SPC BIET, Robotics Club Jhansi, Robotics Society Jhansi, Sustainability Jhansi, Solarpunk, Eco-friendly Club BIET, Green Technology, Student Club, Engineering, Innovation, Community, robotics club, nature technology, green engineering, spc',
+    author: siteName,
+    keywords: 'Solarpunk Corps, BIET Jhansi, student club, robotics, sustainable technology, engineering projects, community innovation',
     robots: 'index, follow',
 };
 
@@ -28,7 +31,7 @@ export function SEO({
     title,
     description = defaultMeta.description,
     image = defaultMeta.image,
-    url = defaultMeta.url,
+    url,
     type = defaultMeta.type,
     canonical,
     jsonLd,
@@ -37,11 +40,15 @@ export function SEO({
     robots = defaultMeta.robots,
 }: SEOProps) {
     const fullTitle = title
-        ? `${title} | Solarpunk Corps`
+        ? (title.includes(siteName) ? title : `${title} | ${siteName}`)
         : defaultMeta.title;
 
-    const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : defaultMeta.url);
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+    const normalizedPath = currentPath.replace(/\/+$/, '') || '/';
+    const canonicalPath = normalizedPath === '/sponsors/alumni' ? '/alumni' : normalizedPath;
+    const currentUrl = url || new URL(canonicalPath, defaultMeta.url).href;
     const canonicalUrl = canonical || currentUrl;
+    const imageUrl = new URL(image, defaultMeta.url).href;
 
     const keywordsContent = Array.isArray(keywords) ? keywords.join(', ') : keywords;
 
@@ -54,6 +61,7 @@ export function SEO({
             <meta name="keywords" content={keywordsContent} />
             <meta name="author" content={author} />
             <meta name="robots" content={robots} />
+            <meta name="googlebot" content={robots} />
             <link rel="canonical" href={canonicalUrl} />
 
             {/* Open Graph / Facebook */}
@@ -61,14 +69,18 @@ export function SEO({
             <meta property="og:url" content={currentUrl} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content={image} />
+            <meta property="og:image" content={imageUrl} />
+            <meta property="og:image:alt" content={`${siteName} logo`} />
+            <meta property="og:site_name" content={siteName} />
+            <meta property="og:locale" content="en_IN" />
 
             {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={currentUrl} />
-            <meta property="twitter:title" content={fullTitle} />
-            <meta property="twitter:description" content={description} />
-            <meta property="twitter:image" content={image} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@solarpunkcorps" />
+            <meta name="twitter:url" content={currentUrl} />
+            <meta name="twitter:title" content={fullTitle} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={imageUrl} />
 
             {/* Structured Data (JSON-LD) */}
             {jsonLd && (

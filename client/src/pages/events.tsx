@@ -12,7 +12,7 @@ export default function Events() {
         <div className="min-h-screen bg-[#FDFBF7] dark:bg-background flex flex-col font-sans">
             <SEO
                 title="Events"
-                description="From hands-on technical workshops to thought-provoking seminars, explore Solarpunk Corps events and activities."
+                description="Discover Solarpunk Corps workshops and campus events at BIET Jhansi, including Horizon, our hands-on technical workshop on robotics, AI and sustainable innovation."
                 keywords={["events", "workshops", "seminars", "hackathons", "meetups", "activities", "calendar", "Horizon"]}
                 jsonLd={{
                     "@context": "https://schema.org",
