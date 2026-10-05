@@ -1,0 +1,24 @@
+exclude:
+  - .local/
+  - attached_assets/
+  - client/
+  - server/
+  - script/
+  - shared/
+  - node_modules/
+  - package-lock.json
+  - package.json
+  - tsconfig.json
+  - vite.config.ts
+  - tailwind.config.ts
+  - postcss.config.js
+  - components.json
+  - drizzle.config.ts
+  - vercel.json
+  - README.md
+  - design_guidelines.md
+  - review.md
+  - debug_output.txt
+  - error.log
+  - prerender-error.log
+  - .replit
