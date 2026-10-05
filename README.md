@@ -2,7 +2,7 @@
 
 ![SPC Website Screenshot](attached_assets/screenshot.webp)
 
-Official website for **Solarpunk Corps (SPC)** — a student-led robotics and sustainability club at BIET Jhansi.
+Official website for **Solarpunk Corps (SPC)** — a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi. SPC works at the intersection of robotics, AI, sustainable development, real-world impact, and social work.
 
 This README is the maintainer guide. Read it before adding, removing, or editing pages, images, navigation, or notifications.
 
@@ -92,8 +92,8 @@ Anything in `attached_assets/` is for reference only — the browser cannot load
 | Path | Used on | Referenced from |
 |---|---|---|
 | `SPC_logo.png` | Nav, footer, hero, coming-soon, SEO | `navigation.tsx`, `footer.tsx`, `seo.tsx`, `horizon-schedule.tsx` |
-| `Photos/*.jpeg` | **Our Team** page member headshots | `pages/our-team.tsx` (each person has a `const imgN = "/Photos/Name.jpeg"`) |
-| `Horizon1/*.webp` | **Horizon 1.0** landing + wrap-up event photos | `pages/horizon-schedule.tsx`, `pages/horizon1-2026.tsx` |
+| `Photos/*` | **Our Team** page member headshots | `pages/our-team.tsx` (`img` field on each member record) |
+| `Horizon1/*` | **Horizon 1.0** archive and workshop photos | `pages/horizon-schedule.tsx`, `pages/horizon1-2026.tsx` |
 | `world pic.webp` | Nav dropdown "About" card background | `navigation.tsx` |
 | `work-cover.webp` | Nav dropdown "Work" card background | `navigation.tsx` |
 | `sponser pic.webp` | Nav dropdown "Sponsor Us" card background | `navigation.tsx` |
@@ -112,12 +112,20 @@ Anything in `attached_assets/` is for reference only — the browser cannot load
 4. **Match filename casing exactly** — Linux production servers are case-sensitive (`Inauguration1.webp` ≠ `inaguration1.webp`).
 5. Run `npm run build` to include it in production output.
 
-### Team photos workflow
+### Our Team page — member data and photos
 
-1. Add JPEG to `client/public/Photos/Firstname.jpeg`
-2. Open `client/src/pages/our-team.tsx`
-3. Add a `const imgN = "/Photos/Firstname.jpeg"` at the top
-4. Assign that constant to the member object in the team data array
+- **Page and source of truth for team content:** `client/src/pages/our-team.tsx`.
+- Faculty advisors, leadership, core team, advisory members, coordinators, board members, and explorers are defined as inline arrays in this file. Update a member's `name`, `title`, `description`, and other profile fields in the relevant array here.
+- Member photos are separate static assets in **`client/public/Photos/`**. Each member object's `img` field points to its file using a site-root path, for example `"/Photos/NPY.jpeg"` or `"/Photos/Balajee.jpg"`.
+- Social profile identifiers are stored with each member as `instagramId` and `linkedinId`. Set these to the person's handle/profile ID (or full profile URL); leave them empty if no public profile should be linked.
+- To add or update a member, edit the correct object in `our-team.tsx`, add their image to `client/public/Photos/`, and set that object's `img` path. Filenames are case-sensitive in production.
+
+### Metadata and search indexing
+
+- `client/src/components/seo.tsx` defines shared defaults and the page-level title, description, keywords, canonical URL, robots directives, social preview tags, and optional structured data.
+- Each page's `<SEO>` element is in its page file under `client/src/pages/`. The homepage metadata is in `pages/home.tsx`; Horizon 2.0 metadata is in `pages/horizon-schedule.tsx`; Horizon 1.0 recap metadata is in `pages/horizon1-2026.tsx`; Our Team metadata is in `pages/our-team.tsx`.
+- `client/index.html` contains fallback metadata for crawlers and clients that receive the unprerendered shell. During `npm run build`, `script/prerender.ts` inserts the page-specific metadata into static HTML for the routes it lists.
+- Public indexing is controlled by `client/public/robots.txt` and `client/public/sitemap.xml`. A publicly indexed page should have an appropriate canonical URL, `index, follow` directives, an entry in the sitemap, and a matching prerender route. Update all related files when adding or removing a public route.
 
 ---
 
@@ -138,13 +146,13 @@ Each page file is a thin wrapper: it mounts `<Navigation />`, content sections, 
 | `/projects/magazine` | `pages/project-magazine.tsx` | CodeGreen magazine page |
 | `/projects/survey` | `pages/project-survey.tsx` | Campus Survey page |
 | `/events` | `pages/events.tsx` | Events listing (Horizon card, upcoming events) |
-| `/events/horizon` | `pages/horizon-schedule.tsx` | Horizon 1.0 landing (roadmap, carousel, CTA to wrap-up) |
+| `/events/horizon` | `pages/horizon-schedule.tsx` | Horizon 2.0 landing and workshop roadmap; includes Horizon 1.0 background |
 | `/events/horizon1-2026` | `pages/horizon1-2026.tsx` | Horizon 1.0 wrap-up / archive (photo galleries, teams, winners) |
 | `/sponsors` | `pages/sponsors.tsx` | `SupportSection` + sponsorship flipbook embed |
 | `/sponsors/alumni` | `pages/alumni.tsx` | Alumni support form |
 | `/alumni` | `pages/alumni.tsx` | Same as above (alias) |
 | `/sponsors/partner` | `pages/partner.tsx` | Corporate partner form |
-| `/our-team` | `pages/our-team.tsx` | Team grid — all data + photos in this one file |
+| `/our-team` | `pages/our-team.tsx` | Team grid and all member data; photos are stored separately in `client/public/Photos/` |
 | `/contact` | `pages/contact.tsx` | `ContactSection`, `FaqSection` |
 | `/csr` | `pages/csr.tsx` | CSR page (self-contained, large single file) |
 | `/manifesto` | `pages/manifesto.tsx` | Manifesto essay (self-contained) |

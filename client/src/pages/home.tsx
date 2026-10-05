@@ -20,20 +20,25 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <SEO
-        title="Robotics & Sustainability at BIET Jhansi"
-        description="Solarpunk Corps (SPC) is a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi. Explore robotics, green technology, projects, events, and community innovation."
+        title="Robotics & Sustainability Club at BIET Jhansi"
+        description="Solarpunk Corps (SPC) is a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi. At the intersection of robotics, AI, sustainable development, real-world impact, and social work, we build practical solutions for people and the planet."
         keywords={[
           "BIET Jhansi",
           "Bundelkhand Institute of Engineering and Technology Jhansi",
           "Solarpunk Corps",
           "SPC Jhansi",
           "SPC BIET",
+          "Artificial Intelligence",
+          "AI",
           "Robotics Club Jhansi",
           "Robotics Society Jhansi",
           "Sustainability Jhansi",
           "Solarpunk",
           "Eco-friendly Club BIET",
           "Green Technology",
+          "Sustainable Development",
+          "Social Work",
+          "Real-World Impact",
           "Student Club",
           "Engineering",
           "Innovation",
@@ -48,7 +53,7 @@ export default function Home() {
           "@type": "Organization",
           "name": "Solarpunk Corps",
           "alternateName": "SPC",
-          "description": "A student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology, Jhansi.",
+          "description": "A student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi, at the intersection of robotics, artificial intelligence, sustainable development, real-world impact, and social work.",
           "affiliation": {
             "@type": "CollegeOrUniversity",
             "name": "Bundelkhand Institute of Engineering and Technology",
@@ -105,7 +110,7 @@ export default function Home() {
                   </h2>
                   <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
                     Engineering often forgets the human element. We're bringing it back.
-                    Solarpunk Corps is a student movement closing the gap between classroom theory and real-world impact.
+                    Solarpunk Corps is a student-led robotics and sustainability club bringing classroom learning into real-world impact.
                   </p>
                 </motion.div>
 

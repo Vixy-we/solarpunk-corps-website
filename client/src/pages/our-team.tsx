@@ -808,9 +808,14 @@ export default function OurTeam() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Meet the Team"
-        description="The humans behind Solarpunk Corps — students from BIET Jhansi who love building robots, care about sustainability, and believe in collaboration."
+        title="Our Team: Robotics & Sustainability Club at BIET Jhansi"
+        description="Meet the faculty advisors, leadership, core team, coordinators, board members, and student explorers of Solarpunk Corps (SPC), a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi."
         keywords={[
+          "Solarpunk Corps team",
+          "SPC team",
+          "BIET Jhansi",
+          "Mechanical Engineering Department",
+          "robotics and sustainability club",
           "team members",
           "leadership",
           "core committee",

@@ -10,7 +10,7 @@ export default function About() {
       <SEO
         title="About Us"
         description="Learn about Solarpunk Corps — our mission, values, and the vision driving a student-led movement for hopeful innovation at BIET Jhansi."
-        keywords={["mission", "vision", "solarpunk ethos", "student movement", "values", "about us", "BIET Jhansi"]}
+        keywords={["mission", "vision", "solarpunk ethos", "robotics and sustainability club", "values", "about us", "BIET Jhansi"]}
       />
       <Navigation />
       <main className="pt-16">

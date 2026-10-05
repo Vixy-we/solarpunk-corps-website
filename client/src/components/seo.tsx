@@ -18,12 +18,12 @@ const siteName = 'Solarpunk Corps';
 
 const defaultMeta = {
     title: siteName,
-    description: 'Solarpunk Corps is a student-led club at BIET Jhansi building robotics, sustainable technology and community projects through hands-on learning and creative collaboration.',
+    description: 'Solarpunk Corps (SPC) is a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi. At the intersection of robotics, AI, sustainable development, real-world impact, and social work, we build practical solutions for people and the planet.',
     image: '/SPC_logo.png',
     url: siteUrl,
     type: 'website',
     author: siteName,
-    keywords: 'Solarpunk Corps, BIET Jhansi, student club, robotics, sustainable technology, engineering projects, community innovation',
+    keywords: 'Solarpunk Corps, SPC, BIET Jhansi, Mechanical Engineering, robotics, artificial intelligence, AI, sustainable development, real-world impact, social work, sustainability club',
     robots: 'index, follow',
 };
 

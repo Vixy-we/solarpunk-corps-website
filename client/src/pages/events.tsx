@@ -11,9 +11,9 @@ export default function Events() {
     return (
         <div className="min-h-screen bg-[#FDFBF7] dark:bg-background flex flex-col font-sans">
             <SEO
-                title="Events"
-                description="Discover Solarpunk Corps workshops and campus events at BIET Jhansi, including Horizon, our hands-on technical workshop on robotics, AI and sustainable innovation."
-                keywords={["events", "workshops", "seminars", "hackathons", "meetups", "activities", "calendar", "Horizon"]}
+                title="Events & Horizon Workshops"
+                description="Explore Solarpunk Corps campus events and hands-on technical workshops at BIET Jhansi. Discover Horizon 2.0, our flagship workshop exploring robotics, AI, electronics, and sustainable development, and revisit the Horizon 1.0 recap."
+                keywords={["Solarpunk Corps", "BIET Jhansi", "events", "technical workshops", "robotics", "AI", "electronics", "sustainable development", "Horizon 2.0", "Horizon 1.0"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "ItemList",
@@ -21,7 +21,7 @@ export default function Events() {
                         {
                             "@type": "ListItem",
                             "position": 1,
-                            "name": "Horizon",
+                            "name": "Horizon 2.0",
                             "url": "https://solarpunkcorps.vercel.app/events/horizon"
                         }
                     ]

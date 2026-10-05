@@ -208,8 +208,20 @@ export default function HorizonSchedule() {
     <div className="min-h-screen bg-[#F4F4F0] dark:bg-background text-stone-900 dark:text-foreground font-sans selection:bg-[#A1E4A3] selection:text-stone-900 overflow-x-hidden transition-colors duration-300">
 
       <SEO
-        title="Horizon 1.0 - Beyond the Machine"
-        description="Horizon 1.0 by Solarpunk Corps. An immersive, hands-on technical workshop blending hardware hacking, conceptual AI, and sustainability."
+        title="Horizon 2.0: Beyond the Machine"
+        description="Discover Horizon 2.0, Solarpunk Corps' flagship technical workshop at BIET Jhansi. Explore robotics, electronics, AI, and sustainable development through hands-on engineering, simulation, and purposeful innovation. Horizon 1.0 launched the series in March 2026."
+        image="/hourglass.webp"
+        keywords={[
+          "Horizon 2.0",
+          "Solarpunk Corps",
+          "BIET Jhansi",
+          "robotics workshop",
+          "AI workshop",
+          "electronics",
+          "sustainable development",
+          "hands-on engineering",
+          "Horizon 1.0",
+        ]}
       />
       <Navigation />
 
