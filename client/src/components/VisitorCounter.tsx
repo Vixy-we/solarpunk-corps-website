@@ -9,25 +9,41 @@ export function VisitorCounter() {
     const KEY = "visits";
 
     useEffect(() => {
-        // 1. Check if user already visited in this session
-        const hasVisited = sessionStorage.getItem("visit_counted");
-
-        if (!hasVisited) {
-            // FIRST TIME VISIT: Hit the API to count + 1
-            fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
-                .then((res) => res.json())
-                .then((data) => {
-                    setCount(data.value);
-                    sessionStorage.setItem("visit_counted", "true");
-                })
-                .catch((err) => console.error("Counter error:", err));
-        } else {
-            // ALREADY VISITED: Just get the number (don't add +1)
-            fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`)
-                .then((res) => res.json())
-                .then((data) => setCount(data.value))
-                .catch((err) => console.error("Counter error:", err));
+        let hasVisited = false;
+        try {
+            if (typeof window !== "undefined" && typeof sessionStorage !== "undefined") {
+                hasVisited = sessionStorage.getItem("visit_counted") === "true";
+            }
+        } catch {
+            // Ignore storage read error
         }
+
+        const endpoint = !hasVisited
+            ? `https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`
+            : `https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`;
+
+        fetch(endpoint)
+            .then((res) => {
+                if (!res.ok) return null;
+                return res.json();
+            })
+            .then((data) => {
+                if (data && typeof data.value === "number") {
+                    setCount(data.value);
+                    if (!hasVisited) {
+                        try {
+                            if (typeof window !== "undefined" && typeof sessionStorage !== "undefined") {
+                                sessionStorage.setItem("visit_counted", "true");
+                            }
+                        } catch {
+                            // Ignore storage write error
+                        }
+                    }
+                }
+            })
+            .catch(() => {
+                // Silently ignore counter service network issues without throwing
+            });
     }, []);
 
     if (count === null) return null;

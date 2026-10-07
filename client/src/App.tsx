@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Router as WouterRouter } from "wouter";
 import { HelmetProvider } from "react-helmet-async";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -24,7 +24,7 @@ import ProjectRoboticArm from "@/pages/project-robotic-arm";
 import ProjectLidar from "@/pages/project-lidar";
 import HiddenEgg from "@/pages/hidden-egg";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   APPLY_NOW_ANCHOR,
   consumePendingScrollAnchor,
@@ -39,11 +39,7 @@ import Manifesto from "@/pages/manifesto";
 import Events from "@/pages/events";
 import HorizonSchedule from "@/pages/horizon-schedule";
 import Horizon1_2026 from "@/pages/horizon1-2026";
-
 import { SITE_LIVE, INAUGURATION_MODE } from "@/config/site";
-import { useState } from "react";
-
-// ... imports
 
 function Router({ hook }: { hook?: any }) {
   // Use the provided hook or default to wouter's useLocation
@@ -54,13 +50,14 @@ function Router({ hook }: { hook?: any }) {
     const pendingAnchor = consumePendingScrollAnchor();
     if (pendingAnchor) {
       scrollToAnchor(pendingAnchor);
-    } else {
+    } else if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
 
   // Listen for custom scroll-to-top event
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const handleScrollToTop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
@@ -106,14 +103,12 @@ function Router({ hook }: { hook?: any }) {
 
 // Helper to wrap Switch in Router if hook is provided, or just return children if not (as Switch handles it)
 // wouter's useLocation works globally, but for SSR we need to pass the location via Router
-import { Router as WouterRouter } from "wouter";
-
 const RouterComponent = ({ children, hook }: { children: React.ReactNode, hook?: any }) => {
   if (hook) {
-    return <WouterRouter hook={hook}>{children}</WouterRouter>
+    return <WouterRouter hook={hook}>{children}</WouterRouter>;
   }
   return <>{children}</>;
-}
+};
 
 function MembershipRedirect() {
   const [, navigate] = useLocation();

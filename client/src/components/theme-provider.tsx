@@ -18,11 +18,19 @@ export function ThemeProvider({
   defaultTheme?: Theme;
   storageKey?: string;
 }) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    try {
+      if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+        return (localStorage.getItem(storageKey) as Theme) || defaultTheme;
+      }
+    } catch {
+      // Ignore storage access errors
+    }
+    return defaultTheme;
+  });
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
 
@@ -40,7 +48,13 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
+      try {
+        if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+          localStorage.setItem(storageKey, theme);
+        }
+      } catch {
+        // Ignore storage write errors
+      }
       setTheme(theme);
     },
   };
