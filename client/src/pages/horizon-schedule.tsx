@@ -123,7 +123,7 @@ const roadmapData = [
       { title: "AI & Machine Learning Fundamentals", detail: "Understand the fundamental concepts behind Artificial Intelligence and Machine Learning." },
       { title: "Computer Vision with OpenCV & MediaPipe", detail: "Explore how machines interpret visual information using computer vision tools." },
       { title: "Camera-Based Intelligent Systems", detail: "Build systems that use cameras and visual information to understand and respond to their surroundings." },
-      { title: "Simulation with Tinkercad & Wokwi", detail: "Design and test ideas virtually before moving toward physical implementation." },
+      { title: "Simulation with Tinkercad & Webots", detail: "Design and test ideas virtually before moving toward physical implementation." },
       { title: "Team Mini Projects", detail: "Work in teams to create mini workable projects addressing a real-world or sustainability challenge." },
       { title: "Technology Applied to Purpose", detail: "Projects may address resource efficiency, environmental observation, safety, accessibility, health, responsible infrastructure, or other societal needs." },
       { title: "Resource-Conscious Development", detail: "Use simulation to test ideas before physical implementation, supporting safer and more resource-conscious development." },
@@ -242,13 +242,14 @@ export default function HorizonSchedule() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9]">
-              The <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone-900 to-stone-600 dark:from-white dark:to-stone-400 block my-2">Experimental</span>
-              Sandbox
+              This is an <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone-900 to-stone-600 dark:from-white dark:to-stone-400 block my-2">Experimental Sandbox.</span>
+              A place to learn and apply your creativity
             </h1>
 
             <p className="mt-4 font-mono font-bold text-sm uppercase tracking-widest text-stone-600 dark:text-stone-400">
-              A 4-day immersive workshop blending Robotics, AI, and sustainability.
+              A 4-day immersive workshop blending Robotics, AI, and sustainability. <br />
+              We provide the tools, the space, and the guidance. You bring your ideas.
             </p>
 
             <div className="flex flex-wrap gap-3 font-mono text-lg md:text-xl font-bold">

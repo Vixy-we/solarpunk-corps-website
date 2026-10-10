@@ -548,6 +548,18 @@ const pastMembers = [
 
 
 const coordinators = [
+    {
+    title: "Coordinator",
+    name: "Chirag Agarwal",
+    img: "/Photos/chirag.png",
+    subtitle: "Computer Science and Engineering",
+    instagramId: "aggw_05",
+    linkedinId: "https://www.linkedin.com/in/chirag-agarwal-042ba0333?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "CA",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
   {
     title: "Coordinator",
     name: "Udit Pal",
@@ -558,7 +570,6 @@ const coordinators = [
     icon: Users,
     initials: "UP",
     color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
-    
   },
   {
     title: "Coordinator",
@@ -653,8 +664,7 @@ const coordinators = [
     linkedinId: "satyamtripathi93365",
     icon: Users,
     initials: "ST",
-    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
-    
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",   
   },
   {
     title: "Coordinator",
@@ -665,6 +675,125 @@ const coordinators = [
     linkedinId: "shreyansh-maurya-397867331",
     icon: Users,
     initials: "SM",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+  },
+  {
+    title: "Coordinator",  
+    name: "Akash Prajapati",
+    img: "/Photos/akash.png",
+    subtitle: "Electronics and Communication Engineering",
+    instagramId: "akash_110304",
+    linkedinId: "https://www.linkedin.com/in/akash-prajapati-487aa1336?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "AP",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Chitranjan Kumar Sah",
+    img: "/Photos/chitranjan.jpg",
+    subtitle: "Computer Science and Engineering",
+    instagramId: "mr.carthy",
+    linkedinId: "www.linkedin.com/in/chitranjan2004",
+    icon: Users,
+    initials: "CKS",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Krishna Kant Bind",
+    img: "/Photos/krishna .jpg",
+    subtitle: "Mechanical Engineering",
+    instagramId: "K.krishna86",
+    linkedinId: "https://www.linkedin.com/in/krishna-kant-bind-490590338?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "KKB",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Kunwar Pal Singh",
+    img: "/Photos/kunwar.jpg",
+    subtitle: "Mechanical Engineering",
+    instagramId: "kunwarpratap14",
+    linkedinId: "https://www.linkedin.com/in/kunwar-pratap-2b3917383?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "KPS",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Mohit Kumar",
+    img: "/Photos/mohit.png",
+    subtitle: "Electrical Engineering",
+    instagramId: "Mohitshma9089",
+    linkedinId: "https://www.linkedin.com/in/mohit-kumar-eee?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "MK",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Nitin Kumar",
+    img: "/Photos/nitin.png",
+    subtitle: "Mechanical Engineering",
+    instagramId: "nitin_garhwar",
+    linkedinId: "https://www.linkedin.com/in/nitin-kumar-80a244305?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "NK",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Ravi Pal",
+    img: "/Photos/ravi.png",
+    subtitle: "Mechanical Engineering",
+    instagramId: "ravi221403",
+    linkedinId: "https://www.linkedin.com/in/ravi-pal-21278b437?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "RP",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Sumit Singh",
+    img: "/Photos/sumit singh.jpg",
+    subtitle: "Electrical Engineering",
+    instagramId: "iamsumit88.7",
+    linkedinId: "https://www.linkedin.com/in/sumit-singh-826502343",
+    icon: Users,
+    initials: "SS",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Vijay Vishwakarma",
+    img: "/Photos/vijay vishwakarma.png",
+    subtitle: "Mechanical Engineering",
+    instagramId: "",
+    linkedinId: "https://www.linkedin.com/in/vijay-vishwakarma-55ab51283?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    icon: Users,
+    initials: "VV",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Ritu Raj",
+    img: "/Photos/rituraj.png",
+    subtitle: "Mechanical Engineering",
+    instagramId: "rituraj_yadav1611",
+    linkedinId: "https://www.linkedin.com/in/ritu-raj-yadav-1a7635352",
+    icon: Users,
+    initials: "RR",
     color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
     
   },
