@@ -23,15 +23,28 @@ export function resolveHref(href: string): string {
 }
 
 export function setPendingScrollAnchor(anchorId: string): void {
-  sessionStorage.setItem(PENDING_SCROLL_KEY, anchorId);
+  try {
+    if (typeof window !== "undefined" && typeof sessionStorage !== "undefined") {
+      sessionStorage.setItem(PENDING_SCROLL_KEY, anchorId);
+    }
+  } catch {
+    // Ignore storage write errors
+  }
 }
 
 export function consumePendingScrollAnchor(): string | null {
-  const pending = sessionStorage.getItem(PENDING_SCROLL_KEY);
-  if (pending) {
-    sessionStorage.removeItem(PENDING_SCROLL_KEY);
+  try {
+    if (typeof window !== "undefined" && typeof sessionStorage !== "undefined") {
+      const pending = sessionStorage.getItem(PENDING_SCROLL_KEY);
+      if (pending) {
+        sessionStorage.removeItem(PENDING_SCROLL_KEY);
+      }
+      return pending;
+    }
+  } catch {
+    // Ignore storage read errors
   }
-  return pending;
+  return null;
 }
 
 export function scrollToAnchor(anchorId: string, maxAttempts = 20): void {

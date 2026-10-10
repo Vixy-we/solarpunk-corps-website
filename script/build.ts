@@ -57,7 +57,8 @@ async function buildAll() {
   // Step 3: Prerender all routes to static HTML
   console.log("Step 3/4: Prerendering static pages...");
   const { execSync } = await import("child_process");
-  execSync("npx tsx script/prerender.ts", { stdio: "inherit" });
+  const npxCmd = process.platform === "win32" ? "npx.cmd" : "npx";
+  execSync(`${npxCmd} tsx script/prerender.ts`, { stdio: "inherit" });
 
   // Step 4: Build Express server
   console.log("Step 4/4: Building Express server...");

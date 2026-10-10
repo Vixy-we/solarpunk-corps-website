@@ -548,7 +548,7 @@ const pastMembers = [
 
 
 const coordinators = [
-  {
+    {
     title: "Coordinator",
     name: "Chirag Agarwal",
     img: "/Photos/chirag.png",
@@ -562,6 +562,123 @@ const coordinators = [
   },
   {
     title: "Coordinator",
+    name: "Udit Pal",
+    img: "/Photos/Udit Pal.jpeg",
+    subtitle: "Computer Science and Engineering",
+    instagramId: "uditx26",
+    linkedinId: "uditpal825",
+    icon: Users,
+    initials: "UP",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+  },
+  {
+    title: "Coordinator",
+    name: "Adarsh Singh",
+    img: "/Photos/Adarsh Singh.png",
+    subtitle: "Electronics and Communication Engineering",
+    instagramId: "fabulous_adii__",
+    linkedinId: "adarsh-singh-07b968358",
+    icon: Users,
+    initials: "AS",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Anjali Sharma",
+    img: "/Photos/Anjali Sharma.jpg",
+    subtitle: "Electronics and Communication Engineering",
+    instagramId: "_anjalisharmaparashar_",
+    linkedinId: "anjali-sharma-b95789356",
+    icon: Users,
+    initials: "AS",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Chandragupt",
+    img: "/Photos/Chandragupt.jpg",
+    subtitle: "Electrical Engineering",
+    instagramId: "8chandra_vibes",
+    linkedinId: "chandragupt-8a6a642ba",
+    icon: Users,
+    initials: "C",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Gaurav Kumar Singh",
+    img: "/Photos/Gaurav Kumar Singh.png",
+    subtitle: "Mechanical Engineering",
+    instagramId: "_gauravsuryavanshi_",
+    linkedinId: "gaurav-kumar-singh-82a438316",
+    icon: Users,
+    initials: "GKS",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Mayank Dubey",
+    img: "/Photos/Mayank Dubey.jpg",
+    subtitle: "Mechanical Engineering",
+    instagramId: "",
+    linkedinId: "",
+    icon: Users,
+    initials: "MD",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Megha Nain",
+    img: "/Photos/Megha.jpg",
+    subtitle: "Electrical Engineering",
+    instagramId: "",
+    linkedinId: "megha-nain-6585a7340",
+    icon: Users,
+    initials: "MN",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Nihal Gandhi",
+    img: "/Photos/Nihal Gandhi.jpg",
+    subtitle: "Mechanical Engineering",
+    instagramId: "nihal.06__",
+    linkedinId: "nihal-gandhi-58aa48370",
+    icon: Users,
+    initials: "NG",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+    
+  },
+  {
+    title: "Coordinator",
+    name: "Satyam Tripathi",
+    img: "/Photos/SATYAM TRIPATHI.jpg",
+    subtitle: "Electrical Engineering",
+    instagramId: "",
+    linkedinId: "satyamtripathi93365",
+    icon: Users,
+    initials: "ST",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",   
+  },
+  {
+    title: "Coordinator",
+    name: "Shreyansh Maurya",
+    img: "/Photos/Shreyansh Maurya.jpg",
+    subtitle: "Electronics and Communication Engineering",
+    instagramId: "shreyanshmaurya1108",
+    linkedinId: "shreyansh-maurya-397867331",
+    icon: Users,
+    initials: "SM",
+    color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
+  },
+  {
+    title: "Coordinator",  
     name: "Akash Prajapati",
     img: "/Photos/akash.png",
     subtitle: "Electronics and Communication Engineering",
@@ -667,7 +784,8 @@ const coordinators = [
     initials: "VV",
     color: "bg-blue-500/20 text-blue-600 dark:text-blue-400",
     
-  },{
+  },
+  {
     title: "Coordinator",
     name: "Ritu Raj",
     img: "/Photos/rituraj.png",
@@ -1027,7 +1145,7 @@ export default function OurTeam() {
               subtitle="Coordinating teams and initiatives across SPC"
               members={coordinators}
               showPost={false}
-            /> 
+            />
 
             {/* Board Members */}
             <TeamSection
