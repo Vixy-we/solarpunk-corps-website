@@ -55,7 +55,7 @@ export default function Events() {
                         {/* Coming Soon/Badge */}
                         <div className="absolute top-6 right-6 z-20">
                             <Badge className="bg-green-600 hover:bg-green-700 text-white px-4 py-1 text-sm shadow-lg animate-pulse">
-                                Coming Soon
+                                Stay Tuned!
                             </Badge>
                         </div>
 
@@ -72,7 +72,7 @@ export default function Events() {
                                     </div>
 
                                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-foreground mb-2 font-horizon tracking-tight">
-                                        Horizon 1.0
+                                        Horizon
                                     </h2>
                                     <p className="text-green-600 dark:text-green-400 font-bold text-sm mb-6 uppercase tracking-widest">Beyond the Machine</p>
 
@@ -82,9 +82,9 @@ export default function Events() {
 
                                     <ul className="space-y-4 mb-8">
                                         {[
-                                            "Simulating logical sandboxes",
-                                            "Tangible hacking & prototyping",
-                                            "Exploring automated boundaries"
+                                            "Robotics & AI exploration",
+                                            "Tangible solutions & prototyping",
+                                            "Challenge imagination boundaries"
                                         ].map((item, i) => (
                                             <li key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -97,13 +97,19 @@ export default function Events() {
                                         <Link href="/events/horizon">
                                             <Button variant="outline" className="group w-full justify-center border-green-700 text-green-800 hover:bg-green-50 dark:border-green-400 dark:text-green-300 dark:hover:bg-green-900/20 sm:w-auto">
                                                 <Calendar className="mr-2 h-4 w-4" />
-                                                Dates to be announced soon
+                                                Occuring in odd semesters for 2nd year students of all branches
                                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                             </Button>
                                         </Link>
                                         <Link href="/events/horizon1-2026">
                                             <Button className="group w-full justify-center bg-green-700 text-white hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-700 sm:w-auto">
                                                 Take a peek into Horizon 1.0
+                                                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                            </Button>
+                                        </Link>
+                                        <Link href="/events/horizon2-2026">
+                                            <Button className="group w-full justify-center bg-emerald-700 text-white hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-700 sm:w-auto">
+                                                Explore the Horizon 2.0 recap
                                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                             </Button>
                                         </Link>

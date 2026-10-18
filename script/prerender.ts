@@ -138,6 +138,7 @@ const routesToPrerender = [
     "/events",
     "/events/horizon",
     "/events/horizon1-2026",
+    "/events/horizon2-2026",
     "/manifesto",
 ];
 
