@@ -110,22 +110,11 @@ main{position:relative;overflow-x:clip}
 /* media slots */
 .slot{position:relative;margin:0;overflow:hidden;background:#10241a;color:var(--paper);aspect-ratio:var(--ar,4/3)}
 .slot.fill{aspect-ratio:auto;width:100%;height:100%}
-.slot .media{position:absolute;inset:0;display:none}
-.slot.filled .media{display:block}
-.slot.filled .ph{display:none}
-.slot .media>*{width:100%;height:100%;object-fit:cover;display:block}
 .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;gap:8px;padding:12px;
   background:repeating-linear-gradient(135deg,rgba(237,243,228,.05) 0 9px,transparent 9px 18px),linear-gradient(160deg,#18392b,#0c1a13)}
 .ph-k{font:600 .64rem/1.2 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--leaf)}
 .ph svg{align-self:center;width:34px;height:34px;opacity:.5;flex:none}
 .ph p{font-size:.72rem;line-height:1.38;color:var(--dim);max-width:36ch;overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
-.rm{display:none;position:absolute;left:8px;top:8px;z-index:3;background:var(--ember);color:var(--paper);border:0;font:600 .64rem var(--f-mono);padding:5px 8px;cursor:pointer;text-transform:uppercase;letter-spacing:.08em}
-.editing .slot{outline:2px dashed var(--leaf);outline-offset:-6px;cursor:copy}
-.editing .slot::after{content:"Drop or click to add";position:absolute;right:8px;top:8px;z-index:3;background:var(--leaf);color:var(--ink);font:600 .62rem var(--f-mono);padding:4px 7px;text-transform:uppercase;letter-spacing:.08em}
-.editing .slot.filled::after{content:"Replace"}
-.editing .slot.filled .rm{display:block}
-.editing .slot video{pointer-events:none}
-.slot.dragover{outline-color:var(--sun)}
 
 /* day blocks */
 .day{padding-top:clamp(70px,10vw,140px)}
@@ -267,30 +256,6 @@ main{position:relative;overflow-x:clip}
 .links2{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .links2 a{display:inline-block;padding:11px 16px;background:var(--leaf);color:var(--ink);font:700 .76rem var(--f-mono);text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
 .links2 a.alt{background:transparent;color:var(--paper);border:1.5px solid var(--paper)}
-
-/* tools */
-.tools{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;background:var(--ink);border:1.5px solid var(--leaf)}
-.tools button{background:transparent;color:var(--paper);border:0;padding:11px 13px;font:600 .68rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.tools button+button{border-left:1.5px solid var(--leaf)}
-.tools button[aria-pressed=true]{background:var(--leaf);color:var(--ink)}
-.drawer{position:fixed;top:0;bottom:0;right:0;width:min(440px,100%);z-index:50;background:var(--ink);color:var(--paper);border-left:1.5px solid var(--leaf);overflow-y:auto;
-  padding:calc(20px + env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) 20px;transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.drawer.open{transform:none}
-.drawer h3{margin-top:22px}
-.drawer p,.drawer li{font-size:.9rem}
-.drawer ul{padding-left:1.1em;margin:10px 0 0}
-.drawer li+li{margin-top:6px}
-.dclose{float:right;background:transparent;color:var(--paper);border:1.5px solid var(--paper);font:600 .68rem var(--f-mono);padding:7px 10px;cursor:pointer;text-transform:uppercase}
-.sl{list-style:none;padding:0!important;margin:8px 0 0}
-.sl li{margin:0!important}
-.sl button{display:grid;grid-template-columns:14px 1fr;gap:2px 10px;width:100%;text-align:left;background:transparent;color:inherit;border:0;border-bottom:1px solid var(--line);padding:9px 0;cursor:pointer;font:inherit}
-.sl .dot{width:10px;height:10px;border:1.5px solid var(--dim);border-radius:50%;margin-top:5px}
-.sl .done .dot{background:var(--leaf);border-color:var(--leaf)}
-.sl b{font-size:.88rem}
-.sl small{grid-column:2;color:var(--dim);font-size:.78rem;line-height:1.35}
-.lb{position:fixed;inset:0;z-index:60;background:rgba(5,10,8,.93);display:none;place-items:center;padding:20px;cursor:zoom-out}
-.lb.open{display:grid}
-.lb img{max-width:100%;max-height:88vh}
 
 @media(max-width:860px){
   .head,.anat-grid,.d2grid,.d4a,.d4media,.reels{grid-template-columns:minmax(0,1fr)}
@@ -683,38 +648,8 @@ main{position:relative;overflow-x:clip}
   </div>
 </footer>
 
-<div class="tools" id="tools">
-  <button type="button" id="editbtn" aria-pressed="false">Edit media</button>
-  <button type="button" id="listbtn">Shot list <span id="cnt">0/0</span></button>
-</div>
-<aside class="drawer" id="drawer" aria-label="Shot list and ideas" inert>
-  <button class="dclose" type="button" id="dclose">Close</button>
-  <p class="eyebrow" style="color:var(--leaf)">Media guide</p>
-  <h3>How to add photos and videos</h3>
-  <ul>
-    <li>Turn on Edit media, then drop an image or video onto any frame, or click it.</li>
-    <li>Files preview in your browser only. Send the files to Claude in the chat and they will be placed on the page for everyone.</li>
-    <li>Each frame lists what to shoot. The list below tracks what is filled.</li>
-  </ul>
-  <h3>Frames</h3>
-  <div id="slotlist"></div>
-  <h3>More ideas to add</h3>
-  <ul>
-    <li>Room tone: a 20 second ambient audio clip per day with a play button.</li>
-    <li>Build log: one card per team with three photos and a single sentence.</li>
-    <li>Quote notes: short lines from participants as sticky notes on the wall.</li>
-    <li>Hall map: a floor plan with pins that open the photo taken at that spot.</li>
-    <li>Sketch board: scans of whiteboard and notebook plans in a corkboard strip.</li>
-    <li>Counter strip: participants, teams and prototypes, once the numbers are confirmed.</li>
-    <li>Thank-you strip: faculty, volunteers and the executive team with a face and a role.</li>
-  </ul>
-</aside>
-<div class="lb" id="lb" role="dialog" aria-label="Photo viewer"></div>
-
 <script>
 (function(){
-var SHOW_TOOLS=true;
-var MEDIA={}; /* example: 'd1-a':{src:'photos/d1-a.jpg',type:'image'} */
 var RESULTS={1:{team:'',project:''},2:{team:'',project:''},3:{team:'',project:''}};
 var PROBLEMS=[]; /* six short titles */
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -768,75 +703,10 @@ var CAT=[
 ];
 var byId={}; CAT.forEach(function(r){byId[r[0]]={id:r[0],g:r[1],l:r[2],k:r[3],idea:r[4]}});
 var ICON={photo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="1"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>',video:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M10 9l5 3-5 3z"/></svg>'};
-var AUTO={'hero':1,'d1-e':1,'d3-reel':1,'d4-demo':1};
-var slots=$$('.slot');
-function editing(){return document.body.classList.contains('editing')}
-
-function setMedia(el,src,type){
-  var m=$('.media',el); m.textContent='';
-  var n;
-  if(type==='video'){
-    n=document.createElement('video'); n.src=src; n.muted=true; n.loop=true; n.playsInline=true; n.preload='metadata';
-    if(AUTO[el.dataset.id]){n.autoplay=true} else {n.controls=true}
-    m.appendChild(n); if(n.autoplay){var pr=n.play(); if(pr&&pr.catch)pr.catch(function(){})}
-  } else {
-    n=document.createElement('img'); n.src=src; n.alt=(byId[el.dataset.id]||{}).l||''; n.loading='lazy'; m.appendChild(n);
-  }
-  el.classList.add('filled'); refresh();
-}
-function clearMedia(el){var m=$('.media',el); m.textContent=''; el.classList.remove('filled'); refresh()}
-function fromFile(el,f){
-  var t=f.type.indexOf('video')===0?'video':(f.type.indexOf('image')===0?'image':null);
-  if(!t) return; setMedia(el,URL.createObjectURL(f),t);
-}
-slots.forEach(function(el){
+$$('.slot').forEach(function(el){
   var d=byId[el.dataset.id]; if(!d) return;
-  el.innerHTML='<div class="ph"><span class="ph-k">'+(d.k==='video'?'Video':'Photo')+' · '+d.l+'</span>'+ICON[d.k]+'<p>'+d.idea+'</p></div><div class="media"></div><button type="button" class="rm">Remove</button><input type="file" accept="image/*,video/*" tabindex="-1" hidden>';
-  var input=$('input',el);
-  el.addEventListener('click',function(e){
-    if(editing()){ if(e.target.closest('.rm'))return; input.click(); return; }
-    var img=$('.media img',el); if(img&&el.classList.contains('filled')) openLb(img.src,img.alt);
-  });
-  input.addEventListener('change',function(){var f=input.files[0]; if(f)fromFile(el,f); input.value=''});
-  $('.rm',el).addEventListener('click',function(e){e.stopPropagation();clearMedia(el)});
-  ['dragenter','dragover'].forEach(function(t){el.addEventListener(t,function(e){if(!editing())return;e.preventDefault();el.classList.add('dragover')})});
-  el.addEventListener('dragleave',function(){el.classList.remove('dragover')});
-  el.addEventListener('drop',function(e){el.classList.remove('dragover'); if(!editing())return; e.preventDefault(); e.stopPropagation(); var f=e.dataTransfer.files[0]; if(f)fromFile(el,f)});
-  var m=MEDIA[el.dataset.id]; if(m) setMedia(el,m.src,m.type||'image');
+  el.innerHTML='<div class="ph"><span class="ph-k">'+(d.k==='video'?'Video':'Photo')+' · '+d.l+'</span>'+ICON[d.k]+'<p>'+d.idea+'</p></div>';
 });
-window.addEventListener('dragover',function(e){if(editing())e.preventDefault()});
-window.addEventListener('drop',function(e){if(editing())e.preventDefault()});
-
-/* lightbox */
-var lb=$('#lb');
-function openLb(src,alt){lb.innerHTML='<img alt="">'; var i=$('img',lb); i.src=src; i.alt=alt||''; lb.classList.add('open')}
-lb.addEventListener('click',function(){lb.classList.remove('open')});
-
-/* tools + drawer */
-var drawer=$('#drawer'), list=$('#slotlist');
-var groups={}; CAT.forEach(function(r){(groups[r[1]]=groups[r[1]]||[]).push(byId[r[0]])});
-var html=''; Object.keys(groups).forEach(function(g){
-  html+='<p class="eyebrow" style="margin-top:16px;color:var(--leaf)">'+g+'</p><ul class="sl">';
-  groups[g].forEach(function(d){html+='<li><button type="button" data-go="'+d.id+'" data-st="'+d.id+'"><span class="dot"></span><b>'+d.l+' · '+(d.k==='video'?'video':'photo')+'</b><small>'+d.idea+'</small></button></li>'});
-  html+='</ul>';
-}); list.innerHTML=html;
-function refresh(){
-  var n=0; slots.forEach(function(el){if(el.classList.contains('filled'))n++});
-  var c=$('#cnt'); if(c)c.textContent=n+'/'+slots.length;
-  $$('[data-st]',list).forEach(function(b){var s=document.querySelector('.slot[data-id="'+b.dataset.st+'"]'); b.parentNode.classList.toggle('done',!!(s&&s.classList.contains('filled')))});
-}
-function setDrawer(o){drawer.classList.toggle('open',o); drawer.inert=!o}
-$('#listbtn').addEventListener('click',function(){setDrawer(!drawer.classList.contains('open'))});
-$('#dclose').addEventListener('click',function(){setDrawer(false)});
-$('#editbtn').addEventListener('click',function(){var on=document.body.classList.toggle('editing'); this.setAttribute('aria-pressed',on)});
-list.addEventListener('click',function(e){
-  var b=e.target.closest('[data-go]'); if(!b)return;
-  var s=document.querySelector('.slot[data-id="'+b.dataset.go+'"]'); if(!s)return;
-  setDrawer(false); s.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
-});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){setDrawer(false);lb.classList.remove('open')}});
-if(!SHOW_TOOLS){$('#tools').remove(); drawer.remove()}
-refresh();
 
 /* stars */
 var st=$('#stars');
@@ -970,6 +840,31 @@ const scopedRecapStyles = recapStyleText
   .replace(/:root(?=\s*\{)/g, ":scope")
   .replace(/(^|[{}]\s*)html(?=\s*\{)/gm, "$1:scope")
   .replace(/(^|[{}]\s*)body(?=\s*\{)/gm, "$1:scope");
+
+const siteChromeStyles = `
+nav.horizon2-site-navigation {
+  color-scheme: light;
+  color: #0b1812 !important;
+  background-color: rgba(255, 255, 255, 0.96) !important;
+}
+nav.horizon2-site-navigation a,
+nav.horizon2-site-navigation button:not(.bg-green-600):not(.bg-emerald-600),
+nav.horizon2-site-navigation button:not(.bg-green-600):not(.bg-emerald-600) svg {
+  color: #0b1812 !important;
+}
+.horizon2-site-footer,
+.horizon2-site-footer footer {
+  position: relative;
+  z-index: 1;
+  color-scheme: light;
+  color: #0b1812 !important;
+  background: #f4f7f1 !important;
+  border-color: #d1d5db !important;
+}
+.horizon2-site-footer :is(h1, h2, h3, p, a, span) {
+  color: #0b1812 !important;
+}
+`;
 
 const recapMarkup =
   recapHtml
@@ -1136,8 +1031,9 @@ export default function Horizon2_2026() {
           "sustainability",
         ]}
       />
-      <Navigation />
-      <style>{`@scope (.horizon2-recap) {
+      <Navigation className="horizon2-site-navigation" />
+      <style>{`${siteChromeStyles}
+@scope (.horizon2-recap) {
 ${scopedRecapStyles}
 :scope { padding-top: var(--site-navigation-height, 65px); }
 :scope .nav { top: calc(var(--site-navigation-height, 65px) + env(safe-area-inset-top, 0px)); }
@@ -1148,7 +1044,9 @@ ${scopedRecapStyles}
         className="horizon2-recap js"
         dangerouslySetInnerHTML={{ __html: recapMarkup }}
       />
-      <Footer />
+      <div className="horizon2-site-footer">
+        <Footer />
+      </div>
     </div>
   );
 }
