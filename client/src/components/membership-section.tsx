@@ -162,7 +162,7 @@ export function MembershipSection() {
           <div className="relative bg-white dark:bg-zinc-800 border-[3px] border-stone-900 dark:border-white rounded-[2rem] p-8 md:p-12 text-left">
 
             <p className="text-lg md:text-xl font-medium leading-relaxed text-stone-700 dark:text-zinc-300 mb-10">
-              We use an external platform to handle applications more efficiently. Click the button below to start your journey.
+              Calling all interested students of 2nd year from all branches! Click the button below to start your journey.
             </p>
 
             {/* CTA Button */}

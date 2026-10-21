@@ -422,20 +422,20 @@ export function Navigation({ className }: { className?: string }) {
                       <div className="p-4 space-y-3">
                         <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-500 font-bold text-[8px] uppercase tracking-[0.2em] opacity-80">
                           <Sparkles className="h-2.5 w-2.5" />
-                          Upcoming Event
+                          Recruitment Update
                         </div>
                         
                         <div className="space-y-0.5">
                           <h3 className="text-base font-horizon font-bold tracking-tight text-foreground line-height-none">
-                            Horizon 2.0
-                          </h3>
+                            SPC is now recruiting!                          </h3>
                           <p className="text-[9px] font-bold text-emerald-600 uppercase tracking-widest opacity-70">
-                            Coming Soon...
+                            APPLY NOW
                           </p>
                         </div>
                         
                         <p className="text-[11px] text-muted-foreground leading-snug">
-                          Our flagship technical workshop is designed as an immersive learning experience.
+                          SPC is now accepting applications for academic year 2026-2027! 
+                          Apply now to join us in shaping a better future!
                         </p>
                         
                         <div className="pt-1">
@@ -443,11 +443,11 @@ export function Navigation({ className }: { className?: string }) {
                             className="w-full h-8 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px] rounded-full group"
                             size="sm"
                             onClick={(e) => {
-                              handleNavigate(e, "/events/horizon");
+                              handleNavigate(e, `/structure#${APPLY_NOW_ANCHOR}`);
                               setIsNotifOpen(false);
                             }}
                           >
-                            Take a peek
+                            Apply Now
                             <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
                           </Button>
                         </div>

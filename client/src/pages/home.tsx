@@ -338,7 +338,7 @@ export default function Home() {
                     <span className="font-mono text-xs font-bold uppercase text-white/60">Next gathering</span>
                     <span className="mt-1 inline-flex items-center gap-2 font-mono text-sm font-bold sm:text-base">
                       <Calendar className="h-4 w-4 shrink-0 text-[#FFD33D]" />
-                      Dates announced soon
+                      12-15 October 2026
                     </span>
                   </div>
                 </div>
