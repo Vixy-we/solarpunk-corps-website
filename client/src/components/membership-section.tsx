@@ -168,7 +168,7 @@ export function MembershipSection() {
             {/* CTA Button */}
             <div className="flex flex-col items-start gap-4">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSejfro1-uKG2XuV_l1cq_ye2D6Jej1jkChRtwaeamQwDhbbVw/viewform?usp=dialog"
+                href="https://forms.gle/uxobecnUyb8EfnzA8"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="button-membership-apply"
