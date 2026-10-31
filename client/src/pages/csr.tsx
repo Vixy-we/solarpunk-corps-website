@@ -444,9 +444,9 @@ export default function CSRPage() {
     return (
         <div className="font-sans text-foreground min-h-screen bg-background selection:bg-primary/20 selection:text-primary transition-colors duration-500 overflow-x-hidden">
             <SEO
-                title="Club Social Responsibility"
+                title="Club Social Responsibility | Robotics Club BIET Jhansi | Bundelkhand Institute of Engineering & Technology"
                 description="Technology without responsibility is incomplete. Explore how Solarpunk Corps integrates social impact into everything we build."
-                keywords={["club social responsibility", "CSR", "community impact", "social initiatives", "tech for good", "volunteering", "BIET Jhansi"]}
+                keywords={["club social responsibility", "CSR", "community impact", "social initiatives", "tech for good", "volunteering", "BIET Jhansi", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi", "Solarpunk Corps"]}
             />
             <BackgroundDecoration />
 

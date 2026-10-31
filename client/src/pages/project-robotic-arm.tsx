@@ -103,9 +103,9 @@ export default function ProjectArm() {
     return (
         <div className="min-h-screen flex flex-col">
             <SEO
-                title="Robotic Arm Project"
+                title="Robotic Arm Project | Robotics Club BIET Jhansi"
                 description="A multi-joint robotic arm designed to mount on our solar rover for sampling and manipulation in the field."
-                keywords={["robotic arm", "robotics", "inverse kinematics", "sustainable technology", "engineering project", "manipulator", "BIET Jhansi"]}
+                keywords={["robotic arm", "robotics", "inverse kinematics", "sustainable technology", "engineering project", "manipulator", "BIET Jhansi", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "Product",

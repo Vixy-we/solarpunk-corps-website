@@ -11,9 +11,9 @@ export default function Events() {
     return (
         <div className="min-h-screen bg-[#FDFBF7] dark:bg-background flex flex-col font-sans">
             <SEO
-                title="Events & Horizon Workshops"
+                title="Events & Horizon Workshops | Robotics Club BIET Jhansi"
                 description="Explore Solarpunk Corps campus events and hands-on technical workshops at BIET Jhansi. Discover Horizon 2.0, our flagship workshop exploring robotics, AI, electronics, and sustainable development, and revisit the Horizon 1.0 recap."
-                keywords={["Solarpunk Corps", "BIET Jhansi", "events", "technical workshops", "robotics", "AI", "electronics", "sustainable development", "Horizon 2.0", "Horizon 1.0"]}
+                keywords={["Solarpunk Corps", "BIET Jhansi", "events", "technical workshops", "robotics", "AI", "electronics", "sustainable development", "Horizon 2.0", "Horizon 1.0", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "ItemList",

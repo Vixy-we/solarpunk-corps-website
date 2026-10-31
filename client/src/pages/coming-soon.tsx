@@ -340,9 +340,9 @@ export default function SolarpunkLanding({ onEnter }: { onEnter?: () => void }) 
             className="relative min-h-screen w-full bg-[#FDFCF8] text-emerald-950 font-sans flex flex-col items-center overflow-hidden selection:bg-amber-100 selection:text-emerald-900 select-none"
         >
             <SEO
-                title="Coming Soon"
+                title="Coming Soon | Solarpunk Corps (SPC) | Robotics Club BIET Jhansi"
                 description="Solarpunk Corps is launching soon. Technology with purpose, nature in mind, people at heart."
-                keywords={["coming soon", "launch", "solarpunk corps", "technology", "nature", "people", "BIET Jhansi"]}
+                keywords={["coming soon", "launch", "solarpunk corps", "technology", "nature", "people", "BIET Jhansi", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi"]}
             />
 
             {/* ... background layers ... */}

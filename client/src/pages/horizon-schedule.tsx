@@ -208,7 +208,7 @@ export default function HorizonSchedule() {
     <div className="min-h-screen bg-[#F4F4F0] dark:bg-background text-stone-900 dark:text-foreground font-sans selection:bg-[#A1E4A3] selection:text-stone-900 overflow-x-hidden transition-colors duration-300">
 
       <SEO
-        title="Horizon 2.0: Beyond the Machine"
+        title="Horizon 2.0: Beyond the Machine | Robotics Club BIET Jhansi"
         description="Discover Horizon 2.0, Solarpunk Corps' flagship technical workshop at BIET Jhansi. Explore robotics, electronics, AI, and sustainable development through hands-on engineering, simulation, and purposeful innovation. Horizon 1.0 launched the series in March 2026."
         image="/hourglass.webp"
         keywords={[
@@ -221,6 +221,12 @@ export default function HorizonSchedule() {
           "sustainable development",
           "hands-on engineering",
           "Horizon 1.0",
+          "robotics club biet jhansi",
+          "biet jhansi",
+          "Bundelkhand Institute of Engineering & Technology, Jhansi",
+          "spc",
+          "spc biet",
+          "spc biet jhansi"
         ]}
       />
       <Navigation />

@@ -245,9 +245,9 @@ export default function ProjectLidar() {
     return (
         <div className="min-h-screen flex flex-col">
             <SEO
-                title="LiDAR Mapping Project"
+                title="LiDAR Mapping Project | Robotics Club BIET Jhansi"
                 description="A LiDAR-based perception and mapping system that lets our rover see its surroundings, build maps and avoid obstacles."
-                keywords={["LiDAR", "SLAM", "robotics", "point cloud", "autonomous navigation", "obstacle avoidance", "engineering project", "BIET Jhansi"]}
+                keywords={["LiDAR", "SLAM", "robotics", "point cloud", "autonomous navigation", "obstacle avoidance", "engineering project", "BIET Jhansi", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "Product",

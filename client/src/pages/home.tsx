@@ -20,8 +20,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <SEO
-        title="Robotics & Sustainability Club at BIET Jhansi"
-        description="Solarpunk Corps (SPC) is a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi. At the intersection of robotics, AI, sustainable development, real-world impact, and social work, we build practical solutions for people and the planet."
+        title="Robotics & Sustainability Club at BIET Jhansi | Bundelkhand Institute of Engineering & Technology, Jhansi"
+        description="Solarpunk Corps (SPC) is a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi. At the intersection of robotics, AI, sustainable development, real-world impact, and social work, we build practical solutions for people and the planet. Officially representing SPC BIET Jhansi (Bundelkhand Institute of Engineering & Technology, Jhansi)."
         keywords={[
           "BIET Jhansi",
           "Bundelkhand Institute of Engineering and Technology Jhansi",
@@ -46,18 +46,58 @@ export default function Home() {
           "robotics club",
           "nature technology",
           "green engineering",
-          "spc"
+          "spc",
+          "robotics club biet jhansi",
+          "biet jhansi",
+          "Bundelkhand Institute of Engineering & Technology, Jhansi",
+          "Bundelkhand Institute of Engineering & Technology",
+          "Bundelkhand Institute of Engineering and Technology",
+          "BIET",
+          "biet",
+          "bietjhansi",
+          "spc biet",
+          "spc biet jhansi",
+          "SPC BIET Jhansi",
+          "biet jhansi robotics",
+          "biet jhansi robotics club",
+          "biet robotics club",
+          "biet jhansi student club",
+          "biet jhansi college",
+          "biet college jhansi",
+          "biet jhs",
+          "bietjhs.ac.in",
+          "bietjhansi.ac.in",
+          "biet jhansi official club",
+          "biet jhansi mechanical",
+          "biet jhansi mechanical engineering",
+          "robotics club in biet jhansi",
+          "robotics and sustainability club at biet jhansi",
+          "solarpunk corps biet jhansi",
+          "solarpunk corps biet"
         ]}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Solarpunk Corps",
-          "alternateName": "SPC",
+          "alternateName": [
+            "SPC",
+            "SPC BIET",
+            "SPC BIET Jhansi",
+            "Solarpunk Corps BIET Jhansi",
+            "Robotics Club BIET Jhansi",
+            "BIET Jhansi Robotics Club"
+          ],
           "description": "A student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi, at the intersection of robotics, artificial intelligence, sustainable development, real-world impact, and social work.",
           "affiliation": {
             "@type": "CollegeOrUniversity",
             "name": "Bundelkhand Institute of Engineering and Technology",
-            "alternateName": "BIET Jhansi",
+            "alternateName": [
+              "BIET Jhansi",
+              "BIET",
+              "Bundelkhand Institute of Engineering & Technology, Jhansi",
+              "Bundelkhand Institute of Engineering and Technology, Jhansi"
+            ],
+            "url": "http://bietjhs.ac.in",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Jhansi",
@@ -65,6 +105,18 @@ export default function Home() {
               "addressCountry": "IN"
             }
           },
+
+          "department": {
+            "@type": "EducationalOrganization",
+            "name": "Department of Mechanical Engineering, BIET Jhansi"
+          },
+          "parentOrganization": {
+            "@type": "CollegeOrUniversity",
+            "name": "Bundelkhand Institute of Engineering & Technology, Jhansi",
+            "alternateName": ["BIET Jhansi", "BIET", "Bundelkhand Institute of Engineering and Technology, Jhansi"],
+            "url": "http://bietjhs.ac.in"
+          },
+          "keywords": "robotics club biet jhansi, biet jhansi, Bundelkhand Institute of Engineering & Technology, Jhansi, spc, spc biet, spc biet jhansi, Solarpunk Corps",
           "url": "https://solarpunkcorps.vercel.app",
           "@id": "https://solarpunkcorps.vercel.app/#organization",
           "logo": "https://solarpunkcorps.vercel.app/SPC_logo.png",
@@ -444,6 +496,7 @@ export default function Home() {
                       scale: 1,
                       transition: { duration: 0.3, delay: i * 0.1 }
                     },
+
                     hover: {
                       scale: 1.05,
                       y: -8,

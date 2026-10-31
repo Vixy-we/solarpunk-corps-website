@@ -250,9 +250,22 @@ export default function Horizon2026WrapUp() {
   return (
     <div className="min-h-screen bg-[#F4F4F0] dark:bg-background text-stone-900 dark:text-foreground font-sans selection:bg-[#FF88A8] selection:text-white overflow-x-hidden transition-colors duration-300">
       <SEO
-        title="Horizon 1.0 Workshop Recap"
+        title="Horizon 1.0 Workshop Recap | Robotics Club BIET Jhansi"
         description="Look back at Horizon 1.0: Beyond the Machine, the March 2026 flagship technical workshop by Solarpunk Corps at BIET Jhansi. Explore its hands-on engineering, robotics, AI, sustainability, teams, and event photos, and discover the Horizon 2.0 series."
         image="/Horizon1/Inauguration1.webp"
+        keywords={[
+          "Horizon 1.0",
+          "Solarpunk Corps",
+          "BIET Jhansi",
+          "robotics club biet jhansi",
+          "biet jhansi",
+          "Bundelkhand Institute of Engineering & Technology, Jhansi",
+          "spc",
+          "spc biet",
+          "spc biet jhansi",
+          "robotics workshop",
+          "AI"
+        ]}
       />
       <Navigation />
 

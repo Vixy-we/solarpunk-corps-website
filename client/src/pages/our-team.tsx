@@ -1047,12 +1047,19 @@ export default function OurTeam() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Our Team: Robotics & Sustainability Club at BIET Jhansi"
+        title="Our Team: Robotics & Sustainability Club at BIET Jhansi | Bundelkhand Institute of Engineering & Technology"
         description="Meet the faculty advisors, leadership, core team, coordinators, board members, and student explorers of Solarpunk Corps (SPC), a student-led robotics and sustainability club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering and Technology (BIET), Jhansi."
         keywords={[
           "Solarpunk Corps team",
           "SPC team",
           "BIET Jhansi",
+          "robotics club biet jhansi",
+          "biet jhansi",
+          "Bundelkhand Institute of Engineering & Technology, Jhansi",
+          "Bundelkhand Institute of Engineering and Technology",
+          "spc",
+          "spc biet",
+          "spc biet jhansi",
           "Mechanical Engineering Department",
           "robotics and sustainability club",
           "team members",
@@ -1064,6 +1071,13 @@ export default function OurTeam() {
           "explorer members",
           "students",
           "BIET Jhansi",
+          "robotics club biet jhansi",
+          "biet jhansi",
+          "Bundelkhand Institute of Engineering & Technology, Jhansi",
+          "Bundelkhand Institute of Engineering and Technology",
+          "spc",
+          "spc biet",
+          "spc biet jhansi",
         ]}
       />
       <Navigation />

@@ -1299,7 +1299,7 @@ export default function Horizon2_2026() {
   return (
     <div className="min-h-screen w-full bg-background">
       <SEO
-        title="Horizon 2.0 Recap"
+        title="Horizon 2.0 Recap | Robotics Club BIET Jhansi"
         description="Explore the Horizon 2.0 robotics, AI, and sustainability workshop recap from Solarpunk Corps at BIET Jhansi."
         url="https://solarpunkcorps.vercel.app/events/horizon2-2026"
         keywords={[
@@ -1309,6 +1309,12 @@ export default function Horizon2_2026() {
           "robotics workshop recap",
           "AI",
           "sustainability",
+          "robotics club biet jhansi",
+          "biet jhansi",
+          "Bundelkhand Institute of Engineering & Technology, Jhansi",
+          "spc",
+          "spc biet",
+          "spc biet jhansi"
         ]}
       />
       <Navigation className="horizon2-site-navigation" />

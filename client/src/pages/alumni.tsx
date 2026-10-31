@@ -151,9 +151,9 @@ export default function Alumni() {
     return (
         <div id="alumni-top" className="min-h-screen bg-[#FDFBF7] dark:bg-background text-gray-800 dark:text-foreground flex flex-col font-sans">
             <SEO
-                title="Alumni Network"
+                title="Alumni Network | Robotics Club BIET Jhansi | Bundelkhand Institute of Engineering & Technology"
                 description="Connect with Solarpunk Corps. Mentorship, support, and networking alumni opportunities."
-                keywords={["alumni", "network", "mentorship", "support", "donation", "connect", "graduates", "BIET Jhansi alumni"]}
+                keywords={["alumni", "network", "mentorship", "support", "donation", "connect", "graduates", "BIET Jhansi alumni", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi", "Solarpunk Corps"]}
             />
             <Navigation />
 

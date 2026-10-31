@@ -175,7 +175,10 @@ export function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Solarpunk Corps • MED • BIET Jhansi
+            © {new Date().getFullYear()} Solarpunk Corps (SPC) • Robotics Club • Bundelkhand Institute of Engineering &amp; Technology (BIET), Jhansi
+          </p>
+          <p className="text-xs text-muted-foreground/80">
+            MED, BIET Jhansi
           </p>
 
           {/* hitwebcounter Code START */}

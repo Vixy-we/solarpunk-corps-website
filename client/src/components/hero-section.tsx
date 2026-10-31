@@ -74,7 +74,7 @@ export function HeroSection() {
               data-testid="badge-launching"
             >
               <Leaf className="h-4 w-4 text-emerald-200" />
-              <span>Mechanical Engineering Department at BIET Jhansi</span>
+              <span>Robotics &amp; Sustainability Club • Mechanical Engineering Department • BIET Jhansi</span>
             </div>
 
 
@@ -122,7 +122,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 data-testid="text-hero-description"
               >
-                Solarpunk Corps (SPC) is a Robotics and Sustainability Club, bringing together students at the intersection of Robotics, AI, and Sustainability. We design, build, program, and experiment with technology to understand and address real-world environmental, social, and resource-related challenges.
+                Solarpunk Corps (SPC) is the student-led Robotics and Sustainability Club in the Mechanical Engineering Department at Bundelkhand Institute of Engineering &amp; Technology (BIET), Jhansi. Bringing together students at the intersection of Robotics, AI, and Sustainability. We even aim to design, build, program, and experiment with technology to understand and address real-world environmental, social, and resource-related challenges.
               </motion.p>
 
               <motion.div

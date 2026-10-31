@@ -125,9 +125,9 @@ export default function ExperienceSPC() {
             className="relative min-h-[1200vh] text-neutral-200 overflow-hidden font-serif selection:bg-emerald-500/30"
         >
             <SEO
-                title="Experience Solarpunk Corps"
+                title="Experience Solarpunk Corps (SPC) | Robotics Club BIET Jhansi"
                 description="An immersive digital journey through the philosophy and vision of Solarpunk Corps."
-                keywords={["experience", "immersive", "philosophy", "vision", "solarpunk corps", "digital journey", "storytelling"]}
+                keywords={["experience", "immersive", "philosophy", "vision", "solarpunk corps", "digital journey", "storytelling", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi"]}
             />
 
             {/* PROGRESS INDICATOR */}

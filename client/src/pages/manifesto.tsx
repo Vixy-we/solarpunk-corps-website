@@ -15,9 +15,9 @@ export default function Manifesto() {
     return (
         <div ref={containerRef} className="bg-stone-50 dark:bg-stone-900 min-h-screen text-stone-800 dark:text-stone-200 font-sans selection:bg-amber-100 dark:selection:bg-amber-900/30 selection:text-amber-900 dark:selection:text-amber-100">
             <SEO
-                title="The Manifesto"
+                title="The Manifesto | Robotics Club BIET Jhansi | Bundelkhand Institute of Engineering & Technology"
                 description="Our vision for a sustainable, hopeful future. The Solarpunk Corps manifesto outlines why we believe repair is radical and optimism is resistance."
-                keywords={["manifesto", "philosophy", "radical optimism", "solarpunk", "future", "repair", "sustainability"]}
+                keywords={["manifesto", "philosophy", "radical optimism", "solarpunk", "future", "repair", "sustainability", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi", "BIET Jhansi"]}
             />
             <Navigation />
 

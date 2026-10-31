@@ -19,9 +19,9 @@ export default function Sponsors() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Support Us"
+        title="Support Us | Robotics Club BIET Jhansi | Bundelkhand Institute of Engineering & Technology"
         description="Help us build the Solarpunk Future. Whether you're an alumni or partner, your support means the world to us."
-        keywords={["sponsorship", "partnership", "alumni", "support", "collaborate", "donate", "BIET Jhansi"]}
+        keywords={["sponsorship", "partnership", "alumni", "support", "collaborate", "donate", "BIET Jhansi", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi", "Solarpunk Corps"]}
       />
       <Navigation />
       <main className="pt-16">

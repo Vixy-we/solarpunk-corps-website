@@ -153,9 +153,9 @@ export default function Partner() {
     return (
         <div id="partner-top" className="min-h-screen bg-[#FDFBF7] dark:bg-background text-gray-800 dark:text-foreground flex flex-col font-sans">
             <SEO
-                title="Partner With Us"
+                title="Partner With Us | Robotics Club BIET Jhansi | Bundelkhand Institute of Engineering & Technology"
                 description="Collaborate with Solarpunk Corps. Sponsorship, CSR, and hiring partnership opportunities."
-                keywords={["partner", "sponsor", "CSR", "collaboration", "corporate", "funding", "projects", "hiring", "talent"]}
+                keywords={["partner", "sponsor", "CSR", "collaboration", "corporate", "funding", "projects", "hiring", "talent", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi", "Solarpunk Corps"]}
             />
             <Navigation />
 

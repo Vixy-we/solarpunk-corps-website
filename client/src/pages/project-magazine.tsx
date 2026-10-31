@@ -30,9 +30,9 @@ export default function ProjectMagazine() {
     return (
         <div className="min-h-screen flex flex-col">
             <SEO
-                title="CodeGreen Magazine"
+                title="CodeGreen Magazine | Solarpunk Corps (SPC) BIET Jhansi"
                 description="The student-run publication defining our solarpunk aesthetic and voice. Read stories, articles, and research."
-                keywords={["CodeGreen", "magazine", "student publication", "solarpunk aesthetic", "stories", "articles", "research", "BIET Jhansi"]}
+                keywords={["CodeGreen", "magazine", "student publication", "solarpunk aesthetic", "stories", "articles", "research", "BIET Jhansi", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi"]}
             />
             <style>{`
         .magazine-page-container {

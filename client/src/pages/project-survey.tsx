@@ -30,9 +30,9 @@ export default function ProjectSurvey() {
     return (
         <div className="min-h-screen flex flex-col">
             <SEO
-                title="Campus Tech-Life Survey"
+                title="Campus Tech-Life Survey | Solarpunk Corps (SPC) BIET Jhansi"
                 description="A comprehensive study mapping student technology usage, burnout, and sustainability habits."
-                keywords={["tech-life survey", "student technology usage", "digital burnout", "sustainability habits", "campus research", "BIET Jhansi"]}
+                keywords={["tech-life survey", "student technology usage", "digital burnout", "sustainability habits", "campus research", "BIET Jhansi", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi"]}
             />
             <style>{`
         .survey-page-container {

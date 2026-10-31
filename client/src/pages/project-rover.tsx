@@ -28,9 +28,9 @@ export default function ProjectRover() {
     return (
         <div className="min-h-screen flex flex-col">
             <SEO
-                title="Solar Rover Project"
+                title="Solar Rover Project | Robotics Club BIET Jhansi"
                 description="Our environmental monitoring rover powered by solar energy. A 6-wheel autonomous prototype."
-                keywords={["solar rover", "robotics", "sustainable technology", "six-wheel", "autonomous", "engineering project", "environmental monitoring"]}
+                keywords={["solar rover", "robotics", "sustainable technology", "six-wheel", "autonomous", "engineering project", "environmental monitoring", "robotics club biet jhansi", "biet jhansi", "Bundelkhand Institute of Engineering & Technology, Jhansi", "spc", "spc biet", "spc biet jhansi", "BIET Jhansi"]}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "Product",
