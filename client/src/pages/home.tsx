@@ -127,7 +127,7 @@ export default function Home() {
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer support",
-            "email": "contact@solarpunkcorps.org"
+            "email": "solarpunkcorps@gmail.com"
           }
         }}
       />
@@ -135,9 +135,6 @@ export default function Home() {
 
       <main>
         <HeroSection />
-
-        {/* SECTION 1: THE MISSION SUMMARY (The "Why") */}
-        {/* SECTION 1: THE MISSION SUMMARY (The "Why") */}
         {/* SECTION 1: THE MISSION SUMMARY (The "Why") */}
         <section className="py-24 relative overflow-hidden bg-background border-y border-border/50">
           {/* Abstract Background Element for this section */}
